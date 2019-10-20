@@ -1,0 +1,466 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Tag: Sublime Text 2 | Ry0 Note]]></title>
+  <link href="http://ry0.github.io/blog/tags/sublime-text-2/atom.xml" rel="self"/>
+  <link href="http://ry0.github.io/"/>
+  <updated>2019-10-20T02:14:29+09:00</updated>
+  <id>http://ry0.github.io/</id>
+  <author>
+    <name><![CDATA[Ry0_Ka]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[UbuntuにSublime Text 2をインストール（2015年版）]]></title>
+    <link href="http://ry0.github.io/blog/2015/02/15/install-sublimetext2/"/>
+    <updated>2015-02-15T02:48:40+09:00</updated>
+    <id>http://ry0.github.io/blog/2015/02/15/install-sublimetext2</id>
+    <content type="html"><![CDATA[<h2>インストール方法の確認</h2>
+
+<p>今日はSublime Text 2のインストール記事です。というのも自宅のUbuntuマシンのSublime Text 2が少し調子悪くなってしまいました。仕方なくもう一回入れなおしたときに今まで自分がインストールするときにやっていた方法に変更があったのでメモ代わりに書きます。あとインストールしすぎたパッケージの整理の意味もこめて今インストールしているものをリスト化しようと思います。Sublime Text 2って書くと長いので以下ST2と略します。</p>
+
+<!-- more -->
+
+
+<h2>インストールはやっぱりapt-getで</h2>
+
+<p>今まで公式サイトからファイルをダウンロードしてきてマニュアルでインストールしていたのですが、よくよく考えるとマニュアルで導入する意味もなかったので、今回は普通に<code>apt-get</code>でインストールします。こっちのほうが絶対楽だと思う。インストール作業はUbuntu 14.04で検証しています。</p>
+
+<pre><code class="bash">sudo add-apt-repository ppa:webupd8team/sublime-text-2
+sudo apt-get update
+sudo apt-get install sublime-text
+</code></pre>
+
+<p>インストールが完了したらST2のパスが通っているかどうか確認するために、以下のコマンドを実行。</p>
+
+<pre><code class="bash">which subl
+/usr/bin/subl
+</code></pre>
+
+<p>うまくいっていれば2行目のように<code>/usr/bin/subl</code>と出るはず。これでターミナルからも<code>subl hoge.txt</code>のように実行できます。</p>
+
+<h2>Launcherに登録するアイコンを綺麗に</h2>
+
+<p>デスクトップエントリーに自動で登録されているST2のアイコンはあんまり綺麗じゃありません。
+ST2がインストールされている場所にサイズの大きいアイコンも用意されているで、そっちに変更します。
+ST2のデスクトップエントリーファイルを直接編集します。</p>
+
+<pre><code class="bash">sudo subl /usr/share/applications/sublime-text-2.desktop
+</code></pre>
+
+<p>このコマンドでST2が起動します。そして<strong>11行目</strong>の<code>Icon=sublime_text</code>を以下に変更する。</p>
+
+<pre><code class="bash">Icon=/opt/sublime_text_2/Icon/256x256/sublime_text.png
+</code></pre>
+
+<p>これを設定したあとにLauncherに登録するとアイコンが綺麗になっていると思います。</p>
+
+<h2>デフォルトで起動するアプリケーションをST2に変更する</h2>
+
+<p>ファイルの拡張子によってデフォルトで起動するアプリケーションが決まっています。
+これを右クリックのプロパティで変更してもいいんですが、面倒なので一括で管理します。
+Ubuntu Tweakというアプリケーションを導入します。
+有名なTweakツールですが、まだ導入してない方は以下のコマンドを実行。</p>
+
+<pre><code class="bash">sudo add-apt-repository ppa:tualatrix/ppa
+sudo apt-get update
+sudo apt-get install ubuntu-tweak
+</code></pre>
+
+<p>インストールが完了したらDashで「ubuntu tweak」と入力すると出てくるので起動。
+下の写真のようにクリックしてファイルタイプマネージャーを開く。</p>
+
+<p><a class="swipebox" href="https://farm8.staticflickr.com/7362/16342132867_a9efafdbb9_c.jpg" title="ファイルタイプマネージャー">
+  <img class="center image-effect" src="https://farm8.staticflickr.com/7362/16342132867_a9efafdbb9_c.jpg">
+</a></p>
+
+<p>そしてカテゴリーをテキストにしてST2で起動したいファイルの種類をクリックして、ST2を選択します。</p>
+
+<p><a class="swipebox" href="https://farm9.staticflickr.com/8646/16526999592_15364fca3d_c.jpg" title="編集する種類">
+  <img class="center image-effect" src="https://farm9.staticflickr.com/8646/16526999592_15364fca3d_c.jpg">
+</a></p>
+
+<h2>Package Controlのインストール</h2>
+
+<p>ST2に欠かせないPackage Controlをインストールします。ST2上で<code>Ctrl+Shift+@</code>と入力しコンソール画面を出したあと、以下のサイトにアクセスしてコードをコピーしてきて下のバーに貼り付けます。</p>
+
+<p><blockquote><p>Package Control</p><footer><strong>Installation <a href="https://packagecontrol.io/installation#st2">https://packagecontrol.io/installation#st2</a> <a href="https://packagecontrol.io/installation#st2">https://packagecontrol.io/installation#st2</a></strong></footer></blockquote></p>
+
+<p>これでネット上に公開されているたくさんのパッケージを導入できるようになります。</p>
+
+<h2>私がインストールしているパッケージリスト</h2>
+
+<p>導入済みのパッケージ一覧をリスト化します。あと使い方が詳しいサイトもリンクします。</p>
+
+<h3>Alignment</h3>
+
+<p>選択範囲をまとめて整頓してくれるプラグイン。
+コードの縦方向のイコールを揃えてくれる。</p>
+
+<ul>
+<li>参考サイト</li>
+<li><a href="http://wbond.net/sublime_packages/alignment">http://wbond.net/sublime_packages/alignment</a></li>
+</ul>
+
+
+<h3>AutoFileName</h3>
+
+<p>ファイル名を記述するときに補完してくれる</p>
+
+<ul>
+<li>参考サイト</li>
+<li><a href="https://github.com/BoundInCode/AutoFileName">https://github.com/BoundInCode/AutoFileName</a></li>
+<li><a href="http://charlie.hateblo.jp/entry/2013/04/19/112120">http://charlie.hateblo.jp/entry/2013/04/19/112120</a></li>
+</ul>
+
+
+<h3>BracketHighlighter</h3>
+
+<p>カッコやクォーテーションの開始と終了を教えてくれます。</p>
+
+<ul>
+<li>参考サイト</li>
+<li><a href="https://github.com/facelessuser/BracketHighlighter">https://github.com/facelessuser/BracketHighlighter</a></li>
+<li><a href="http://bakunyo.hatenablog.com/entry/2013/02/24/Sublime_Text_2%E3%81%AEBracketHighlighter%E3%82%92%E3%81%A1%E3%82%87%E3%81%93%E3%81%A3%E3%81%A8%E3%82%AB%E3%82%B9%E3%82%BF%E3%83%9E%E3%82%A4%E3%82%BA%E3%81%99%E3%82%8B">http://bakunyo.hatenablog.com/entry/2013/02/24/Sublime_Text_2のBracketHighlighterをちょこっとカスタマイズする</a></li>
+</ul>
+
+
+<h3>CMake</h3>
+
+<p>CMakeList.txtを記述するときにわかりやすく色をつける。</p>
+
+<ul>
+<li>参考サイト</li>
+<li><a href="https://github.com/zyxar/Sublime-CMakeLists">https://github.com/zyxar/Sublime-CMakeLists</a></li>
+</ul>
+
+
+<h3>Color Highlighter</h3>
+
+<p><code>#FFFFFF</code>、<code>#FF0000</code>のようにCSS、SCSS等でカラーコードを記述したとき、その記述した色でハイライトしてくれます。</p>
+
+<ul>
+<li>参考サイト</li>
+<li><a href="https://github.com/Monnoroch/ColorHighlighter">https://github.com/Monnoroch/ColorHighlighter</a></li>
+</ul>
+
+
+<h3>ColorPicker</h3>
+
+<p>CSS、SCSS等で色を指定したい時にパレットでその場で選んでカラーコードを入力できます。</p>
+
+<ul>
+<li>参考サイト</li>
+<li><a href="https://github.com/weslly/ColorPicker">https://github.com/weslly/ColorPicker</a></li>
+</ul>
+
+
+<h3>ConvertToUTF8</h3>
+
+<p>Shift-JIS等の文字エンコードで保存されたファイルを開いた場合、文字コードを判別してきちんと表示してくれます。</p>
+
+<ul>
+<li>参考サイト</li>
+<li><a href="https://github.com/seanliang/ConvertToUTF8">https://github.com/seanliang/ConvertToUTF8</a></li>
+</ul>
+
+
+<h3>Git</h3>
+
+<p>ST2上でGitの操作を行うことができるプラグイン。
+ST2の画面から離れずに、<code>add</code>から<code>commit</code>、<code>push</code>できるので結構便利。</p>
+
+<ul>
+<li>参考サイト</li>
+<li><a href="https://github.com/kemayo/sublime-text-git">https://github.com/kemayo/sublime-text-git</a></li>
+<li><a href="http://offsidenow.phpapps.jp/archives/957">http://offsidenow.phpapps.jp/archives/957</a></li>
+</ul>
+
+
+<h3>Google Search</h3>
+
+<p>選択したワードを右クリックメニューまたは<code>Ctrl+Alt+G</code>からGoogle検索できる。変数に使う英単語これで合ってたっけとか確認するのに使える。
+<code>Ctrl+Shift+Alt+G</code>で検索フォームをST2の下に出すこともできる。</p>
+
+<ul>
+<li>参考サイト</li>
+<li><a href="https://github.com/nwjlyons/google-search">https://github.com/nwjlyons/google-search</a></li>
+</ul>
+
+
+<h3>LaTeXTools</h3>
+
+<p>ST2でTeXを書くための必須プラグイン。
+このプラグインについて詳しく書いてますのでよかったら、<a href="/blog/2015/01/17/sublime-tex/">私のページ</a>をご覧ください。</p>
+
+<ul>
+<li>参考サイト</li>
+<li><a href="https://github.com/SublimeText/LaTeXTools">https://github.com/SublimeText/LaTeXTools</a></li>
+</ul>
+
+
+<h3>Markdown Extended</h3>
+
+<p>マークダウン内に書いたコードのシンタックスをカラフルにできます。</p>
+
+<ul>
+<li>参考サイト</li>
+<li><a href="https://github.com/jonschlinkert/sublime-markdown-extended">https://github.com/jonschlinkert/sublime-markdown-extended</a></li>
+<li><a href="http://webmem.hatenablog.com/entry/sublime-text-markdown">http://webmem.hatenablog.com/entry/sublime-text-markdown</a></li>
+</ul>
+
+
+<h3>Monokai Extended</h3>
+
+<p>マークダウン等に特化したカラースキーマ。</p>
+
+<ul>
+<li>参考サイト</li>
+<li><a href="https://github.com/jonschlinkert/sublime-monokai-extended">https://github.com/jonschlinkert/sublime-monokai-extended</a></li>
+<li><a href="http://webmem.hatenablog.com/entry/sublime-text-markdown">http://webmem.hatenablog.com/entry/sublime-text-markdown</a></li>
+</ul>
+
+
+<h3>Octopress</h3>
+
+<p>ST2でOctopressのブログを書くためのプラグイン。
+うまく動けば、記事の作成からサイト生成、デプロイまでできるはずだが、Ubuntuではうまく動かせていない。設定がよくわかっていません。</p>
+
+<ul>
+<li>参考サイト</li>
+<li><a href="https://github.com/blueplanet/sublime-text-octopress">https://github.com/blueplanet/sublime-text-octopress</a></li>
+</ul>
+
+
+<h3>Octopress Snippets</h3>
+
+<p>Octopress用のスニペットを追加してくれる。</p>
+
+<ul>
+<li>参考サイト</li>
+<li><a href="https://github.com/yangsu/sublime-octopress">https://github.com/yangsu/sublime-octopress</a></li>
+</ul>
+
+
+<h3>OmniMarkupPreviewer</h3>
+
+<p>マークダウンの文章のプレビューをリアルタイムでブラウザ上に表示してくれる。
+<code>Ctrl+Alt+O</code>でブラウザが開きます。</p>
+
+<ul>
+<li>参考サイト</li>
+<li><a href="https://github.com/timonwong/OmniMarkupPreviewer">https://github.com/timonwong/OmniMarkupPreviewer</a></li>
+<li><a href="http://webmem.hatenablog.com/entry/sublime-text-markdown">http://webmem.hatenablog.com/entry/sublime-text-markdown</a></li>
+</ul>
+
+
+<h3>SCSS</h3>
+
+<p>SCSSのシンタックスのカラーリングに対応してくれる。</p>
+
+<ul>
+<li>参考サイト</li>
+<li><a href="http://book.scss.jp/about/c7/editor/st.html">http://book.scss.jp/about/c7/editor/st.html</a></li>
+</ul>
+
+
+<h3>SimpleClone</h3>
+
+<p>同じファイルを複数のウィンドウで開くために使用。
+開いているファイルが長すぎるときに左は閲覧用、右は編集用といった感じで。</p>
+
+<ul>
+<li>参考サイト</li>
+<li><a href="https://github.com/mikefowler/simple-clone">https://github.com/mikefowler/simple-clone</a></li>
+</ul>
+
+
+<h3>SublimeClang</h3>
+
+<p>C/C++の文法チェックをしてくれる。
+Ubuntuでは設定が少々面倒だが、効果は抜群。
+コンパイルをする回数が劇的に減る。</p>
+
+<ul>
+<li>参考サイト</li>
+<li><a href="https://github.com/quarnster/SublimeClang">https://github.com/quarnster/SublimeClang</a></li>
+<li><a href="http://cirkitrwrc.blogspot.jp/2014/10/sublime-text-2ccubuntu-1404-lts.html">http://cirkitrwrc.blogspot.jp/2014/10/sublime-text-2ccubuntu-1404-lts.html</a></li>
+</ul>
+
+
+<h3>SublimeMozcInput</h3>
+
+<p>UbuntuのST2は標準で日本語入力に対応してません。
+したがって自分でこのパッケージを導入する必要があります。</p>
+
+<ul>
+<li>参考サイト</li>
+<li><a href="http://yasuyuky.github.io/SublimeMozcInput/">http://yasuyuky.github.io/SublimeMozcInput/</a></li>
+<li><a href="http://qiita.com/kanpou_/items/bc739c1215fc222f17c8">http://qiita.com/kanpou_/items/bc739c1215fc222f17c8</a></li>
+</ul>
+
+
+<h3>Terminal</h3>
+
+<p>開いているファイルのディレクトリでターミナルを開く。</p>
+
+<ul>
+<li>参考サイト</li>
+<li><a href="http://wbond.net/sublime_packages/terminal">http://wbond.net/sublime_packages/terminal</a></li>
+</ul>
+
+
+<h2>おわりに</h2>
+
+<p>最後のリストを書いてると、結構たくさんあってもう一回見なおしてみると知らなかったショートカットや機能を知ることができてよかったです。ST2はこういったプラグインの開発が活発なので、大抵の機能は追加で手に入れることができますね！
+今回は詳しい説明が書くことができませんでしたが、それぞれのプラグインの導入法等もまた書こうと思います。それでは本日は以上です〜。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Sublime Text 2でTeXの文書を作成（Ubuntu 14.04）]]></title>
+    <link href="http://ry0.github.io/blog/2015/01/17/sublime-tex/"/>
+    <updated>2015-01-17T23:44:02+09:00</updated>
+    <id>http://ry0.github.io/blog/2015/01/17/sublime-tex</id>
+    <content type="html"><![CDATA[<h2>卒論を書かないと！</h2>
+
+<p>こんばんは。本日はSublime TextでTeXをコンパイルするための設定手順の記事です。そろそろ本気で卒論を書かないといけない時期になってきたので、ちょっとでも快適に文章が書けるようにしたいと思います。</p>
+
+<!-- more -->
+
+
+<h2>Package Control経由で「LaTeXTools」をインストール</h2>
+
+<p>前提条件としてTeXがUbuntuにインストールしてあることと、Sublime Text 2にはPackage Controlが導入済みであることです。TeXに関しては当方の環境では<a href="http://www.tug.org/texlive/acquire-netinstall.html">TeX Live 2014</a>をマニュアルでインストールしている状態で検証しております。</p>
+
+<h3>さっそくLaTeXToolsをインストール</h3>
+
+<p><code>Ctrl+Shift+P</code>でコマンドパレットを呼び出して、<code>Package Control: Install Package</code>と入力。もしくは<code>install</code>と入力しても候補の一番頭に出ると思います。</p>
+
+<p><a class="swipebox" href="https://farm9.staticflickr.com/8603/16111555308_18bcb72914_b.jpg" title="Package Control: Install Package">
+  <img class="center image-effect" src="https://farm9.staticflickr.com/8603/16111555308_18bcb72914_z.jpg">
+</a></p>
+
+<p>そして「LaTeXTools」と入力して、インストール。</p>
+
+<p><a class="swipebox" href="https://farm8.staticflickr.com/7464/16273186606_e0e965b7d7_b.jpg" title="LaTeXTools">
+  <img class="center image-effect" src="https://farm8.staticflickr.com/7464/16273186606_e0e965b7d7_z.jpg">
+</a></p>
+
+<h3>ちょこっと修正</h3>
+
+<p>インストールが完了したら、少しファイルをいじります。<code>~/.config/sublime-text-2/Packages/LaTeXTools/builders/traditionalBuilder.py</code>の<strong>18行目から20行目</strong>をコメントアウトします。</p>
+
+<p><figure class='code'><figcaption><span>traditionalBuilder.py </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="n">DEFAULT_COMMAND_LATEXMK</span> <span class="o">=</span> <span class="p">[</span><span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">latexmk</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;,</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="o">-</span><span class="n">cd</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;,</span>
+</span><span class='line'>        <span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="o">-</span><span class="n">e</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;,</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="err">$</span><span class="n">pdflatex</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">lsquo</span><span class="p">;</span><span class="o">%</span><span class="n">E</span> <span class="o">-</span><span class="n">interaction</span><span class="o">=</span><span class="n">nonstopmode</span> <span class="o">-</span><span class="n">synctex</span><span class="o">=</span><span class="mi">1</span> <span class="o">%</span><span class="n">S</span> <span class="o">%</span><span class="n">O</span><span class="o">&amp;</span><span class="n">rsquo</span><span class="p">;</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;,</span>
+</span><span class='line'>        <span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="o">-</span><span class="n">f</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;,</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="o">-</span><span class="n">pdf</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;]</span>
+</span></code></pre></td></tr></table></div></figure></p>
+
+<p>コメントアウトしたあとの下の行に新たに追加します。</p>
+
+<p><figure class='code'><figcaption><span>traditionalBuilder.py </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;</span><span class="n">DEFAULT_COMMAND_LATEXMK</span> <span class="o">=</span> <span class="p">[</span><span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">latexmk</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;,</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="o">-</span><span class="n">cd</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;,</span><span class="o">&lt;/</span><span class="n">h1</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="o">-</span><span class="n">e</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;,</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="err">$</span><span class="n">pdflatex</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">lsquo</span><span class="p">;</span><span class="o">%</span><span class="n">E</span> <span class="o">-</span><span class="n">interaction</span><span class="o">=</span><span class="n">nonstopmode</span> <span class="o">-</span><span class="n">synctex</span><span class="o">=</span><span class="mi">1</span> <span class="o">%</span><span class="n">S</span> <span class="o">%</span><span class="n">O</span><span class="o">&amp;</span><span class="n">rsquo</span><span class="p">;</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;,</span><span class="o">&lt;/</span><span class="n">h1</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">h1</span><span class="o">&gt;&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="o">-</span><span class="n">f</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;,</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="o">-</span><span class="n">pdf</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;]</span><span class="o">&lt;/</span><span class="n">h1</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="n">DEFAULT_COMMAND_LATEXMK</span> <span class="o">=</span> <span class="p">[</span><span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">latexmk</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;,</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="o">-</span><span class="n">cd</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;,</span>
+</span><span class='line'>     <span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="o">-</span><span class="n">e</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;,</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="err">$</span><span class="n">latex</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">lsquo</span><span class="p">;</span><span class="n">uplatex</span> <span class="o">%</span><span class="n">O</span> <span class="o">-</span><span class="n">interaction</span><span class="o">=</span><span class="n">nonstopmode</span> <span class="o">-</span><span class="n">synctex</span><span class="o">=</span><span class="mi">1</span> <span class="o">%</span><span class="n">S</span><span class="o">&amp;</span><span class="n">rsquo</span><span class="p">;</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;,</span>
+</span><span class='line'>     <span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="o">-</span><span class="n">e</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;,</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="err">$</span><span class="n">biber</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">lsquo</span><span class="p">;</span><span class="n">biber</span> <span class="o">%</span><span class="n">O</span> <span class="o">&amp;</span><span class="n">ndash</span><span class="p">;</span><span class="n">bblencoding</span><span class="o">=</span><span class="n">utf8</span> <span class="o">-</span><span class="n">u</span> <span class="o">-</span><span class="n">U</span> <span class="o">&amp;</span><span class="n">ndash</span><span class="p">;</span><span class="n">output_safechars</span> <span class="o">%</span><span class="n">B</span><span class="o">&amp;</span><span class="n">rsquo</span><span class="p">;</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;,</span>
+</span><span class='line'>     <span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="o">-</span><span class="n">e</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;,</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="err">$</span><span class="n">bibtex</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">lsquo</span><span class="p">;</span><span class="n">upbibtex</span> <span class="o">%</span><span class="n">O</span> <span class="o">%</span><span class="n">B</span><span class="o">&amp;</span><span class="n">rsquo</span><span class="p">;</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;,</span>
+</span><span class='line'>     <span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="o">-</span><span class="n">e</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;,</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="err">$</span><span class="n">makeindex</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">lsquo</span><span class="p">;</span><span class="n">makeindex</span> <span class="o">%</span><span class="n">O</span> <span class="o">-</span><span class="n">o</span> <span class="o">%</span><span class="n">D</span> <span class="o">%</span><span class="n">S</span><span class="o">&amp;</span><span class="n">rsquo</span><span class="p">;</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;,</span>
+</span><span class='line'>     <span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="o">-</span><span class="n">e</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;,</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="err">$</span><span class="n">dvipdf</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">lsquo</span><span class="p">;</span><span class="n">dvipdfmx</span> <span class="o">%</span><span class="n">O</span> <span class="o">-</span><span class="n">o</span> <span class="o">%</span><span class="n">D</span> <span class="o">%</span><span class="n">S</span><span class="o">&amp;</span><span class="n">rsquo</span><span class="p">;</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;,</span>
+</span><span class='line'>     <span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="o">-</span><span class="n">f</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;,</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="o">-</span><span class="n">norc</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;,</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="o">-</span><span class="n">gg</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;,</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="o">-</span><span class="n">pdfdvi</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;]</span>
+</span></code></pre></td></tr></table></div></figure></p>
+
+<p>とある学会用テンプレートの適用したときに上のレシピだとうまくいかなかったので今は以下のものを使ってます。</p>
+
+<p><figure class='code'><figcaption><span>traditionalBuilder.py </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="n">DEFAULT_COMMAND_LATEXMK</span> <span class="o">=</span> <span class="p">[</span><span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">latexmk</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;,</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="o">-</span><span class="n">cd</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;,</span>
+</span><span class='line'>                <span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="o">-</span><span class="n">e</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;,</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="err">$</span><span class="n">latex</span><span class="o">=&amp;</span><span class="n">lsquo</span><span class="p">;</span><span class="n">platex</span> <span class="o">-</span><span class="n">kanji</span><span class="o">=</span><span class="n">utf8</span> <span class="o">-</span><span class="n">guess</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="n">utf8</span> <span class="o">-</span><span class="n">synctex</span><span class="o">=</span><span class="mi">1</span> <span class="o">-</span><span class="n">interaction</span><span class="o">=</span><span class="n">nonstopmode</span> <span class="o">%</span><span class="n">S</span><span class="o">&amp;</span><span class="n">rsquo</span><span class="p">;</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;,</span>
+</span><span class='line'>                <span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="o">-</span><span class="n">e</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;,</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="err">$</span><span class="n">bibtex</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">lsquo</span><span class="p">;</span><span class="n">jbibtex</span><span class="o">&amp;</span><span class="n">rsquo</span><span class="p">;</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;,</span>
+</span><span class='line'>                <span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="o">-</span><span class="n">e</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;,</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="err">$</span><span class="n">dvipdf</span> <span class="o">=</span> <span class="err">$</span><span class="n">dvipdf</span><span class="o">=&amp;</span><span class="n">lsquo</span><span class="p">;</span><span class="n">dvipdfmx</span> <span class="o">-</span><span class="n">f</span> <span class="n">ptex</span><span class="o">-</span><span class="n">ipaex</span><span class="o">.</span><span class="n">map</span> <span class="o">%</span><span class="n">S</span><span class="o">&amp;</span><span class="n">rsquo</span><span class="p">;</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;,</span>
+</span><span class='line'>                <span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="o">-</span><span class="n">e</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;,</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="err">$</span><span class="n">dvips</span> <span class="o">=</span> <span class="o">&amp;</span><span class="n">lsquo</span><span class="p">;</span><span class="n">pdvips</span><span class="o">&amp;</span><span class="n">rsquo</span><span class="p">;</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;,</span>
+</span><span class='line'>                <span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="o">-</span><span class="n">e</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;,</span> <span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="err">$</span><span class="n">pdf_mode</span> <span class="o">=</span> <span class="mi">3</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;]</span>
+</span></code></pre></td></tr></table></div></figure></p>
+
+<p>コマンドオプションは下記のサイトを参照しました。<br/>
+ある日、昨日までうまく使えてたのにぜんぜんコンパイルが通らん！ってなったときは大抵、LaTeXToolsが更新され、このファイルを上書きしてしまいデフォルトの状態になっています。面倒ですが、その都度この変更をしてください。</p>
+
+<p><blockquote><p>【2014-3-12以降版】Mac Sublime Text2 or Sublime Text3 で Tex 導入の初歩から</p><footer><strong>みずぎわブログ <a href="http://yusuke0.hatenablog.com/entry/2014/04/06/111945">http://yusuke0.hatenablog.com/entry/2014/04/06/111945</a> <a href="http://yusuke0.hatenablog.com/entry/2014/04/06/111945">http://yusuke0.hatenablog.com/entry/2014/04/06/111945</a></strong></footer></blockquote></p>
+
+<p>これで設定はほぼ完了です。</p>
+
+<h2>実際に試してみる</h2>
+
+<p>コンパイルの仕方は<code>Ctrl+B</code>で。うまくいけばUbuntu標準のPDFビューアーのevinceが開くはず。任意のタイミングで開く場合、<code>Ctrl+L,V</code>でも開けます。</p>
+
+<h2>なんかメッセージでエラー出てんだけど！</h2>
+
+<p>私の環境だけかもしれませんが、文字エンコードに関するエラーを吐くので、ちょっとこのエラーで検索してみるとありました。</p>
+
+<p><a class="swipebox" href="https://farm8.staticflickr.com/7531/16114205079_f1ec62ab20_h.jpg" title="Errors">
+  <img class="center image-effect" src="https://farm8.staticflickr.com/7531/16114205079_bb83090c91_b.jpg">
+</a></p>
+
+<p><blockquote><p>! LaTeX Error: Encoding scheme `encoding&#8217; unknown. †</p></p><p><p>\DeclareFontFamily や \fontencoding などを用いた際に， 指定したエンコーディング名 encoding が未定義である場合のエラーメッセージです．<br/>→ まず，エンコーディング名が正しいかどうかを確認してください． 正しければ，\DeclareFontEncoding を用いてエンコーディング encoding の宣言を行ってください．</p></p><p><pre><code>jarticle, jreport, jbook を使用していて ! LaTeX Error: Encoding scheme `JY1' unknown. と表示される場合は<br/>jarticle の場合は</p><p>\documentclass{ujarticle}</p><p>jreport の場合は</p><p>\documentclass{ujreport}</p><p>jbook の場合は</p><p>\documentclass{ujbook}</p><p>のように upLaTeX で使用するクラスファイルに変更します．<br/></code></pre></p><p><p></p><footer><strong>TeX Wiki <a href="http://oku.edu.mie-u.ac.jp/~okumura/texwiki/?LaTeX%20%E3%81%AE%E3%82%A8%E3%83%A9%E3%83%BC%E3%83%A1%E3%83%83%E3%82%BB%E3%83%BC%E3%82%B8#p4b7362a">http://oku.edu.mie-u.ac.jp/~okumura/texwiki/?LaTeX%20%E3%81%AE%E3%82%A8%E3%83%A9%E3%83%BC%E3%83%A1%E3%83%83%E3%82%BB%E3%83%BC%E3%82%B8#p4b7362a</a> <a href="http://oku.edu.mie-u.ac.jp/~okumura/texwiki/">http://oku.edu.mie-u.ac.jp/~okumura/texwiki/</a></strong></footer></blockquote></p>
+
+<p>ということで、私は<code>jarticle</code>を宣言していましたので、これを<code>ujarticle</code>にすることでエラーが消えました！よかったよかった。</p>
+
+<h2>SyncTeXを使ったinverse searchが使えない？</h2>
+
+<p><a href="https://github.com/SublimeText/LaTeXTools">LaTeXToolsのレポジトリのREADME</a>によるとevince上で表示された任意の場所をCtrlを押しながら左クリックで該当しているTeXのソースの箇所にジャンプする機能があります。しかし、これがうまくいかずに四苦八苦しました。めげずにじっくりとレポジトリのissuesを眺めているとありました。さすがです。</p>
+
+<p><blockquote><p>inverse search stopped working in evince #232</p><footer><strong>SublimeText/LaTeXTools <a href="https://github.com/SublimeText/LaTeXTools/issues/232">https://github.com/SublimeText/LaTeXTools/issues/232</a> <a href="https://github.com/SublimeText/LaTeXTools/issues/232">https://github.com/SublimeText/LaTeXTools/issues/232</a></strong></footer></blockquote></p>
+
+<p>issuesに従って<code>~/.config/sublime-text-2/Packages/User/LaTeXTools.sublime-settings</code>の修正します。変更する箇所は<strong>54行目</strong>。</p>
+
+<p><figure class='code'><figcaption><span>LaTeXTools.sublime-settings </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='yaml'><span class='line'><span class="l-Scalar-Plain">// &amp;ldquo;sublime&amp;rdquo;</span><span class="p-Indicator">:</span> <span class="nl">&amp;ldquo</span><span class="l-Scalar-Plain">;sublime-text&amp;rdquo;,</span>
+</span><span class='line'><span class="nl">&amp;ldquo</span><span class="l-Scalar-Plain">;sublime&amp;rdquo;</span><span class="p-Indicator">:</span> <span class="nl">&amp;ldquo</span><span class="l-Scalar-Plain">;subl&amp;rdquo;,</span>
+</span></code></pre></td></tr></table></div></figure></p>
+
+<p>Sublime Textのパスを<code>subl</code>で通していたのが問題でした。日本のサイトではシンボリックリンクを<code>subl</code>で作成するように解説しているサイトが多い気がするので、盲点でした。これでうまくいきました。</p>
+
+<h2>おわりに</h2>
+
+<p>最後のinverse searchに関しては、なっかなかできなくて諦めかけていた機能で、ちゃんと動くようになったのでよかったです。
+これでしっかり卒論が書ける気がします。
+本日は以上です。最後までありがとうございました。</p>
+]]></content>
+  </entry>
+  
+</feed>

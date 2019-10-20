@@ -1,0 +1,803 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Tag: Caffe | Ry0 Note]]></title>
+  <link href="http://ry0.github.io/blog/tags/caffe/atom.xml" rel="self"/>
+  <link href="http://ry0.github.io/"/>
+  <updated>2019-10-20T02:14:29+09:00</updated>
+  <id>http://ry0.github.io/</id>
+  <author>
+    <name><![CDATA[Ry0_Ka]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Caffeを使って手書きのひらがなを識別する]]></title>
+    <link href="http://ry0.github.io/blog/2015/11/16/caffe-handwriting-recognition/"/>
+    <updated>2015-11-16T14:43:25+09:00</updated>
+    <id>http://ry0.github.io/blog/2015/11/16/caffe-handwriting-recognition</id>
+    <content type="html"><![CDATA[<h2>Caffeのネットワークの説明が不足していたので今日は詳しく説明します</h2>
+
+<p>Caffeのネタはもう終わりにしようと思っていたのですが、少女時代のクラスタリングの話ではいまいち何をやっているのかわからないし、世の中に少女時代の区別がつくようになって嬉しい人がどれだけいるのか疑問だったので改めて違うテーマを使って説明していきたいと思います</p>
+
+<p>今回は手書き文字認識をテーマに学習器の設定の仕方を書きたいと思います。<br/>
+できるだけ他のテーマを対象とした画像クラスタリングにも使えるように説明していくのでよかったら見ていってください。</p>
+
+<!-- more -->
+
+
+<p>少女時代の顔認識の記事を見ていない人はこのまとめ記事をご覧ください。私がこれまでCaffeに関して書いた記事をリンクしています。</p>
+
+<p><blockquote><p>これまでのCaffeの記事のまとめと補足</p><footer><strong>Ry0 Note <a href="http://ry0.github.io/blog/2015/09/30/using-summary-of-caffe/">http://ry0.github.io/blog/2015/09/30/using-summary-of-caffe/</a> <a href="http://ry0.github.io/blog/2015/09/30/using-summary-of-caffe/">http://ry0.github.io/blog/2015/09/30/using-summary-of-caffe/</a></strong></footer></blockquote></p>
+
+<h2>まずワークスペースの確保</h2>
+
+<p>caffeのフォルダの中に<code>examples</code>というフォルダがあると思います。ここに作ります。
+学習モデルを作る際に、Cifar10の学習モデルを参考にするので、コピーしておきます。</p>
+
+<pre><code class="bash">cd caffe/examples
+mkdir &lt;自分が作りたい名前&gt;
+cp cifar10/cifar10_quick* &lt;自分が作りたい名前&gt;
+</code></pre>
+
+<p>ここからはこの作成したフォルダの中で作業していきます。</p>
+
+<h2>まずはデータセット作り</h2>
+
+<p>これがないと学習を行うことができないので、既存のデータセットをどこかから持ってくるか、自分で作成してください。<br/>
+<strong>データセット作りに関しても上のリンクで書いています。</strong><br/>
+今回、ひらがなの手書き文字認識を例としているので、クラス数はひらがな（濁音半濁音を含む）の73文字をクラス数とします。
+したがって「あ」から順に0から「ぽ」までの72です。</p>
+
+<p><a class="swipebox" href="https://farm6.staticflickr.com/5788/22647859219_446acac384_b.jpg" title="データセットの作成">
+  <img class="center image-effect" src="https://farm6.staticflickr.com/5788/22647859219_446acac384_b.jpg">
+</a></p>
+
+<p>これでleveldb形式の学習データとテストデータ<code>tegaki_cifar10_test_leveldb</code>と<code>tegaki_cifar10_train_leveldb</code>を作成しました。</p>
+
+<p>平均画像の作成は</p>
+
+<pre><code class="bash">cd ../../ #Caffeのフォルダの一番最初まで移動
+build/tools/compute_image_mean.bin -backend=leveldb ./examples/handwriting_recognition/tegaki_cifar10_train_leveldb ./examples/handwriting_recognition/tegaki_mean.binaryproto
+</code></pre>
+
+<p>としました。成功すると<code>tegaki_mean.binaryproto</code>が<code>/examples/handwriting_recognition/</code>に生成されます。</p>
+
+<h2>cifar10_quick_solver.prototxtの編集</h2>
+
+<p><strong>赤字から緑の字に変更することを意味します。</strong><br/>
+まず<code>cifar10_quick_solver.prototxt</code>から好きな名前に変更します。
+<code>tegaki_cifar10_quick_solver.prototxt</code>としました。</p>
+
+<pre><code class="diff"># reduce the learning rate after 8 epochs (4000 iters) by a factor of 10
+
+# The train/test net protocol buffer definition
+- net: "examples/cifar10/cifar10_quick_train_test.prototxt"
++ net: "examples/handwriting_recognition/tegaki_cifar10_quick_train_test.prototxt"
+# test_iter specifies how many forward passes the test should carry out.
+# In the case of MNIST, we have test batch size 100 and 100 test iterations,
+# covering the full 10,000 testing images.
+- test_iter: 100
++ test_iter: 20
+# Carry out testing every 500 training iterations.
+test_interval: 500
+# The base learning rate, momentum and the weight decay of the network.
+- base_lr: 0.001
++ base_lr: 0.0001
+momentum: 0.9
+weight_decay: 0.004
+# The learning rate policy
+lr_policy: "fixed"
+# Display every 100 iterations
+display: 100
+# The maximum number of iterations
+- max_iter: 4000
++ max_iter: 10000
+# snapshot intermediate results
+- snapshot: 4000
++ snapshot: 5000
+- snapshot_prefix: "examples/cifar10/cifar10_quick"
++ snapshot_prefix: "examples/handwriting_recognition/tegaki_cifar10_quick_with_dropout"
+# solver mode: CPU or GPU
+solver_mode: GPU
+</code></pre>
+
+<ul>
+<li><p>test_iter<br/>
+学習中の正答率評価を1回行なうために使うデータ数をイテレーション単位で指定します。</p></li>
+<li><p>base_lr<br/>
+学習がどの程度一度に進めるかを表す数値で、小さいほど精度が良くなるとのことなので、一桁小さくしました。</p></li>
+<li><p>max_iter<br/>
+学習をおこなうイテレーション数です。Cifar10のモデルよりも多く設定しました。</p></li>
+<li><p>snapshot<br/>
+学習結果の途中経過を出力する頻度です。</p></li>
+<li><p>snapshot_prefix<br/>
+途中経過を出力するときの名前を指定します。</p></li>
+<li><p>solver_mode<br/>
+CPUを使う場合は変更してください。</p></li>
+</ul>
+
+
+<h2>cifar10_quick_train_test.prototxtの編集</h2>
+
+<p>同様に変更します。
+<code>cifar10_quick_train_test.prototxt</code>を<code>tegaki_cifar10_quick_train_test.prototxt</code>にリネームしました。</p>
+
+<p>1行目からの変更分です。</p>
+
+<pre><code class="diff">name: "CIFAR10_quick"
+layer {
+  name: "cifar"
+  type: "Data"
+  top: "data"
+  top: "label"
+  include {
+    phase: TRAIN
+  }
+  transform_param {
+-    mean_file: "examples/cifar10/mean.binaryproto"
++    mean_file: "examples/handwriting_recognition/tegaki_mean.binaryproto"
+  }
+  data_param {
+-    source: "examples/cifar10/cifar10_train_lmdb"
++    source: "examples/handwriting_recognition/tegaki_cifar10_train_leveldb"
+    batch_size: 100
+-    backend: LMDB
++    backend: LEVELDB
+  }
+}
+layer {
+  name: "cifar"
+  type: "Data"
+  top: "data"
+  top: "label"
+  include {
+    phase: TEST
+  }
+  transform_param {
+-    mean_file: "examples/cifar10/mean.binaryproto"
++    mean_file: "examples/handwriting_recognition/tegaki_mean.binaryproto"
+  }
+  data_param {
+-    source: "examples/cifar10/cifar10_test_lmdb"
++    source: "examples/handwriting_recognition/tegaki_cifar10_test_leveldb"
+    batch_size: 100
+-    backend: LMDB
++    backend: LEVELDB
+  }
+}
+</code></pre>
+
+<p><code>transform_param</code>の中にはデータセットをランダムにクロップする(例: <code>crop_size: 30</code>)とか左右反転して学習に用いる(例: <code>mirror: true</code>)を入れてデータの水増しができます。
+今回は用いませんでしたが、少ないデータセットを有効に使うための工夫をいれてもいいでしょう。<br/>
+ちなみに少女時代の学習モデルには使っているので参考にしてみてください。</p>
+
+<div class="github-widget" data-repo="Ry0/snsd_classify"></div>
+
+
+<p>162行目からの記述です。
+<strong>過学習を防ぐためにドロップアウトを新たに入れています。</strong><br/>
+一番重要なのは最後の<code>num_output:</code>で<strong>目的に応じたクラス数を記述するようにしてください。</strong><br/>
+最後の修正点は、学習時の精度も確認できるようにする設定です。</p>
+
+<pre><code class="diff">layer {
+  name: "ip1"
+  type: "InnerProduct"
+  bottom: "pool3"
+  top: "ip1"
+  param {
+    lr_mult: 1
+  }
+  param {
+    lr_mult: 2
+  }
+  inner_product_param {
+    num_output: 64
+    weight_filler {
+      type: "gaussian"
+      std: 0.1
+    }
+    bias_filler {
+      type: "constant"
+    }
+  }
+}
++layer {
++  name: "drop1"
++  type: "Dropout"
++  bottom: "ip1"
++  top: "drop1"
++  dropout_param {
++    dropout_ratio: 0.5
++  }
++}
+layer {
+  name: "ip2"
+  type: "InnerProduct"
+-  bottom: "ip1"
++  bottom: "drop1"
+  top: "ip2"
+  param {
+    lr_mult: 1
+  }
+  param {
+    lr_mult: 2
+  }
+  inner_product_param {
+-    num_output: 10
++    num_output: 73
+    weight_filler {
+      type: "gaussian"
+      std: 0.1
+    }
+    bias_filler {
+      type: "constant"
+    }
+  }
+}
+layer {
+  name: "accuracy"
+  type: "Accuracy"
+  bottom: "ip2"
+  bottom: "label"
+  top: "accuracy"
+-  include {
+-    phase: TEST
+-  }
+}
+layer {
+  name: "loss"
+  type: "SoftmaxWithLoss"
+  bottom: "ip2"
+  bottom: "label"
+  top: "loss"
+}
+</code></pre>
+
+<p>prototxtファイルからブロック図をpngで出力するコマンドがあります。</p>
+
+<pre><code class="bash">python/draw_net.py examples/handwriting_recognition/tegaki_cifar10_quick_train_test.prototxt caffeNet.png --rankdir BT
+</code></pre>
+
+<p>全体像は画像をクリックしたら見れます。</p>
+
+<p><a class="swipebox" href="https://farm6.staticflickr.com/5816/23040887602_0aa35d824a_h.jpg" title="ブロック図">
+  <img class="center image-effect" src="https://farm6.staticflickr.com/5648/23065789381_6c6ba711f8_b.jpg">
+</a></p>
+
+<h2>cifar10_quick.prototxtの編集</h2>
+
+<p><code>cifar10_quick.prototxt</code>を<code>tegaki_cifar10_quick.prototxt</code>にしました。</p>
+
+<p>最後の出力だけ自分が出力したいクラス数に変更しました。</p>
+
+<pre><code class="diff">layer {
+  name: "ip2"
+  type: "InnerProduct"
+  bottom: "ip1"
+  top: "ip2"
+  param {
+    lr_mult: 1
+  }
+  param {
+    lr_mult: 2
+  }
+  inner_product_param {
+-    num_output: 10
++    num_output: 73
+  }
+}
+layer {
+  name: "prob"
+  type: "Softmax"
+  bottom: "ip2"
+  top: "prob"
+}
+</code></pre>
+
+<h2>学習の実行</h2>
+
+<p>これで学習を実行します。エラーがでる場合はもう一度ファイルネームが間違っていないか確認してください。</p>
+
+<pre><code class="bash">cd ../../ #Caffeのフォルダの一番最初まで移動
+build/tools/caffe train --solver examples/handwriting_recognition/tegaki_cifar10_quick_solver.prototxt
+</code></pre>
+
+<h2>結果</h2>
+
+<p>テストデータに関する精度は9割超えでまずまずの結果が得られました。</p>
+
+<p><a class="swipebox" href="https://farm1.staticflickr.com/626/23041435945_24f301d1ab_z.jpg" title="学習結果">
+  <img class="center image-effect" src="https://farm1.staticflickr.com/626/23041435945_24f301d1ab_z.jpg">
+</a></p>
+
+<h2>簡単なアプリを作成</h2>
+
+<p>これだけでは面白くないので、OpenCVを使ってマウスで実際に字を書いて、それがひらがなの何かをCaffeに処理させるアプリを作りました。</p>
+
+<div class="youtube-container image-effect">
+  <iframe width="960" height="720" src="https://www.youtube.com/embed/rqCJgfitF8I?rel=0" frameborder="0" allowfullscreen></iframe>
+</div>
+
+
+<p>これらのすべてのソースコードと学習モデルはGithubに置いているので興味がある方はどうぞ</p>
+
+<div class="github-widget" data-repo="Ry0/handwriting_recognition"></div>
+
+
+<p>このアプリの実行方法はREADMEにも書いていますが</p>
+
+<pre><code class="bash">cd handwriting_recognition/python
+python handwriting-recognition.py
+</code></pre>
+
+<p>です。学習済みのCaffeモデルも置いてますので、データセットを用意しなくても結果だけ試すことができます。<br/>
+ただしOpenCVが必要です。一応OpenCV 3.0でも動きます。</p>
+
+<h2>おわりに</h2>
+
+<p>できるだけ丁寧に書いたつもりでしたがどうでしょうか。
+少しでも使い方が分かってもらえたら幸いです。
+ひらがな文字認識のプログラム等が動かない場合はフィードバックください。</p>
+
+<p>学習モデルも構築についてもっと何をやっているのか知りたくなった方はSIG2Dさんがアップしてくださっている資料を参考にしてください。<br/>
+しっかり読んだら、私の記事を見るより絶対理解が深まるはずです。</p>
+
+<p><blockquote><p>SIG2D’14 葉月ちゃんでも出来る Deep Learning</p><footer><strong>SIG2D <a href="http://sig2d.org/blog/2015/07/02/sig2d14/">http://sig2d.org/blog/2015/07/02/sig2d14/</a> <a href="http://sig2d.org/blog/2015/07/02/sig2d14/">http://sig2d.org/blog/2015/07/02/sig2d14/</a></strong></footer></blockquote></p>
+
+<p>最近ではGoogleが出したTensorFlowのほうにみんなの興味が行ってるので、これからどうなるんでしょうねCaffeは。<br/>
+時間があればTensorFlowの方も試したいと思います。<br/>
+最後まで見ていただいてありがとうございました。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[これまでのCaffeの記事のまとめと補足]]></title>
+    <link href="http://ry0.github.io/blog/2015/09/30/using-summary-of-caffe/"/>
+    <updated>2015-09-30T01:05:37+09:00</updated>
+    <id>http://ry0.github.io/blog/2015/09/30/using-summary-of-caffe</id>
+    <content type="html"><![CDATA[<h2>Caffeの記事のまとめです</h2>
+
+<p>今までいろいろCaffeを使ってDeep Learningに関する記事をいろいろ書いたのですが、情報がバラバラになってしまったのと、補足の情報を追加したかったので書きました。<br/>
+これらの記事を順に見て作業を行っていただければ、独自のデータセットを使った学習が行えるようになります。
+また識別結果を可視化するためのPythonのプログラムも紹介しています。</p>
+
+<!-- more -->
+
+
+<h2>CUDAとcuDNNをインストール</h2>
+
+<p>NVIDIAのグラボがPCに入っているならこれらの2つのライブラリは入れといたほうがいいと思います。</p>
+
+<p><blockquote><p>Ubuntu 14.04にCUDA 7.0とcuDNNを導入する</p><footer><strong>Ry0 Note <a href="http://ry0.github.io/blog/2015/08/12/ubuntu-nvidia-cuda-7.0/">http://ry0.github.io/blog/2015/08/12/ubuntu-nvidia-cuda-7.0/</a> <a href="http://ry0.github.io/blog/2015/08/12/ubuntu-nvidia-cuda-7.0/">http://ry0.github.io/blog/2015/08/12/ubuntu-nvidia-cuda-7.0/</a></strong></footer></blockquote></p>
+
+<p>最近、CUDA 7.5がリリースされました。
+私もapt-getのupgradeで不意にアップデートしてしまい、一応Caffeをコンパイルし直しました。
+<strong>ちゃんと使おうと思えば、CUDA 7.0を使ったほうがいいと思います。</strong>
+どうしてもCUDA 7.5を使う場合でも、CUDA 7.0の<code>libcudart.so.7.0</code>が必要だそうです。
+バージョンアップする前にコピーをとっておくといいです。</p>
+
+<p>あとcuDNNも7.0が最新版としてリリースされています。
+<a href="https://developer.nvidia.com/cudnn">https://developer.nvidia.com/cudnn</a><br/>
+これを使う場合、以下のようにします。</p>
+
+<pre><code class="bash">tar -zxf cudnn-7.0-linux-x64-v3.0-prod.tgz
+cd cuda
+sudo cp ./lib64/* /usr/local/cuda/lib64/
+sudo cp ./include/cudnn.h /usr/local/cuda/include/
+</code></pre>
+
+<p>CUDAとcuDNN、どちらの場合でも現時点での最新版を使って動作をしたことを少しだけ確認しましたが、どこで動作がおかしくなるのかわからないので、公式のドキュメントが指定しているライブラリのバージョンを使用したほうがいいと思います。</p>
+
+<p><blockquote><p>NVIDIA DIGITS 2.0 RCをlinuxで使う</p><footer><strong>Qiita <a href="http://qiita.com/kendemu/items/a52e37b5e309e83a057b">http://qiita.com/kendemu/items/a52e37b5e309e83a057b</a> <a href="http://qiita.com/kendemu/items/a52e37b5e309e83a057b">http://qiita.com/kendemu/items/a52e37b5e309e83a057b</a></strong></footer></blockquote></p>
+
+<p><img class="center image-effect <a" src="href="https://farm6.staticflickr.com/5808/21801346762_ae2fe580fe_o.jpg">https://farm6.staticflickr.com/5808/21801346762_ae2fe580fe_o.jpg</a>&#8221;></p>
+
+<h2>Caffeのインストール</h2>
+
+<p>この回でCaffeをインストールしました。記事投稿時ではこの方法でインストールできています。</p>
+
+<p><blockquote><p>UbuntuにCaffeをインストールする</p><footer><strong>Ry0 Note <a href="http://ry0.github.io/blog/2015/08/15/caffe-install/">http://ry0.github.io/blog/2015/08/15/caffe-install/</a> <a href="http://ry0.github.io/blog/2015/08/15/caffe-install/">http://ry0.github.io/blog/2015/08/15/caffe-install/</a></strong></footer></blockquote></p>
+
+<p><img class="center image-effect <a" src="href="https://farm1.staticflickr.com/609/21822660311_400c5a2607_o.jpg">https://farm1.staticflickr.com/609/21822660311_400c5a2607_o.jpg</a>&#8221;></p>
+
+<h2>データセット作り</h2>
+
+<p>大量に写真データを用意して顔の部分だけ切り出したデータを作成し、データセットを作成します。</p>
+
+<p><blockquote><p>Caffeを使ってDeep Learningするためのデータセット作り</p><footer><strong>Ry0 Note <a href="http://ry0.github.io/blog/2015/08/22/create-dataset/">http://ry0.github.io/blog/2015/08/22/create-dataset/</a> <a href="http://ry0.github.io/blog/2015/08/22/create-dataset/">http://ry0.github.io/blog/2015/08/22/create-dataset/</a></strong></footer></blockquote></p>
+
+<p><img class="center image-effect <a" src="href="https://farm6.staticflickr.com/5758/21813160135_1f28cf6fb0_o.jpg">https://farm6.staticflickr.com/5758/21813160135_1f28cf6fb0_o.jpg</a>&#8221;></p>
+
+<h2>実際に少女時代のメンバーの顔を識別してみる</h2>
+
+<p>一生懸命作成したデータセットを使って学習を行います。</p>
+
+<p><blockquote><p>Caffeを使って自分で作ったデータセットを学習させる（少女時代編）その1</p><footer><strong>Ry0 Note <a href="http://ry0.github.io/blog/2015/09/28/caffe-deeplearning-dataset-1/">http://ry0.github.io/blog/2015/09/28/caffe-deeplearning-dataset-1/</a> <a href="http://ry0.github.io/blog/2015/09/28/caffe-deeplearning-dataset-1/">http://ry0.github.io/blog/2015/09/28/caffe-deeplearning-dataset-1/</a></strong></footer></blockquote></p>
+
+<p><blockquote><p>Caffeを使って自分で作ったデータセットを学習させる（少女時代編）その2</p><footer><strong>Ry0 Note <a href="http://ry0.github.io/blog/2015/09/28/caffe-deeplearning-dataset-2/">http://ry0.github.io/blog/2015/09/28/caffe-deeplearning-dataset-2/</a> <a href="http://ry0.github.io/blog/2015/09/28/caffe-deeplearning-dataset-2/">http://ry0.github.io/blog/2015/09/28/caffe-deeplearning-dataset-2/</a></strong></footer></blockquote></p>
+
+<p><img class="center image-effect <a" src="href="https://farm1.staticflickr.com/579/21192064313_f20db3e851_o.jpg">https://farm1.staticflickr.com/579/21192064313_f20db3e851_o.jpg</a>&#8221;></p>
+
+<h3>中間層の可視化 IPython Notebook</h3>
+
+<p>学習の結果を可視化するためにIPython Notebookに書いています。
+これも記事で用いているリポジトリの<code>snsd_classify/ipynb/</code>に置いています。</p>
+
+<div class="github-widget" data-repo="Ry0/snsd_classify"></div>
+
+
+<p><a href="https://github.com/Ry0/snsd_classify/blob/dropout/ipynb/snsd.ipynb"><img class="image-effect" src="https://farm6.staticflickr.com/5744/21823233251_10a75a1287_b.jpg" width="1024" height="735" alt="ipynb"></a>
+リンクは<a href="https://github.com/Ry0/snsd_classify/blob/dropout/ipynb/snsd.ipynb">こちら</a>です。</p>
+
+<h2>おわりに</h2>
+
+<p>最近はあまりCaffeを使わなくなったのですが（<del>飽きた、これを使う講義が終わった</del>）、忘れてしまう前にやったことを記録しておこうと思いたくさん記事を書きました。<br/>
+もしかしたら情報が変わりしだい追記を行っていくかもしれません。
+ここがおかしいぞっていう箇所がありましたらコメントをどうぞ。<br/>
+最後まで閲覧していただきありがとうございました。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Caffeを使って自分で作ったデータセットを学習させる（少女時代編）その2]]></title>
+    <link href="http://ry0.github.io/blog/2015/09/28/caffe-deeplearning-dataset-2/"/>
+    <updated>2015-09-28T02:40:12+09:00</updated>
+    <id>http://ry0.github.io/blog/2015/09/28/caffe-deeplearning-dataset-2</id>
+    <content type="html"><![CDATA[<h2>やっと分類器を試します</h2>
+
+<p>先ほど学習を完了させました（引っ張ってごめんなさい）。
+最後に学習結果を使って画像の分類を行ってみます。</p>
+
+<p>その1を見ていない人はぜひご覧ください。</p>
+
+<!-- more -->
+
+
+<p><blockquote><p>Caffeを使って自分で作ったデータセットを学習させる（少女時代編）その1</p><footer><strong>Ry0 Note <a href="http://ry0.github.io/blog/2015/09/28/caffe-deeplearning-dataset-1/">http://ry0.github.io/blog/2015/09/28/caffe-deeplearning-dataset-1/</a> <a href="http://ry0.github.io/blog/2015/09/28/caffe-deeplearning-dataset-1/">http://ry0.github.io/blog/2015/09/28/caffe-deeplearning-dataset-1/</a></strong></footer></blockquote></p>
+
+<h2>実行する前に手直し</h2>
+
+<p>結構前から言われていて現在(2015.9.28)の時点のCaffeの最新コミットでも修正されてないのですが、以下のようなエラーがでるときがあります。</p>
+
+<pre><code class="bash">  File "snsd_facedetection.py", line 114, in &lt;module&gt;
+    raw_scale=255)
+  File "/home/ry0/caffe/python/caffe/classifier.py", line 34, in __init__
+    self.transformer.set_mean(in_, mean)
+  File "/home/ry0/caffe/python/caffe/io.py", line 260, in set_mean
+    raise ValueError('Mean shape incompatible with input shape.')
+ValueError: Mean shape incompatible with input shape.
+</code></pre>
+
+<p>このエラーを直します。<code>caffe/python/caffe/io.py</code>（の254行目にかけて）を編集します。</p>
+
+<pre><code class="python">if ms != self.inputs[in_][1:]:
+    raise ValueError('Mean shape incompatible with input shape.')
+</code></pre>
+
+<p>これを</p>
+
+<pre><code class="python">if ms != self.inputs[in_][1:]:
+    print(self.inputs[in_])
+    in_shape = self.inputs[in_][1:]
+    m_min, m_max = mean.min(), mean.max()
+    normal_mean = (mean - m_min) / (m_max - m_min)
+    mean = resize_image(normal_mean.transpose((1,2,0)),in_shape[1:]).transpose((2,0,1)) * (m_max - m_min) + m_min
+    # raise ValueError('Mean shape incompatible with input shape.')
+</code></pre>
+
+<p>変更。これで今のところエラーはでなくなるので良しとします。</p>
+
+<h2>いよいよ少女時代のメンバークラスタリング</h2>
+
+<p><code>snsd_classify</code>のレポジトリにPythonのスクリプトがあります。<br/>
+<strong>このスクリプトを実行するためにはOpenCVが必要</strong>です。
+あらかじめインストールしておいてください。</p>
+
+<pre><code class="bash">cd snsd_classify/python
+python snsd_facedetection.py src.jpg
+</code></pre>
+
+<p><code>src.jpg</code>はパスさえ間違えていなければどこに置いておいても構いません。<br/>
+読み込みが成功すると、OpenCVのウィンドウが出現し、入力画像の顔のクラスタリングを行ってくれます。</p>
+
+<p><a class="swipebox" href="https://farm1.staticflickr.com/670/21140050623_e838bc36ba_z.jpg" title="Show Image">
+  <img class="center image-effect" src="https://farm1.staticflickr.com/670/21140050623_e838bc36ba_z.jpg">
+</a></p>
+
+<p>分類結果に満足できれば<code>s</code>キーを押してください、<code>/snsd_classify/success_img</code>に実行日時時間で名前付けされた画像ファイルが生成されていると思います。
+保存したくない場合は、<code>s</code>キー以外のキーを押してください。ウィンドウが閉じて、プログラムが終了します。</p>
+
+<p>それにしても<a href="https://instagram.com/yoona__lim/">ユナがInstagram</a>を始めてくれてよかったですね！！</p>
+
+<h2>おわりに</h2>
+
+<p>やっとの思いで、少女時代のメンバーのクラスタリングができました。
+何よりデータセットを作成するのが大変でした。<br/>
+少女時代のメンバーのクラスタリングに関しては<strong>各メンバーに1000〜2500枚、負例約3500枚を用意しました</strong>が、これでも少ない方です。
+ほんとはもっと用意すると良い結果が得られると思います。ディープラーニングはデータセットの量と質に大きく依存します。</p>
+
+<p>今回用いたデータセットの年代は主に<strong>2011年から2013年までの写真が主</strong>でした（筆者が好きすぎて画像を漁りまくっていた年代）。
+この偏りのせいか、正直ちょくちょく間違えます。ユリ、ユナ、ソヒョンのあたりは特に。
+人間でもはじめにぶち当たる判別困難な3人ですね。</p>
+
+<p>また売り出すCDのテーマによって激しく髪色、メイクが変わるため，データが偏っていると識別が非常に難しくなります。
+したがってデータセットを作るときにはまんべんなく年代から抽出して作成し、学習させたほうがいいのかもしれません。
+この記事を書く際にはできるだけ最近アップされた画像を使用しています。
+<strong>当然学習には入っていないころのデータ</strong>ですが、まあまあの精度で当ててくれます。<br/>
+こういったところがDeep Learningの面白いところですね。
+例え間違えていても、見当はずれな間違いではなく「あーこれは人間も間違えるかな」っていうことも多いので、実に人間らしいところがあります。</p>
+
+<p>インストールが一番の関門だったりしますが、Caffeを利用して最近大流行りのDeep Learningの最新の技術に触れてみるのもいいかもしれません。<br/>
+もしエラーが出て本記事で登場したプログラムが動かない等の問題が起こりましたら、コメントをください。<br/>
+長編のブログ記事になりましたが、最後まで閲覧してくださりありがとうございました。</p>
+
+<p><a class="swipebox" href="https://farm1.staticflickr.com/700/21767126221_80766ac43f_b.jpg" title="YoonYul">
+  <img class="center image-effect" src="https://farm1.staticflickr.com/700/21767126221_80766ac43f_b.jpg">
+</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Caffeを使って自分で作ったデータセットを学習させる（少女時代編）その1]]></title>
+    <link href="http://ry0.github.io/blog/2015/09/28/caffe-deeplearning-dataset-1/"/>
+    <updated>2015-09-28T02:40:12+09:00</updated>
+    <id>http://ry0.github.io/blog/2015/09/28/caffe-deeplearning-dataset-1</id>
+    <content type="html"><![CDATA[<h2>独自のデータセットで学習、分類</h2>
+
+<p>前回のディープラーニング記事から随分時間が経ってしまいました。
+もし楽しみにしていた人がいたら大変お待たせしました。
+いよいよ前回で作成したデータセットを学習、分類器を作成してみるの回です。<br/>
+できるだけ丁寧に書くつもりなのでよかったら見ていってください。</p>
+
+<!-- more -->
+
+
+<h2>前回までのあらすじ</h2>
+
+<p>時間が経っているので前回までのおさらいをしておきます。<br/>
+今日書く方法は、この手順に沿って行っていますので一応目を通しておいていただくと再現性が高くなります。</p>
+
+<h3>GPUによる並列計算の準備</h3>
+
+<p>もしNVIDIAのグラボを使っているなら、導入してみましょうっていう記事です。</p>
+
+<p><blockquote><p>Ubuntu 14.04にCUDA 7.0とcuDNNを導入する</p><footer><strong>Ry0 Note <a href="http://ry0.github.io/blog/2015/08/12/ubuntu-nvidia-cuda-7.0/">http://ry0.github.io/blog/2015/08/12/ubuntu-nvidia-cuda-7.0/</a> <a href="http://ry0.github.io/blog/2015/08/12/ubuntu-nvidia-cuda-7.0/">http://ry0.github.io/blog/2015/08/12/ubuntu-nvidia-cuda-7.0/</a></strong></footer></blockquote></p>
+
+<h3>Caffeのインストール</h3>
+
+<p>この回でCaffeをインストールしました。</p>
+
+<p><blockquote><p>UbuntuにCaffeをインストールする</p><footer><strong>Ry0 Note <a href="http://ry0.github.io/blog/2015/08/15/caffe-install/">http://ry0.github.io/blog/2015/08/15/caffe-install/</a> <a href="http://ry0.github.io/blog/2015/08/15/caffe-install/">http://ry0.github.io/blog/2015/08/15/caffe-install/</a></strong></footer></blockquote></p>
+
+<h3>データセット作り</h3>
+
+<p>ここで少女時代のメンバーの顔写真データを大量に作りました。
+分別は地獄です。</p>
+
+<p><blockquote><p>Caffeを使ってDeep Learningするためのデータセット作り</p><footer><strong>Ry0 Note <a href="http://ry0.github.io/blog/2015/08/22/create-dataset/">http://ry0.github.io/blog/2015/08/22/create-dataset/</a> <a href="http://ry0.github.io/blog/2015/08/22/create-dataset/">http://ry0.github.io/blog/2015/08/22/create-dataset/</a></strong></footer></blockquote></p>
+
+<h2>本日の作業はここから</h2>
+
+<p>前回のデータセット作りで下のレポジトリを<code>caffe/examples/</code>に<code>clone</code>してくれたと思います。
+学習を行うために本レポジトリに<code>cd</code>しておきます。</p>
+
+<div class="github-widget" data-repo="Ry0/snsd_classify"></div>
+
+
+<pre><code class="bash">cd caffe/examples/snsd_classify
+</code></pre>
+
+<p><a href="http://ry0.github.io/blog/2015/08/22/create-dataset/">前回の記事</a>での作業で<code>snsd_cifar10_test_leveldb</code>と<code>snsd_cifar10_train_leveldb</code>が<code>snsd_classify</code>のディレクリにできていることを確認した後、以下のコマンドを実行します。<br/>
+ただし実行する前に<code>snsd_cifar10_full_solver.prototxt</code>の<strong>最後の行をCPUかGPUを環境に応じて変更</strong>してください。</p>
+
+<pre><code class="bash">./train_full.sh
+</code></pre>
+
+<p>このスクリプトはただ平均画像(meanファイル)の作成、そして学習の実行を行っているだけです。このスクリプトが上手く動作しない場合はスクリプトの内容を一行ずつ実行してみてください。</p>
+
+<p>学習が完了すると<code>snsd_classify</code>のディレクリに以下のファイルが生成されます。</p>
+
+<ul>
+<li><code>snsd_cifar10_full_150717_iter_60000.caffemodel</code></li>
+<li><code>snsd_cifar10_full_150717_iter_60000.solverstate</code></li>
+</ul>
+
+
+<p>ここまでできると学習は完了です。</p>
+
+<h2>学習の結果</h2>
+
+<p>学習の結果を示します。いろいろ試行錯誤した結果、データセットの数が少ないのか普通にCifar10で用いられている学習モデルをそのまま使った場合、<strong>訓練データとテストデータに関する学習の精度の乖離</strong>が見られました。</p>
+
+<h3>Cifar10のモデルを使用した場合</h3>
+
+<p>本レポジトリをそのままクローンした場合、この学習モデルは使っていませんが、レポジトリのブランチを切り替えると試せます。</p>
+
+<p><a class="swipebox" href="https://farm1.staticflickr.com/594/21758706665_25b06c5ff6_z.jpg" title="overtraining">
+  <img class="center image-effect" src="https://farm1.staticflickr.com/594/21758706665_25b06c5ff6_z.jpg">
+</a></p>
+
+<h3>Dropoutを試してみる</h3>
+
+<p>Cifar10の学習のモデルではあまりよい結果が得られなかったので、データをランダムにクロップして学習につかったり、画像を左右反転させたり、データの水増しを行いました。
+あとDropoutと呼ばれるブロックを追加しています。
+このCifar10の学習モデルを改造したもので学習を行っています。</p>
+
+<p><a class="swipebox" href="https://farm1.staticflickr.com/615/21570727510_87fb30542c_z.jpg" title="dropout">
+  <img class="center image-effect" src="https://farm1.staticflickr.com/615/21570727510_87fb30542c_z.jpg">
+</a></p>
+
+<p>上のプロット結果のように何も対策をしていない結果よりも良い結果が得られています。<br/>
+最終的にはテストデータに関する<strong>精度も82%とCifar10のモデルを使用したときよりも精度が向上</strong>しています！</p>
+
+<h2>学習データのプロット方法</h2>
+
+<p>ちなみに学習結果のプロット方法はここのサイトが詳しいですよ。</p>
+
+<p><blockquote><p>CaffeでMNISTを学習した経過をプロットしてみた</p><footer><strong>下丸子のコネクショニスト <a href="http://iamrobotandproud.hatenablog.com/entry/2015/03/16/105746">http://iamrobotandproud.hatenablog.com/entry/2015/03/16/105746</a> <a href="http://iamrobotandproud.hatenablog.com/entry/2015/03/16/105746">http://iamrobotandproud.hatenablog.com/entry/2015/03/16/105746</a></strong></footer></blockquote></p>
+
+<p>このサイトの方法をそのまま使っても訓練データの結果しか出力されません。
+テストデータに関しての結果もプロットするようにしたスクリプトがあるので使ってみてください。
+クローンしてきたレポジトリの<code>snsd_classify/plot/parse_log_mod.sh</code>を<code>/caffe/tools/extra/</code>にコピーして使用し、引用ブログにあるように作業を行って</p>
+
+<pre><code class="bash">./parse_log.sh 上記のログファイルを引数として入力
+</code></pre>
+
+<p>これの代わりに</p>
+
+<pre><code class="bash">./parse_log_mod.sh 上記のログファイルを引数として入力
+</code></pre>
+
+<p>としてください。出力結果をそれぞれ<code>dropout.log.test</code>と<code>dropout.log.train</code>にリネームし、<code>snsd_classify/plot/dropout</code>にコピーしてください。同じファイルがありますが、例として置いているだけなので上書きしてもらって構いません。</p>
+
+<pre><code class="bash">cd snsd_classify/plot/dropout
+gnuplot plot_log.plt
+</code></pre>
+
+<p>で画像が生成されます。</p>
+
+<h2>おわりに？？</h2>
+
+<p>記事が長くなっているので一旦切ります。
+次に分類器にかけてみる話をします。</p>
+
+<p><blockquote><p>Caffeを使って自分で作ったデータセットを学習させる（少女時代編）その2</p><footer><strong>Ry0 Note <a href="http://ry0.github.io/blog/2015/09/28/caffe-deeplearning-dataset-2/">http://ry0.github.io/blog/2015/09/28/caffe-deeplearning-dataset-2/</a> <a href="http://ry0.github.io/blog/2015/09/28/caffe-deeplearning-dataset-2/">http://ry0.github.io/blog/2015/09/28/caffe-deeplearning-dataset-2/</a></strong></footer></blockquote></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Caffeを使ってDeep Learningするためのデータセット作り]]></title>
+    <link href="http://ry0.github.io/blog/2015/08/22/create-dataset/"/>
+    <updated>2015-08-22T22:36:49+09:00</updated>
+    <id>http://ry0.github.io/blog/2015/08/22/create-dataset</id>
+    <content type="html"><![CDATA[<h2>少女時代の顔を自動で切り出す</h2>
+
+<p>本日は<a href="http://ry0.github.io/blog/2015/08/15/caffe-install/">前回に記事</a>でインストールしたCaffeを使ってDeep Learningを行うためのデータセット作成の回です。
+PythonとOpenCVを使って大量の写真から顔を切り出すスクリプトを作成したので、よかったらつかってみてください。</p>
+
+<!-- more -->
+
+
+<h2>環境の確認</h2>
+
+<p>Ubuntuで標準でインストールされているPython 2.7.6を使用しています。<br/>
+<strong>またOpenCVを使用しているため、インストールしておいてください。</strong>
+インストール方法に関しては<a href="http://ry0.github.io/blog/2015/08/15/caffe-install/">前回に記事</a>の最後あたりに書いています。</p>
+
+<h2>ソースコードをClone</h2>
+
+<p>ソースコードはここにあります。
+今回は使いませんが、動画から大量に顔写真を切り出すプログラムもこの中においてます。
+こちらの方は最近メンテナンスしてないので、もしかしたら動画ファイルによってはうまく動かないかもしれません。</p>
+
+<div class="github-widget" data-repo="Ry0/facedetection"></div>
+
+
+<p>このレポジトリを<code>clone</code>してきます。</p>
+
+<pre><code class="bash">git clone https://github.com/Ry0/facedetection.git
+</code></pre>
+
+<p>そして処理の進捗を可視化する関係で以下のパッケージをインストールします。</p>
+
+<pre><code class="bash">sudo pip install progressbar2
+</code></pre>
+
+<h2>元画像の用意</h2>
+
+<p>大量に写真を用意します。写真はjpgかpngで用意してください。
+<strong>フォルダは1つにまとめておく必要がありますが、そのフォルダの中にフォルダを配置して画像を格納しておくのは大丈夫です。</strong>
+zip等の圧縮形式には対応していません。</p>
+
+<p>少女時代の顔識別をしたいので、今回は大量の少女時代写真を用意しました。</p>
+
+<h2>実行</h2>
+
+<p>さっそく実行します。</p>
+
+<pre><code class="bash">cd python
+python facedetect.py src output
+</code></pre>
+
+<p>引数である<code>src</code>は大量の元写真データのフォルダを指定して、<code>output</code>は切り出した画像が保存される場所を指定します。</p>
+
+<p>途中経過の様子はこんな感じです。</p>
+
+<pre><code class="bash">$ python facedetect.py src output
+Input directoryname = src
+Output directoryname = output
+Exist "output" folder.
+File num =  1151
+ 44% (516 of 1151) |##########             | Elapsed Time: 0:00:24 ETA:  0:02:43
+</code></pre>
+
+<p>最後に<code>Complete !</code>と表示されたら正常に完了しています。</p>
+
+<h2>地獄のフォルダ仕分け</h2>
+
+<p>先ほど切り出した顔写真を仕分けする作業を行います。
+この作業が地獄で、顔を検出したといっても誤りも多く、手動で選定しなけれなりません。</p>
+
+<p>仕分け先のフォルダとそのあとの学習を行うためのレポジトリはここにあります。</p>
+
+<div class="github-widget" data-repo="Ry0/snsd_classify"></div>
+
+
+<p>ただし、これは少女時代の顔を識別するためだけに作ったレポジトリですから、目的に応じて使用してください。
+このレポジトリを<code>clone</code>してきます。<code>clone</code>してくる場所はcaffeの中です。</p>
+
+<pre><code class="bash">cd caffe/examples
+git clone https://github.com/Ry0/snsd_classify.git
+</code></pre>
+
+<p><code>clone</code>できたらデータセットの仕分け作業は<code>caffe/examples/snsd_classify/snsd_data</code>の中で行います。
+このディレクトリには<code>0,1,2,3...</code>とフォルダがあると思います。これはそれぞれのメンバーに仕分けるためフォルダです。数字とメンバーの関係は以下の通りです。</p>
+
+<p><a class="swipebox" href="https://farm1.staticflickr.com/586/21746420712_b9081c4372.jpg" title="メンバー対応表">
+  <img class="image-effect" src="https://farm1.staticflickr.com/586/21746420712_b9081c4372.jpg">
+</a></p>
+
+<p>これに従って、ひたすら仕分けします。</p>
+
+<h2>画像の正規化</h2>
+
+<p>仕分けした画像に対して正規化処理を施します。これを行ったほうが学習精度が向上するとかしないとか。
+<strong>これを行うと一生懸命仕分けした画像データが正規化されて上書きされてしまうので、綺麗な状態で一度フォルダをバックアップしておくといいです。</strong></p>
+
+<p>各フォルダに移動してこのコマンドを入力します。</p>
+
+<pre><code class="bash">for file in `ls`; do convert ${file} -equalize ${file}; done
+</code></pre>
+
+<h2>LevelDB形式に変換</h2>
+
+<p><code>caffe/examples/snsd_classify/snsd_data</code>に<code>build_leveldb.py</code>があると思います。これをエディタで開いて43行目を自分のcaffeがインストールされている場所に合わせて変更してください。</p>
+
+<pre><code class="python">path = os.path.join('/home/ry0/Workspace/Python/caffe/examples/snsd_classify', name) #自分の環境に合わせて変更する
+</code></pre>
+
+<p>あと18行目の<code>THUMBNAIL_SIZE = 64</code>と定義しています。<code>snsd_classify</code>のレポジトリでは学習を行う際にデータセットの画像サイズを64にしています。
+少女時代の顔検出をしたいひとであれば、気にせずこのレポジトリの学習モデルを使っていただければいいのですが、cifar10のモデルを使用する場合などは<strong>サイズは32で定義してあります</strong>ので使用する学習モデルに合わせて変更してください。</p>
+
+<p>修正が行えたら、スクリプトを実行します。</p>
+
+<pre><code class="bash">python build_leveldb.py
+</code></pre>
+
+<p>成功したら<code>snsd_classify</code>に<code>snsd_cifar10_test_leveldb</code>、<code>snsd_cifar10_train_leveldb</code>というフォルダができていると思います。
+これでデータセットの用意は終了です。</p>
+
+<h2>おわりに</h2>
+
+<p>私も少女時代のメンバー9人＋負例のetc含めて2万枚程度、手作業で仕分けしました。
+画像の数が多すぎてファイラーがハングアップしたり、なかなか大変な作業です。
+しかしデータセットが多いほど学習の精度は向上しますから、頑張って自分好みのデータセットを作成してみてください。</p>
+
+<p>次回はついにCaffeを使って学習を行います！</p>
+]]></content>
+  </entry>
+  
+</feed>

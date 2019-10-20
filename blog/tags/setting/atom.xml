@@ -1,0 +1,518 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Tag: Setting | Ry0 Note]]></title>
+  <link href="http://ry0.github.io/blog/tags/setting/atom.xml" rel="self"/>
+  <link href="http://ry0.github.io/"/>
+  <updated>2019-10-20T02:14:29+09:00</updated>
+  <id>http://ry0.github.io/</id>
+  <author>
+    <name><![CDATA[Ry0_Ka]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[UbuntuでHDDのマウントポイントを固定する方法]]></title>
+    <link href="http://ry0.github.io/blog/2016/06/27/how-to-fix-mount-of-hdd-in-ubuntu/"/>
+    <updated>2016-06-27T05:15:21+09:00</updated>
+    <id>http://ry0.github.io/blog/2016/06/27/how-to-fix-mount-of-hdd-in-ubuntu</id>
+    <content type="html"><![CDATA[<h2>HDDを一新する機会があったのでメモ</h2>
+
+<p>UbuntuではWindowsのようにC,D,E&hellip;のようにドライブレターを付けて管理する方法をとっていないので、UbuntuのOSが入ったストレージ以外の外付けHDDなどは起動するたびに認識順番によってパスが変わってしまいます。<br/>
+音楽データを再生ソフトにインポートするときに毎回パスが変わってしまうと不都合が起こるので、自分でマウントポイントを固定させています。</p>
+
+<p>今日はその方法を簡単に紹介しておきます。</p>
+
+<!-- more -->
+
+
+<h2>Ubuntuのターミナルを開く</h2>
+
+<p><code>sudo blkid</code>と入力します。<br/>
+するとこんな感じの出力が得られます。</p>
+
+<pre><code>sudo blkid
+[sudo] password for ry0: 
+/dev/sda2: UUID="7ab051c4-d59d-42da-abde-f2acc76e4456" TYPE="swap" 
+/dev/sda3: UUID="dda8076d-7aa4-4f67-b8fb-c372d3b4f3d0" TYPE="ext4" 
+/dev/sda5: UUID="217c6241-aab2-46d3-8cb7-ce45a8b7be67" TYPE="ext4" 
+/dev/sdb1: UUID="90C6D54FC6D535E6" TYPE="ntfs" 
+/dev/sdc2: LABEL="M-cM-^CM-^\M-cM-^CM-*M-cM-^CM-%M-cM-^CM-&lt;M-cM-^CM- " UUID="7C3654FC3475B7BA" TYPE="ntfs" 
+/dev/sdd2: LABEL="M-cM-^CM-^\M-cM-^CM-*M-cM-^CM-%M-cM-^CM-&lt;M-cM-^CM- " UUID="567A23C67A58A3F1" TYPE="ntfs" 
+/dev/sdl1: LABEL="M-cM-^CM--M-cM-^CM-&lt;M-cM-^BM-+M-cM-^CM-+ M-cM-^CM-^GM-cM-^BM-#M-cM-^BM-9M-cM-^BM-/" UUID="36FA567EFA2657A7" TYPE="ntfs"
+</code></pre>
+
+<p>そして固定したいストレージを見極めます。ファイラーでそこにアクセスするか、ターミナルで<code>ls</code>するなど、現時点でどれがどのストレージなのかをしっかり把握しておいてください。<br/>
+固定したいものがわかったら、<code>UUID</code>の文字列をメモしておきます。</p>
+
+<h2>/etc/fstabを編集</h2>
+
+<p>エディタで<code>/etc/fstab</code>を編集します。</p>
+
+<pre><code>sudo gedit /etc/fstab
+</code></pre>
+
+<p>そして最後の行に以下のような記述を追加します。ここでの記述は上で得られた<code>/dev/sdc2:/dev/sdd2:/dev/sdl1:</code>の<code>UUID</code>の結果を例に出しています。</p>
+
+<pre><code>#Windows HDD
+UUID="7C3654FC3475B7BA"   /mnt/hdd1     ntfs    defaults        0 0
+UUID="567A23C67A58A3F1"   /mnt/hdd2     ntfs    defaults        0 0
+UUID="36FA567EFA2657A7"   /mnt/hdd3     ntfs    defaults        0 0
+</code></pre>
+
+<p>しっかりUUIDの記述が間違っていないことを確認したら保存して、リブートします。<code>/mnt/hdd~</code>にマウントされていたら成功です。</p>
+
+<h2>注意</h2>
+
+<h3>マウントできない問題</h3>
+
+<p>Windowsで使っているHDDをマウントさせようしてもマウントできないことがあります。<br/>
+こういうときはWindows側でコントロールパネルから「電源オプション」を開き、「高速スタートアップを有効にする（推奨）」のチェックを外してください。<strong>上の設定をした状態で、これにチェックを入れるとUbuntuが起動できなくなります。</strong></p>
+
+<h3>Ubuntuが起動できなくなった</h3>
+
+<p>こういうときはUbuntuをインストールするときに使ったディスクを使って、ディスクからUbuntuを起動してください。<br/>
+そしてUbuntuがインストールされているディスクの<code>/etc/fstab</code>にアクセスし、<strong>自分で記述した部分を削除してください。これでリセットできるはずです。</strong></p>
+
+<h2>おわりに</h2>
+
+<p>この設定でUbuntuのシステムだけSSDに置いて、音楽データや動画データなどはデュアルブートしてあるWindows側と共有するようにしています。<br/>
+外付けのHDDでも同じことができるので、起動するたびにマウントポイントが変わって困っている人は試してみてください。</p>
+
+<p><blockquote><p></p></p><p><div class="kaerebalink-box"><div class="kaerebalink-image"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00KD9641W/ry00c-22/ref=nosim/" target="_blank" ><img src="http://ecx.images-amazon.com/images/I/41OgsqjweFL._SL160_.jpg" style="border: none;" /></a></div><div class="kaerebalink-info"><div class="kaerebalink-name"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00KD9641W/ry00c-22/ref=nosim/" target="_blank" >HGST(エイチ・ジー・エス・ティー) Deskstar NAS 4TB パッケージ版 3.5インチ 7200rpm 64MBキャッシュ SATA 6Gb/s 【3年保証】 0S03667</a><div class="kaerebalink-powered-date">posted with <a href="http://kaereba.com" rel="nofollow" target="_blank">カエレバ</a></div></div><div class="kaerebalink-detail"> HGST Japan 2014-03-12    </div><div class="kaerebalink-link1"><div class="shoplinkamazon"><a href="http://www.amazon.co.jp/gp/search?keywords=HGST&__mk_ja_JP=%83J%83%5E%83J%83i&tag=ry00c-22" target="_blank" >Amazonで探す</a></div><div class="shoplinkrakuten"><a href="http://hb.afl.rakuten.co.jp/hgc/0e7c6e55.9d33cc01.0e7c6e56.d2bcd23e/?pc=http%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FHGST%2F-%2Ff.1-p.1-s.1-sf.0-st.A-v.2%3Fx%3D0%26scid%3Daf_ich_link_urltxt%26m%3Dhttp%3A%2F%2Fm.rakuten.co.jp%2F" target="_blank" >楽天市場で探す</a></div></div></div><div class="booklink-footer" style="clear: left"></div></div></p><p><br/><p></p></blockquote></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Ubuntuの画面録画が簡単にできるSimpleScreenRecorderのインストール方法と使い方]]></title>
+    <link href="http://ry0.github.io/blog/2016/02/21/simplescreenrecorder/"/>
+    <updated>2016-02-21T23:33:49+09:00</updated>
+    <id>http://ry0.github.io/blog/2016/02/21/simplescreenrecorder</id>
+    <content type="html"><![CDATA[<h2>シンプルだけどしっかり設定もできる</h2>
+
+<p>Ubuntuで画面の録画をするときに何を使っていますか。<br/>
+私は今までKazamというソフトウェアを使っていました。
+Kazamもわかりやすくて使いやすいアプリです。しかしマルチモニターの環境だと上手く録画できなかったり、保存の際に保存画面が出ずに閉じられてしまうことがあったので別のアプリを探していました。</p>
+
+<p>今日ブログで書くSimpleScreenRecorderはまさにそのとき見つけたアプリで、YoutubeにアップされているUbuntuのスクリーンキャプチャもこのアプリで録画されているものをちらほら見かけたので使ってみました。</p>
+
+<!-- more -->
+
+
+<h2>インストール</h2>
+
+<p>Ubuntu 14.04の環境で試しています。<br/>
+インストールは簡単で新たにリポジトリを追加してインストールするたけ。</p>
+
+<pre><code class="bash">sudo add-apt-repository ppa:maarten-baert/simplescreenrecorder
+sudo apt-get update
+sudo apt-get install simplescreenrecorder
+</code></pre>
+
+<h2>実際につかってみる</h2>
+
+<p>NVIDIAのグラボを使っていると以下のようなアラートがでました。親切に言ってくれているので言うとおりにYESを押しておきます。
+「NVIDIA X Sercer Settings」を確認すると確かにその設定項目がありました。OpenGL SettingsのAllow Flippingです。</p>
+
+<p><a class="swipebox" href="https://farm2.staticflickr.com/1539/24543853683_ea2fbde59b.jpg" title="">
+  <img class="center image-effect" src="https://farm2.staticflickr.com/1539/24543853683_ea2fbde59b.jpg">
+</a></p>
+
+<p>続行を選択。</p>
+
+<p><a class="swipebox" href="https://farm2.staticflickr.com/1611/25077441471_abe589f2c5_b.jpg" title="">
+  <img class="center image-effect" src="https://farm2.staticflickr.com/1611/25077441471_abe589f2c5_b.jpg">
+</a></p>
+
+<p>映像入力でどこを録画するか決定します。全画面も任意の場所を選択する場合もどちらの場合もうまく録画できました。<br/>
+音声は必要ない場合は「音声を記録」のチェック項目を外しておきます。</p>
+
+<p><a class="swipebox" href="https://farm2.staticflickr.com/1549/25077441391_c43b73f576_b.jpg" title="">
+  <img class="center image-effect" src="https://farm2.staticflickr.com/1549/25077441391_c43b73f576_b.jpg">
+</a></p>
+
+<p>保存場所を指定して、コンテナを「mp4」に。コーデックは「H.264」にしておきました。</p>
+
+<p><a class="swipebox" href="https://farm2.staticflickr.com/1596/25052421612_b2e2d2f284_b.jpg" title="">
+  <img class="center image-effect" src="https://farm2.staticflickr.com/1596/25052421612_b2e2d2f284_b.jpg">
+</a></p>
+
+<p>録画のスタートはデフォルトの設定の場合、<code>Ctrl + R</code>で開始されます。
+ですのでSimpleScreenRecorderのウィンドウは最小化しておいて、ショートカットで開始させるとスムーズに目的の画面を録画することができると思います。
+録画を終了するときも<code>Ctrl + R</code>で止めます。<br/>
+「録画を保存」で指定した場所に保存されます。</p>
+
+<p><a class="swipebox" href="https://farm2.staticflickr.com/1493/25077441161_dc916a9e61_b.jpg" title="">
+  <img class="center image-effect" src="https://farm2.staticflickr.com/1493/25077441161_dc916a9e61_b.jpg">
+</a></p>
+
+<h2>おわりに</h2>
+
+<p>今日は短めですが、たったこれだけでしっかりと画面録画できるのでこれからも使っていきたいアプリです。
+PCに負荷がかかっているときの録画も途中で落ちることなく録画しておいてくれるのでなかなかいいですよ。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[NEC Aterm MR04LNをAmazonタイムセールで衝動買い]]></title>
+    <link href="http://ry0.github.io/blog/2016/01/17/nec-aterm-mr04ln/"/>
+    <updated>2016-01-17T22:37:48+09:00</updated>
+    <id>http://ry0.github.io/blog/2016/01/17/nec-aterm-mr04ln</id>
+    <content type="html"><![CDATA[<h2>Amazonのタイムセールでついに買ってしまった</h2>
+
+<p>今まで定期的にAmazonのタームセールで登場していたNEC製の「MR04LN」。
+良いものであることはわかっていたんですが、毎日使うわけではないモバイルルーターということでなかなか購入する優先度が上がらず踏みとどまっていました。</p>
+
+<p>ずっと使っていたモバイルルーター「L-09C」はバッテリーがすぐヘタってしまい、使いづらくなっていたのでよい機会だと思い購入しました。</p>
+
+<p>新年に入って起きていた「ルーターの時間が表示されない」、「データ使用量が更新されない」といったいわゆる2016年問題が起きたときの対処法もメモしておいたのでご覧ください。</p>
+
+<!-- more -->
+
+
+<h2>開封</h2>
+
+<p>シンプルなデザインのダンボールに入ってました。</p>
+
+<p><a class="swipebox" href="https://farm2.staticflickr.com/1463/24354639971_606063bd87_h.jpg" title="箱">
+  <img class="center image-effect" src="https://farm2.staticflickr.com/1463/24354639971_e8c69bc51e_b.jpg">
+</a></p>
+
+<p>中に入っていた物は、ルーター本体、バッテリー、裏蓋、microUSBケーブル、充電用ACアダプターです。あと写真には写ってませんが、説明書等の紙がいくつか入ってました。<br/>
+充電をするための一式が入っていたのは親切ですが、<strong>コネクタはmicroUSBでスマホの充電器を流用できる</strong>ので特に使ってません。</p>
+
+<p><a class="swipebox" href="https://farm2.staticflickr.com/1527/24141382770_3d7569478c_h.jpg" title="内容物">
+  <img class="center image-effect" src="https://farm2.staticflickr.com/1527/24141382770_335dd16149_b.jpg">
+</a></p>
+
+<h2>外観</h2>
+
+<p><strong>ルーター上面は光沢がある感じで、指紋がつきやすいです。また傷も入りやすそうなので、気になる人は保護フィルムを貼るなどして対策をする必要ありです。</strong>
+私は家にあった他の端末用のフィルムをカットして貼りました．</p>
+
+<p><a class="swipebox" href="https://farm2.staticflickr.com/1624/24439198845_329d8af87c_h.jpg" title="L-09Cと比較">
+  <img class="center image-effect" src="https://farm2.staticflickr.com/1624/24439198845_e0668ae4fe_b.jpg">
+</a></p>
+
+<p>おまけで今まで使っていたL−09Cも一緒に写真を撮りました。外形は大体同じサイズです。<strong>持った感じが明らかにMR04LNのほうが軽いです。</strong></p>
+
+<p>裏面は表面と打って変わってザラザラな感じです。ゴム素材というわけではなく、ただただ硬いプラスチックのザラザラ加工といった感じ。
+もうちょっと高級感がある素材でもいいかなと思いました。</p>
+
+<p><a class="swipebox" href="https://farm2.staticflickr.com/1519/23808780294_174e2f1fdd_h.jpg" title="裏面の質感">
+  <img class="center image-effect" src="https://farm2.staticflickr.com/1519/23808780294_b2d942279d_b.jpg">
+</a></p>
+
+<p>一番わかりやすそうなiPhoneとの大きさ比較。iPhone 5sよりも少し小さいですね。
+あとルーターのほうは最大輝度にしているにもかかわらず、液晶がちょっとボロく見えます。</p>
+
+<p><a class="swipebox" href="https://farm2.staticflickr.com/1486/24354529331_6c41274986_h.jpg" title="iPhone 5sとの大きさ比較">
+  <img class="center image-effect" src="https://farm2.staticflickr.com/1486/24354529331_7333cc2d49_b.jpg">
+</a></p>
+
+<p>厚みに関してはMR04LNが分厚いです。</p>
+
+<p><a class="swipebox" href="https://farm2.staticflickr.com/1612/23808769604_bd2eb720d3_h.jpg" title="iPhone 5sと厚み比較">
+  <img class="center image-effect" src="https://farm2.staticflickr.com/1612/23808769604_3a1abe86e7_b.jpg">
+</a></p>
+
+<h2>使った感じ</h2>
+
+<p>もちろんMR04LNはSIMフリーなので、docomo、au、SoftBankの主要なBandに対応していますし、海外に行った時も現地でSIMを調達することで通信を行うことができます。
+<strong>格安SIMとの相性も抜群なので、毎月安く外出先で通信を行いたい方にはかなりおすすめなルーターです。</strong></p>
+
+<p>そしてこのルーターのよいところは大体の設定が画面のタッチパネルで行うことができる点です。今までL-09Cを使っていた私にとってはかなり大きな変化でした。
+<strong>写真のようにAPNの設定だけでなく周波数帯の切り替え、SIMカードの切り替えなど多くの操作をタッチパネルで行うことができます。</strong>
+毎回変えることがないような高度な設定はブラウザを経由して設定画面から行う必要があります。</p>
+
+<p><a class="swipebox" href="https://farm2.staticflickr.com/1712/24142876170_01035dc36a_h.jpg" title="設定画面">
+  <img class="center image-effect" src="https://farm2.staticflickr.com/1712/24142876170_ace637a16f_b.jpg">
+</a></p>
+
+<p>タッチパネルはもう少しだけ反応がよかったら完璧でしたね。。。</p>
+
+<h2>SIM変換アダプターの件</h2>
+
+<p>MR04LNのSIM対応サイズはmicro SIMです。nano SIMが一般的になっているので、手持ちのSIMのサイズと違って困ることがあります。<br/>
+しかも<strong>このルーターはSIM変換アダプターを使ってはいけませんという記述が。</strong>
+この記述は本体にも説明書にも書かれており、また使って壊した場合はどんな理由であれ、有償修理になりますよという注意書きがありました。<br/>
+<strong>使ってはいけませんと書いてあったら使ってみたくなりますよね！</strong>
+<strong>結果から言うと写真のようにしっかりはまっていて通信も問題なく行えます。</strong>
+使用したSIM下駄は<a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00J2VIPC8/ry00c-22/ref=nosim/">これ</a>です．</p>
+
+<p><a class="swipebox" href="https://farm2.staticflickr.com/1531/24328717372_3f22c84f64_h.jpg" title="SIM変換アダプターを使った結果">
+  <img class="center image-effect" src="https://farm2.staticflickr.com/1531/24328717372_460e9f311b_b.jpg">
+</a></p>
+
+<p>SIM変換アダプターを推奨しない理由は、SIMカードの差し込み方にあると思います。このルーターのSIMスロットは、ただ単に差し込むタイプではなく、<strong>一回「くちゅ」っとクリック感がある差し込み方法だからです。</strong>
+この機構のせいで、アダプターの厚みがスロットの厚みと合わずに引っかかったり、取り外すときにSIMだけとれてしまい、アダプターだけがスロットに残ってしまう危険性があります。
+ですので、<strong>変換アダプターを使う場合は、精度のよい変換アダプターを購入し、SIMカードとアダプターがしっかりとフィットさせるように気をつけながら抜き差しを行ってください。</strong><br/>
+<strong>壊れても私は責任を負えませんので参考程度にしてくださいね。</strong></p>
+
+<h2>2016年問題の件</h2>
+
+<p>2016年に入ってから時間や使用容量がおかしくなるという問題がありました。
+この問題も既に解決済みのファームフェアが公開されています。しかしルーター単体では何度試してもアップデートできなかったのでパソコン経由でアップデートする方法をメモしておきます。</p>
+
+<p><a href="http://www.aterm.jp/mobile/info/mr04ln/verup.html">http://www.aterm.jp/mobile/info/mr04ln/verup.html</a>から、MR04LNファームウェアをダウンロードしてきます。
+そしてパソコンやタブレットをMR04LN経由でネットワーク接続します。ブラウザを使って<a href="http://192.168.179.1">http://192.168.179.1</a>にアクセスするとAtermの設定画面でてくるはずです。<br/>
+そこから「メンテナンス」→「ファームフェア更新」からダウンロードしてきたファイルを解凍したファイルの1つである<code>mr04ln_1_1_1.bin</code>を選択して<code>更新</code>ボタンを押す。</p>
+
+<p><a class="swipebox" href="https://farm2.staticflickr.com/1688/24355891591_22e6b14bfa_b.jpg" title="ファームフェア手動更新">
+  <img class="center image-effect" src="https://farm2.staticflickr.com/1688/24355891591_22e6b14bfa_b.jpg">
+</a></p>
+
+<p>しばらく待っているとファームフェア更新が完了します。これで2016年問題は解決できます。</p>
+
+<h2>おわりに</h2>
+
+<h3>良かった点</h3>
+
+<ul>
+<li>バッテリーの持ちがいい</li>
+<li>SIMフリーかつ、2枚SIMが挿せる</li>
+<li>使用データ容量の管理がしやすい</li>
+</ul>
+
+
+<p>L-09Cと比べてバッテリーの持ちがよいのはもちろんで、一定以上使わなかったときの電源管理など少しでも長く使えるような工夫がなされているので良かったです。<br/>
+そしてSIMが2枚挿せるので、SIMケースとしても有用です。<br/>
+最後に格安SIMなどは高速通信できる容量が決まっています。<strong>またパソコンを接続した場合、思いのほか通信してしまう場合があるので、常に通信した容量が気になります。</strong>
+したがって、<strong>ルーターに常に使用容量がリアルタイムで更新されて表示されるのは非常にいいと思いました。</strong>またSIMカードを切り替えても、SIMそれぞれ切り分けて使用容量を保持しているので安心です。</p>
+
+<h3>悪かった点</h3>
+
+<ul>
+<li>タッチパネルの感度</li>
+<li>SIMの切り替え時間</li>
+<li>SIMがnano SIMじゃない</li>
+</ul>
+
+
+<p>前にも書いたんですが、タッチパネルの感度が悪いです。悪いときは全然反応してくれない時があるので、そこが残念でした。<br/>
+またSIMの切り替え時間が遅いことです。もっとささっと切り替えられると思っていたんですが、再起動をしたり案外時間がかかります。たぶんこれが当然何だと思いますが、これだと電源を落として使いたいSIMを差し替えるのとあんまり変わらない気がしたので、ちょっと残念でした。<br/>
+SIMのサイズに関しては上で書いた通りです。</p>
+
+<h3>コメント</h3>
+
+<p>いろいろ書いてきましたが、満足度は高かったです。
+<strong>モバイルルーターはスマホのように1年たったらもう時代遅れという状況も起きづらいので、完成度の高いMR04LN、いいと思います。</strong><br/>
+Amazonでも定期的にセールを行っているので、目安としてクレードルなしのモデルの場合、15,000円以下になっているときが買いですね。
+クレードル付きのモデルもあるので、有線LANで接続したい場合など用途に応じて検討してみてください。</p>
+
+<p><blockquote><p></p></p><p><div class="kaerebalink-box"><div class="kaerebalink-image"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B010F4OBT6/ry00c-22/ref=nosim/" target="_blank" ><img src="http://ecx.images-amazon.com/images/I/41MnK1buauL._SL160_.jpg" style="border: none;" /></a></div><div class="kaerebalink-info"><div class="kaerebalink-name"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B010F4OBT6/ry00c-22/ref=nosim/" target="_blank" >【Amazon.co.jp限定】NEC Aterm MR04LN 3B LTE対応 モバイルルーター 【OCN モバイル ONE マイクロSIM付】 クレードル付属</a><div class="kaerebalink-powered-date">posted with <a href="http://kaereba.com" rel="nofollow" target="_blank">カエレバ</a></div></div><div class="kaerebalink-detail"> NTTコミュニケーションズ 2015-07-16    </div><div class="kaerebalink-link1"><div class="shoplinkamazon"><a href="http://www.amazon.co.jp/gp/search?keywords=MR04LN&__mk_ja_JP=%83J%83%5E%83J%83i&tag=ry00c-22" target="_blank" >Amazonで探す</a></div><div class="shoplinkrakuten"><a href="http://hb.afl.rakuten.co.jp/hgc/0e7c6e55.9d33cc01.0e7c6e56.d2bcd23e/?pc=http%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FMR04LN%2F-%2Ff.1-p.1-s.1-sf.0-st.A-v.2%3Fx%3D0%26scid%3Daf_ich_link_urltxt%26m%3Dhttp%3A%2F%2Fm.rakuten.co.jp%2F" target="_blank" >楽天市場で探す</a></div></div></div><div class="booklink-footer" style="clear: left"></div></div></p><p><br/><p></p></blockquote></p>
+
+<p><blockquote><p></p></p><p><div class="kaerebalink-box"><div class="kaerebalink-image"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B010UKEDD4/ry00c-22/ref=nosim/" target="_blank" ><img src="http://ecx.images-amazon.com/images/I/41EyJoxhATL._SL160_.jpg" style="border: none;" /></a></div><div class="kaerebalink-info"><div class="kaerebalink-name"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B010UKEDD4/ry00c-22/ref=nosim/" target="_blank" >防気泡・防指紋!反射低減保護フィルム 『Perfect Shield Aterm MR04LN』</a><div class="kaerebalink-powered-date">posted with <a href="http://kaereba.com" rel="nofollow" target="_blank">カエレバ</a></div></div><div class="kaerebalink-detail"> PDA工房     </div><div class="kaerebalink-link1"><div class="shoplinkamazon"><a href="http://www.amazon.co.jp/gp/search?keywords=MR04LN&__mk_ja_JP=%83J%83%5E%83J%83i&tag=ry00c-22" target="_blank" >Amazonで探す</a></div><div class="shoplinkrakuten"><a href="http://hb.afl.rakuten.co.jp/hgc/0e7c6e55.9d33cc01.0e7c6e56.d2bcd23e/?pc=http%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FMR04LN%2F-%2Ff.1-p.1-s.1-sf.0-st.A-v.2%3Fx%3D0%26scid%3Daf_ich_link_urltxt%26m%3Dhttp%3A%2F%2Fm.rakuten.co.jp%2F" target="_blank" >楽天市場で探す</a></div></div></div><div class="booklink-footer" style="clear: left"></div></div></p><p><br/><p></p></blockquote></p>
+
+<p><blockquote><p></p></p><p><div class="kaerebalink-box"><div class="kaerebalink-image"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00J2VIPC8/ry00c-22/ref=nosim/" target="_blank" ><img src="http://ecx.images-amazon.com/images/I/41wyY0sUxwL._SL160_.jpg" style="border: none;" /></a></div><div class="kaerebalink-info"><div class="kaerebalink-name"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00J2VIPC8/ry00c-22/ref=nosim/" target="_blank" >F.Wave 【Amazon限定】Lucky ｺﾞｰﾙﾄﾞｶﾗｰ nano SIM変換アダプター4点セット　Gold color（標準 ﾏｲｸﾛ Nano) iPhone6/6plus/5S/5C/4S/4/3GS/3用 Gold 金色 f.wave of FuturePlus Original</a><div class="kaerebalink-powered-date">posted with <a href="http://kaereba.com" rel="nofollow" target="_blank">カエレバ</a></div></div><div class="kaerebalink-detail"> F.Wave Concept     </div><div class="kaerebalink-link1"><div class="shoplinkamazon"><a href="http://www.amazon.co.jp/gp/search?keywords=SIM%95%CF%8A%B7%83A%83_%83v%83%5E%81%5B&__mk_ja_JP=%83J%83%5E%83J%83i&tag=ry00c-22" target="_blank" >Amazonで探す</a></div><div class="shoplinkrakuten"><a href="http://hb.afl.rakuten.co.jp/hgc/0e7c6e55.9d33cc01.0e7c6e56.d2bcd23e/?pc=http%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FSIM%25E5%25A4%2589%25E6%258F%259B%25E3%2582%25A2%25E3%2583%2580%25E3%2583%2597%25E3%2582%25BF%25E3%2583%25BC%2F-%2Ff.1-p.1-s.1-sf.0-st.A-v.2%3Fx%3D0%26scid%3Daf_ich_link_urltxt%26m%3Dhttp%3A%2F%2Fm.rakuten.co.jp%2F" target="_blank" >楽天市場で探す</a></div></div></div><div class="booklink-footer" style="clear: left"></div></div></p><p><br/><p></p></blockquote></p>
+
+<p><blockquote><p></p></p><p><div class="kaerebalink-box"><div class="kaerebalink-image"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B01686PJF0/ry00c-22/ref=nosim/" target="_blank" ><img src="http://ecx.images-amazon.com/images/I/418XJgp3xHL._SL160_.jpg" style="border: none;" /></a></div><div class="kaerebalink-info"><div class="kaerebalink-name"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B01686PJF0/ry00c-22/ref=nosim/" target="_blank" >Ciscle SIM 変換アダプタ Nano SIMカードをMicroSIMカード·SIMカードに変換 4点セット SIMカードケース SIMカードホルダー SIMカードの整理·紛失防止アイテム（ブラック）</a><div class="kaerebalink-powered-date">posted with <a href="http://kaereba.com" rel="nofollow" target="_blank">カエレバ</a></div></div><div class="kaerebalink-detail"> Ciscle     </div><div class="kaerebalink-link1"><div class="shoplinkamazon"><a href="http://www.amazon.co.jp/gp/search?keywords=SIM%20%95%CF%8A%B7%83A%83_%83v%83%5E&__mk_ja_JP=%83J%83%5E%83J%83i&tag=ry00c-22" target="_blank" >Amazonで探す</a></div><div class="shoplinkrakuten"><a href="http://hb.afl.rakuten.co.jp/hgc/0e7c6e55.9d33cc01.0e7c6e56.d2bcd23e/?pc=http%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FSIM%2520%25E5%25A4%2589%25E6%258F%259B%25E3%2582%25A2%25E3%2583%2580%25E3%2583%2597%25E3%2582%25BF%2F-%2Ff.1-p.1-s.1-sf.0-st.A-v.2%3Fx%3D0%26scid%3Daf_ich_link_urltxt%26m%3Dhttp%3A%2F%2Fm.rakuten.co.jp%2F" target="_blank" >楽天市場で探す</a></div></div></div><div class="booklink-footer" style="clear: left"></div></div></p><p><br/><p></p></blockquote></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[雑誌デジモノステーションに付属している0SIMを開通してみた]]></title>
+    <link href="http://ry0.github.io/blog/2015/12/28/digimono-station-0sim/"/>
+    <updated>2015-12-28T00:42:10+09:00</updated>
+    <id>http://ry0.github.io/blog/2015/12/28/digimono-station-0sim</id>
+    <content type="html"><![CDATA[<h2>今話題の雑誌付きSIMカードを試す</h2>
+
+<p>一昨日から話題になっているSIMカード付き雑誌「デジモノステーション」を購入してみました。
+また実際に開通手続きを済ませ、携帯側の設定や通信テストまで行った結果を書きます。</p>
+
+<p>この雑誌の付録SIMをうまく運用する方法も少し紹介します。</p>
+
+<!-- more -->
+
+
+<h2>今回の付録のSIMカード</h2>
+
+<p>今までも雑誌にSIMカードが付いていることは何度かありました。
+新規にMVNO事業に参入したり、新しいプランを普及させるためのプロモーションですね。</p>
+
+<p>とりわけ今回のSIMカードが話題なのは、<strong>初回手続き料が無料なのはもちろん、毎月499MBまでの使用が無料であることです。</strong>またこれを超えて使っても1,600円です。使いすぎて莫大な金額を請求されることはないので安心です。また面白いプランが出ましたね。</p>
+
+<p><a class="swipebox" href="https://farm2.staticflickr.com/1590/24004996875_46c432b3f9_h.jpg" title="ちゃんとSIMカード入ってる！">
+  <img class="center image-effect" src="https://farm2.staticflickr.com/1590/24004996875_3a5fe5fc90_b.jpg">
+</a></p>
+
+<h2>さっそく開通手続き</h2>
+
+<p>雑誌の説明に書かれている通り、以下のページにアクセスします。</p>
+
+<p><blockquote><p>アクティベーショントップ</p><footer><strong>So-net <a href="http://lte.so-net.ne.jp/r/0sim/a/">http://lte.so-net.ne.jp/r/0sim/a/</a> <a href="http://lte.so-net.ne.jp/r/0sim/a/">http://lte.so-net.ne.jp/r/0sim/a/</a></strong></footer></blockquote></p>
+
+<p>「アクティベーションへ」をクリックして、次のページに進みます。<br/>
+すると以下のようなフォームが読み込まれます。</p>
+
+<p><a class="swipebox" href="https://farm2.staticflickr.com/1698/23922413321_0be320949b_b.jpg" title="打ち込む情報">
+  <img class="center image-effect" src="https://farm2.staticflickr.com/1698/23922413321_0be320949b_b.jpg">
+</a></p>
+
+<p><strong>雑誌に付いているSIMカードに記載されている情報を打ち込むんですが、一瞬どれを打ち込むのかわからなかったので実際の写真でご確認ください。</strong>モザイクばっかですみません。</p>
+
+<p><a class="swipebox" href="https://farm2.staticflickr.com/1701/23378165073_fc8a8b9645_h.jpg" title="SIMカードに記載されている情報">
+  <img class="center image-effect" src="https://farm2.staticflickr.com/1701/23378165073_225d7f1a39_b.jpg">
+</a></p>
+
+<p>打ち終えたら、今度は契約者の情報を打ち込みます。名前、住所、電話番号くらいです。<br/>
+続いて、クレジットカード情報を追加します。<strong>デビットカードは使えないという記述があったので注意してください。</strong></p>
+
+<h2>端末側の設定</h2>
+
+<p>SIMカードをさしてAPNの設定をします。APNの情報は以下の通りです。<br/>
+今回は<a href="http://ry0.github.io/blog/2015/12/28/galaxy-s6-edge-sc-04g/">最近仕入れたばかりのGalaxy S6 edge</a>で試しました。メーカーによって微妙に画面の見た目が違うと思います。</p>
+
+<ul>
+<li>ネットワーク名： so-net</li>
+<li>APN： so-net.jp</li>
+<li>ユーザー名： nuro</li>
+<li>パスワード： nuro</li>
+<li>認証方法： PAPまたはCHAP</li>
+</ul>
+
+
+<p><a class="swipebox" href="https://farm2.staticflickr.com/1663/23709265700_c26e277484_h.jpg" title="APNの設定スクショ">
+  <img class="center image-effect" src="https://farm2.staticflickr.com/1663/23709265700_1ef6168b23_z_d.jpg">
+</a></p>
+
+<p>これで少し待っているとアンテナが立って通信が確認できると思います。</p>
+
+<h2>毎月ぜったい無料で使ってやる！って人におすすめ設定</h2>
+
+<p>設定の「データ使用量」の項目で「モバイルデータ制限を設定」のチェックを入れます。
+そしてスクショのように上限を500MBを下回る数字に設定しておきます。これで指定した制限に達した場合、通信が無効になります。</p>
+
+<p><a class="swipebox" href="https://farm2.staticflickr.com/1537/23378164113_6247c38e0d_h.jpg" title="500MBで制限をかける">
+  <img class="center image-effect" src="https://farm2.staticflickr.com/1537/23378164113_818275d655_z_d.jpg">
+</a></p>
+
+<p>ただし、<strong>複数の端末で刺して使ったり、別のSIMと交換しながら使うと正しい計測ができないので注意です。</strong><br/>
+正確な使用量を見るためには以下のページから確認できます。</p>
+
+<p><blockquote><p>ユーザーWEB (利用状況確認、情報変更)</p><footer><strong>So-net <a href="https://www.so-net.ne.jp/retail/w/">https://www.so-net.ne.jp/retail/w/</a> <a href="https://www.so-net.ne.jp/retail/w/">https://www.so-net.ne.jp/retail/w/</a></strong></footer></blockquote></p>
+
+<p>また前日までにデータ使用量が400MBを超えると登録メールアドレスに連絡が来るそうです。<br/>
+<strong>最近はモバイルデータ通信でもYoutubeがHD画質でさくさく見ることができるので、データ通信量が多くなりがちです。Twitterやメール、Webページ閲覧程度にとどめておきましょう。またアプリの自動更新も注意です。設定でオフにするかWiFi環境のみ自動アップデートにするなど設定しておくと安心です。</strong><br/>
+そうしないと、おそらく警告メールが来る前に500MB付近まで簡単に到達すると思います。</p>
+
+<h2>スピードテストで速度確認</h2>
+
+<p>深夜に計測したので、なんともいえませんが、十分出てると思います。</p>
+
+<p><a class="swipebox" href="https://farm6.staticflickr.com/5756/23898081722_e1039bf5c3_k_d.jpg" title="SpeedTest">
+  <img class="center image-effect" src="https://farm6.staticflickr.com/5756/23898081722_a0ba8f159f_z_d.jpg">
+</a></p>
+
+<h2>おわりに</h2>
+
+<p>これをデータ通信用のメインで使うことはたぶんないですが、お守りとして持っておくといいなと思いました。<br/>
+例えば、タブレット端末で普段はWiFiメインで使って、出先でどうしても通信をしないといけなくなった時に使うといった使い方ができると思います。</p>
+
+<p>しかし<strong>このSIMは3ヶ月全くパケットを通さなかった場合、契約が自動解約となるので注意が必要です。</strong>今月使わなかったな…と思ったら、スピードテストでもしておきましょう。</p>
+
+<p>Amazonでは「デジモノステーション」が売り切れになっており、マーケットプレイスでは倍以上の値段で売られていますが、私の地元ではそこら辺の本屋さんでも普通に売っていたのでネットで購入するのが難しい場合、実店舗を少し回ってみるといいかもしれません。<br/>
+気づけば、私の実家には3冊も同じ雑誌が並べらています&hellip;</p>
+
+<p>最後に、この雑誌に付いているSIMカードはnanoSIMですので、お手持ちの端末がどのサイズのSIMカード対応か確認してください。大きいサイズの場合、SIM下駄を買う必要があります。</p>
+
+<p><blockquote><p></p></p><p><div class="kaerebalink-box"><div class="kaerebalink-image"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00J2VIPC8/ry00c-22/ref=nosim/" target="_blank" ><img src="http://ecx.images-amazon.com/images/I/41BzLVsIxPL._SL160_.jpg" style="border: none;" /></a></div><div class="kaerebalink-info"><div class="kaerebalink-name"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00J2VIPC8/ry00c-22/ref=nosim/" target="_blank" >F.Wave 【Amazon限定】Lucky ｺﾞｰﾙﾄﾞｶﾗｰ nano SIM変換アダプター4点セット　Gold color（標準 ﾏｲｸﾛ Nano) iPhone6/6plus/5S/5C/4S/4/3GS/3用 Gold 金色 f.wave of FuturePlus Original</a><div class="kaerebalink-powered-date">posted with <a href="http://kaereba.com" rel="nofollow" target="_blank">カエレバ</a></div></div><div class="kaerebalink-detail"> F.Wave Concept     </div><div class="kaerebalink-link1"><div class="shoplinkamazon"><a href="http://www.amazon.co.jp/gp/search?keywords=F.Wave%20%81yAmazon%8C%C0%92%E8%81zLucky%20%BA%DE%B0%D9%C4%DE%B6%D7%B0%20nano%20SIM%95%CF%8A%B7%83A%83_%83v%83%5E%81%5B4%93_%83Z%83b%83g%81%40Gold%20color%81i%95W%8F%80%20%CF%B2%B8%DB%20Nano%29%20iPhone6%2F6plus%2F5S%2F5C%2F4S%2F4%2F3GS%2F3%97p%20Gold%20%8B%E0%90F%20f.wave%20of%20FuturePlus%20Original&__mk_ja_JP=%83J%83%5E%83J%83i&tag=ry00c-22" target="_blank" >Amazonで探す</a></div><div class="shoplinkrakuten"><a href="http://hb.afl.rakuten.co.jp/hgc/0e7c6e55.9d33cc01.0e7c6e56.d2bcd23e/?pc=http%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FF.Wave%2520%25E3%2580%2590Amazon%25E9%2599%2590%25E5%25AE%259A%25E3%2580%2591Lucky%2520%25EF%25BD%25BA%25EF%25BE%259E%25EF%25BD%25B0%25EF%25BE%2599%25EF%25BE%2584%25EF%25BE%259E%25EF%25BD%25B6%25EF%25BE%2597%25EF%25BD%25B0%2520nano%2520SIM%25E5%25A4%2589%25E6%258F%259B%25E3%2582%25A2%25E3%2583%2580%25E3%2583%2597%25E3%2582%25BF%25E3%2583%25BC4%25E7%2582%25B9%25E3%2582%25BB%25E3%2583%2583%25E3%2583%2588%25E3%2580%2580Gold%2520color%25EF%25BC%2588%25E6%25A8%2599%25E6%25BA%2596%2520%25EF%25BE%258F%25EF%25BD%25B2%25EF%25BD%25B8%25EF%25BE%259B%2520Nano%2529%2520iPhone6%252F6plus%252F5S%252F5C%252F4S%252F4%252F3GS%252F3%25E7%2594%25A8%2520Gold%2520%25E9%2587%2591%25E8%2589%25B2%2520f.wave%2520of%2520FuturePlus%2520Original%2F-%2Ff.1-p.1-s.1-sf.0-st.A-v.2%3Fx%3D0%26scid%3Daf_ich_link_urltxt%26m%3Dhttp%3A%2F%2Fm.rakuten.co.jp%2F" target="_blank" >楽天市場で探す</a></div></div></div><div class="booklink-footer" style="clear: left"></div></div></p><p><br/><p></p></blockquote></p>
+
+<p><blockquote><p></p></p><p><div class="kaerebalink-box"><div class="kaerebalink-image"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B018UJLJU2/ry00c-22/ref=nosim/" target="_blank" ><img src="http://ecx.images-amazon.com/images/I/61GLv9Q98fL._SL160_.jpg" style="border: none;" /></a></div><div class="kaerebalink-info"><div class="kaerebalink-name"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B018UJLJU2/ry00c-22/ref=nosim/" target="_blank" >デジモノステーション 2016年02月号</a><div class="kaerebalink-powered-date">posted with <a href="http://kaereba.com" rel="nofollow" target="_blank">カエレバ</a></div></div><div class="kaerebalink-detail"> エムオン・エンタテインメント 2015-12-25    </div><div class="kaerebalink-link1"><div class="shoplinkamazon"><a href="http://www.amazon.co.jp/gp/search?keywords=%83f%83W%83%82%83m%83X%83e%81%5B%83V%83%87%83%93%202016%94N02%8C%8E%8D%86&__mk_ja_JP=%83J%83%5E%83J%83i&tag=ry00c-22" target="_blank" >Amazonで探す</a></div><div class="shoplinkrakuten"><a href="http://hb.afl.rakuten.co.jp/hgc/0e7c6e55.9d33cc01.0e7c6e56.d2bcd23e/?pc=http%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2F%25E3%2583%2587%25E3%2582%25B8%25E3%2583%25A2%25E3%2583%258E%25E3%2582%25B9%25E3%2583%2586%25E3%2583%25BC%25E3%2582%25B7%25E3%2583%25A7%25E3%2583%25B3%25202016%25E5%25B9%25B402%25E6%259C%2588%25E5%258F%25B7%2F-%2Ff.1-p.1-s.1-sf.0-st.A-v.2%3Fx%3D0%26scid%3Daf_ich_link_urltxt%26m%3Dhttp%3A%2F%2Fm.rakuten.co.jp%2F" target="_blank" >楽天市場で探す</a></div></div></div><div class="booklink-footer" style="clear: left"></div></div></p><p><br/><p></p></blockquote></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Macでターミナルを開くショートカットを作成する]]></title>
+    <link href="http://ry0.github.io/blog/2015/10/21/open-terminal-shortcut/"/>
+    <updated>2015-10-21T11:28:47+09:00</updated>
+    <id>http://ry0.github.io/blog/2015/10/21/open-terminal-shortcut</id>
+    <content type="html"><![CDATA[<h2>Automatorを使ってターミナルをショートカットで立ち上げる</h2>
+
+<p>こんにちは。Macでターミナルを開くことがありますか？<br/>
+たまに使いたいとき、Ubuntuのように<code>Ctrl + Alt + T</code>で開きたいときがあります。
+残念ながら標準ではターミナルのショートカットは存在しないので、Automatorを使ってショートカットを作成してみます。<br/>
+最近環境をリセットしたせいで、どうやったか忘れてしまったのでメモを残しておきます。</p>
+
+<!-- more -->
+
+
+<h2>Automatorを立ち上げる</h2>
+
+<p><code>cmd + space</code>でSpotlightでAutomatorを立ち上げます。
+普段使わないアプリケーションなので、この方法が一番簡単に探せると思います。</p>
+
+<p><a class="swipebox" href="https://farm1.staticflickr.com/760/22348309145_857b3435ea_b.jpg" title="Automatorの立ち上げ">
+  <img class="center image-effect" src="https://farm1.staticflickr.com/760/22348309145_857b3435ea_b.jpg">
+</a></p>
+
+<p>立ち上げたら、「新規書類」を選択します。</p>
+
+<p><a class="swipebox" href="https://farm6.staticflickr.com/5825/21725533704_35ac62b38a_b.jpg" title="新規書類">
+  <img class="center image-effect" src="https://farm6.staticflickr.com/5825/21725533704_35ac62b38a_b.jpg">
+</a></p>
+
+<h2>スクリプトの作成</h2>
+
+<p>「新規書類」を選択したら「サービス」を選択します。</p>
+
+<p><a class="swipebox" href="https://farm6.staticflickr.com/5794/22348308965_ab2fa9c23f_b.jpg" title="サービス">
+  <img class="center image-effect" src="https://farm6.staticflickr.com/5794/22348308965_ab2fa9c23f_b.jpg">
+</a></p>
+
+<p>アクションの中から「アプリケーションを起動」を選択。アクション名を打ち込んで検索するのが手っ取り早いと思います。</p>
+
+<p><a class="swipebox" href="https://farm1.staticflickr.com/757/21727221833_15cb3ed4fb_b.jpg" title="アプリケーションを起動">
+  <img class="center image-effect" src="https://farm1.staticflickr.com/757/21727221833_15cb3ed4fb_b.jpg">
+</a></p>
+
+<p>起動させるアプリケーションを選びます。ターミナルならばユーティリティの場所にあります。</p>
+
+<p><a class="swipebox" href="https://farm1.staticflickr.com/618/22160997418_d0627aa610_b.jpg" title="ターミナルの場所">
+  <img class="center image-effect" src="https://farm1.staticflickr.com/618/22160997418_d0627aa610_b.jpg">
+</a></p>
+
+<p><strong>ここで注意で、スクリーンショットのように「入力なし」にするのを忘れないでください。</strong>
+これをすっかり忘れていて、少々悩みました。</p>
+
+<p><a class="swipebox" href="https://farm1.staticflickr.com/767/22348514395_52d45666d8_b.jpg" title="入力なし">
+  <img class="center image-effect" src="https://farm1.staticflickr.com/767/22348514395_52d45666d8_b.jpg">
+</a></p>
+
+<p>ここまでできたら保存してください。名前は自由ですが、わかりやすい名前にしておいたほうがあとからショートカット一覧から探しやすいと思います。</p>
+
+<p><a class="swipebox" href="https://farm1.staticflickr.com/717/21727222573_f0afd2d7a4_b.jpg" title="保存">
+  <img class="center image-effect" src="https://farm1.staticflickr.com/717/21727222573_f0afd2d7a4_b.jpg">
+</a></p>
+
+<h2>ショートカットの設定</h2>
+
+<p>環境設定の中の「キーボード」を選んで&hellip;</p>
+
+<p><a class="swipebox" href="https://farm1.staticflickr.com/673/21725532414_18e2c80c0a_b.jpg" title="">
+  <img class="center image-effect" src="https://farm1.staticflickr.com/673/21725532414_18e2c80c0a_b.jpg">
+</a></p>
+
+<p><strong>「ショートカット」の「サービス」の一番最後のあたりに先ほど作成したワークフローがあります。</strong>
+これのショートカットキーを設定します。これも好きなショートカットキーを設定してください。
+私は<code>Ctrl + Alt + T</code>に設定しました。</p>
+
+<p><a class="swipebox" href="https://farm6.staticflickr.com/5646/22358972151_ce7788a93a_b.jpg" title="">
+  <img class="center image-effect" src="https://farm6.staticflickr.com/5646/22358972151_ce7788a93a_b.jpg">
+</a></p>
+
+<p>この設定を終わらせても、うまくターミナルが立ち上がらない場合は、なんらかのアプリケーションのショートカットと今設定したショートカットが衝突している可能性があります。使ってなさそうなキーの組み合わせで試してください。</p>
+
+<h2>おわりに</h2>
+
+<p>最近ちょっとずつMacの環境を今まで使っていた環境に戻すようにいろいろやってたんですが、使いやすいように環境を整えるのは時間がかかりますね。<br/>
+今までの方法ではうまく行かなくなったことも多くあります。</p>
+
+<p>いつもの癖で<code>Ctrl + Alt + T</code>を押してもMacでは何も反応しないので困っていました。
+この方法であれば、ターミナルでなくてもどのアプリケーションでもショートカットを作成できるので、使用頻度の高いアプリケーションのショートカットを設定してみてはいかがでしょうか。</p>
+]]></content>
+  </entry>
+  
+</feed>

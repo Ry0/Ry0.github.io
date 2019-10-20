@@ -1,0 +1,517 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Tag: Windows | Ry0 Note]]></title>
+  <link href="http://ry0.github.io/blog/tags/windows/atom.xml" rel="self"/>
+  <link href="http://ry0.github.io/"/>
+  <updated>2019-10-20T02:14:29+09:00</updated>
+  <id>http://ry0.github.io/</id>
+  <author>
+    <name><![CDATA[Ry0_Ka]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Samsung microSDXCカード 128GB EVO+ Class10の購入レビュー]]></title>
+    <link href="http://ry0.github.io/blog/2016/06/12/mb-mc128da/"/>
+    <updated>2016-06-12T05:06:56+09:00</updated>
+    <id>http://ry0.github.io/blog/2016/06/12/mb-mc128da</id>
+    <content type="html"><![CDATA[<h2>microSDカードなのに128GB</h2>
+
+<p>ブログを復活させたいのになかなか更新できていません。レビューしたいものはたくさんあるんですが。</p>
+
+<p>今日はSamsung製のmicroSDカードの紹介です。容量は128GBで、Class10です。公称値では最大読出速度80MB/s、最大書込速度20MB/sだそうです。このあたりも自分で計測してみたので、参考にしてみてください。</p>
+
+<!-- more -->
+
+
+<p>携帯音楽プレーヤー用の音楽データもflacを使っている関係(わざわざmp3に圧縮するのが面倒)で以前使っていた64GBのmicroSDカードでも容量がいっぱいになってきたので、この商品を購入しました。最近はメモリやHDDなどの記憶媒体の値段が落ち着いてきており、このSDカードも<strong>128GBにも関わらず、5,000円以下で購入することができました。</strong></p>
+
+<h2>パッケージはフラストレーション・フリー・パッケージ</h2>
+
+<p>アマゾンでポチるばっかりすると、すぐ家が箱だらけになるので、簡素なパッケージは大歓迎です。
+中にはSDカードと最低限の注意書きの紙が入ってました。</p>
+
+<p><a class="swipebox" href="https://farm8.staticflickr.com/7371/27604010295_f8f3bcc666_h.jpg" title="パッケージ">
+  <img class="center image-effect" src="https://farm8.staticflickr.com/7371/27604010295_08a87c9244_b.jpg">
+</a></p>
+
+<p>カードは赤を基調としたデザイン。128GBであることがすぐわかるデザインなので、見分けがつきやすいですね。</p>
+
+<p><a class="swipebox" href="https://farm8.staticflickr.com/7730/27604003585_4971869c99_h.jpg" title="本体">
+  <img class="center image-effect" src="https://farm8.staticflickr.com/7730/27604003585_811d1c19c5_b.jpg">
+</a></p>
+
+<p>microSD→SDカード変換用のアダプターもついてました。</p>
+
+<p><a class="swipebox" href="https://farm8.staticflickr.com/7325/27604005855_866ce7d025_h.jpg" title="アダプター">
+  <img class="center image-effect" src="https://farm8.staticflickr.com/7325/27604005855_fef9b570f7_b.jpg">
+</a></p>
+
+<h2>速度計測</h2>
+
+<p>最大読出速度80MB/s、最大書込速度20MB/sのはずが、思っていたよりあまり出ていませんね。速度は重視していなかったので問題ないです。速度重視ならば、もう少し上位モデルを購入するべきでしょう。</p>
+
+<p><a class="swipebox" href="https://farm8.staticflickr.com/7796/26994252624_b07f40b957.jpg" title="CrystalDiskMark">
+  <img class="center image-effect" src="https://farm8.staticflickr.com/7796/26994252624_b07f40b957.jpg">
+</a></p>
+
+<h2>FAT32にフォーマット</h2>
+
+<p>SDXC規格はファイルシステムがexFATかNTFSです。<strong>Windowsでも、exFATかNTFSのいずれでしかフォーマットできません。</strong>
+しかし私が持っているプレイヤーはFAT32しか対応していないので、無理やりFAT32でフォーマットする必要がありました。</p>
+
+<p>そこで「Disk Formatter」と呼ばれるBUFFALO製のフォーマットソフトを使ってフォーマットしました。
+このソフトは<a href="http://buffalo.jp/download/driver/hd/format.html#1">ここ</a>からダウンロードしてインストールします。サイトには対応OSがWindows 7まででしたが、普通にWindows 10で使えました。</p>
+
+<p>使い方も簡単で、2つくらいボタンを押すだけで操作が完了します。</p>
+
+<p><a class="swipebox" href="https://farm8.staticflickr.com/7478/27604003525_a843251e12_z.jpg" title="Disk Formatter">
+  <img class="center image-effect" src="https://farm8.staticflickr.com/7478/27604003525_a843251e12_z.jpg">
+</a></p>
+
+<h2>実際に使ってみる</h2>
+
+<p>このSDカードはCOWON J3に使います。たぶん高校生のときからずっと使っています。今でこそWalkmanでもmicroSDで容量を拡張できたり、flacの再生ができますが、2010年当時は本当にレアは存在でした。<br/>
+この他にタッチパネル、Bluetooth、スピーカー、豊富なイコライザー、有志によって作成された独自UIの導入ができたりと完璧な音楽プレイヤーでした。</p>
+
+<p>確かに今の音楽プレイヤーのほうがハイレゾ対応だったりして、いい音を出すと思いますけど、私はJ3が好きなのでずっと使ってます。</p>
+
+<p>128GBのmicroSDカードもフォーマットさえあわせてやればしっかり認識してくれるJ3、素晴らしい。</p>
+
+<p><a class="swipebox" href="https://farm8.staticflickr.com/7665/27505011522_ad40e8175d_h.jpg" title="COWON J3">
+  <img class="center image-effect" src="https://farm8.staticflickr.com/7665/27505011522_f3ec0f59a4_b.jpg">
+</a></p>
+
+<h2>おわりに</h2>
+
+<p>あんなに小さいのに128GBと巨大なデータを保存できるなんて、ほんとに現代の技術力に感謝します。しかもほんと安く購入できます。スマートフォンでよく動画を撮ったり、動画をたくさん入れたい人におすすめしたい商品です。<br/>
+とても小さいので緊急用の巨大ストレージとしても十分使えると思いますよ。</p>
+
+<p><blockquote><p></p></p><p><div class="kaerebalink-box"><div class="kaerebalink-image"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B019FKR6LG/ry00c-22/ref=nosim/" target="_blank" ><img src="http://ecx.images-amazon.com/images/I/51xTH4gZ0GL._SL160_.jpg" style="border: none;" /></a></div><div class="kaerebalink-info"><div class="kaerebalink-name"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B019FKR6LG/ry00c-22/ref=nosim/" target="_blank" >Samsung microSDXCカード 128GB EVO+ Class10 UHS-I対応 (最大読出速度80MB/s:最大書込速度20MB/s) MB-MC128DA/FFP</a><div class="kaerebalink-powered-date">posted with <a href="http://kaereba.com" rel="nofollow" target="_blank">カエレバ</a></div></div><div class="kaerebalink-detail"> 日本サムスン 2015-12-25    </div><div class="kaerebalink-link1"><div class="shoplinkamazon"><a href="http://www.amazon.co.jp/gp/search?keywords=Samsung%20microSDXC%83J%81%5B%83h%20128GB%20EVO%20%20Class10&__mk_ja_JP=%83J%83%5E%83J%83i&tag=ry00c-22" target="_blank" >Amazonで探す</a></div><div class="shoplinkrakuten"><a href="http://hb.afl.rakuten.co.jp/hgc/0e7c6e55.9d33cc01.0e7c6e56.d2bcd23e/?pc=http%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FSamsung%2520microSDXC%25E3%2582%25AB%25E3%2583%25BC%25E3%2583%2589%2520128GB%2520EVO%2520%2520Class10%2F-%2Ff.1-p.1-s.1-sf.0-st.A-v.2%3Fx%3D0%26scid%3Daf_ich_link_urltxt%26m%3Dhttp%3A%2F%2Fm.rakuten.co.jp%2F" target="_blank" >楽天市場で探す</a></div></div></div><div class="booklink-footer" style="clear: left"></div></div></p><p><br/><p></p></blockquote></p>
+
+<p><blockquote><p></p></p><p><div class="kaerebalink-box"><div class="kaerebalink-image"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B009D79VH4/ry00c-22/ref=nosim/" target="_blank" ><img src="http://ecx.images-amazon.com/images/I/31mvshhOrFL._SL160_.jpg" style="border: none;" /></a></div><div class="kaerebalink-info"><div class="kaerebalink-name"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B009D79VH4/ry00c-22/ref=nosim/" target="_blank" >Transcend USB 3.0 Super Speed カードリーダー (SD/SDHC UHS-I/SDXC UHS-I/microSDXC UHS-I 対応) ブラック 2年保証 TS-RDF5K</a><div class="kaerebalink-powered-date">posted with <a href="http://kaereba.com" rel="nofollow" target="_blank">カエレバ</a></div></div><div class="kaerebalink-detail"> トランセンド・ジャパン     </div><div class="kaerebalink-link1"><div class="shoplinkamazon"><a href="http://www.amazon.co.jp/gp/search?keywords=Transcend%20USB%203.0%20Super%20Speed%20%83J%81%5B%83h%83%8A%81%5B%83_%81%5B&__mk_ja_JP=%83J%83%5E%83J%83i&tag=ry00c-22" target="_blank" >Amazonで探す</a></div><div class="shoplinkrakuten"><a href="http://hb.afl.rakuten.co.jp/hgc/0e7c6e55.9d33cc01.0e7c6e56.d2bcd23e/?pc=http%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FTranscend%2520USB%25203.0%2520Super%2520Speed%2520%25E3%2582%25AB%25E3%2583%25BC%25E3%2583%2589%25E3%2583%25AA%25E3%2583%25BC%25E3%2583%2580%25E3%2583%25BC%2F-%2Ff.1-p.1-s.1-sf.0-st.A-v.2%3Fx%3D0%26scid%3Daf_ich_link_urltxt%26m%3Dhttp%3A%2F%2Fm.rakuten.co.jp%2F" target="_blank" >楽天市場で探す</a></div></div></div><div class="booklink-footer" style="clear: left"></div></div></p><p><br/><p></p></blockquote></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[EC Technology Bluetooth4.0スピーカー ポータブルミニ 5W EC01のレビュー]]></title>
+    <link href="http://ry0.github.io/blog/2016/01/10/ec-technology-bluetooth4-0-speaker-portable-mini-5w/"/>
+    <updated>2016-01-10T01:45:16+09:00</updated>
+    <id>http://ry0.github.io/blog/2016/01/10/ec-technology-bluetooth4-0-speaker-portable-mini-5w</id>
+    <content type="html"><![CDATA[<h2>コンパクトなワイヤレススピーカーです</h2>
+
+<p>2016年1本目の記事は、EC Technology様よりBluetoothスピーカーを提供していただいたので使ってみた感想を書きたいと思います。<br/>
+本ブログ初のレビューの依頼を頂いたので気合入れていきます！</p>
+
+<!-- more -->
+
+
+<h2>まずはパッケージ</h2>
+
+<p>箱はスマートフォン、PCの周辺機器のパッケージでよく見られるシンプルなデザインです。</p>
+
+<p><a class="swipebox" href="https://farm2.staticflickr.com/1653/24271398555_a5f52b021c_h.jpg" title="箱">
+  <img class="center image-effect" src="https://farm2.staticflickr.com/1653/24271398555_fcc454568a_b.jpg">
+</a></p>
+
+<p>本体以外に付属品として<strong>本体充電用のUSBケーブルと有線接続用ステレオミニプラグケーブル、説明書が入ってました。</strong></p>
+
+<h2>本体</h2>
+
+<p>本体の外観です。スピーカー上部には電源オンオフなどを行う「ファンクションキー」があります。</p>
+
+<p><a class="swipebox" href="https://farm2.staticflickr.com/1716/24163265982_68a371e269_h.jpg" title="フロントビュー">
+  <img class="center image-effect" src="https://farm2.staticflickr.com/1716/24163265982_e3298e8a21_b.jpg">
+</a></p>
+
+<p>スピーカー背部には充電用のmicro USB端子、ステレオミニプラグ、曲送りやボリュームを調節するためのボタンがあります。</p>
+
+<p><a class="swipebox" href="https://farm2.staticflickr.com/1568/24245287076_a91b30bcb6_h.jpg" title="裏面">
+  <img class="center image-effect" src="https://farm2.staticflickr.com/1568/24245287076_a44fb9f7b0_b.jpg">
+</a></p>
+
+<p>本体の表面はツヤありの加工です。真正面から見ると真っ黒ですが、見る角度よっては茶色っぽく見えます。
+<strong>このツヤ感も決して安っぽさはなく、上品な感じで好きです。また真ん中に通る青色の線がアクセントになってデザインもかっこいいと思います。</strong></p>
+
+<p><a class="swipebox" href="https://farm2.staticflickr.com/1583/23644605863_716b9a5b72_h.jpg" title="つやつやな表面"></p>
+
+<p>  <img class="center image-effect" src="https://farm2.staticflickr.com/1583/23644605863_c50607bfba_b.jpg">
+</a></p>
+
+<p>底はゴム素材で覆われていて、かつスピーカーもちょうどいい重さなので机にしっかりと置くことができます。</p>
+
+<p><a class="swipebox" href="https://farm2.staticflickr.com/1571/24188875781_9d19e2e716_h.jpg" title="机にしっかり置ける">
+  <img class="center image-effect" src="https://farm2.staticflickr.com/1571/24188875781_cc922946b4_b.jpg">
+</a></p>
+
+<h2>スマートフォン、PCと接続</h2>
+
+<p>各端末のBluetooth設定画面にて、ペアリングを行います。iOS、Android、Mac、Windows様々な環境で接続できるのがいいですね。
+また<strong>マルチペアリング対応なので、複数のデバイスとの接続情報を保持できるので、一度ペアリング作業をしておけば、設定画面からワンタッチで接続できます。</strong></p>
+
+<p>iOSは画面上部にBluetoothで接続したデバイスのバッテリー表示もできるんですね。端末側でバッテリー残量を確認できるので便利です。
+iOS以外のデバイスで接続した場合も、スピーカー本体の音量＋キーを2回押して、スピーカー上部のインジケーターの赤LEDの点滅回数によって残量を確認できます。</p>
+
+<p><a class="swipebox" href="https://farm2.staticflickr.com/1647/24189600761_3199b2b0ae_b.jpg" title="スマホペアリング画面">
+  <img class="center image-effect" src="https://farm2.staticflickr.com/1647/24189600761_3199b2b0ae_b.jpg">
+</a></p>
+
+<p>Bluetoothが搭載されているPCであればスマホと同様に接続できます。</p>
+
+<p><a class="swipebox" href="https://farm2.staticflickr.com/1574/24164106982_5b252efd5c_b.jpg" title="Macのペアリング画面">
+  <img class="center image-effect" src="https://farm2.staticflickr.com/1574/24164106982_5b252efd5c_b.jpg">
+</a></p>
+
+<p>接続もスムーズで音楽再生中に音が途切れたりすることはありませんでした。
+また音量も小型ながら十分大きい音を出せてます。音量の調整も0から最大まで細かく調整できるので、周辺環境にあった音量で音を聞くことができますね。</p>
+
+<p>ひとつ残念だった点は、スピーカー自体の電源をオンオフした際のビープ音の大きさです。
+<strong>大きな音で「ピー」っと鳴るのでもう少し小さな音でもよかったかなと思いました。</strong></p>
+
+<p><a class="swipebox" href="https://farm2.staticflickr.com/1695/23903591569_b40c7e9586_h.jpg" title="スマホで動画を再生した感じ">
+  <img class="center image-effect" src="https://farm2.staticflickr.com/1695/23903591569_bbe3ce97c3_b.jpg">
+</a></p>
+
+<p>動画を視聴する際にも動画と音声のズレはほとんど感じなかったので遅延に関する問題も、神経質にこだわらなければ大丈夫です。
+というのもapt-xやLDACなどの高音質向けのBluetoothコーデックには対応していないので、過度な期待は禁物です。</p>
+
+<h2>おわりに</h2>
+
+<p>Blutoothスピーカーは今まで購入したことがなかったので、新鮮な気持ちでレビューできました。</p>
+
+<p>普段はイヤホン、ヘッドホンにて音を出力していますが、<strong>複数の人たちと動画を見たり、音楽を共有する際にはやはりスピーカーがあると便利ですね。</strong>
+また有用そうなシチュエーションとして、ある程度の大きさの部屋で発表プレゼンをするときです。
+<strong>動画音声の再生をPCから出力しただけでは心もとないなってときに使えたらいいなと思いました。</strong></p>
+
+<p>値段も3,000円以下と安価ですので、気軽に音楽をスマホ内蔵のスピーカーじゃなくてちゃんとしたスピーカーで視聴したいなという人におすすめです。</p>
+
+<p>EC Technology様、この度はお声を掛けていただきありがとうございました。</p>
+
+<p><blockquote><p></p></p><p><div class="kaerebalink-box"><div class="kaerebalink-image"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00L3ZQ0KA/ry00c-22/ref=nosim/" target="_blank" ><img src="http://ecx.images-amazon.com/images/I/41HuiCJ8JaL._SL160_.jpg" style="border: none;" /></a></div><div class="kaerebalink-info"><div class="kaerebalink-name"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00L3ZQ0KA/ry00c-22/ref=nosim/" target="_blank" >EC Technology Bluetooth4.0スピーカー ポータブルミニ 5W 省電力設計 ブラック</a><div class="kaerebalink-powered-date">posted with <a href="http://kaereba.com" rel="nofollow" target="_blank">カエレバ</a></div></div><div class="kaerebalink-detail"> EC Technology     </div><div class="kaerebalink-link1"><div class="shoplinkamazon"><a href="http://www.amazon.co.jp/gp/search?keywords=Bluetooth%20%83X%83s%81%5B%83J%81%5B&__mk_ja_JP=%83J%83%5E%83J%83i&tag=ry00c-22" target="_blank" >Amazonで探す</a></div><div class="shoplinkrakuten"><a href="http://hb.afl.rakuten.co.jp/hgc/0e7c6e55.9d33cc01.0e7c6e56.d2bcd23e/?pc=http%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FBluetooth%2520%25E3%2582%25B9%25E3%2583%2594%25E3%2583%25BC%25E3%2582%25AB%25E3%2583%25BC%2F-%2Ff.1-p.1-s.1-sf.0-st.A-v.2%3Fx%3D0%26scid%3Daf_ich_link_urltxt%26m%3Dhttp%3A%2F%2Fm.rakuten.co.jp%2F" target="_blank" >楽天市場で探す</a></div></div></div><div class="booklink-footer" style="clear: left"></div></div></p><p><br/><p></p></blockquote></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[FILCO Majestouchのキーキャップを交換した]]></title>
+    <link href="http://ry0.github.io/blog/2015/11/15/fkcs108nb/"/>
+    <updated>2015-11-15T02:41:00+09:00</updated>
+    <id>http://ry0.github.io/blog/2015/11/15/fkcs108nb</id>
+    <content type="html"><![CDATA[<h2>かななしキーキャップでキーボードをスタイリッシュに</h2>
+
+<p>FILCO Majestouch Convertible2のJIS配列のキーボードにはかな刻印のモデルしかないので、交換用キーキャップセットを用意してキーボードのデザインをできるだけシンプルにしてみました。</p>
+
+<p>商品名は「<a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00R1BZ3LC/ry00c-22/ref=nosim/">FILCO Majestouchシリーズ専用交換用キーキャップセット 日本語108キー(91キー兼用) カナなしモデル ブラック FKCS108NB</a>」です。</p>
+
+<!-- more -->
+
+
+<p>ちなみにキートップを交換したFILCO Majestouch Convertible2のレビュー記事も書いてます。よかったらご覧ください。</p>
+
+<p><blockquote><p>Majestouch Convertible2を購入</p><footer><strong>Ry0 Note <a href="http://ry0.github.io/blog/2015/01/25/majestouch-convertible2/">http://ry0.github.io/blog/2015/01/25/majestouch-convertible2/</a> <a href="http://ry0.github.io/blog/2015/01/25/majestouch-convertible2/">http://ry0.github.io/blog/2015/01/25/majestouch-convertible2/</a></strong></footer></blockquote></p>
+
+<h2>パッケージ</h2>
+
+<p>キーボード本体と同じ大きさです。
+付属品はキー引抜工具とスペースやエンターなどの大きいキーに付けられている補助用パーツでした。</p>
+
+<p><a class="swipebox" href="https://farm6.staticflickr.com/5738/22621665589_cf615d18ff_h.jpg" title="箱">
+  <img class="center image-effect" src="https://farm6.staticflickr.com/5738/22621665589_9bb691cf49_b.jpg">
+</a></p>
+
+<p><a class="swipebox" href="https://farm6.staticflickr.com/5766/22988626726_95f9681fea_h.jpg" title="付属品">
+  <img class="center image-effect" src="https://farm6.staticflickr.com/5766/22988626726_6254ce9b66_b.jpg">
+</a></p>
+
+<h2>早速交換</h2>
+
+<p>まだ購入して1年も経っていないキーボードなので、キーボードの印字も全くはげていません。<br/>
+もったいないですが、単なる自己満足で交換してみます。<br/>
+よーく見ると結構汚いですがお許しください。</p>
+
+<p><a class="swipebox" href="https://farm6.staticflickr.com/5762/22595544977_4b82ec5b6e_h.jpg" title="FILCO Majestouch Convertible2 交換前">
+  <img class="center image-effect" src="https://farm6.staticflickr.com/5762/22595544977_1c30f8f3d5_b.jpg">
+</a></p>
+
+<p>かなの印字がされているキーだけ交換します。<br/>
+<strong>いつも綺麗にしているつもりでも、キーボードの底には大量のホコリが。</strong>
+あまり上手に取り除くことができませんでしたが、よしとします。</p>
+
+<p><a class="swipebox" href="https://farm1.staticflickr.com/727/23025146001_2aec2ff08f_h.jpg" title="交換するボタンを全部とった！">
+  <img class="center image-effect" src="https://farm1.staticflickr.com/727/23025146001_8df32dbb5f_b.jpg">
+</a></p>
+
+<p>かななしキーに交換。<br/>
+正直変わったのか微妙ですが、<strong>キーの表示がアルファベットだけになって少しかっこよくなりました。</strong></p>
+
+<p><a class="swipebox" href="https://farm1.staticflickr.com/631/23014016755_6a296e6ae9_h.jpg" title="交換後">
+  <img class="center image-effect" src="https://farm1.staticflickr.com/631/23014016755_843cf40147_b.jpg">
+</a></p>
+
+<p><a class="swipebox" href="https://farm1.staticflickr.com/757/22595555757_a2f8c02dab_h.jpg" title="交換後">
+  <img class="center image-effect" src="https://farm1.staticflickr.com/757/22595555757_c908c86563_b.jpg">
+</a></p>
+
+<h2>おわりに</h2>
+
+<p>Cherry MXスイッチの高級キーボードでありながら、無線対応のMajestouch Convertibleがさらにかっこよくなりました。これからも愛用していこうと思います。</p>
+
+<p>使いすぎてMajestouchのキーの印刷がとれてしまった人や、かなが印字されていない方が好きな人は交換してみてはいかがでしょうか。</p>
+
+<p><blockquote><p></p></p><p><div class="kaerebalink-box"><div class="kaerebalink-image"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00R1BZ3LC/ry00c-22/ref=nosim/" target="_blank" ><img src="http://ecx.images-amazon.com/images/I/41uaWikxBSL._SL160_.jpg" style="border: none;" /></a></div><div class="kaerebalink-info"><div class="kaerebalink-name"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00R1BZ3LC/ry00c-22/ref=nosim/" target="_blank" >FILCO Majestouchシリーズ専用交換用キーキャップセット 日本語108キー(91キー兼用) カナなしモデル ブラック FKCS108NB</a><div class="kaerebalink-powered-date">posted with <a href="http://kaereba.com" rel="nofollow" target="_blank">カエレバ</a></div></div><div class="kaerebalink-detail"> FILCO 2014-12-18    </div><div class="kaerebalink-link1"><div class="shoplinkamazon"><a href="http://www.amazon.co.jp/gp/search?keywords=Majestouch%83V%83%8A%81%5B%83Y%90%EA%97p%8C%F0%8A%B7%97p%83L%81%5B%83L%83%83%83b%83v%83Z%83b%83g&__mk_ja_JP=%83J%83%5E%83J%83i&tag=ry00c-22" target="_blank" >Amazonで探す</a></div><div class="shoplinkrakuten"><a href="http://hb.afl.rakuten.co.jp/hgc/0e7c6e55.9d33cc01.0e7c6e56.d2bcd23e/?pc=http%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FMajestouch%25E3%2582%25B7%25E3%2583%25AA%25E3%2583%25BC%25E3%2582%25BA%25E5%25B0%2582%25E7%2594%25A8%25E4%25BA%25A4%25E6%258F%259B%25E7%2594%25A8%25E3%2582%25AD%25E3%2583%25BC%25E3%2582%25AD%25E3%2583%25A3%25E3%2583%2583%25E3%2583%2597%25E3%2582%25BB%25E3%2583%2583%25E3%2583%2588%2F-%2Ff.1-p.1-s.1-sf.0-st.A-v.2%3Fx%3D0%26scid%3Daf_ich_link_urltxt%26m%3Dhttp%3A%2F%2Fm.rakuten.co.jp%2F" target="_blank" >楽天市場で探す</a></div></div></div><div class="booklink-footer" style="clear: left"></div></div></p><p><br/><p></p></blockquote></p>
+
+<p><blockquote><p></p></p><p><div class="kaerebalink-box"><div class="kaerebalink-image"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00QIH2DZY/ry00c-22/ref=nosim/" target="_blank" ><img src="http://ecx.images-amazon.com/images/I/41%2BJP67ZUyL._SL160_.jpg" style="border: none;" /></a></div><div class="kaerebalink-info"><div class="kaerebalink-name"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00QIH2DZY/ry00c-22/ref=nosim/" target="_blank" >FILCO Majestouch Convertible2 茶軸(Cherry MXスイッチ) 日本語108メカニカルキーボード Bluetooth3.0&USB 無線/有線両対応 カナ刻印あり BTマルチペアリング4台対応 ブラック FKBC108M/JB2</a><div class="kaerebalink-powered-date">posted with <a href="http://kaereba.com" rel="nofollow" target="_blank">カエレバ</a></div></div><div class="kaerebalink-detail"> FILCO 2014-12-18    </div><div class="kaerebalink-link1"><div class="shoplinkamazon"><a href="http://www.amazon.co.jp/gp/search?keywords=FILCO%20Majestouch%20Convertible2&__mk_ja_JP=%83J%83%5E%83J%83i&tag=ry00c-22" target="_blank" >Amazonで探す</a></div><div class="shoplinkrakuten"><a href="http://hb.afl.rakuten.co.jp/hgc/0e7c6e55.9d33cc01.0e7c6e56.d2bcd23e/?pc=http%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FFILCO%2520Majestouch%2520Convertible2%2F-%2Ff.1-p.1-s.1-sf.0-st.A-v.2%3Fx%3D0%26scid%3Daf_ich_link_urltxt%26m%3Dhttp%3A%2F%2Fm.rakuten.co.jp%2F" target="_blank" >楽天市場で探す</a></div></div></div><div class="booklink-footer" style="clear: left"></div></div></p><p><br/><p></p></blockquote></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[ChainLPのインストール方法と使い方 for Kindle Paperwhite 2015]]></title>
+    <link href="http://ry0.github.io/blog/2015/11/04/how-to-use-chainlp-for-kindle-paperwhite-2015/"/>
+    <updated>2015-11-04T17:52:51+09:00</updated>
+    <id>http://ry0.github.io/blog/2015/11/04/how-to-use-chainlp-for-kindle-paperwhite-2015</id>
+    <content type="html"><![CDATA[<h2>フリーソフトでもしっかりKindle対応の電子書籍フォーマットに変換できます</h2>
+
+<p>Kindleで自炊したファイルを読み込ませる場合、PDFやZIPで固めたものを転送して読むことができます。<br/>
+しかしこれでは容量が重くてページをめくる際や拡大時に非常に読み込みの時間がかかってしまいストレスです。</p>
+
+<p>そこでKindleが対応している電子書籍フォーマットに変換し、圧縮をかけることで読み込み時間の短縮とKindleの空き容量削減を行おうと思います。<br/>
+今日はWindowsのフリーソフト「ChainLP」のインストール方法と設定について書きます。<br/>
+「kindlestrip.py」を使ったmobiファイルの圧縮方法も紹介します。</p>
+
+<!-- more -->
+
+
+<p><strong>最新版のKindle Paperwhiteはちょっと前にレビューしてます。もしよければ見てください。</strong></p>
+
+<p><blockquote><p>Kindle Paperwhite 2015年版を購入、レビュー</p><footer><strong>Ry0 Note <a href="http://ry0.github.io/blog/2015/10/04/kindle-paperwhite-2015/">http://ry0.github.io/blog/2015/10/04/kindle-paperwhite-2015/</a> <a href="http://ry0.github.io/blog/2015/10/04/kindle-paperwhite-2015/">http://ry0.github.io/blog/2015/10/04/kindle-paperwhite-2015/</a></strong></footer></blockquote></p>
+
+<h2>インストール</h2>
+
+<h3>ChainLP</h3>
+
+<p>ChainLP本体のファイルをダウンロードします。製作者さんのサイトからダウンロードしてきます。</p>
+
+<p><blockquote><p>ChainLP V0.40-17</p><footer><strong>No.722 <a href="http://no722.cocolog-nifty.com/blog/2013/02/chainlp-v040-17.html">http://no722.cocolog-nifty.com/blog/2013/02/chainlp-v040-17.html</a></strong></footer></blockquote></p>
+
+<p>ダウンロードしてきたら適当なところに展開しておいてください。
+インストーラー等はないので展開した場所が実行場所になります。</p>
+
+<p><a class="swipebox" href="https://farm1.staticflickr.com/603/22740905596_4067050fbc_b.jpg" title="ChainLP40b17">
+  <img class="center image-effect" src="https://farm1.staticflickr.com/603/22740905596_4067050fbc_b.jpg">
+</a></p>
+
+<p>製作者さんもサイトで言及していますが、<a href="http://msdn.microsoft.com/ja-jp/netframework/">Microsoft.NET framework 4.0</a>を前もってインストールしておいてください。</p>
+
+<h3>UNZIP32.DLL</h3>
+
+<p>ZIP形式で圧縮された自炊ファイルをChainLPにインポートするために、UNZIP32.DLLと呼ばれるライブラリをインストールします。</p>
+
+<p><blockquote><p>.ZIP ファイルの展開（解凍）<br/>UNZIP32.DLL for windows 9x/Me/NT/200x/XP/Vista/7/8.x</p><footer><strong>統合アーカイバプロジェクト <a href="http://www.csdinc.co.jp/archiver/lib/unzip32.html#download">http://www.csdinc.co.jp/archiver/lib/unzip32.html#download</a></strong></footer></blockquote></p>
+
+<p><a class="swipebox" href="https://farm1.staticflickr.com/641/22740807846_e1f9368e5a_b.jpg" title="UNZIP32.DLLダウンロード">
+  <img class="center image-effect" src="https://farm1.staticflickr.com/641/22740807846_e1f9368e5a_b.jpg">
+</a></p>
+
+<p>ダウンロードしたらダブルクリックしてインストール。</p>
+
+<p><a class="swipebox" href="https://farm1.staticflickr.com/582/22740807506_e2b9773e73.jpg" title="UNZIP32.DLLインストール">
+  <img class="center image-effect" src="https://farm1.staticflickr.com/582/22740807506_e2b9773e73.jpg">
+</a></p>
+
+<h3>KindleGen</h3>
+
+<p>Kindleの対応形式に変換するためのツールをとってきます。</p>
+
+<p><blockquote><p>KDP ツールとリソース<br/>KindleGen v2.9</p><footer><strong>Amazon <a href="https://kdp.amazon.co.jp/help?topicId=A3IWA2TQYMZ5J6">https://kdp.amazon.co.jp/help?topicId=A3IWA2TQYMZ5J6</a></strong></footer></blockquote></p>
+
+<p><a class="swipebox" href="https://farm6.staticflickr.com/5646/22144958104_d774ff3d29_b.jpg" title="KindleGenダウンロード">
+  <img class="center image-effect" src="https://farm6.staticflickr.com/5646/22144958104_d774ff3d29_b.jpg">
+</a></p>
+
+<p>ダウンロードしてきたら解凍して<code>kindlegen.exe</code>だけ一番最初に解凍したChainLP本体のフォルダにコピーします。</p>
+
+<p><a class="swipebox" href="https://farm1.staticflickr.com/680/22145007314_d6d5f703d9_h.jpg" title="KindleGenコピー">
+  <img class="center image-effect" src="https://farm1.staticflickr.com/680/22145007314_89f912d140_b.jpg">
+</a></p>
+
+<p>これで基本的なChainLPに必要なライブラリは揃いました。</p>
+
+<h2>mobiの圧縮を行う</h2>
+
+<p>ここまでの手順でKindle対応形式に変換できますが、変換後にも変換前の余計なデータを保持しているらしく、圧縮したはずがデータは少ししか小さくなっていません。
+したがって<strong>以下のPythonスクリプトによってこの余分なデータを取り除いてやることで、ダイエットする前と後では約半分の容量に抑えこむことができます。</strong>
+Pythonをインストールしないといけないので少し手順が増えますが、効果的なのでおすすめです。</p>
+
+<h3>python27</h3>
+
+<p><blockquote><p>Python Releases for Windows</p><footer><strong>Python <a href="https://www.python.org/downloads/windows/">https://www.python.org/downloads/windows/</a> <a href="https://www.python.org/downloads/windows/">https://www.python.org/downloads/windows/</a></strong></footer></blockquote></p>
+
+<p>製作者さんが言っているように<strong>Pythonは2.7.3をインストールします。</strong>
+ほかのバージョンでも動くと思いますが、初めてインストールする人はこのバージョンをインストールしておくのが無難だと思います。</p>
+
+<p><a class="swipebox" href="https://farm1.staticflickr.com/629/22779419681_cb46ddd0c6_b.jpg" title="Pythonは2.7.3ダウンロード">
+  <img class="center image-effect" src="https://farm1.staticflickr.com/629/22779419681_cb46ddd0c6_b.jpg">
+</a></p>
+
+<p>インストールが完了したら<strong>Windowsのシステムの詳細設定から環境変数の設定をしておきます。</strong></p>
+
+<pre><code>C:\Python27;C:\Python27\Scripts
+</code></pre>
+
+<p>コマンドプロンプトを開いて<code>python</code>と入力してとくにエラーがなければ成功です。</p>
+
+<h3>Kindlestrip</h3>
+
+<p>続いて容量削減のためのPythonスクリプトをダウンロードしてきます。
+Githubからです。</p>
+
+<p><blockquote><p>jefftriplett/kindlestrip<br/>A pip-installable conversion of Paul Durrant&rsquo;s kindlestrip</p><footer><strong>Github <a href="https://github.com/jefftriplett/kindlestrip">https://github.com/jefftriplett/kindlestrip</a> <a href="https://github.com/jefftriplett/kindlestrip">https://github.com/jefftriplett/kindlestrip</a></strong></footer></blockquote></p>
+
+<p><a class="swipebox" href="https://farm1.staticflickr.com/649/22146600203_db51e0b0ff_b.jpg" title="Kindlestripダウンロード">
+  <img class="center image-effect" src="https://farm1.staticflickr.com/649/22146600203_db51e0b0ff_b.jpg">
+</a></p>
+
+<p>これもChainLPのフォルダに<code>kindlestrip.py</code>だけコピーしておきます。</p>
+
+<p><a class="swipebox" href="https://farm1.staticflickr.com/626/22579819770_9187a54985_h.jpg" title="Kindlestripコピー">
+  <img class="center image-effect" src="https://farm1.staticflickr.com/626/22579819770_29e4c33ecf_b.jpg">
+</a></p>
+
+<h2>ChainLP起動</h2>
+
+<p>ここまでセットアップお疲れ様でした。
+いよいよChainLPを起動し、Kindle対応の形式に変換します。</p>
+
+<p>変換する前に変換後の縦横サイズを設定しておく必要があります。</p>
+
+<p><strong>Kindle Paperwhite 2015モデルの画面解像度は、1072×1448だそうです。</strong>
+Kindle Paperwhiteの旧モデルは758×1024でいけます。
+したがってChainLPのメニューから「解像度」→「追加」で新たにサイズを定義します。</p>
+
+<p><a class="swipebox" href="https://farm1.staticflickr.com/703/22147609883_72a2d9502e_b.jpg" title="解像度">
+  <img class="center image-effect" src="https://farm1.staticflickr.com/703/22147609883_72a2d9502e_b.jpg">
+</a></p>
+
+<p>詳細な設定を行いたい方は以下のブログが詳しかったです。</p>
+
+<p><blockquote><p>ChainLP設定サンプル：New Kindle Paperwhite（2015ニューモデル）</p><footer><strong>ブルーレディ <a href="http://www.bluelady.jp/know-how/post-8027">http://www.bluelady.jp/know-how/post-8027</a></strong></footer></blockquote></p>
+
+<h2>変換してみる</h2>
+
+<p>自炊したデータをChainLPにドラッグアンドドロップします。
+今回は手元に適当な自炊データがなかったので、著作権フリーな「ブラックジャックによろしく」で検証しています。</p>
+
+<p><strong>アプリの右側にはたくさん設定項目がありますが、特に出力の形式はMobiにするよう注意してください。</strong>
+またサイズは先程設定したKindleのサイズと一致しているかを確認し、自炊したデータによって綴じの方向を決めてください。</p>
+
+<p>すべて設定し終えたら、出力ボタンを押してください。
+途中で一瞬ChainLPが固まったような動作をしますが、kindlestripが動いているので大丈夫です。</p>
+
+<p>変換が完了すると<code>タイトル.mobi</code>と<code>Strip_タイトル.mobi</code>というファイルが出力されます。<code>タイトル.mobi</code>の方は変換の途中で生成されたサイズが大きいほうのデータですので削除しても問題無いです。</p>
+
+<p><a class="swipebox" href="https://farm6.staticflickr.com/5750/22147957823_47a5637e6e_b.jpg" title="ChainLP">
+  <img class="center image-effect" src="https://farm6.staticflickr.com/5750/22147957823_47a5637e6e_b.jpg">
+</a></p>
+
+<p>結局元のJPGファイルを固めたZIPよりも10MBくらい削減できました。</p>
+
+<p><a class="swipebox" href="https://farm1.staticflickr.com/585/22155387403_aa2ba5a7b0_b.jpg" title="比較">
+  <img class="center image-effect" src="https://farm1.staticflickr.com/585/22155387403_aa2ba5a7b0_b.jpg">
+</a></p>
+
+<h2>Kindleで確認</h2>
+
+<p>KindleをPCに接続して作成した<code>.mobi</code>ファイルを転送します。
+<code>documents/</code>の中にコピーします。この中に新たにフォルダを作って、そこに入れてもOKです。</p>
+
+<p><a class="swipebox" href="https://farm1.staticflickr.com/645/22586102570_45e38f0d75_h.jpg" title="実際のKindleで確認">
+  <img class="center image-effect" src="https://farm1.staticflickr.com/645/22586102570_7d81d1e5bf_b.jpg">
+</a></p>
+
+<p>問題なく読めますね。このとき上下左右の余白がたくさん空いていたりした場合はChainLPの余白設定の各パラメータを変更してみてください。</p>
+
+<h2>おわりに</h2>
+
+<p>圧縮したmobiファイルを作成できるようにするには、結構手順を踏む必要がありますが、一度環境を整えればずっと同じ作業で変換ができるので便利ですね。<br/>
+Kindleを持っていて自炊をよくする人におすすめしたいソフトウェアの紹介でした。</p>
+
+<p><blockquote><p></p></p><p><div class="kaerebalink-box"><div class="kaerebalink-image"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00QJDOM6U/ry00c-22/ref=nosim/" target="_blank" ><img src="http://ecx.images-amazon.com/images/I/512%2Bw7G7IhL._SL160_.jpg" style="border: none;" /></a></div><div class="kaerebalink-info"><div class="kaerebalink-name"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00QJDOM6U/ry00c-22/ref=nosim/" target="_blank" >Kindle Paperwhite (ニューモデル) Wi-Fi</a><div class="kaerebalink-powered-date">posted with <a href="http://kaereba.com" rel="nofollow" target="_blank">カエレバ</a></div></div><div class="kaerebalink-detail"> Amazon 2015-06-30    </div><div class="kaerebalink-link1"><div class="shoplinkamazon"><a href="http://www.amazon.co.jp/gp/search?keywords=Kindle&__mk_ja_JP=%83J%83%5E%83J%83i&tag=ry00c-22" target="_blank" >Amazonで探す</a></div><div class="shoplinkrakuten"><a href="http://hb.afl.rakuten.co.jp/hgc/0e7c6e55.9d33cc01.0e7c6e56.d2bcd23e/?pc=http%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FKindle%2F-%2Ff.1-p.1-s.1-sf.0-st.A-v.2%3Fx%3D0%26scid%3Daf_ich_link_urltxt%26m%3Dhttp%3A%2F%2Fm.rakuten.co.jp%2F" target="_blank" >楽天市場で探す</a></div></div></div><div class="booklink-footer" style="clear: left"></div></div></p><p><br/><p></p></blockquote></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Paralles Desktop 11をEl CapitanをクリーンインストールしていたMacBook Airに導入した]]></title>
+    <link href="http://ry0.github.io/blog/2015/10/19/paralles-desktop-11-elcapitan/"/>
+    <updated>2015-10-19T00:17:14+09:00</updated>
+    <id>http://ry0.github.io/blog/2015/10/19/paralles-desktop-11-elcapitan</id>
+    <content type="html"><![CDATA[<h2>MacでもどうしてもWindowsを使わないといけないときがある！</h2>
+
+<p>Macのアプリケーションだけでも十分充実していますが、MicrosoftのOfficeだけはWindowsで開きたいというときがあります。Office 2016でどれだけ改善したのかはまだ知らないのですが、少なくともMac版2011はUIがWindows版と全然違ったり、Windowsで作成されたファイルを開いた時の再現性がイマイチですよね。<br/>
+そして個人レベルで開発されているソフトウェアはやはりWindowsが充実しています。<br/>
+ということで私のMacBookにも保険としてParalles DesktopでWindowsをインストールしています。</p>
+
+<!-- more -->
+
+
+<h2>Appleストアで購入</h2>
+
+<p>今まで9を使っていたのでアップグレード版を購入しても良かったのですが、学生版だとそれほど値段も変わらないので学生・教職員向けストアで購入。大学生の場合、生協でも取り扱っている場合があるのでソフトウェアコーナーか取り寄せで、Appleストアとほぼ同じ値段で購入することができます。</p>
+
+<p>一応リンクを貼っておきます。
+<blockquote><p>Parallels Desktop 11 for Mac - Education Edition</p><footer><strong>Apple Store <a href="http://www.apple.com/jp_edu_1460/shop/product/HJ332PA/A/parallels-desktop-11-for-mac?fnode=f80e964b12bdf2dcb6f716406d724b9f58999150b666f4b150e8c35e6cb88699c9c48d7970f1b14c0405447daaaf3773e967c5a18d6ea65d2038fda2397e7bdb83e9ddc6e202639a42a36613409a837e386aed617ecbfcfb3abfcbcf17fe72ccd28d404b7987649f58c517433d4f339d">http://www.apple.com/jp_edu_1460/shop/product/HJ332PA/A/parallels-desktop-11-for-mac?fnode=f80e964b12bdf2dcb6f716406d724b9f58999150b666f4b150e8c35e6cb88699c9c48d7970f1b14c0405447daaaf3773e967c5a18d6ea65d2038fda2397e7bdb83e9ddc6e202639a42a36613409a837e386aed617ecbfcfb3abfcbcf17fe72ccd28d404b7987649f58c517433d4f339d</a></strong></footer></blockquote></p>
+
+<p><blockquote><p>Parallels Desktop 11 for Mac 大学生協版</p><footer><strong>大学生協ソフトウェアインフォメーション <a href="https://software.univcoop.or.jp/item/2865?unit_subcategory_id=5">https://software.univcoop.or.jp/item/2865?unit_subcategory_id=5</a></strong></footer></blockquote></p>
+
+<h2>Appleストアで購入した場合</h2>
+
+<p>こんな感じで小さい箱が届きます。</p>
+
+<p><a class="swipebox" href="https://farm1.staticflickr.com/690/21652856434_0406364db4_h.jpg" title="パッケージ">
+  <img class="center image-effect" src="https://farm1.staticflickr.com/690/21652856434_22c7396fb8_b.jpg">
+</a></p>
+
+<p>中身はこんな感じ。
+シリアルコードが書かれた紙とMacBookを自分色に変えようぜシール。
+<strong>USBメモリやDVDメディアは入っておらず、サイトからインストーラーを落としてくる感じです。</strong></p>
+
+<p><a class="swipebox" href="https://farm6.staticflickr.com/5625/22087848288_d9d18f3243_h.jpg" title="内容物">
+  <img class="center image-effect" src="https://farm6.staticflickr.com/5625/22087848288_6dffbc3675_b.jpg">
+</a></p>
+
+<h2>クリーンインストールする前の環境から引っ越し</h2>
+
+<p>私の場合、El Capitanにアップグレードする際にクリーンインストールを行ったので、昔の環境で作成していた仮想環境を持ってくる必要がありました。<br/>
+これも特に難しいわけではなく、<code>Users/&lt;ユーザー名&gt;/Documents/Parallels</code>にある<code>.pvm</code>ファイルを持ってくるだけです。
+これをしっかりバックアップをとってもってくるだけで、<strong>バージョンの違いにかかわらず問題なく引き継ぎができました。</strong>
+<strong>すばらしい。</strong></p>
+
+<p><a class="swipebox" href="https://farm6.staticflickr.com/5831/22088306768_f2f4d64d4d_b.jpg" title="仮想環境のファイル">
+  <img class="center image-effect" src="https://farm6.staticflickr.com/5831/22088306768_f2f4d64d4d_b.jpg">
+</a></p>
+
+<h2>使った感想</h2>
+
+<p>今まで2世代前のものを使っていて、「このバージョンは古いからお使いのOSのバージョンはサポートしてないよ」と煽られ続けて、やっと最新版にすることができました。
+そもそも1年毎にバージョンアップがあってその都度お金を払わないとアップグレードできないのが結構辛い(;_;)</p>
+
+<p>11は以前のバージョンより起動と終了を最大50％高速化、バッテリーがより持つようになったとかいろいろ謳っていますが、そんなに体感でわかるような変化はありませんでした。
+元のハードウェアの構成が変わっていないのでそりゃそうですよね。</p>
+
+<p>しかし、<strong>VirtualBoxのような無料の仮想マシンソフトウェアに比べてバージョンにかかわらず明らかに動作が軽快なので、その点は安心のParalles Desktopだと思います。</strong></p>
+
+<h2>おわりに</h2>
+
+<p>9で構成していた環境もすんなり移行することができ、これといったトラブルもなかったので内容の薄いブログ記事になりました。←いいことですよ！<br/>
+定期的にParallesからメールが来るのですが、その際にはアップグレードしてくれたらいろいろソフトウェア（いいときは1Passwordがバンドルされてたときもあった気が&hellip;）が付いてきてお値段がそのままだったりするので、人によっては買い時を考えるべきだと思います。<br/>
+新たにライセンスを購入する場合、そしてかつ学生の場合、Appleの学生・教職員向けストアで購入するのが一番お買い得だと思います。<br/>
+そして大学によりますがWindowsのOSやOfficeを無料で配布してくれるので、そういった仕組みも上手に使えるととても安くMac上にWindows環境を整えられるのではないかと思います。</p>
+
+<p><blockquote><p></p></p><p><div class="kaerebalink-box"><div class="kaerebalink-image"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B013FNGA70/ry00c-22/ref=nosim/" target="_blank" ><img src="http://ecx.images-amazon.com/images/I/51f1nuwo4xL._SL160_.jpg" style="border: none;" /></a></div><div class="kaerebalink-info"><div class="kaerebalink-name"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B013FNGA70/ry00c-22/ref=nosim/" target="_blank" >Parallels Desktop 11 for Mac Retail Box JP</a><div class="kaerebalink-powered-date">posted with <a href="http://kaereba.com" rel="nofollow" target="_blank">カエレバ</a></div></div><div class="kaerebalink-detail"> パラレルス 2015-08-26    </div><div class="kaerebalink-link1"><div class="shoplinkamazon"><a href="http://www.amazon.co.jp/gp/search?keywords=Parallels%20Desktop&__mk_ja_JP=%83J%83%5E%83J%83i&tag=ry00c-22" target="_blank" >Amazonで探す</a></div><div class="shoplinkrakuten"><a href="http://hb.afl.rakuten.co.jp/hgc/0e7c6e55.9d33cc01.0e7c6e56.d2bcd23e/?pc=http%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FParallels%2520Desktop%2F-%2Ff.1-p.1-s.1-sf.0-st.A-v.2%3Fx%3D0%26scid%3Daf_ich_link_urltxt%26m%3Dhttp%3A%2F%2Fm.rakuten.co.jp%2F" target="_blank" >楽天市場で探す</a></div></div></div><div class="booklink-footer" style="clear: left"></div></div></p><p><br/><p></p></blockquote></p>
+
+<p><blockquote><p></p></p><p><div class="kaerebalink-box"><div class="kaerebalink-image"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B013HGWA6U/ry00c-22/ref=nosim/" target="_blank" ><img src="http://ecx.images-amazon.com/images/I/416ON0oVO6L._SL160_.jpg" style="border: none;" /></a></div><div class="kaerebalink-info"><div class="kaerebalink-name"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B013HGWA6U/ry00c-22/ref=nosim/" target="_blank" >Microsoft Windows 10 Home （32bit/64bit 日本語版 USBフラッシュドライブ）</a><div class="kaerebalink-powered-date">posted with <a href="http://kaereba.com" rel="nofollow" target="_blank">カエレバ</a></div></div><div class="kaerebalink-detail"> マイクロソフト 2015-09-04    </div><div class="kaerebalink-link1"><div class="shoplinkamazon"><a href="http://www.amazon.co.jp/gp/search?keywords=Windows%2010&__mk_ja_JP=%83J%83%5E%83J%83i&tag=ry00c-22" target="_blank" >Amazonで探す</a></div><div class="shoplinkrakuten"><a href="http://hb.afl.rakuten.co.jp/hgc/0e7c6e55.9d33cc01.0e7c6e56.d2bcd23e/?pc=http%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FWindows%252010%2F-%2Ff.1-p.1-s.1-sf.0-st.A-v.2%3Fx%3D0%26scid%3Daf_ich_link_urltxt%26m%3Dhttp%3A%2F%2Fm.rakuten.co.jp%2F" target="_blank" >楽天市場で探す</a></div></div></div><div class="booklink-footer" style="clear: left"></div></div></p><p><br/><p></p></blockquote></p>
+]]></content>
+  </entry>
+  
+</feed>

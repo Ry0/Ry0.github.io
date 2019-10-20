@@ -1,0 +1,423 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Tag: GIRLS GENERATION | Ry0 Note]]></title>
+  <link href="http://ry0.github.io/blog/tags/girls-generation/atom.xml" rel="self"/>
+  <link href="http://ry0.github.io/"/>
+  <updated>2019-10-20T02:14:29+09:00</updated>
+  <id>http://ry0.github.io/</id>
+  <author>
+    <name><![CDATA[Ry0_Ka]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Caffeを使って自分で作ったデータセットを学習させる（少女時代編）その2]]></title>
+    <link href="http://ry0.github.io/blog/2015/09/28/caffe-deeplearning-dataset-2/"/>
+    <updated>2015-09-28T02:40:12+09:00</updated>
+    <id>http://ry0.github.io/blog/2015/09/28/caffe-deeplearning-dataset-2</id>
+    <content type="html"><![CDATA[<h2>やっと分類器を試します</h2>
+
+<p>先ほど学習を完了させました（引っ張ってごめんなさい）。
+最後に学習結果を使って画像の分類を行ってみます。</p>
+
+<p>その1を見ていない人はぜひご覧ください。</p>
+
+<!-- more -->
+
+
+<p><blockquote><p>Caffeを使って自分で作ったデータセットを学習させる（少女時代編）その1</p><footer><strong>Ry0 Note <a href="http://ry0.github.io/blog/2015/09/28/caffe-deeplearning-dataset-1/">http://ry0.github.io/blog/2015/09/28/caffe-deeplearning-dataset-1/</a> <a href="http://ry0.github.io/blog/2015/09/28/caffe-deeplearning-dataset-1/">http://ry0.github.io/blog/2015/09/28/caffe-deeplearning-dataset-1/</a></strong></footer></blockquote></p>
+
+<h2>実行する前に手直し</h2>
+
+<p>結構前から言われていて現在(2015.9.28)の時点のCaffeの最新コミットでも修正されてないのですが、以下のようなエラーがでるときがあります。</p>
+
+<pre><code class="bash">  File "snsd_facedetection.py", line 114, in &lt;module&gt;
+    raw_scale=255)
+  File "/home/ry0/caffe/python/caffe/classifier.py", line 34, in __init__
+    self.transformer.set_mean(in_, mean)
+  File "/home/ry0/caffe/python/caffe/io.py", line 260, in set_mean
+    raise ValueError('Mean shape incompatible with input shape.')
+ValueError: Mean shape incompatible with input shape.
+</code></pre>
+
+<p>このエラーを直します。<code>caffe/python/caffe/io.py</code>（の254行目にかけて）を編集します。</p>
+
+<pre><code class="python">if ms != self.inputs[in_][1:]:
+    raise ValueError('Mean shape incompatible with input shape.')
+</code></pre>
+
+<p>これを</p>
+
+<pre><code class="python">if ms != self.inputs[in_][1:]:
+    print(self.inputs[in_])
+    in_shape = self.inputs[in_][1:]
+    m_min, m_max = mean.min(), mean.max()
+    normal_mean = (mean - m_min) / (m_max - m_min)
+    mean = resize_image(normal_mean.transpose((1,2,0)),in_shape[1:]).transpose((2,0,1)) * (m_max - m_min) + m_min
+    # raise ValueError('Mean shape incompatible with input shape.')
+</code></pre>
+
+<p>変更。これで今のところエラーはでなくなるので良しとします。</p>
+
+<h2>いよいよ少女時代のメンバークラスタリング</h2>
+
+<p><code>snsd_classify</code>のレポジトリにPythonのスクリプトがあります。<br/>
+<strong>このスクリプトを実行するためにはOpenCVが必要</strong>です。
+あらかじめインストールしておいてください。</p>
+
+<pre><code class="bash">cd snsd_classify/python
+python snsd_facedetection.py src.jpg
+</code></pre>
+
+<p><code>src.jpg</code>はパスさえ間違えていなければどこに置いておいても構いません。<br/>
+読み込みが成功すると、OpenCVのウィンドウが出現し、入力画像の顔のクラスタリングを行ってくれます。</p>
+
+<p><a class="swipebox" href="https://farm1.staticflickr.com/670/21140050623_e838bc36ba_z.jpg" title="Show Image">
+  <img class="center image-effect" src="https://farm1.staticflickr.com/670/21140050623_e838bc36ba_z.jpg">
+</a></p>
+
+<p>分類結果に満足できれば<code>s</code>キーを押してください、<code>/snsd_classify/success_img</code>に実行日時時間で名前付けされた画像ファイルが生成されていると思います。
+保存したくない場合は、<code>s</code>キー以外のキーを押してください。ウィンドウが閉じて、プログラムが終了します。</p>
+
+<p>それにしても<a href="https://instagram.com/yoona__lim/">ユナがInstagram</a>を始めてくれてよかったですね！！</p>
+
+<h2>おわりに</h2>
+
+<p>やっとの思いで、少女時代のメンバーのクラスタリングができました。
+何よりデータセットを作成するのが大変でした。<br/>
+少女時代のメンバーのクラスタリングに関しては<strong>各メンバーに1000〜2500枚、負例約3500枚を用意しました</strong>が、これでも少ない方です。
+ほんとはもっと用意すると良い結果が得られると思います。ディープラーニングはデータセットの量と質に大きく依存します。</p>
+
+<p>今回用いたデータセットの年代は主に<strong>2011年から2013年までの写真が主</strong>でした（筆者が好きすぎて画像を漁りまくっていた年代）。
+この偏りのせいか、正直ちょくちょく間違えます。ユリ、ユナ、ソヒョンのあたりは特に。
+人間でもはじめにぶち当たる判別困難な3人ですね。</p>
+
+<p>また売り出すCDのテーマによって激しく髪色、メイクが変わるため，データが偏っていると識別が非常に難しくなります。
+したがってデータセットを作るときにはまんべんなく年代から抽出して作成し、学習させたほうがいいのかもしれません。
+この記事を書く際にはできるだけ最近アップされた画像を使用しています。
+<strong>当然学習には入っていないころのデータ</strong>ですが、まあまあの精度で当ててくれます。<br/>
+こういったところがDeep Learningの面白いところですね。
+例え間違えていても、見当はずれな間違いではなく「あーこれは人間も間違えるかな」っていうことも多いので、実に人間らしいところがあります。</p>
+
+<p>インストールが一番の関門だったりしますが、Caffeを利用して最近大流行りのDeep Learningの最新の技術に触れてみるのもいいかもしれません。<br/>
+もしエラーが出て本記事で登場したプログラムが動かない等の問題が起こりましたら、コメントをください。<br/>
+長編のブログ記事になりましたが、最後まで閲覧してくださりありがとうございました。</p>
+
+<p><a class="swipebox" href="https://farm1.staticflickr.com/700/21767126221_80766ac43f_b.jpg" title="YoonYul">
+  <img class="center image-effect" src="https://farm1.staticflickr.com/700/21767126221_80766ac43f_b.jpg">
+</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Caffeを使って自分で作ったデータセットを学習させる（少女時代編）その1]]></title>
+    <link href="http://ry0.github.io/blog/2015/09/28/caffe-deeplearning-dataset-1/"/>
+    <updated>2015-09-28T02:40:12+09:00</updated>
+    <id>http://ry0.github.io/blog/2015/09/28/caffe-deeplearning-dataset-1</id>
+    <content type="html"><![CDATA[<h2>独自のデータセットで学習、分類</h2>
+
+<p>前回のディープラーニング記事から随分時間が経ってしまいました。
+もし楽しみにしていた人がいたら大変お待たせしました。
+いよいよ前回で作成したデータセットを学習、分類器を作成してみるの回です。<br/>
+できるだけ丁寧に書くつもりなのでよかったら見ていってください。</p>
+
+<!-- more -->
+
+
+<h2>前回までのあらすじ</h2>
+
+<p>時間が経っているので前回までのおさらいをしておきます。<br/>
+今日書く方法は、この手順に沿って行っていますので一応目を通しておいていただくと再現性が高くなります。</p>
+
+<h3>GPUによる並列計算の準備</h3>
+
+<p>もしNVIDIAのグラボを使っているなら、導入してみましょうっていう記事です。</p>
+
+<p><blockquote><p>Ubuntu 14.04にCUDA 7.0とcuDNNを導入する</p><footer><strong>Ry0 Note <a href="http://ry0.github.io/blog/2015/08/12/ubuntu-nvidia-cuda-7.0/">http://ry0.github.io/blog/2015/08/12/ubuntu-nvidia-cuda-7.0/</a> <a href="http://ry0.github.io/blog/2015/08/12/ubuntu-nvidia-cuda-7.0/">http://ry0.github.io/blog/2015/08/12/ubuntu-nvidia-cuda-7.0/</a></strong></footer></blockquote></p>
+
+<h3>Caffeのインストール</h3>
+
+<p>この回でCaffeをインストールしました。</p>
+
+<p><blockquote><p>UbuntuにCaffeをインストールする</p><footer><strong>Ry0 Note <a href="http://ry0.github.io/blog/2015/08/15/caffe-install/">http://ry0.github.io/blog/2015/08/15/caffe-install/</a> <a href="http://ry0.github.io/blog/2015/08/15/caffe-install/">http://ry0.github.io/blog/2015/08/15/caffe-install/</a></strong></footer></blockquote></p>
+
+<h3>データセット作り</h3>
+
+<p>ここで少女時代のメンバーの顔写真データを大量に作りました。
+分別は地獄です。</p>
+
+<p><blockquote><p>Caffeを使ってDeep Learningするためのデータセット作り</p><footer><strong>Ry0 Note <a href="http://ry0.github.io/blog/2015/08/22/create-dataset/">http://ry0.github.io/blog/2015/08/22/create-dataset/</a> <a href="http://ry0.github.io/blog/2015/08/22/create-dataset/">http://ry0.github.io/blog/2015/08/22/create-dataset/</a></strong></footer></blockquote></p>
+
+<h2>本日の作業はここから</h2>
+
+<p>前回のデータセット作りで下のレポジトリを<code>caffe/examples/</code>に<code>clone</code>してくれたと思います。
+学習を行うために本レポジトリに<code>cd</code>しておきます。</p>
+
+<div class="github-widget" data-repo="Ry0/snsd_classify"></div>
+
+
+<pre><code class="bash">cd caffe/examples/snsd_classify
+</code></pre>
+
+<p><a href="http://ry0.github.io/blog/2015/08/22/create-dataset/">前回の記事</a>での作業で<code>snsd_cifar10_test_leveldb</code>と<code>snsd_cifar10_train_leveldb</code>が<code>snsd_classify</code>のディレクリにできていることを確認した後、以下のコマンドを実行します。<br/>
+ただし実行する前に<code>snsd_cifar10_full_solver.prototxt</code>の<strong>最後の行をCPUかGPUを環境に応じて変更</strong>してください。</p>
+
+<pre><code class="bash">./train_full.sh
+</code></pre>
+
+<p>このスクリプトはただ平均画像(meanファイル)の作成、そして学習の実行を行っているだけです。このスクリプトが上手く動作しない場合はスクリプトの内容を一行ずつ実行してみてください。</p>
+
+<p>学習が完了すると<code>snsd_classify</code>のディレクリに以下のファイルが生成されます。</p>
+
+<ul>
+<li><code>snsd_cifar10_full_150717_iter_60000.caffemodel</code></li>
+<li><code>snsd_cifar10_full_150717_iter_60000.solverstate</code></li>
+</ul>
+
+
+<p>ここまでできると学習は完了です。</p>
+
+<h2>学習の結果</h2>
+
+<p>学習の結果を示します。いろいろ試行錯誤した結果、データセットの数が少ないのか普通にCifar10で用いられている学習モデルをそのまま使った場合、<strong>訓練データとテストデータに関する学習の精度の乖離</strong>が見られました。</p>
+
+<h3>Cifar10のモデルを使用した場合</h3>
+
+<p>本レポジトリをそのままクローンした場合、この学習モデルは使っていませんが、レポジトリのブランチを切り替えると試せます。</p>
+
+<p><a class="swipebox" href="https://farm1.staticflickr.com/594/21758706665_25b06c5ff6_z.jpg" title="overtraining">
+  <img class="center image-effect" src="https://farm1.staticflickr.com/594/21758706665_25b06c5ff6_z.jpg">
+</a></p>
+
+<h3>Dropoutを試してみる</h3>
+
+<p>Cifar10の学習のモデルではあまりよい結果が得られなかったので、データをランダムにクロップして学習につかったり、画像を左右反転させたり、データの水増しを行いました。
+あとDropoutと呼ばれるブロックを追加しています。
+このCifar10の学習モデルを改造したもので学習を行っています。</p>
+
+<p><a class="swipebox" href="https://farm1.staticflickr.com/615/21570727510_87fb30542c_z.jpg" title="dropout">
+  <img class="center image-effect" src="https://farm1.staticflickr.com/615/21570727510_87fb30542c_z.jpg">
+</a></p>
+
+<p>上のプロット結果のように何も対策をしていない結果よりも良い結果が得られています。<br/>
+最終的にはテストデータに関する<strong>精度も82%とCifar10のモデルを使用したときよりも精度が向上</strong>しています！</p>
+
+<h2>学習データのプロット方法</h2>
+
+<p>ちなみに学習結果のプロット方法はここのサイトが詳しいですよ。</p>
+
+<p><blockquote><p>CaffeでMNISTを学習した経過をプロットしてみた</p><footer><strong>下丸子のコネクショニスト <a href="http://iamrobotandproud.hatenablog.com/entry/2015/03/16/105746">http://iamrobotandproud.hatenablog.com/entry/2015/03/16/105746</a> <a href="http://iamrobotandproud.hatenablog.com/entry/2015/03/16/105746">http://iamrobotandproud.hatenablog.com/entry/2015/03/16/105746</a></strong></footer></blockquote></p>
+
+<p>このサイトの方法をそのまま使っても訓練データの結果しか出力されません。
+テストデータに関しての結果もプロットするようにしたスクリプトがあるので使ってみてください。
+クローンしてきたレポジトリの<code>snsd_classify/plot/parse_log_mod.sh</code>を<code>/caffe/tools/extra/</code>にコピーして使用し、引用ブログにあるように作業を行って</p>
+
+<pre><code class="bash">./parse_log.sh 上記のログファイルを引数として入力
+</code></pre>
+
+<p>これの代わりに</p>
+
+<pre><code class="bash">./parse_log_mod.sh 上記のログファイルを引数として入力
+</code></pre>
+
+<p>としてください。出力結果をそれぞれ<code>dropout.log.test</code>と<code>dropout.log.train</code>にリネームし、<code>snsd_classify/plot/dropout</code>にコピーしてください。同じファイルがありますが、例として置いているだけなので上書きしてもらって構いません。</p>
+
+<pre><code class="bash">cd snsd_classify/plot/dropout
+gnuplot plot_log.plt
+</code></pre>
+
+<p>で画像が生成されます。</p>
+
+<h2>おわりに？？</h2>
+
+<p>記事が長くなっているので一旦切ります。
+次に分類器にかけてみる話をします。</p>
+
+<p><blockquote><p>Caffeを使って自分で作ったデータセットを学習させる（少女時代編）その2</p><footer><strong>Ry0 Note <a href="http://ry0.github.io/blog/2015/09/28/caffe-deeplearning-dataset-2/">http://ry0.github.io/blog/2015/09/28/caffe-deeplearning-dataset-2/</a> <a href="http://ry0.github.io/blog/2015/09/28/caffe-deeplearning-dataset-2/">http://ry0.github.io/blog/2015/09/28/caffe-deeplearning-dataset-2/</a></strong></footer></blockquote></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Caffeを使ってDeep Learningするためのデータセット作り]]></title>
+    <link href="http://ry0.github.io/blog/2015/08/22/create-dataset/"/>
+    <updated>2015-08-22T22:36:49+09:00</updated>
+    <id>http://ry0.github.io/blog/2015/08/22/create-dataset</id>
+    <content type="html"><![CDATA[<h2>少女時代の顔を自動で切り出す</h2>
+
+<p>本日は<a href="http://ry0.github.io/blog/2015/08/15/caffe-install/">前回に記事</a>でインストールしたCaffeを使ってDeep Learningを行うためのデータセット作成の回です。
+PythonとOpenCVを使って大量の写真から顔を切り出すスクリプトを作成したので、よかったらつかってみてください。</p>
+
+<!-- more -->
+
+
+<h2>環境の確認</h2>
+
+<p>Ubuntuで標準でインストールされているPython 2.7.6を使用しています。<br/>
+<strong>またOpenCVを使用しているため、インストールしておいてください。</strong>
+インストール方法に関しては<a href="http://ry0.github.io/blog/2015/08/15/caffe-install/">前回に記事</a>の最後あたりに書いています。</p>
+
+<h2>ソースコードをClone</h2>
+
+<p>ソースコードはここにあります。
+今回は使いませんが、動画から大量に顔写真を切り出すプログラムもこの中においてます。
+こちらの方は最近メンテナンスしてないので、もしかしたら動画ファイルによってはうまく動かないかもしれません。</p>
+
+<div class="github-widget" data-repo="Ry0/facedetection"></div>
+
+
+<p>このレポジトリを<code>clone</code>してきます。</p>
+
+<pre><code class="bash">git clone https://github.com/Ry0/facedetection.git
+</code></pre>
+
+<p>そして処理の進捗を可視化する関係で以下のパッケージをインストールします。</p>
+
+<pre><code class="bash">sudo pip install progressbar2
+</code></pre>
+
+<h2>元画像の用意</h2>
+
+<p>大量に写真を用意します。写真はjpgかpngで用意してください。
+<strong>フォルダは1つにまとめておく必要がありますが、そのフォルダの中にフォルダを配置して画像を格納しておくのは大丈夫です。</strong>
+zip等の圧縮形式には対応していません。</p>
+
+<p>少女時代の顔識別をしたいので、今回は大量の少女時代写真を用意しました。</p>
+
+<h2>実行</h2>
+
+<p>さっそく実行します。</p>
+
+<pre><code class="bash">cd python
+python facedetect.py src output
+</code></pre>
+
+<p>引数である<code>src</code>は大量の元写真データのフォルダを指定して、<code>output</code>は切り出した画像が保存される場所を指定します。</p>
+
+<p>途中経過の様子はこんな感じです。</p>
+
+<pre><code class="bash">$ python facedetect.py src output
+Input directoryname = src
+Output directoryname = output
+Exist "output" folder.
+File num =  1151
+ 44% (516 of 1151) |##########             | Elapsed Time: 0:00:24 ETA:  0:02:43
+</code></pre>
+
+<p>最後に<code>Complete !</code>と表示されたら正常に完了しています。</p>
+
+<h2>地獄のフォルダ仕分け</h2>
+
+<p>先ほど切り出した顔写真を仕分けする作業を行います。
+この作業が地獄で、顔を検出したといっても誤りも多く、手動で選定しなけれなりません。</p>
+
+<p>仕分け先のフォルダとそのあとの学習を行うためのレポジトリはここにあります。</p>
+
+<div class="github-widget" data-repo="Ry0/snsd_classify"></div>
+
+
+<p>ただし、これは少女時代の顔を識別するためだけに作ったレポジトリですから、目的に応じて使用してください。
+このレポジトリを<code>clone</code>してきます。<code>clone</code>してくる場所はcaffeの中です。</p>
+
+<pre><code class="bash">cd caffe/examples
+git clone https://github.com/Ry0/snsd_classify.git
+</code></pre>
+
+<p><code>clone</code>できたらデータセットの仕分け作業は<code>caffe/examples/snsd_classify/snsd_data</code>の中で行います。
+このディレクトリには<code>0,1,2,3...</code>とフォルダがあると思います。これはそれぞれのメンバーに仕分けるためフォルダです。数字とメンバーの関係は以下の通りです。</p>
+
+<p><a class="swipebox" href="https://farm1.staticflickr.com/586/21746420712_b9081c4372.jpg" title="メンバー対応表">
+  <img class="image-effect" src="https://farm1.staticflickr.com/586/21746420712_b9081c4372.jpg">
+</a></p>
+
+<p>これに従って、ひたすら仕分けします。</p>
+
+<h2>画像の正規化</h2>
+
+<p>仕分けした画像に対して正規化処理を施します。これを行ったほうが学習精度が向上するとかしないとか。
+<strong>これを行うと一生懸命仕分けした画像データが正規化されて上書きされてしまうので、綺麗な状態で一度フォルダをバックアップしておくといいです。</strong></p>
+
+<p>各フォルダに移動してこのコマンドを入力します。</p>
+
+<pre><code class="bash">for file in `ls`; do convert ${file} -equalize ${file}; done
+</code></pre>
+
+<h2>LevelDB形式に変換</h2>
+
+<p><code>caffe/examples/snsd_classify/snsd_data</code>に<code>build_leveldb.py</code>があると思います。これをエディタで開いて43行目を自分のcaffeがインストールされている場所に合わせて変更してください。</p>
+
+<pre><code class="python">path = os.path.join('/home/ry0/Workspace/Python/caffe/examples/snsd_classify', name) #自分の環境に合わせて変更する
+</code></pre>
+
+<p>あと18行目の<code>THUMBNAIL_SIZE = 64</code>と定義しています。<code>snsd_classify</code>のレポジトリでは学習を行う際にデータセットの画像サイズを64にしています。
+少女時代の顔検出をしたいひとであれば、気にせずこのレポジトリの学習モデルを使っていただければいいのですが、cifar10のモデルを使用する場合などは<strong>サイズは32で定義してあります</strong>ので使用する学習モデルに合わせて変更してください。</p>
+
+<p>修正が行えたら、スクリプトを実行します。</p>
+
+<pre><code class="bash">python build_leveldb.py
+</code></pre>
+
+<p>成功したら<code>snsd_classify</code>に<code>snsd_cifar10_test_leveldb</code>、<code>snsd_cifar10_train_leveldb</code>というフォルダができていると思います。
+これでデータセットの用意は終了です。</p>
+
+<h2>おわりに</h2>
+
+<p>私も少女時代のメンバー9人＋負例のetc含めて2万枚程度、手作業で仕分けしました。
+画像の数が多すぎてファイラーがハングアップしたり、なかなか大変な作業です。
+しかしデータセットが多いほど学習の精度は向上しますから、頑張って自分好みのデータセットを作成してみてください。</p>
+
+<p>次回はついにCaffeを使って学習を行います！</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[GIRLS' GENERATION Japan 3rd TourのBlu-rayが届いたよ]]></title>
+    <link href="http://ry0.github.io/blog/2014/12/24/japan-3rd-tour-bluray/"/>
+    <updated>2014-12-24T22:23:06+09:00</updated>
+    <id>http://ry0.github.io/blog/2014/12/24/japan-3rd-tour-bluray</id>
+    <content type="html"><![CDATA[<h2>やっと観れるぞサードツアー</h2>
+
+<p>2014年4月から始まったサードツアー。私が行ったのはマリンメッセ福岡の1日目と2日目だけ。一発目の公演でした。<br/>
+一発目の公演のおかげでツアーグッズを買うのも一苦労。タオルやら缶バッチやらいろいろ買ったなあ。<br/>
+一日目のソヒョンちゃんの涙のコメントがとくに印象的で今思い返してみると複雑な気分です。<br/>
+いろいろアレなお話もありますが、グズグズ言うのは嫌いなのでもう終わり！<br/>
+3度目の全国ツアーでますます完成されたライブのBlu-rayがついに発売されました。</p>
+
+<!-- more -->
+
+
+<h2>Amazonでなんとか発売日に届いたよ</h2>
+
+<p>Amazonで速攻予約して、なんとか24日に届きました。（2014.12.24 時点ではAmazonで<a href="http://www.amazon.co.jp/dp/B00PLEA1BS">初回限定盤</a>は売り切れでマーケットプレイスでしか売ってない。高い。）  今日受け取れるか怪しかったのですが、配送が郵パックで今回のパッケージは今までのツアーBlu-rayよりも薄いものだったのでポストにぷ～んされてました。<br/>
+今から観るか迷いますけど、多分ちょっとでも観たら最後まで観てしまうのでたぶん観ると思います！<br/>
+観れなくても正月にたくさん観られるね。</p>
+
+<h2>一緒についてたフォトブックは</h2>
+
+<p>何かと話題なジェシカさんのページもシっカりあったので一安心。<br/>
+<strong>ライブ中でもいいなあと思ってたシーンも写真にありました。</strong></p>
+
+<p><a class="swipebox" href="https://farm8.staticflickr.com/7547/15475117713_eeac06de62_h.jpg" title="好きなシーン">
+  <img class="center image-effect" src="https://farm8.staticflickr.com/7547/15475117713_ba45ff67bc_b.jpg">
+</a></p>
+
+<p>これ以上はネタバレになるのでやめときます。</p>
+
+<h2>おわりに</h2>
+
+<p>まだ観てないのでなんとも言えないけど、まあいいのはわかってる！<br/>
+karma batterflyが一番楽しみかな。私が2日行ったときには真ん中あたりのアリーナ席だったから全体像はしっかり観れてないし。<br/>
+あれは芸術作品だと思う。椅子のやつ。<br/>
+最後にライブのとき撮ったお花を。</p>
+
+<p><a class="swipebox" href="https://farm8.staticflickr.com/7583/15907561950_21be707a67_h.jpg" title="Flower Power">
+  <img class="center image-effect" src="https://farm8.staticflickr.com/7583/15907561950_48b3f20a79_b.jpg">
+</a></p>
+
+<p><blockquote><p></p></p><p><div class="kaerebalink-box"><div class="kaerebalink-image"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00PLEA1BS/ry00c-22/ref=nosim/" target="_blank" ><img src="http://ecx.images-amazon.com/images/I/61FM2EuxX5L._SL160_.jpg" style="border: none;" /></a></div><div class="kaerebalink-info"><div class="kaerebalink-name"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00PLEA1BS/ry00c-22/ref=nosim/" target="_blank" >GIRLS&#8217; GENERATION  ~LOVE&amp;PEACE~Japan 3rd Tour [Blu-Ray] (初回限定盤)</a><div class="kaerebalink-powered-date">posted with <a href="http://kaereba.com" rel="nofollow" target="_blank">カエレバ</a></div></div><div class="kaerebalink-detail">少女時代 ユニバーサルミュージック 2014-12-24    </div><div class="kaerebalink-link1"><div class="shoplinkamazon"><a href="http://www.amazon.co.jp/gp/search?keywords=GIRLS%5C%27%20GENERATION%20%20~LOVE&__mk_ja_JP=%83J%83%5E%83J%83i&tag=ry00c-22" target="_blank" >Amazonで探す</a></div><div class="shoplinkrakuten"><a href="http://hb.afl.rakuten.co.jp/hgc/0e7c6e55.9d33cc01.0e7c6e56.d2bcd23e/?pc=http%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FGIRLS%255C%2527%2520GENERATION%2520%2520~LOVE%2F-%2Ff.1-p.1-s.1-sf.0-st.A-v.2%3Fx%3D0%26scid%3Daf_ich_link_urltxt%26m%3Dhttp%3A%2F%2Fm.rakuten.co.jp%2F" target="_blank" >楽天市場で探す</a></div></div></div><div class="booklink-footer" style="clear: left"></div></div></p><p><br/><p></p></blockquote></p>
+]]></content>
+  </entry>
+  
+</feed>

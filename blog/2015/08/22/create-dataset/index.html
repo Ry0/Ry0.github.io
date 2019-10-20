@@ -1,0 +1,813 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="ja"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Caffeを使ってDeep Learningするためのデータセット作り - Ry0 Note</title>
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta name="author" content="Ry0_Ka">
+  
+  <meta name="description" content="根気がいる作業ですね... 少女時代の顔を自動で切り出す 本日は前回に記事でインストールしたCaffeを使ってDeep Learningを行うためのデータセット作成の回です。
+PythonとOpenCVを使って大量の写真から顔を切り出すスクリプトを作成したので、よかったらつかってみてください。 環境の確認 Ubuntuで標準でインストールされているPython 2.7.6を使用しています。 &hellip;">
+  <meta name="keywords" content="ガジェット,iPhone,Android,Ubuntu,Mac,Linux,Windows,Caffe,CUDA,レビュー">
+
+  
+
+  <!-- Twitterカード設置 -->
+  
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:site" content="Ry0_Ka" />
+  <meta property="twitter:url" content="http://ry0.github.io/blog/2015/08/22/create-dataset" />
+  <meta property="twitter:title" content="Caffeを使ってDeep Learningするためのデータセット作り" />
+  <meta property="twitter:description" content="根気がいる作業ですね... 少女時代の顔を自動で切り出す 本日は前回に記事でインストールしたCaffeを使ってDeep Learningを行うためのデータセット作成の回です。
+PythonとOpenCVを使って大量の写真から顔を切り出すスクリプトを作成したので、よかったらつかってみてください。 環境の確認 Ubuntuで標準でインストールされているPython 2.7.6を使用しています。 &hellip;" />
+  <meta property="twitter:creator" content="Ry0_Ka" />
+  <meta property="twitter:image:src" content="https://farm1.staticflickr.com/762/20599150708_a7e4d245bb_o.jpg">
+  
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Caffeを使ってDeep Learningするためのデータセット作り">
+  <meta property="og:site_name" content="Ry0 Note">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="http://ry0.github.io/blog/2015/08/22/create-dataset">
+  <meta property="og:description" content="根気がいる作業ですね... 少女時代の顔を自動で切り出す 本日は前回に記事でインストールしたCaffeを使ってDeep Learningを行うためのデータセット作成の回です。
+PythonとOpenCVを使って大量の写真から顔を切り出すスクリプトを作成したので、よかったらつかってみてください。 環境の確認 Ubuntuで標準でインストールされているPython 2.7.6を使用しています。 &hellip;">
+  <meta property="og:image" content="https://farm1.staticflickr.com/762/20599150708_a7e4d245bb_o.jpg">
+
+  <!-- テーマカラー -->
+  <meta name="theme-color" content="#D03350">
+
+  <link rel="canonical" href="http://ry0.github.io/blog/2015/08/22/create-dataset">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Ry0 Note" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+
+  <!-- jquery javascript -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=Fjalla+One" rel="stylesheet" type="text/css">
+<link href='//fonts.googleapis.com/css?family=Nothing+You+Could+Do' rel='stylesheet' type='text/css'>
+<link href="./favicon.png" rel="apple-touch-icon" />
+
+<!-- jquery pjax -->
+<script src="/javascripts/jquery.pjax.js"></script>
+<script src="/javascripts/pjax.script.js"></script>
+
+<script src="/javascripts/jquery.githubRepoWidget.js" type="text/javascript"></script>
+<script src="/javascripts/img-blur.js" type="text/javascript"></script>
+<script src="/javascripts/ripple.js" type="text/javascript"></script>
+
+<!-- jquery swipebox -->
+<script src="/javascripts/jquery.swipebox.js" type="text/javascript"></script>
+<script>
+  $(function () {
+  $(".swipebox").swipebox();
+  });
+</script>
+
+<!-- 新規ウィンドウで開く -->
+ <script language="JavaScript">
+  $(document).ready( function () {
+    $("a[href^='http']:not([href*='" + location.hostname + "'])").attr('target', '_blank');
+  })
+</script>
+
+<!-- スクロールトップ -->
+<script src="/javascripts/scrolltopcontrol.js" type="text/javascript"></script>
+
+<!-- SNS共有ボタン設置 -->
+
+<script src="/javascripts/SNSshare.js"></script>
+
+
+<!-- Google Analytics -->
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-57757582-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+
+</head>
+
+<body   class="collapse-sidebar sidebar-footer" >
+  <header role="banner"><hgroup>
+  <h1><a class="pjax" href="/">Ry0 Note</a></h1>
+  
+    <h2>ガジェットレビューと技術メモ</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscribe" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="25" height="25" viewbox="0 0 100 100"><path class="social" d="M 13.310204,73.332654 C 5.967347,73.332654 0,79.322448 0,86.621428 c 0,7.338776 5.967347,13.262246 13.310204,13.262246 7.370408,0 13.328572,-5.92245 13.328572,-13.262246 0,-7.29898 -5.958164,-13.288774 -13.328572,-13.288774 z M 0.01530612,33.978572 V 53.143878 C 12.493878,53.143878 24.229592,58.02347 33.068368,66.865306 41.894898,75.685714 46.767346,87.47449 46.767346,100 h 19.25 C 66.017346,63.592858 36.4,33.979592 0.01530612,33.978572 l 0,0 z M 0.03877552,0 V 19.17449 C 44.54796,19.17551 80.77551,55.437756 80.77551,100 H 100 C 100,44.87653 55.15102,0 0.03877552,0 z"></path></svg></a></li>
+  
+</ul>
+  
+  
+  
+  
+  
+<ul class="subscribe">
+<li><a href="https://twitter.com/Ry0_Ka" rel="subscribe-twitter" title="@Ry0_Ka on Twitter"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="25" height="25" viewBox="0 0 512 512"><path class="social" d="M0.001,334.932c33.327,30.816,118.891,59.981,188.517-8.271c-12.52,1.955-22.972-0.416-30.913-8.269
+c-7.531-7.465-7.945-15.182-3.914-22.202c3.275-5.725,10.184-9.741,16.977-13.934c-12.323,2.285-22.829,1.095-32.218-3.706
+c-12.604-6.444-24.863-13.228-28.3-27.207c7.71-8.112,16.28-15.359,34.831-12.627c-17.45-5.83-33.087-13.429-44.41-24.815
+c-11.028-11.091-12.163-18.302-13.932-26.996c9.632-3.567,19.688-5.421,30.478-4.353c-24.397-12.476-34.757-29.63-40.487-48.325
+c-1.731-5.652-2.044-11.03-1.31-16.545c98.826,37.305,145.11,64.109,170.662,89.251c11.496-30.589,38.3-99.868,78.371-123.646
+c0.191,3.77-1.309,7.837-4.357,12.189c11.863-6.609,21.125-17.188,37.445-16.98c-1.879,7.723-7.279,13.904-17.85,17.854
+c10.662-4.084,21.463-7.545,32.65-9.578c10.375-1.881,10.229,6.304,4.355,10.444c-11.916,8.412-24.578,9.456-37.006,13.498
+c38.105,0.949,69.266,18.994,93.604,58.343c8.088,13.074,13.52,26.149,14.807,40.487c16.254,4.563,32.426,5.494,48.76,2.61
+c4.475-0.796,8.645-1.63,12.627-3.482c-6.354,9.529-13.686,17.356-23.947,20.899c-9.811,3.387-19.637,6.688-30.473,6.968
+c17.641,6.675,37.082,7.045,57.033,5.659c-24.402,23.486-43.08,22.922-61.824,22.642c-8.221,34.703-25.025,69.315-60.52,101.005
+c-46.559,41.569-96.678,61.397-148.457,65.742c-48.552,4.07-95.488,3.512-146.726-20.464
+C56.486,393.349,24.648,368.884,0.001,334.932L0.001,334.932z"/></svg></a></li>
+</ul>
+  
+  
+  
+  
+<ul class="main-navigation">
+  <li><a href="/"><i class="fa fa-home"></i> Home</a></li>
+  <li><a href="/blog/archives"><i class="fa fa-archive"></i> Archives</a></li>
+  <li><a href="/about"><i class="fa fa-user"></i> About</a></li>
+</ul>
+
+  <script>
+  (function() {
+    var cx = '002764144690732749534:ljrigi4elzk';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    <p class="meta">
+      <div class='balloon'>
+        
+
+
+
+<time class='entry-date' datetime='2015-08-22T22:36:49+09:00'><span class='date'><span class='date-month'>Aug</span> <span class='date-day'>22</span><span class='date-suffix'>nd</span>, <span class='date-year'>2015</span></span> <span class='time'>10:36 pm</span></time>
+      </div>
+    </p>
+    
+      
+        <h1 class="entry-title">Caffeを使ってDeep Learningするためのデータセット作り</h1>
+      
+    
+    
+      <p class="meta">
+        
+  
+
+<ol class="breadcrumbs">
+  <li><i class="fa fa-home"></i><a href="http://ry0.github.io">&ensp;<span>Top</span></a></li>
+  
+    
+    <li><span class="breadcrumbs_separator"> <i class="fa fa-angle-right"></i> <i class="fa fa-folder-open-o"></i>&ensp;</span><a class="pjax" href="/blog/categories/tips/"><span>tips</span></a></li>
+  
+  
+    
+    <li><span class="breadcrumbs_separator"> <i class="fa fa-angle-right"></i> <i class="fa fa-tags"></i>&ensp;</span><a class="pjax" href="/blog/tags/caffe/"><span>Caffe</span></a>
+    
+      
+        <span>, </span>
+        <a class="pjax" href="/blog/tags/girls generation/"><span>GIRLS GENERATION</span></a>
+      
+        <span>, </span>
+        <a class="pjax" href="/blog/tags/programming/"><span>Programming</span></a>
+      
+        <span>, </span>
+        <a class="pjax" href="/blog/tags/ubuntu/"><span>Ubuntu</span></a>
+      
+    
+    </li>
+  
+</ol>
+
+
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content">
+    <!-- ヘッダー写真 -->
+    <div class="entry-image entry-image-blur">
+  <img src="https://farm1.staticflickr.com/762/20599150708_a7e4d245bb_o.jpg">
+</div>
+    <!-- ひとこと -->
+    <div class="comment-right">
+  <div class="comment-box">
+    <div class="comment-list-icon">
+      <div class="comment-icon-background">
+        <img class="comment-icon" src="/images/page/header-comment-icon_on.jpg">
+      </div>
+    </div>
+    <div class="comment-list-text">根気がいる作業ですね&#8230;</div>
+  </div>
+</div>
+    <!-- 記事コンテンツ -->
+    <h2>少女時代の顔を自動で切り出す</h2>
+
+<p>本日は<a href="http://ry0.github.io/blog/2015/08/15/caffe-install/">前回に記事</a>でインストールしたCaffeを使ってDeep Learningを行うためのデータセット作成の回です。
+PythonとOpenCVを使って大量の写真から顔を切り出すスクリプトを作成したので、よかったらつかってみてください。</p>
+
+<!-- more -->
+
+
+<h2>環境の確認</h2>
+
+<p>Ubuntuで標準でインストールされているPython 2.7.6を使用しています。<br/>
+<strong>またOpenCVを使用しているため、インストールしておいてください。</strong>
+インストール方法に関しては<a href="http://ry0.github.io/blog/2015/08/15/caffe-install/">前回に記事</a>の最後あたりに書いています。</p>
+
+<h2>ソースコードをClone</h2>
+
+<p>ソースコードはここにあります。
+今回は使いませんが、動画から大量に顔写真を切り出すプログラムもこの中においてます。
+こちらの方は最近メンテナンスしてないので、もしかしたら動画ファイルによってはうまく動かないかもしれません。</p>
+
+<div class="github-widget" data-repo="Ry0/facedetection"></div>
+
+
+<p>このレポジトリを<code>clone</code>してきます。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>git clone https://github.com/Ry0/facedetection.git
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>そして処理の進捗を可視化する関係で以下のパッケージをインストールします。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>sudo pip install progressbar2
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>元画像の用意</h2>
+
+<p>大量に写真を用意します。写真はjpgかpngで用意してください。
+<strong>フォルダは1つにまとめておく必要がありますが、そのフォルダの中にフォルダを配置して画像を格納しておくのは大丈夫です。</strong>
+zip等の圧縮形式には対応していません。</p>
+
+<p>少女時代の顔識別をしたいので、今回は大量の少女時代写真を用意しました。</p>
+
+<h2>実行</h2>
+
+<p>さっそく実行します。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nb">cd </span>python
+</span><span class='line'>python facedetect.py src output
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>引数である<code>src</code>は大量の元写真データのフォルダを指定して、<code>output</code>は切り出した画像が保存される場所を指定します。</p>
+
+<p>途中経過の様子はこんな感じです。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nv">$ </span>python facedetect.py src output
+</span><span class='line'>Input <span class="nv">directoryname</span> <span class="o">=</span> src
+</span><span class='line'>Output <span class="nv">directoryname</span> <span class="o">=</span> output
+</span><span class='line'>Exist <span class="s2">&quot;output&quot;</span> folder.
+</span><span class='line'>File <span class="nv">num</span> <span class="o">=</span>  1151
+</span><span class='line'> 44% <span class="o">(</span><span class="m">516</span> of 1151<span class="o">)</span> <span class="p">|</span><span class="c">##########             | Elapsed Time: 0:00:24 ETA:  0:02:43</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>最後に<code>Complete !</code>と表示されたら正常に完了しています。</p>
+
+<h2>地獄のフォルダ仕分け</h2>
+
+<p>先ほど切り出した顔写真を仕分けする作業を行います。
+この作業が地獄で、顔を検出したといっても誤りも多く、手動で選定しなけれなりません。</p>
+
+<p>仕分け先のフォルダとそのあとの学習を行うためのレポジトリはここにあります。</p>
+
+<div class="github-widget" data-repo="Ry0/snsd_classify"></div>
+
+
+<p>ただし、これは少女時代の顔を識別するためだけに作ったレポジトリですから、目的に応じて使用してください。
+このレポジトリを<code>clone</code>してきます。<code>clone</code>してくる場所はcaffeの中です。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="nb">cd </span>caffe/examples
+</span><span class='line'>git clone https://github.com/Ry0/snsd_classify.git
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><code>clone</code>できたらデータセットの仕分け作業は<code>caffe/examples/snsd_classify/snsd_data</code>の中で行います。
+このディレクトリには<code>0,1,2,3...</code>とフォルダがあると思います。これはそれぞれのメンバーに仕分けるためフォルダです。数字とメンバーの関係は以下の通りです。</p>
+
+<p><a class="swipebox" href="https://farm1.staticflickr.com/586/21746420712_b9081c4372.jpg" title="メンバー対応表">
+  <img class="image-effect" src="https://farm1.staticflickr.com/586/21746420712_b9081c4372.jpg">
+</a></p>
+
+<p>これに従って、ひたすら仕分けします。</p>
+
+<h2>画像の正規化</h2>
+
+<p>仕分けした画像に対して正規化処理を施します。これを行ったほうが学習精度が向上するとかしないとか。
+<strong>これを行うと一生懸命仕分けした画像データが正規化されて上書きされてしまうので、綺麗な状態で一度フォルダをバックアップしておくといいです。</strong></p>
+
+<p>各フォルダに移動してこのコマンドを入力します。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="k">for</span> file in <span class="sb">`</span>ls<span class="sb">`</span><span class="p">;</span> <span class="k">do</span> convert <span class="k">${</span><span class="nv">file</span><span class="k">}</span> -equalize <span class="k">${</span><span class="nv">file</span><span class="k">}</span><span class="p">;</span> <span class="k">done</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>LevelDB形式に変換</h2>
+
+<p><code>caffe/examples/snsd_classify/snsd_data</code>に<code>build_leveldb.py</code>があると思います。これをエディタで開いて43行目を自分のcaffeがインストールされている場所に合わせて変更してください。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'><span class="n">path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s">&#39;/home/ry0/Workspace/Python/caffe/examples/snsd_classify&#39;</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span> <span class="c">#自分の環境に合わせて変更する</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>あと18行目の<code>THUMBNAIL_SIZE = 64</code>と定義しています。<code>snsd_classify</code>のレポジトリでは学習を行う際にデータセットの画像サイズを64にしています。
+少女時代の顔検出をしたいひとであれば、気にせずこのレポジトリの学習モデルを使っていただければいいのですが、cifar10のモデルを使用する場合などは<strong>サイズは32で定義してあります</strong>ので使用する学習モデルに合わせて変更してください。</p>
+
+<p>修正が行えたら、スクリプトを実行します。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>python build_leveldb.py
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>成功したら<code>snsd_classify</code>に<code>snsd_cifar10_test_leveldb</code>、<code>snsd_cifar10_train_leveldb</code>というフォルダができていると思います。
+これでデータセットの用意は終了です。</p>
+
+<h2>おわりに</h2>
+
+<p>私も少女時代のメンバー9人＋負例のetc含めて2万枚程度、手作業で仕分けしました。
+画像の数が多すぎてファイラーがハングアップしたり、なかなか大変な作業です。
+しかしデータセットが多いほど学習の精度は向上しますから、頑張って自分好みのデータセットを作成してみてください。</p>
+
+<p>次回はついにCaffeを使って学習を行います！</p>
+
+  </div>
+
+  <footer>
+    <p class="meta">
+      
+  
+
+
+
+  <span class="byline author vcard">Authored by <span class="fn">
+  
+    Ry0_Ka
+  
+  </span></span>
+
+
+      
+
+
+
+<time class='entry-date' datetime='2015-08-22T22:36:49+09:00'><span class='date'><span class='date-month'>Aug</span> <span class='date-day'>22</span><span class='date-suffix'>nd</span>, <span class='date-year'>2015</span></span> <span class='time'>10:36 pm</span></time>
+      
+      
+
+<span class="categories category-tag-link-effect category-link-effect">
+  Posted in
+  
+    <a class='category' href='/blog/categories/tips/'>tips</a>
+  
+</span>
+
+
+      
+
+<span class="tags category-tag-link-effect tag-link-effect">
+  Tagged as
+  
+    <a class='tag' href='/blog/tags/caffe/'>Caffe</a> <a class='tag' href='/blog/tags/girls-generation/'>GIRLS GENERATION</a> <a class='tag' href='/blog/tags/programming/'>Programming</a> <a class='tag' href='/blog/tags/ubuntu/'>Ubuntu</a>
+  
+</span>
+
+
+    </p>
+    
+      
+      
+        
+<div class="share">
+<h3>共有する</h3>
+<ul class="circle_group clearfix">
+    <li class="sns_circle twitter"><span class="fa fa-twitter"></span><a href="http://twitter.com/intent/tweet?text=Caffeを使ってDeep Learningするためのデータセット作り&url=http://ry0.github.io/blog/2015/08/22/create-dataset/&via=Ry0_Ka"
+    title="Share on Twitter"
+    target="_blacnk"></a></li>
+    <li class="sns_circle facebook"><span class="fa fa-facebook"></span><a href="http://www.facebook.com/sharer.php?src=bm&u=http://ry0.github.io/blog/2015/08/22/create-dataset/index.html&amp;t=Caffeを使ってDeep Learningするためのデータセット作り"
+    title="Share on Facebook"
+    target="_blank"></a></li>
+    <li class="sns_circle hatebu"><span class="icon-hatebu"></span><a href="http://b.hatena.ne.jp/entry/http://ry0.github.io/blog/2015/08/22/create-dataset/"
+    title="Save to HatenaBookmark"
+    target="_blank"></a></li>
+    <li class="sns_circle googleplus"><span class="fa fa-google-plus"></span><a href="https://plus.google.com/share?url=http://ry0.github.io/blog/2015/08/22/create-dataset/&title=Caffeを使ってDeep Learningするためのデータセット作り"
+    title="Share on Google+"
+    target="_blank"></a></li>
+    <li class="sns_circle pocket"><span class="fa fa-get-pocket"></span><a href="http://getpocket.com/edit?url=http://ry0.github.io/blog/2015/08/22/create-dataset/&title=Caffeを使ってDeep Learningするためのデータセット作り"
+    title="Save to Pocket"
+    target="_blank"></a></li>
+</ul>
+</div>
+      
+    
+    
+      <section class="disqus">
+        <h2>Comments</h2>
+        <div id="disqus_thread" aria-live="polite">
+
+<script type="text/javascript">
+      var disqus_shortname = 'ry0';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://ry0.github.io/blog/2015/08/22/create-dataset/';
+        var disqus_url = 'http://ry0.github.io/blog/2015/08/22/create-dataset/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      if(window.DISQUS){
+        // console.log("Disqusを読み込んだことあるのでリロードします！");
+        DISQUS.reset({
+          reload: true,
+          config: function () {
+            this.page.identifier = disqus_identifier;
+            this.page.url = disqus_url;
+          }
+        });
+      }else{
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+    }());
+</script>
+
+
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+      </section>
+    
+    
+    <!-- 関連ポスト -->
+    
+  <div class="related_posts">
+    <h2>Related Posts</h2>
+    <ul class="posts">
+      
+        <li class="related-link" >
+  <a class="related-link-effect" href="/blog/2015/08/15/caffe-install/">
+    <div class="group related-link-group">
+      <div class="title-smallthumb">
+        <img src="https://farm6.staticflickr.com/5621/20529854916_08d40db760_o.jpg">
+      </div>
+      UbuntuにCaffeをインストールする
+    </div>
+  </a>
+</li>
+      
+        <li class="related-link" >
+  <a class="related-link-effect" href="/blog/2015/06/06/smart-git/">
+    <div class="group related-link-group">
+      <div class="title-smallthumb">
+        <img src="https://farm1.staticflickr.com/537/18495894515_19ebabd509_b.jpg">
+      </div>
+      SmartGitのインストールと使い方 (Ubuntu 14.04)
+    </div>
+  </a>
+</li>
+      
+        <li class="related-link" >
+  <a class="related-link-effect" href="/blog/2015/11/16/caffe-handwriting-recognition/">
+    <div class="group related-link-group">
+      <div class="title-smallthumb">
+        <img src="https://farm1.staticflickr.com/698/22621226017_c6006627e1_o_d.jpg">
+      </div>
+      Caffeを使って手書きのひらがなを識別する
+    </div>
+  </a>
+</li>
+      
+        <li class="related-link" >
+  <a class="related-link-effect" href="/blog/2017/08/29/contessa-seconda/">
+    <div class="group related-link-group">
+      <div class="title-smallthumb">
+        <img src="https://farm5.staticflickr.com/4365/36834844175_810b2526e0_o_d.jpg">
+      </div>
+      岡村製作所 コンテッサ セコンダのレビュー
+    </div>
+  </a>
+</li>
+      
+        <li class="related-link" >
+  <a class="related-link-effect" href="/blog/2015/09/28/caffe-deeplearning-dataset-2/">
+    <div class="group related-link-group">
+      <div class="title-smallthumb">
+        <img src="https://farm1.staticflickr.com/711/21760798826_876b71d24e_o.jpg">
+      </div>
+      Caffeを使って自分で作ったデータセットを学習させる（少女時代編）その2
+    </div>
+  </a>
+</li>
+      
+        <li class="related-link" >
+  <a class="related-link-effect" href="/blog/2015/10/11/slack-client-for-ubuntu/">
+    <div class="group related-link-group">
+      <div class="title-smallthumb">
+        <img src="https://farm1.staticflickr.com/656/21452665734_efc1be0ed0_b.jpg">
+      </div>
+      UbuntuでSlackのクライアントソフトを使う
+    </div>
+  </a>
+</li>
+      
+    </ul>
+  </div>
+
+    <!-- スポンサードリンク -->
+    <p class="meta">
+  <h2>Sponsored Links</h2>
+  <div class="container">
+    <div class="col span_6">
+      <div class="ad-maxwith ad-center">
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- ad_left -->
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-3051615401658472"
+             data-ad-slot="7428484344"
+             data-ad-format="auto"></ins>
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+        <p></p>
+      </div>
+    </div>
+    <div class="col span_6">
+      <div class="ad-maxwith ad-center">
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- ad_right -->
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-3051615401658472"
+             data-ad-slot="2858683946"
+             data-ad-format="auto"></ins>
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+    </div>
+  </div>
+</p>
+    <!-- 次と前の記事をサムネイル表示 -->
+    <p class="meta">
+  <h2>Previous &amp; Next Post</h2>
+  <div class="container">
+    <div class="col span_6">
+      
+      <div id="row-1st">
+        <p class="resizeimage pn-image-effect">
+          <a href="/blog/2015/08/15/caffe-install/"><img class="pn-image-shadow-left" src="/images/thumbnail/header-2015-08-15-caffe-install.jpg"></a>
+        </p>
+        <div class="star">
+          <div id="row-1st-in">
+            <p>
+              <i class="post_date"><i class="fa fa-angle-double-left fa-lg"></i>&ensp;&ensp;
+                <time datetime="2015-08-15T00:08:28+09:00" pubdate><span class='month'>Aug</span> <span class='day'>15th,</span> <span class='year'>2015</span></time>
+              </i>
+              <br>
+              <i class="post_title">UbuntuにCaffeをインストールする</i>
+            </p>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    <div class="col span_6">
+      
+      <div id="row-1st">
+        <p class="resizeimage pn-image-effect">
+          <a href="/blog/2015/08/24/rx100-mk3/"><img class="pn-image-shadow-right" src="/images/thumbnail/header-2015-08-24-rx100-mk3.jpg"></a>
+        </p>
+        <div class="star">
+        <div id="row-1st-in">
+            <p class="string">
+              <i class="post_date"><i class="fa fa-angle-double-right fa-lg"></i>&ensp;&ensp;
+                <time datetime="2015-08-24T00:02:20+09:00" pubdate><span class='month'>Aug</span> <span class='day'>24th,</span> <span class='year'>2015</span></time>
+              </i>
+              <br>
+              <i class="post_title">念願のDSC-RX100M3購入！</i>
+            </p>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</p>
+  </footer>
+</article>
+
+<!-- サイドバー -->
+
+  <aside class="sidebar">
+    
+      <section>
+  <h1>About Me</h1>
+  <div class="about">
+    <figure>
+      <img src="/images/page/about_me.png" />
+      <a href="https://ry0note.app.push7.jp">
+      <figcaption>
+        <p class="push7-icon"><i class="icon-pushseven"></i></p>
+        <p class="push7-caption">購読する</p>
+      </figcaption>
+      </a>
+    </figure>
+
+    <h2>Author</h2>
+    <p><a href="https://twitter.com/Ry0_Ka" style="text-decoration: none" class="about-link">@Ry0_Ka</a></p>
+    <p>スマートフォンとかのガジェットのレビューが中心。たまにUbuntuのソフト紹介など。
+    GithubとOctopressを使って書いています。<a class="pjax" href="/about" style="text-decoration: none">もっと詳しく <i class="fa fa-angle-double-right fa-lg"></i></a>
+    </p>
+    <p class="introduce-push7">
+    このブログは<i class="icon-pushseven push7-logo"></i><strong>Push7</strong>を使ったWebプッシュ通知サービスに対応しています。私のアイコンをクリック。
+    </p>
+  </div>
+</section>
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts" class="fa-ul">
+    
+      <li class="post"><i class="fa fa-link fa-li"></i>
+        <a href="/blog/2017/08/29/contessa-seconda/" style="text-decoration: none">岡村製作所 コンテッサ セコンダのレビュー</a>
+      </li>
+    
+      <li class="post"><i class="fa fa-link fa-li"></i>
+        <a href="/blog/2016/12/22/skinomi-techskin-full-coverage-skin-screen-protector-for-huawei-p9-front-and-back-clear-hd-film/" style="text-decoration: none">Skinomi TechSkin Full Coverage Skin + Screen Protector for Huawei P9 Front &amp; Back Clear HD Filmのレビュー</a>
+      </li>
+    
+      <li class="post"><i class="fa fa-link fa-li"></i>
+        <a href="/blog/2016/12/12/huawei-p9-red/" style="text-decoration: none">赤の色合いが最高！HUAWEI P9 Redのレビュー</a>
+      </li>
+    
+      <li class="post"><i class="fa fa-link fa-li"></i>
+        <a href="/blog/2016/11/14/ec-technology-1200mah-mobile-battery/" style="text-decoration: none">EC Technology 12000mAh モバイルバッテリーのレビュー</a>
+      </li>
+    
+      <li class="post"><i class="fa fa-link fa-li"></i>
+        <a href="/blog/2016/08/01/ec-technology-qi-wireless-charger/" style="text-decoration: none">EC Technology Qi ワイヤレス充電器のレビュー</a>
+      </li>
+    
+      <li class="post"><i class="fa fa-link fa-li"></i>
+        <a href="/blog/2016/07/18/ec-technology-5200mah-mobile-battery/" style="text-decoration: none">EC Technology 5200mAh モバイルバッテリーのレビュー</a>
+      </li>
+    
+      <li class="post"><i class="fa fa-link fa-li"></i>
+        <a href="/blog/2016/06/27/b-and-nd-by-hadley-roma-with-mode-20mm-silicone-red-watch-strap/" style="text-decoration: none">b&nd by Hadley Roma with MODE 20mm Silicone Red Watch Strapを輸入してみた</a>
+      </li>
+    
+  </ul>
+</section>
+    
+  </aside>
+
+</div>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p class="credit">
+  Copyright &copy; 2019 - <a href="https://twitter.com/Ry0_Ka">Ry0_Ka</a> -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a> | Themed with <a href="https://github.com/lucaslew/whitespace">Whitespace</a></span>
+</p>
+
+</footer>
+  <!-- 
+
+<script type="text/javascript">
+      var disqus_shortname = 'ry0';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://ry0.github.io/blog/2015/08/22/create-dataset/';
+        var disqus_url = 'http://ry0.github.io/blog/2015/08/22/create-dataset/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      if(window.DISQUS){
+        // console.log("Disqusを読み込んだことあるのでリロードします！");
+        DISQUS.reset({
+          reload: true,
+          config: function () {
+            this.page.identifier = disqus_identifier;
+            this.page.url = disqus_url;
+          }
+        });
+      }else{
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+    }());
+</script>
+
+ &#8211;>
+
+
+
+
+
+
+
+
+
+
+<!-- schema.org 情報記述 -->
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement":
+  [
+  
+  
+    
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "item":
+      {
+        "@id": "http://ry0.github.io/blog/categories/tips/",
+        "name": "tips"
+      }
+    }
+    
+  
+  
+    
+    ,
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "item":
+      {
+        "@id": "http://ry0.github.io/blog/tags/caffe/",
+        "name": "Caffe"
+      }
+    }
+    
+  
+  ]
+}
+</script>
+
+</body>
+</html>

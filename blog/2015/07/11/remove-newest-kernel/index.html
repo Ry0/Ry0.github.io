@@ -1,0 +1,759 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="ja"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>カーネルアップデートしたあと最新のカーネルを削除する - Ry0 Note</title>
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta name="author" content="Ry0_Ka">
+  
+  <meta name="description" content="アップデートをしたら突然(;_;) カーネルアップデートしたらUbuntuが起動しなくなった 2015/7/11にUbuntuのLinuxカーネル 3.13.0-57にアップデートして再起動すると赤紫の画面のまま全く進まなくなったので、最新のカーネルを削除したという話です。
+以下に書く操作は事態を更に悪くする可能性があります。責任はとれませんので参考程度にしてください。 &hellip;">
+  <meta name="keywords" content="ガジェット,iPhone,Android,Ubuntu,Mac,Linux,Windows,Caffe,CUDA,レビュー">
+
+  
+
+  <!-- Twitterカード設置 -->
+  
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:site" content="Ry0_Ka" />
+  <meta property="twitter:url" content="http://ry0.github.io/blog/2015/07/11/remove-newest-kernel" />
+  <meta property="twitter:title" content="カーネルアップデートしたあと最新のカーネルを削除する" />
+  <meta property="twitter:description" content="アップデートをしたら突然(;_;) カーネルアップデートしたらUbuntuが起動しなくなった 2015/7/11にUbuntuのLinuxカーネル 3.13.0-57にアップデートして再起動すると赤紫の画面のまま全く進まなくなったので、最新のカーネルを削除したという話です。
+以下に書く操作は事態を更に悪くする可能性があります。責任はとれませんので参考程度にしてください。 &hellip;" />
+  <meta property="twitter:creator" content="Ry0_Ka" />
+  <meta property="twitter:image:src" content="https://farm1.staticflickr.com/546/18984056653_be78d430a2_o.jpg">
+  
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="カーネルアップデートしたあと最新のカーネルを削除する">
+  <meta property="og:site_name" content="Ry0 Note">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="http://ry0.github.io/blog/2015/07/11/remove-newest-kernel">
+  <meta property="og:description" content="アップデートをしたら突然(;_;) カーネルアップデートしたらUbuntuが起動しなくなった 2015/7/11にUbuntuのLinuxカーネル 3.13.0-57にアップデートして再起動すると赤紫の画面のまま全く進まなくなったので、最新のカーネルを削除したという話です。
+以下に書く操作は事態を更に悪くする可能性があります。責任はとれませんので参考程度にしてください。 &hellip;">
+  <meta property="og:image" content="https://farm1.staticflickr.com/546/18984056653_be78d430a2_o.jpg">
+
+  <!-- テーマカラー -->
+  <meta name="theme-color" content="#D03350">
+
+  <link rel="canonical" href="http://ry0.github.io/blog/2015/07/11/remove-newest-kernel">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Ry0 Note" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+
+  <!-- jquery javascript -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=Fjalla+One" rel="stylesheet" type="text/css">
+<link href='//fonts.googleapis.com/css?family=Nothing+You+Could+Do' rel='stylesheet' type='text/css'>
+<link href="./favicon.png" rel="apple-touch-icon" />
+
+<!-- jquery pjax -->
+<script src="/javascripts/jquery.pjax.js"></script>
+<script src="/javascripts/pjax.script.js"></script>
+
+<script src="/javascripts/jquery.githubRepoWidget.js" type="text/javascript"></script>
+<script src="/javascripts/img-blur.js" type="text/javascript"></script>
+<script src="/javascripts/ripple.js" type="text/javascript"></script>
+
+<!-- jquery swipebox -->
+<script src="/javascripts/jquery.swipebox.js" type="text/javascript"></script>
+<script>
+  $(function () {
+  $(".swipebox").swipebox();
+  });
+</script>
+
+<!-- 新規ウィンドウで開く -->
+ <script language="JavaScript">
+  $(document).ready( function () {
+    $("a[href^='http']:not([href*='" + location.hostname + "'])").attr('target', '_blank');
+  })
+</script>
+
+<!-- スクロールトップ -->
+<script src="/javascripts/scrolltopcontrol.js" type="text/javascript"></script>
+
+<!-- SNS共有ボタン設置 -->
+
+<script src="/javascripts/SNSshare.js"></script>
+
+
+<!-- Google Analytics -->
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-57757582-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+
+</head>
+
+<body   class="collapse-sidebar sidebar-footer" >
+  <header role="banner"><hgroup>
+  <h1><a class="pjax" href="/">Ry0 Note</a></h1>
+  
+    <h2>ガジェットレビューと技術メモ</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscribe" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="25" height="25" viewbox="0 0 100 100"><path class="social" d="M 13.310204,73.332654 C 5.967347,73.332654 0,79.322448 0,86.621428 c 0,7.338776 5.967347,13.262246 13.310204,13.262246 7.370408,0 13.328572,-5.92245 13.328572,-13.262246 0,-7.29898 -5.958164,-13.288774 -13.328572,-13.288774 z M 0.01530612,33.978572 V 53.143878 C 12.493878,53.143878 24.229592,58.02347 33.068368,66.865306 41.894898,75.685714 46.767346,87.47449 46.767346,100 h 19.25 C 66.017346,63.592858 36.4,33.979592 0.01530612,33.978572 l 0,0 z M 0.03877552,0 V 19.17449 C 44.54796,19.17551 80.77551,55.437756 80.77551,100 H 100 C 100,44.87653 55.15102,0 0.03877552,0 z"></path></svg></a></li>
+  
+</ul>
+  
+  
+  
+  
+  
+<ul class="subscribe">
+<li><a href="https://twitter.com/Ry0_Ka" rel="subscribe-twitter" title="@Ry0_Ka on Twitter"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="25" height="25" viewBox="0 0 512 512"><path class="social" d="M0.001,334.932c33.327,30.816,118.891,59.981,188.517-8.271c-12.52,1.955-22.972-0.416-30.913-8.269
+c-7.531-7.465-7.945-15.182-3.914-22.202c3.275-5.725,10.184-9.741,16.977-13.934c-12.323,2.285-22.829,1.095-32.218-3.706
+c-12.604-6.444-24.863-13.228-28.3-27.207c7.71-8.112,16.28-15.359,34.831-12.627c-17.45-5.83-33.087-13.429-44.41-24.815
+c-11.028-11.091-12.163-18.302-13.932-26.996c9.632-3.567,19.688-5.421,30.478-4.353c-24.397-12.476-34.757-29.63-40.487-48.325
+c-1.731-5.652-2.044-11.03-1.31-16.545c98.826,37.305,145.11,64.109,170.662,89.251c11.496-30.589,38.3-99.868,78.371-123.646
+c0.191,3.77-1.309,7.837-4.357,12.189c11.863-6.609,21.125-17.188,37.445-16.98c-1.879,7.723-7.279,13.904-17.85,17.854
+c10.662-4.084,21.463-7.545,32.65-9.578c10.375-1.881,10.229,6.304,4.355,10.444c-11.916,8.412-24.578,9.456-37.006,13.498
+c38.105,0.949,69.266,18.994,93.604,58.343c8.088,13.074,13.52,26.149,14.807,40.487c16.254,4.563,32.426,5.494,48.76,2.61
+c4.475-0.796,8.645-1.63,12.627-3.482c-6.354,9.529-13.686,17.356-23.947,20.899c-9.811,3.387-19.637,6.688-30.473,6.968
+c17.641,6.675,37.082,7.045,57.033,5.659c-24.402,23.486-43.08,22.922-61.824,22.642c-8.221,34.703-25.025,69.315-60.52,101.005
+c-46.559,41.569-96.678,61.397-148.457,65.742c-48.552,4.07-95.488,3.512-146.726-20.464
+C56.486,393.349,24.648,368.884,0.001,334.932L0.001,334.932z"/></svg></a></li>
+</ul>
+  
+  
+  
+  
+<ul class="main-navigation">
+  <li><a href="/"><i class="fa fa-home"></i> Home</a></li>
+  <li><a href="/blog/archives"><i class="fa fa-archive"></i> Archives</a></li>
+  <li><a href="/about"><i class="fa fa-user"></i> About</a></li>
+</ul>
+
+  <script>
+  (function() {
+    var cx = '002764144690732749534:ljrigi4elzk';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    <p class="meta">
+      <div class='balloon'>
+        
+
+
+
+<time class='entry-date' datetime='2015-07-11T23:55:39+09:00'><span class='date'><span class='date-month'>Jul</span> <span class='date-day'>11</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>11:55 pm</span></time>
+      </div>
+    </p>
+    
+      
+        <h1 class="entry-title">カーネルアップデートしたあと最新のカーネルを削除する</h1>
+      
+    
+    
+      <p class="meta">
+        
+  
+
+<ol class="breadcrumbs">
+  <li><i class="fa fa-home"></i><a href="http://ry0.github.io">&ensp;<span>Top</span></a></li>
+  
+    
+    <li><span class="breadcrumbs_separator"> <i class="fa fa-angle-right"></i> <i class="fa fa-folder-open-o"></i>&ensp;</span><a class="pjax" href="/blog/categories/tips/"><span>tips</span></a></li>
+  
+  
+    
+    <li><span class="breadcrumbs_separator"> <i class="fa fa-angle-right"></i> <i class="fa fa-tags"></i>&ensp;</span><a class="pjax" href="/blog/tags/challenge/"><span>Challenge</span></a>
+    
+      
+        <span>, </span>
+        <a class="pjax" href="/blog/tags/setting/"><span>Setting</span></a>
+      
+        <span>, </span>
+        <a class="pjax" href="/blog/tags/ubuntu/"><span>Ubuntu</span></a>
+      
+    
+    </li>
+  
+</ol>
+
+
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content">
+    <!-- ヘッダー写真 -->
+    <div class="entry-image entry-image-blur">
+  <img src="https://farm1.staticflickr.com/546/18984056653_be78d430a2_o.jpg">
+</div>
+    <!-- ひとこと -->
+    <div class="comment-right">
+  <div class="comment-box">
+    <div class="comment-list-icon">
+      <div class="comment-icon-background">
+        <img class="comment-icon" src="/images/page/header-comment-icon_on.jpg">
+      </div>
+    </div>
+    <div class="comment-list-text">アップデートをしたら突然(;_;)</div>
+  </div>
+</div>
+    <!-- 記事コンテンツ -->
+    <h2>カーネルアップデートしたらUbuntuが起動しなくなった</h2>
+
+<p>2015/7/11にUbuntuのLinuxカーネル 3.13.0-57にアップデートして再起動すると赤紫の画面のまま全く進まなくなったので、最新のカーネルを削除したという話です。<br/>
+<strong>以下に書く操作は事態を更に悪くする可能性があります。責任はとれませんので参考程度にしてください。</strong></p>
+
+<!-- more -->
+
+
+<h2>まずは古いカーネルでUbuntuを起動</h2>
+
+<p>最新のカーネルでは起動しないため、GRUBの画面から「Adovanced options for Ubuntu」を選択して、どのカーネルからUbuntuを起動するか選択します。
+ヘッダーの写真がカーネルの一覧の画像です。</p>
+
+<p><a class="swipebox" href="https://farm4.staticflickr.com/3749/19598252152_d173ac4629_h.jpg" title="GRUB選択画面">
+  <img class="center image-effect" src="https://farm4.staticflickr.com/3749/19598252152_c04af763b9_b.jpg">
+</a></p>
+
+<p>今回は最新のカーネルの1個前のバージョンを選択すると、上手く起動してくれたためやはり最新のカーネルが私のPCの環境とマッチしていないっぽいです。
+ですので、怖いですが最新のカーネルを削除することにしました。</p>
+
+<h2>今起動できたカーネルを確認</h2>
+
+<p>もし古いカーネルで起動できたなら下のコマンドで今起動しているカーネルのバージョンを確認します。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>uname -r
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>3.13.0-55-generic
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>というように返ってきます。</p>
+
+<h2>インストールされているカーネルの一覧を取得</h2>
+
+<p>以下のコマンドで一覧を出力し、削除するカーネルを見定めます。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>dpkg --list <span class="p">|</span> grep linux-image
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>問題のバージョンを見つけたら</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>sudo apt-get purge linux-image-バージョン-generic
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>で削除します。私の場合、</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>sudo apt-get purge linux-image-3.13.0-57-generic
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>このようにしました。そして最後にGRUBに削除したことを教えてあげます。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>sudo update-grub
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>これで再起動してうまく昔のカーネルで起動できたら成功です。</p>
+
+<h2>削除とか怖いからやりたくないんだけど</h2>
+
+<p>という人は以下のソフトウェアをインストールして、デフォルトで起動させるカーネルを選択することで、問題の最新のカーネルで起動することを回避できます。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'>sudo add-apt-repository ppa:danielrichter2007/grub-customizer
+</span><span class='line'>sudo apt-get update
+</span><span class='line'>sudo apt-get install grub-customizer
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Grub Customizerを起動して下の写真のように任意のカーネルバージョンを指定します。</p>
+
+<p><a class="swipebox" href="https://farm4.staticflickr.com/3702/18984556063_70f33f18de_b.jpg" title="Grub Customizer">
+  <img class="center image-effect" src="https://farm4.staticflickr.com/3702/18984556063_70f33f18de_b.jpg">
+</a></p>
+
+<p>設定を変更して、保存ボタンを押してアプリを閉じます。これで再起動して確認してみてください。</p>
+
+<h2>おわりに</h2>
+
+<p>微妙なバランスで成り立っていた自宅のUbuntuマシンですが、ついにこんなことになってしまいました。<br/>
+とりあえず問題は解決しましたが、これ以降カーネルアップデートをする度にこんなことが起きると面倒だし、精神衛生上よくないですね。
+もしかしたら最近グラボのドライバーをアップデートしたせいかな〜</p>
+
+  </div>
+
+  <footer>
+    <p class="meta">
+      
+  
+
+
+
+  <span class="byline author vcard">Authored by <span class="fn">
+  
+    Ry0_Ka
+  
+  </span></span>
+
+
+      
+
+
+
+<time class='entry-date' datetime='2015-07-11T23:55:39+09:00'><span class='date'><span class='date-month'>Jul</span> <span class='date-day'>11</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>11:55 pm</span></time>
+      
+      
+
+<span class="categories category-tag-link-effect category-link-effect">
+  Posted in
+  
+    <a class='category' href='/blog/categories/tips/'>tips</a>
+  
+</span>
+
+
+      
+
+<span class="tags category-tag-link-effect tag-link-effect">
+  Tagged as
+  
+    <a class='tag' href='/blog/tags/challenge/'>Challenge</a> <a class='tag' href='/blog/tags/setting/'>Setting</a> <a class='tag' href='/blog/tags/ubuntu/'>Ubuntu</a>
+  
+</span>
+
+
+    </p>
+    
+      
+      
+        
+<div class="share">
+<h3>共有する</h3>
+<ul class="circle_group clearfix">
+    <li class="sns_circle twitter"><span class="fa fa-twitter"></span><a href="http://twitter.com/intent/tweet?text=カーネルアップデートしたあと最新のカーネルを削除する&url=http://ry0.github.io/blog/2015/07/11/remove-newest-kernel/&via=Ry0_Ka"
+    title="Share on Twitter"
+    target="_blacnk"></a></li>
+    <li class="sns_circle facebook"><span class="fa fa-facebook"></span><a href="http://www.facebook.com/sharer.php?src=bm&u=http://ry0.github.io/blog/2015/07/11/remove-newest-kernel/index.html&amp;t=カーネルアップデートしたあと最新のカーネルを削除する"
+    title="Share on Facebook"
+    target="_blank"></a></li>
+    <li class="sns_circle hatebu"><span class="icon-hatebu"></span><a href="http://b.hatena.ne.jp/entry/http://ry0.github.io/blog/2015/07/11/remove-newest-kernel/"
+    title="Save to HatenaBookmark"
+    target="_blank"></a></li>
+    <li class="sns_circle googleplus"><span class="fa fa-google-plus"></span><a href="https://plus.google.com/share?url=http://ry0.github.io/blog/2015/07/11/remove-newest-kernel/&title=カーネルアップデートしたあと最新のカーネルを削除する"
+    title="Share on Google+"
+    target="_blank"></a></li>
+    <li class="sns_circle pocket"><span class="fa fa-get-pocket"></span><a href="http://getpocket.com/edit?url=http://ry0.github.io/blog/2015/07/11/remove-newest-kernel/&title=カーネルアップデートしたあと最新のカーネルを削除する"
+    title="Save to Pocket"
+    target="_blank"></a></li>
+</ul>
+</div>
+      
+    
+    
+      <section class="disqus">
+        <h2>Comments</h2>
+        <div id="disqus_thread" aria-live="polite">
+
+<script type="text/javascript">
+      var disqus_shortname = 'ry0';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://ry0.github.io/blog/2015/07/11/remove-newest-kernel/';
+        var disqus_url = 'http://ry0.github.io/blog/2015/07/11/remove-newest-kernel/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      if(window.DISQUS){
+        // console.log("Disqusを読み込んだことあるのでリロードします！");
+        DISQUS.reset({
+          reload: true,
+          config: function () {
+            this.page.identifier = disqus_identifier;
+            this.page.url = disqus_url;
+          }
+        });
+      }else{
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+    }());
+</script>
+
+
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+      </section>
+    
+    
+    <!-- 関連ポスト -->
+    
+  <div class="related_posts">
+    <h2>Related Posts</h2>
+    <ul class="posts">
+      
+        <li class="related-link" >
+  <a class="related-link-effect" href="/blog/2015/06/06/smart-git/">
+    <div class="group related-link-group">
+      <div class="title-smallthumb">
+        <img src="https://farm1.staticflickr.com/537/18495894515_19ebabd509_b.jpg">
+      </div>
+      SmartGitのインストールと使い方 (Ubuntu 14.04)
+    </div>
+  </a>
+</li>
+      
+        <li class="related-link" >
+  <a class="related-link-effect" href="/blog/2016/02/21/simplescreenrecorder/">
+    <div class="group related-link-group">
+      <div class="title-smallthumb">
+        <img src="https://farm2.staticflickr.com/1446/25170391175_a4a14c72b4_o_d.jpg">
+      </div>
+      Ubuntuの画面録画が簡単にできるSimpleScreenRecorderのインストール方法と使い方
+    </div>
+  </a>
+</li>
+      
+        <li class="related-link" >
+  <a class="related-link-effect" href="/blog/2015/10/11/slack-client-for-ubuntu/">
+    <div class="group related-link-group">
+      <div class="title-smallthumb">
+        <img src="https://farm1.staticflickr.com/656/21452665734_efc1be0ed0_b.jpg">
+      </div>
+      UbuntuでSlackのクライアントソフトを使う
+    </div>
+  </a>
+</li>
+      
+        <li class="related-link" >
+  <a class="related-link-effect" href="/blog/2015/01/12/ubuntu-and-34uc97/">
+    <div class="group related-link-group">
+      <div class="title-smallthumb">
+        <img src="https://farm1.staticflickr.com/728/21819091132_2bc40236fe_o.jpg">
+      </div>
+      Ubuntuと34UC97を接続
+    </div>
+  </a>
+</li>
+      
+        <li class="related-link" >
+  <a class="related-link-effect" href="/blog/2015/02/01/screensaver-ubuntu14-04/">
+    <div class="group related-link-group">
+      <div class="title-smallthumb">
+        <img src="https://farm8.staticflickr.com/7335/15791147673_b1898a36fa_b.jpg">
+      </div>
+      Ubuntu 14.04でスクリーンセーバーを復活させる
+    </div>
+  </a>
+</li>
+      
+        <li class="related-link" >
+  <a class="related-link-effect" href="/blog/2015/02/15/install-sublimetext2/">
+    <div class="group related-link-group">
+      <div class="title-smallthumb">
+        <img src="https://farm8.staticflickr.com/7363/16339866328_ca888dffd8_o.jpg">
+      </div>
+      UbuntuにSublime Text 2をインストール（2015年版）
+    </div>
+  </a>
+</li>
+      
+    </ul>
+  </div>
+
+    <!-- スポンサードリンク -->
+    <p class="meta">
+  <h2>Sponsored Links</h2>
+  <div class="container">
+    <div class="col span_6">
+      <div class="ad-maxwith ad-center">
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- ad_left -->
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-3051615401658472"
+             data-ad-slot="7428484344"
+             data-ad-format="auto"></ins>
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+        <p></p>
+      </div>
+    </div>
+    <div class="col span_6">
+      <div class="ad-maxwith ad-center">
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- ad_right -->
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-3051615401658472"
+             data-ad-slot="2858683946"
+             data-ad-format="auto"></ins>
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+    </div>
+  </div>
+</p>
+    <!-- 次と前の記事をサムネイル表示 -->
+    <p class="meta">
+  <h2>Previous &amp; Next Post</h2>
+  <div class="container">
+    <div class="col span_6">
+      
+      <div id="row-1st">
+        <p class="resizeimage pn-image-effect">
+          <a href="/blog/2015/06/28/samsung-ssd-850-evo/"><img class="pn-image-shadow-left" src="/images/thumbnail/header-2015-06-28-samsung-ssd-850-evo.jpg"></a>
+        </p>
+        <div class="star">
+          <div id="row-1st-in">
+            <p>
+              <i class="post_date"><i class="fa fa-angle-double-left fa-lg"></i>&ensp;&ensp;
+                <time datetime="2015-06-28T02:37:19+09:00" pubdate><span class='month'>Jun</span> <span class='day'>28th,</span> <span class='year'>2015</span></time>
+              </i>
+              <br>
+              <i class="post_title">Samsung SSD 850 EVOが安くて結構速かった</i>
+            </p>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    <div class="col span_6">
+      
+      <div id="row-1st">
+        <p class="resizeimage pn-image-effect">
+          <a href="/blog/2015/08/12/ubuntu-nvidia-cuda-7.0/"><img class="pn-image-shadow-right" src="/images/thumbnail/header-2015-08-12-ubuntu-nvidia-cuda-7.0.jpg"></a>
+        </p>
+        <div class="star">
+        <div id="row-1st-in">
+            <p class="string">
+              <i class="post_date"><i class="fa fa-angle-double-right fa-lg"></i>&ensp;&ensp;
+                <time datetime="2015-08-12T22:09:53+09:00" pubdate><span class='month'>Aug</span> <span class='day'>12th,</span> <span class='year'>2015</span></time>
+              </i>
+              <br>
+              <i class="post_title">Ubuntu 14.04にCUDA 7.0とcuDNNを導入する</i>
+            </p>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</p>
+  </footer>
+</article>
+
+<!-- サイドバー -->
+
+  <aside class="sidebar">
+    
+      <section>
+  <h1>About Me</h1>
+  <div class="about">
+    <figure>
+      <img src="/images/page/about_me.png" />
+      <a href="https://ry0note.app.push7.jp">
+      <figcaption>
+        <p class="push7-icon"><i class="icon-pushseven"></i></p>
+        <p class="push7-caption">購読する</p>
+      </figcaption>
+      </a>
+    </figure>
+
+    <h2>Author</h2>
+    <p><a href="https://twitter.com/Ry0_Ka" style="text-decoration: none" class="about-link">@Ry0_Ka</a></p>
+    <p>スマートフォンとかのガジェットのレビューが中心。たまにUbuntuのソフト紹介など。
+    GithubとOctopressを使って書いています。<a class="pjax" href="/about" style="text-decoration: none">もっと詳しく <i class="fa fa-angle-double-right fa-lg"></i></a>
+    </p>
+    <p class="introduce-push7">
+    このブログは<i class="icon-pushseven push7-logo"></i><strong>Push7</strong>を使ったWebプッシュ通知サービスに対応しています。私のアイコンをクリック。
+    </p>
+  </div>
+</section>
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts" class="fa-ul">
+    
+      <li class="post"><i class="fa fa-link fa-li"></i>
+        <a href="/blog/2017/08/29/contessa-seconda/" style="text-decoration: none">岡村製作所 コンテッサ セコンダのレビュー</a>
+      </li>
+    
+      <li class="post"><i class="fa fa-link fa-li"></i>
+        <a href="/blog/2016/12/22/skinomi-techskin-full-coverage-skin-screen-protector-for-huawei-p9-front-and-back-clear-hd-film/" style="text-decoration: none">Skinomi TechSkin Full Coverage Skin + Screen Protector for Huawei P9 Front &amp; Back Clear HD Filmのレビュー</a>
+      </li>
+    
+      <li class="post"><i class="fa fa-link fa-li"></i>
+        <a href="/blog/2016/12/12/huawei-p9-red/" style="text-decoration: none">赤の色合いが最高！HUAWEI P9 Redのレビュー</a>
+      </li>
+    
+      <li class="post"><i class="fa fa-link fa-li"></i>
+        <a href="/blog/2016/11/14/ec-technology-1200mah-mobile-battery/" style="text-decoration: none">EC Technology 12000mAh モバイルバッテリーのレビュー</a>
+      </li>
+    
+      <li class="post"><i class="fa fa-link fa-li"></i>
+        <a href="/blog/2016/08/01/ec-technology-qi-wireless-charger/" style="text-decoration: none">EC Technology Qi ワイヤレス充電器のレビュー</a>
+      </li>
+    
+      <li class="post"><i class="fa fa-link fa-li"></i>
+        <a href="/blog/2016/07/18/ec-technology-5200mah-mobile-battery/" style="text-decoration: none">EC Technology 5200mAh モバイルバッテリーのレビュー</a>
+      </li>
+    
+      <li class="post"><i class="fa fa-link fa-li"></i>
+        <a href="/blog/2016/06/27/b-and-nd-by-hadley-roma-with-mode-20mm-silicone-red-watch-strap/" style="text-decoration: none">b&nd by Hadley Roma with MODE 20mm Silicone Red Watch Strapを輸入してみた</a>
+      </li>
+    
+  </ul>
+</section>
+    
+  </aside>
+
+</div>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p class="credit">
+  Copyright &copy; 2019 - <a href="https://twitter.com/Ry0_Ka">Ry0_Ka</a> -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a> | Themed with <a href="https://github.com/lucaslew/whitespace">Whitespace</a></span>
+</p>
+
+</footer>
+  <!-- 
+
+<script type="text/javascript">
+      var disqus_shortname = 'ry0';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://ry0.github.io/blog/2015/07/11/remove-newest-kernel/';
+        var disqus_url = 'http://ry0.github.io/blog/2015/07/11/remove-newest-kernel/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      if(window.DISQUS){
+        // console.log("Disqusを読み込んだことあるのでリロードします！");
+        DISQUS.reset({
+          reload: true,
+          config: function () {
+            this.page.identifier = disqus_identifier;
+            this.page.url = disqus_url;
+          }
+        });
+      }else{
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+    }());
+</script>
+
+ &#8211;>
+
+
+
+
+
+
+
+
+
+
+<!-- schema.org 情報記述 -->
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement":
+  [
+  
+  
+    
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "item":
+      {
+        "@id": "http://ry0.github.io/blog/categories/tips/",
+        "name": "tips"
+      }
+    }
+    
+  
+  
+    
+    ,
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "item":
+      {
+        "@id": "http://ry0.github.io/blog/tags/challenge/",
+        "name": "Challenge"
+      }
+    }
+    
+  
+  ]
+}
+</script>
+
+</body>
+</html>

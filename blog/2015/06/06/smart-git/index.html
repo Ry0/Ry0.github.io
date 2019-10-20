@@ -1,0 +1,913 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="ja"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>SmartGitのインストールと使い方 (Ubuntu 14.04) - Ry0 Note</title>
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta name="author" content="Ry0_Ka">
+  
+  <meta name="description" content="Gitの操作を少しでも簡単に GitのGUIクライアント「SmartGit」 本日はGitクライアントソフトの紹介です。
+MacやWindowsは豊富にGitクライアントソフトがそろっていますが、Ubuntuでは選択肢があまりなく、その中でもデザインもいい感じで使いやすい「SmartGit」のインストール方法と基本的な使い方について書いていきます。 &hellip;">
+  <meta name="keywords" content="ガジェット,iPhone,Android,Ubuntu,Mac,Linux,Windows,Caffe,CUDA,レビュー">
+
+  
+
+  <!-- Twitterカード設置 -->
+  
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:site" content="Ry0_Ka" />
+  <meta property="twitter:url" content="http://ry0.github.io/blog/2015/06/06/smart-git" />
+  <meta property="twitter:title" content="SmartGitのインストールと使い方 (Ubuntu 14.04)" />
+  <meta property="twitter:description" content="Gitの操作を少しでも簡単に GitのGUIクライアント「SmartGit」 本日はGitクライアントソフトの紹介です。
+MacやWindowsは豊富にGitクライアントソフトがそろっていますが、Ubuntuでは選択肢があまりなく、その中でもデザインもいい感じで使いやすい「SmartGit」のインストール方法と基本的な使い方について書いていきます。 &hellip;" />
+  <meta property="twitter:creator" content="Ry0_Ka" />
+  <meta property="twitter:image:src" content="https://farm1.staticflickr.com/537/18495894515_19ebabd509_b.jpg">
+  
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="SmartGitのインストールと使い方 (Ubuntu 14.04)">
+  <meta property="og:site_name" content="Ry0 Note">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="http://ry0.github.io/blog/2015/06/06/smart-git">
+  <meta property="og:description" content="Gitの操作を少しでも簡単に GitのGUIクライアント「SmartGit」 本日はGitクライアントソフトの紹介です。
+MacやWindowsは豊富にGitクライアントソフトがそろっていますが、Ubuntuでは選択肢があまりなく、その中でもデザインもいい感じで使いやすい「SmartGit」のインストール方法と基本的な使い方について書いていきます。 &hellip;">
+  <meta property="og:image" content="https://farm1.staticflickr.com/537/18495894515_19ebabd509_b.jpg">
+
+  <!-- テーマカラー -->
+  <meta name="theme-color" content="#D03350">
+
+  <link rel="canonical" href="http://ry0.github.io/blog/2015/06/06/smart-git">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Ry0 Note" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+
+  <!-- jquery javascript -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=Fjalla+One" rel="stylesheet" type="text/css">
+<link href='//fonts.googleapis.com/css?family=Nothing+You+Could+Do' rel='stylesheet' type='text/css'>
+<link href="./favicon.png" rel="apple-touch-icon" />
+
+<!-- jquery pjax -->
+<script src="/javascripts/jquery.pjax.js"></script>
+<script src="/javascripts/pjax.script.js"></script>
+
+<script src="/javascripts/jquery.githubRepoWidget.js" type="text/javascript"></script>
+<script src="/javascripts/img-blur.js" type="text/javascript"></script>
+<script src="/javascripts/ripple.js" type="text/javascript"></script>
+
+<!-- jquery swipebox -->
+<script src="/javascripts/jquery.swipebox.js" type="text/javascript"></script>
+<script>
+  $(function () {
+  $(".swipebox").swipebox();
+  });
+</script>
+
+<!-- 新規ウィンドウで開く -->
+ <script language="JavaScript">
+  $(document).ready( function () {
+    $("a[href^='http']:not([href*='" + location.hostname + "'])").attr('target', '_blank');
+  })
+</script>
+
+<!-- スクロールトップ -->
+<script src="/javascripts/scrolltopcontrol.js" type="text/javascript"></script>
+
+<!-- SNS共有ボタン設置 -->
+
+<script src="/javascripts/SNSshare.js"></script>
+
+
+<!-- Google Analytics -->
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-57757582-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+
+</head>
+
+<body   class="collapse-sidebar sidebar-footer" >
+  <header role="banner"><hgroup>
+  <h1><a class="pjax" href="/">Ry0 Note</a></h1>
+  
+    <h2>ガジェットレビューと技術メモ</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscribe" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="25" height="25" viewbox="0 0 100 100"><path class="social" d="M 13.310204,73.332654 C 5.967347,73.332654 0,79.322448 0,86.621428 c 0,7.338776 5.967347,13.262246 13.310204,13.262246 7.370408,0 13.328572,-5.92245 13.328572,-13.262246 0,-7.29898 -5.958164,-13.288774 -13.328572,-13.288774 z M 0.01530612,33.978572 V 53.143878 C 12.493878,53.143878 24.229592,58.02347 33.068368,66.865306 41.894898,75.685714 46.767346,87.47449 46.767346,100 h 19.25 C 66.017346,63.592858 36.4,33.979592 0.01530612,33.978572 l 0,0 z M 0.03877552,0 V 19.17449 C 44.54796,19.17551 80.77551,55.437756 80.77551,100 H 100 C 100,44.87653 55.15102,0 0.03877552,0 z"></path></svg></a></li>
+  
+</ul>
+  
+  
+  
+  
+  
+<ul class="subscribe">
+<li><a href="https://twitter.com/Ry0_Ka" rel="subscribe-twitter" title="@Ry0_Ka on Twitter"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="25" height="25" viewBox="0 0 512 512"><path class="social" d="M0.001,334.932c33.327,30.816,118.891,59.981,188.517-8.271c-12.52,1.955-22.972-0.416-30.913-8.269
+c-7.531-7.465-7.945-15.182-3.914-22.202c3.275-5.725,10.184-9.741,16.977-13.934c-12.323,2.285-22.829,1.095-32.218-3.706
+c-12.604-6.444-24.863-13.228-28.3-27.207c7.71-8.112,16.28-15.359,34.831-12.627c-17.45-5.83-33.087-13.429-44.41-24.815
+c-11.028-11.091-12.163-18.302-13.932-26.996c9.632-3.567,19.688-5.421,30.478-4.353c-24.397-12.476-34.757-29.63-40.487-48.325
+c-1.731-5.652-2.044-11.03-1.31-16.545c98.826,37.305,145.11,64.109,170.662,89.251c11.496-30.589,38.3-99.868,78.371-123.646
+c0.191,3.77-1.309,7.837-4.357,12.189c11.863-6.609,21.125-17.188,37.445-16.98c-1.879,7.723-7.279,13.904-17.85,17.854
+c10.662-4.084,21.463-7.545,32.65-9.578c10.375-1.881,10.229,6.304,4.355,10.444c-11.916,8.412-24.578,9.456-37.006,13.498
+c38.105,0.949,69.266,18.994,93.604,58.343c8.088,13.074,13.52,26.149,14.807,40.487c16.254,4.563,32.426,5.494,48.76,2.61
+c4.475-0.796,8.645-1.63,12.627-3.482c-6.354,9.529-13.686,17.356-23.947,20.899c-9.811,3.387-19.637,6.688-30.473,6.968
+c17.641,6.675,37.082,7.045,57.033,5.659c-24.402,23.486-43.08,22.922-61.824,22.642c-8.221,34.703-25.025,69.315-60.52,101.005
+c-46.559,41.569-96.678,61.397-148.457,65.742c-48.552,4.07-95.488,3.512-146.726-20.464
+C56.486,393.349,24.648,368.884,0.001,334.932L0.001,334.932z"/></svg></a></li>
+</ul>
+  
+  
+  
+  
+<ul class="main-navigation">
+  <li><a href="/"><i class="fa fa-home"></i> Home</a></li>
+  <li><a href="/blog/archives"><i class="fa fa-archive"></i> Archives</a></li>
+  <li><a href="/about"><i class="fa fa-user"></i> About</a></li>
+</ul>
+
+  <script>
+  (function() {
+    var cx = '002764144690732749534:ljrigi4elzk';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    <p class="meta">
+      <div class='balloon'>
+        
+
+
+
+<time class='entry-date' datetime='2015-06-06T04:56:17+09:00'><span class='date'><span class='date-month'>Jun</span> <span class='date-day'>6</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>4:56 am</span></time>
+      </div>
+    </p>
+    
+      
+        <h1 class="entry-title">SmartGitのインストールと使い方 (Ubuntu 14.04)</h1>
+      
+    
+    
+      <p class="meta">
+        
+  
+
+<ol class="breadcrumbs">
+  <li><i class="fa fa-home"></i><a href="http://ry0.github.io">&ensp;<span>Top</span></a></li>
+  
+    
+    <li><span class="breadcrumbs_separator"> <i class="fa fa-angle-right"></i> <i class="fa fa-folder-open-o"></i>&ensp;</span><a class="pjax" href="/blog/categories/tips/"><span>tips</span></a></li>
+  
+  
+    
+    <li><span class="breadcrumbs_separator"> <i class="fa fa-angle-right"></i> <i class="fa fa-tags"></i>&ensp;</span><a class="pjax" href="/blog/tags/git/"><span>Git</span></a>
+    
+      
+        <span>, </span>
+        <a class="pjax" href="/blog/tags/setting/"><span>Setting</span></a>
+      
+        <span>, </span>
+        <a class="pjax" href="/blog/tags/ubuntu/"><span>Ubuntu</span></a>
+      
+    
+    </li>
+  
+</ol>
+
+
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content">
+    <!-- ヘッダー写真 -->
+    <div class="entry-image entry-image-blur">
+  <img src="https://farm1.staticflickr.com/537/18495894515_19ebabd509_b.jpg">
+</div>
+    <!-- ひとこと -->
+    <div class="comment-right">
+  <div class="comment-box">
+    <div class="comment-list-icon">
+      <div class="comment-icon-background">
+        <img class="comment-icon" src="/images/page/header-comment-icon_on.jpg">
+      </div>
+    </div>
+    <div class="comment-list-text">Gitの操作を少しでも簡単に</div>
+  </div>
+</div>
+    <!-- 記事コンテンツ -->
+    <h2>GitのGUIクライアント「SmartGit」</h2>
+
+<p>本日はGitクライアントソフトの紹介です。
+MacやWindowsは豊富にGitクライアントソフトがそろっていますが、Ubuntuでは選択肢があまりなく、その中でもデザインもいい感じで使いやすい「SmartGit」の<strong>インストール方法と基本的な使い方</strong>について書いていきます。<br/>
+基本的にはUbuntuを使って操作の説明をしていきますが、他のOSでもインストール以外の箇所はデザインもほぼ共通なので参考になれば幸いです。</p>
+
+<!-- more -->
+
+
+<h2>まずはインストール（Ubuntu）</h2>
+
+<p>前提条件ですが<strong>Gitがインストールしてあって、SSH接続等の設定が済んでいる</strong>ものとして話を進めていきます。</p>
+
+<p><a href="http://www.syntevo.com/smartgit/">公式サイト</a>からバイナリを手に入れて、手動でインストールすることができますが解凍したりインストールの場所をどこにするかとか考える必要があるため簡単に<code>apt-get</code>でいきます。</p>
+
+<p>あとUbuntuにJavaが入っていない場合、起動できないのでJavaの導入がまだな人は同時にインストールするようにしてください。</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="c">#Oracle Java 8のレポジトリ（Javaが入ってない人向け）</span>
+</span><span class='line'>sudo add-apt-repository ppa:webupd8team/java
+</span><span class='line'>sudo apt-get update
+</span><span class='line'><span class="c">#Oracle Java 8のインストール</span>
+</span><span class='line'>sudo apt-get install oracle-java8-installer
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='bash'><span class='line'><span class="c">#SmartGitのレポジトリ</span>
+</span><span class='line'>sudo add-apt-repository ppa:eugenesan/ppa
+</span><span class='line'>sudo apt-get update
+</span><span class='line'><span class="c">#SmartGitのインストール</span>
+</span><span class='line'>sudo apt-get install smartgit
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>以上のコマンドを実行し、インストール作業を完了させてください。</p>
+
+<h2>SmartGitの初期設定</h2>
+
+<p>インストールが完了したら、Unityランチャーから「SmartGit」と入力し、SmartGitを起動。</p>
+
+<p>非商用利用の場合、写真のようにチェックを入れる。</p>
+
+<p><a class="swipebox" href="https://farm1.staticflickr.com/497/18468738566_a3ed4249b3_b.jpg" title="非商用利用" >
+  <img class="center image-effect" src="https://farm1.staticflickr.com/497/18468738566_a3ed4249b3_b.jpg">
+</a></p>
+
+<p>同意する。</p>
+
+<p><a class="swipebox" href="https://farm9.staticflickr.com/8859/18468738366_ae383fce73_z.jpg" title="非商用利用の確認" >
+  <img class="center image-effect" src="https://farm9.staticflickr.com/8859/18468738366_ae383fce73_z.jpg">
+</a></p>
+
+<p>「Use SmartGit as SSH client」でいいと思う。チェックして次へ。</p>
+
+<p><a class="swipebox" href="https://farm9.staticflickr.com/8886/18495173925_b513398030_b.jpg" title="Use SmartGit as SSH client" >
+  <img class="center image-effect" src="https://farm9.staticflickr.com/8886/18495173925_b513398030_b.jpg">
+</a></p>
+
+<p>多分、Gitの設定した時のユーザー名とEメールアドレスがあると思うので、それを入力しておく。</p>
+
+<p><a class="swipebox" href="https://farm9.staticflickr.com/8886/18496999701_02e7be1cfe_b.jpg" title="ユーザー名とEメールアドレス" >
+  <img class="center image-effect" src="https://farm9.staticflickr.com/8886/18496999701_02e7be1cfe_b.jpg">
+</a></p>
+
+<p>この項目はスキップ。</p>
+
+<p><a class="swipebox" href="https://farm1.staticflickr.com/397/18307357568_744d0c81d4_b.jpg" title="スキップ" >
+  <img class="center image-effect" src="https://farm1.staticflickr.com/397/18307357568_744d0c81d4_b.jpg">
+</a></p>
+
+<p>ここもスキップ。</p>
+
+<p><a class="swipebox" href="https://farm9.staticflickr.com/8898/18495173375_d20fe5e0b1_b.jpg" title="スキップ" >
+  <img class="center image-effect" src="https://farm9.staticflickr.com/8898/18495173375_d20fe5e0b1_b.jpg">
+</a></p>
+
+<p>エラーが起きたときにエラーレポートを自動で送信するか、勝手にすんなと思うならチェックを外しておく。</p>
+
+<p><a class="swipebox" href="https://farm1.staticflickr.com/430/18307447910_f3ff54f7d7_b.jpg" title="エラーレポート" >
+  <img class="center image-effect" src="https://farm1.staticflickr.com/430/18307447910_f3ff54f7d7_b.jpg">
+</a></p>
+
+<p>ここまで、設定が終わったら、SmartGitのウィンドウが開いて以下の画面が出てきますが、今は「Close」を押す。</p>
+
+<p><a class="swipebox" href="https://farm1.staticflickr.com/473/18308972569_33f97539f2.jpg" title="Welcome to SmartGit" >
+  <img class="center image-effect" src="https://farm1.staticflickr.com/473/18308972569_33f97539f2.jpg">
+</a></p>
+
+<h2>SmartGitの使い方</h2>
+
+<h3>SmartGitのUI</h3>
+
+<p>SmartGitのデザインはこんな感じです。
+各窓が何を表しているか、簡単に示しています。</p>
+
+<p><a class="swipebox" href="https://farm9.staticflickr.com/8899/18307379678_c651214e98_b.jpg" title="UI" >
+  <img class="center image-effect" src="https://farm9.staticflickr.com/8899/18307379678_c651214e98_b.jpg">
+</a></p>
+
+<p>下の項目ではgitの操作でよく使う操作についてSmartGitではどう操作するのかを書いています。</p>
+
+<h3>レポジトリをSmartGitに登録</h3>
+
+<p>レポジトリが既にローカルにある場合、上のメニューボタンから一番左の「Repository」から「Add or Create&hellip;」を選択し、目的のレポジトリがある階層を教えてあげることで登録できます。</p>
+
+<h3>リモートレポジトリをcloneしてくる</h3>
+
+<p>登録したいレポジトリがローカルにない場合、リモート先のレポジトリから<code>clone</code>してきます。
+これに関しては、コマンドラインでちゃっちゃとやってから上の操作で登録するっていう方法でもOKです。</p>
+
+<p><a class="swipebox" href="https://farm9.staticflickr.com/8853/18490827232_d00290332c_b.jpg" title="clone" >
+  <img class="center image-effect" src="https://farm9.staticflickr.com/8853/18490827232_d00290332c_b.jpg">
+</a></p>
+
+<h3>コミットする</h3>
+
+<p>一番使うと思われる<code>commit</code>です。コミットボタンは上のアイコン付きのボタンの群にあります。
+<strong>このときコミットしたいファイルを「Files」の項目から選択しておきます。</strong>
+選択した後、「Commit」を押すと、以下のウィンドウが出てきてコミットメッセージを入力します。</p>
+
+<p><a class="swipebox" href="https://farm9.staticflickr.com/8877/18307470230_a35af8d11d_b.jpg" title="commit" >
+  <img class="center image-effect" src="https://farm9.staticflickr.com/8877/18307470230_a35af8d11d_b.jpg">
+</a></p>
+
+<p>コミットメッセージを入力し終えたら、コミットします。
+まだリモート先に反映したくなかったら、「Commit」で、同時にリモート先にプッシュしたかったら「Commit &amp; Push」です。</p>
+
+<h3>pullする</h3>
+
+<p>他のPCで作業したり、複数の人が編集をしていてリモートレポジトリに変更があるときは<code>pull</code>をする。このボタンは一番左にあります。
+「Pull」を押すと、下のようなウィンドウが出てくるので「Pull」を押す。</p>
+
+<p><a class="swipebox" href="https://farm1.staticflickr.com/552/18310706398_6433018519_z.jpg" title="pull" >
+  <img class="center image-effect" src="https://farm1.staticflickr.com/552/18310706398_6433018519_z.jpg">
+</a></p>
+
+<h3>branchを追加</h3>
+
+<p>新たなbranchを今のHEADに追加したかった場合、「Add Branch」。</p>
+
+<p><a class="swipebox" href="https://farm1.staticflickr.com/484/18468758516_9f0aff48d6_b.jpg" title="Add Branch 1" >
+  <img class="center image-effect" src="https://farm1.staticflickr.com/484/18468758516_9f0aff48d6_b.jpg">
+</a></p>
+
+<p>branchの名前を入力して「Add Branch」。</p>
+
+<p><a class="swipebox" href="https://farm9.staticflickr.com/8848/18307469940_8d5734db85.jpg" title="Add Branch 2" >
+  <img class="center" src="https://farm9.staticflickr.com/8848/18307469940_8d5734db85.jpg">
+</a></p>
+
+<h3>branchの切り替え</h3>
+
+<p>branchを切り替え<code>checkout</code>をしたい場合、左下のBranchesの窓で、切り替えたいbranchをダブルクリックします。</p>
+
+<p><a class="swipebox" href="https://farm1.staticflickr.com/431/18307379088_1e737e16ba.jpg" title="checkout" >
+  <img class="center image-effect" src="https://farm1.staticflickr.com/431/18307379088_1e737e16ba.jpg">
+</a></p>
+
+<p>すると以下のアラートがでるので、問題なかったら「Checkout」。</p>
+
+<p><a class="swipebox" href="https://farm1.staticflickr.com/422/18307469620_7054f9b042.jpg" title="アラート" >
+  <img class="center image-effect" src="https://farm1.staticflickr.com/422/18307469620_7054f9b042.jpg">
+</a></p>
+
+<h3>マージ</h3>
+
+<p>先ほど作成したbranchを<code>master</code>にマージしたい場合、以下の手順にしたがってマージしていきます。
+今回は、マージをしたよという情報が残るマージ方法でいきます。
+<code>merge</code>の種類もいくつかあります。これについては以下のサイトが分かりやすかったです。</p>
+
+<blockquote><p>図で分かるgit-mergeの&#8211;ff, &#8211;no-ff, &#8211;squashの違い</p><footer><strong>アジャイルSEを目指すブログ</strong> <cite><a href='http://d.hatena.ne.jp/sinsoku/20111025/1319497900'>http://d.hatena.ne.jp/sinsoku/20111025/1319497900</a></cite></footer><p></p></blockquote>
+
+
+<p></p>
+
+<p>SmartGitにもどって、マージ作業をします。
+<strong>このときマージして結合する先のbranchで作業してください。</strong><br/>
+例えば、<code>develop</code>というbranchの内容を<code>master</code>にマージしたい場合、<code>master</code>のbranchで以下の操作を行います。</p>
+
+<p>SmartGitの上部のボタン群にある「Merge」ボタンを押します。</p>
+
+<p><a class="swipebox" href="https://farm9.staticflickr.com/8899/17872494654_0f8bcb6f47_z.jpg" title="merge" >
+  <img class="center image-effect" src="https://farm9.staticflickr.com/8899/17872494654_0f8bcb6f47_z.jpg">
+</a></p>
+
+<p>この場合、<code>develop</code>branchのコミットが表示されていないので右上の「Branches」ボタンを押します。</p>
+
+<p><a class="swipebox" href="https://farm1.staticflickr.com/556/18307378418_669b472082_z.jpg" title="ブランチのチェック" >
+  <img class="center image-effect" src="https://farm1.staticflickr.com/556/18307378418_669b472082_z.jpg">
+</a></p>
+
+<p>そしてローカルにあるbranchをすべて表示させるようにチェックを入れました。</p>
+
+<p><a class="swipebox" href="https://farm9.staticflickr.com/8874/18308994239_547c6c4774_b.jpg" title="すべてにチェック" >
+  <img class="center image-effect" src="https://farm9.staticflickr.com/8874/18308994239_547c6c4774_b.jpg">
+</a></p>
+
+<p>すると<code>master</code>branchよりも1コミットすすんでいる<code>develop</code>branchのコミットがあります。
+これを<code>master</code>にマージします。
+対象のコミットを選択して、「Create Merge-Commit」を選択。
+そして「Create Merge-Commit」を押します。</p>
+
+<p><a class="swipebox" href="https://farm1.staticflickr.com/358/18490825232_c4664c2e48_o.png" title="Create Merge-Commit" >
+  <img class="center image-effect" src="https://farm1.staticflickr.com/358/18490825232_c4664c2e48_o.png">
+</a></p>
+
+<h3>コミットログの確認</h3>
+
+<p>先ほどのマージ作業が上手くできたかを確認したり、プログラムがうまく動かなくなったとき、過去のコミットを参照してどこを変更したかなどを参照することができます。
+ログの確認はSmartGitの画面右上の「Log」ボタン。</p>
+
+<p><a class="swipebox" href="https://farm9.staticflickr.com/8869/18497019061_e5eb222ac8_b.jpg" title="Log" >
+  <img class="center image-effect" src="https://farm9.staticflickr.com/8869/18497019061_e5eb222ac8_b.jpg">
+</a></p>
+
+<p>ここで過去のコミットに戻す作業等もできますが、頻繁に戻すことはないので省略します。</p>
+
+<h2>ちょっとした設定</h2>
+
+<p>SmartGitのレポジトリ一覧から右クリックでそのレポジトリがあるディレクトリをターミナルで開いたり、ファイラーで開いたりできます。
+Ubuntu標準のターミナルやファイラーを使っている場合、そのアプリで開くように設定する必要があります。</p>
+
+<p>下の写真だと、ファイラーが「nemo」、ターミナルが「terminater」で開くように設定しています。<br/>
+nemoの設定は<strong>Command</strong>が<code>nemo</code>、<strong>Arguments</strong>が<code>${fileUri}</code>、<br/>
+Terminatorの設定は<strong>Command</strong>が<code>/usr/bin/terminator</code>、<strong>Arguments</strong>が<code>--working-directory ${filePath}</code>です。</p>
+
+<p><a class="swipebox" href="https://farm1.staticflickr.com/371/17872493764_5ce83cc330_b.jpg" title="デフォルトで開くアプリの設定" >
+  <img class="center image-effect" src="https://farm1.staticflickr.com/371/17872493764_5ce83cc330_b.jpg">
+</a></p>
+
+<h2>おわりに</h2>
+
+<p>いろいろ書いているうちにごちゃごちゃし始めたので、この辺にしておきます。<br/>
+GUIで操作できるのはとても楽だし、視覚的にわかりやすいですが、本当にはじめてGitを勉強するひとは一回コマンドラインで基本的な操作する練習をしてから使ってみるといいと思います。でないと何をやっているのかわからないままSmartGitに慣れてしまうと、GUI環境がなくなったときにどうすることもできない状況になると困るかなと。</p>
+
+<p>Gitに慣れてきたら日常的に行う操作に関しては、SmartGitでやると楽だと思います。特に前回コミットと現在変更した箇所の差分が表示されるので、これが便利だと思います。
+あとコミットするファイルを視覚的に選択できるのがいいですね。<code>git add</code>だとこれはコミットしたいけど、これはいいとかいう操作がしづらいですから。<br/>
+一方で複雑な操作をする場合、コマンドでやったほうがわかりやすいときもありますのでGUIとCLIを使い分けていくといいですね。<br/>
+本日は以上です。最後まで閲覧していただきありがとうございました。</p>
+
+  </div>
+
+  <footer>
+    <p class="meta">
+      
+  
+
+
+
+  <span class="byline author vcard">Authored by <span class="fn">
+  
+    Ry0_Ka
+  
+  </span></span>
+
+
+      
+
+
+
+<time class='entry-date' datetime='2015-06-06T04:56:17+09:00'><span class='date'><span class='date-month'>Jun</span> <span class='date-day'>6</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>4:56 am</span></time>
+      
+      
+
+<span class="categories category-tag-link-effect category-link-effect">
+  Posted in
+  
+    <a class='category' href='/blog/categories/tips/'>tips</a>
+  
+</span>
+
+
+      
+
+<span class="tags category-tag-link-effect tag-link-effect">
+  Tagged as
+  
+    <a class='tag' href='/blog/tags/git/'>Git</a> <a class='tag' href='/blog/tags/setting/'>Setting</a> <a class='tag' href='/blog/tags/ubuntu/'>Ubuntu</a>
+  
+</span>
+
+
+    </p>
+    
+      
+      
+        
+<div class="share">
+<h3>共有する</h3>
+<ul class="circle_group clearfix">
+    <li class="sns_circle twitter"><span class="fa fa-twitter"></span><a href="http://twitter.com/intent/tweet?text=SmartGitのインストールと使い方 (Ubuntu 14.04)&url=http://ry0.github.io/blog/2015/06/06/smart-git/&via=Ry0_Ka"
+    title="Share on Twitter"
+    target="_blacnk"></a></li>
+    <li class="sns_circle facebook"><span class="fa fa-facebook"></span><a href="http://www.facebook.com/sharer.php?src=bm&u=http://ry0.github.io/blog/2015/06/06/smart-git/index.html&amp;t=SmartGitのインストールと使い方 (Ubuntu 14.04)"
+    title="Share on Facebook"
+    target="_blank"></a></li>
+    <li class="sns_circle hatebu"><span class="icon-hatebu"></span><a href="http://b.hatena.ne.jp/entry/http://ry0.github.io/blog/2015/06/06/smart-git/"
+    title="Save to HatenaBookmark"
+    target="_blank"></a></li>
+    <li class="sns_circle googleplus"><span class="fa fa-google-plus"></span><a href="https://plus.google.com/share?url=http://ry0.github.io/blog/2015/06/06/smart-git/&title=SmartGitのインストールと使い方 (Ubuntu 14.04)"
+    title="Share on Google+"
+    target="_blank"></a></li>
+    <li class="sns_circle pocket"><span class="fa fa-get-pocket"></span><a href="http://getpocket.com/edit?url=http://ry0.github.io/blog/2015/06/06/smart-git/&title=SmartGitのインストールと使い方 (Ubuntu 14.04)"
+    title="Save to Pocket"
+    target="_blank"></a></li>
+</ul>
+</div>
+      
+    
+    
+      <section class="disqus">
+        <h2>Comments</h2>
+        <div id="disqus_thread" aria-live="polite">
+
+<script type="text/javascript">
+      var disqus_shortname = 'ry0';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://ry0.github.io/blog/2015/06/06/smart-git/';
+        var disqus_url = 'http://ry0.github.io/blog/2015/06/06/smart-git/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      if(window.DISQUS){
+        // console.log("Disqusを読み込んだことあるのでリロードします！");
+        DISQUS.reset({
+          reload: true,
+          config: function () {
+            this.page.identifier = disqus_identifier;
+            this.page.url = disqus_url;
+          }
+        });
+      }else{
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+    }());
+</script>
+
+
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+      </section>
+    
+    
+    <!-- 関連ポスト -->
+    
+  <div class="related_posts">
+    <h2>Related Posts</h2>
+    <ul class="posts">
+      
+        <li class="related-link" >
+  <a class="related-link-effect" href="/blog/2017/08/29/contessa-seconda/">
+    <div class="group related-link-group">
+      <div class="title-smallthumb">
+        <img src="https://farm5.staticflickr.com/4365/36834844175_810b2526e0_o_d.jpg">
+      </div>
+      岡村製作所 コンテッサ セコンダのレビュー
+    </div>
+  </a>
+</li>
+      
+        <li class="related-link" >
+  <a class="related-link-effect" href="/blog/2015/10/21/open-terminal-shortcut/">
+    <div class="group related-link-group">
+      <div class="title-smallthumb">
+        <img src="https://farm1.staticflickr.com/584/22348096585_681e5c2ea3_b.jpg">
+      </div>
+      Macでターミナルを開くショートカットを作成する
+    </div>
+  </a>
+</li>
+      
+        <li class="related-link" >
+  <a class="related-link-effect" href="/blog/2016/12/12/huawei-p9-red/">
+    <div class="group related-link-group">
+      <div class="title-smallthumb">
+        <img src="https://farm1.staticflickr.com/537/31425906572_ecdd771601_o_d.jpg">
+      </div>
+      赤の色合いが最高！HUAWEI P9 Redのレビュー
+    </div>
+  </a>
+</li>
+      
+        <li class="related-link" >
+  <a class="related-link-effect" href="/blog/2016/02/21/simplescreenrecorder/">
+    <div class="group related-link-group">
+      <div class="title-smallthumb">
+        <img src="https://farm2.staticflickr.com/1446/25170391175_a4a14c72b4_o_d.jpg">
+      </div>
+      Ubuntuの画面録画が簡単にできるSimpleScreenRecorderのインストール方法と使い方
+    </div>
+  </a>
+</li>
+      
+        <li class="related-link" >
+  <a class="related-link-effect" href="/blog/2015/10/11/slack-client-for-ubuntu/">
+    <div class="group related-link-group">
+      <div class="title-smallthumb">
+        <img src="https://farm1.staticflickr.com/656/21452665734_efc1be0ed0_b.jpg">
+      </div>
+      UbuntuでSlackのクライアントソフトを使う
+    </div>
+  </a>
+</li>
+      
+        <li class="related-link" >
+  <a class="related-link-effect" href="/blog/2016/08/01/ec-technology-qi-wireless-charger/">
+    <div class="group related-link-group">
+      <div class="title-smallthumb">
+        <img src="https://farm9.staticflickr.com/8736/28388642460_86a18118f4_o_d.jpg">
+      </div>
+      EC Technology Qi ワイヤレス充電器のレビュー
+    </div>
+  </a>
+</li>
+      
+    </ul>
+  </div>
+
+    <!-- スポンサードリンク -->
+    <p class="meta">
+  <h2>Sponsored Links</h2>
+  <div class="container">
+    <div class="col span_6">
+      <div class="ad-maxwith ad-center">
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- ad_left -->
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-3051615401658472"
+             data-ad-slot="7428484344"
+             data-ad-format="auto"></ins>
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+        <p></p>
+      </div>
+    </div>
+    <div class="col span_6">
+      <div class="ad-maxwith ad-center">
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- ad_right -->
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-3051615401658472"
+             data-ad-slot="2858683946"
+             data-ad-format="auto"></ins>
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>
+    </div>
+  </div>
+</p>
+    <!-- 次と前の記事をサムネイル表示 -->
+    <p class="meta">
+  <h2>Previous &amp; Next Post</h2>
+  <div class="container">
+    <div class="col span_6">
+      
+      <div id="row-1st">
+        <p class="resizeimage pn-image-effect">
+          <a href="/blog/2015/05/31/mx-master-disassembly/"><img class="pn-image-shadow-left" src="/images/thumbnail/header-2015-05-31-mx-master-disassembly.jpg"></a>
+        </p>
+        <div class="star">
+          <div id="row-1st-in">
+            <p>
+              <i class="post_date"><i class="fa fa-angle-double-left fa-lg"></i>&ensp;&ensp;
+                <time datetime="2015-05-31T19:50:35+09:00" pubdate><span class='month'>May</span> <span class='day'>31th,</span> <span class='year'>2015</span></time>
+              </i>
+              <br>
+              <i class="post_title">MX MASTERを分解してみた</i>
+            </p>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    <div class="col span_6">
+      
+      <div id="row-1st">
+        <p class="resizeimage pn-image-effect">
+          <a href="/blog/2015/06/14/cheero-2-in-1-usb-cable/"><img class="pn-image-shadow-right" src="/images/thumbnail/header-2015-06-14-cheero-2-in-1-usb-cable.jpg"></a>
+        </p>
+        <div class="star">
+        <div id="row-1st-in">
+            <p class="string">
+              <i class="post_date"><i class="fa fa-angle-double-right fa-lg"></i>&ensp;&ensp;
+                <time datetime="2015-06-14T19:08:39+09:00" pubdate><span class='month'>Jun</span> <span class='day'>14th,</span> <span class='year'>2015</span></time>
+              </i>
+              <br>
+              <i class="post_title">cheero 2 in 1 USB Cableを買ってみた</i>
+            </p>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</p>
+  </footer>
+</article>
+
+<!-- サイドバー -->
+
+  <aside class="sidebar">
+    
+      <section>
+  <h1>About Me</h1>
+  <div class="about">
+    <figure>
+      <img src="/images/page/about_me.png" />
+      <a href="https://ry0note.app.push7.jp">
+      <figcaption>
+        <p class="push7-icon"><i class="icon-pushseven"></i></p>
+        <p class="push7-caption">購読する</p>
+      </figcaption>
+      </a>
+    </figure>
+
+    <h2>Author</h2>
+    <p><a href="https://twitter.com/Ry0_Ka" style="text-decoration: none" class="about-link">@Ry0_Ka</a></p>
+    <p>スマートフォンとかのガジェットのレビューが中心。たまにUbuntuのソフト紹介など。
+    GithubとOctopressを使って書いています。<a class="pjax" href="/about" style="text-decoration: none">もっと詳しく <i class="fa fa-angle-double-right fa-lg"></i></a>
+    </p>
+    <p class="introduce-push7">
+    このブログは<i class="icon-pushseven push7-logo"></i><strong>Push7</strong>を使ったWebプッシュ通知サービスに対応しています。私のアイコンをクリック。
+    </p>
+  </div>
+</section>
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts" class="fa-ul">
+    
+      <li class="post"><i class="fa fa-link fa-li"></i>
+        <a href="/blog/2017/08/29/contessa-seconda/" style="text-decoration: none">岡村製作所 コンテッサ セコンダのレビュー</a>
+      </li>
+    
+      <li class="post"><i class="fa fa-link fa-li"></i>
+        <a href="/blog/2016/12/22/skinomi-techskin-full-coverage-skin-screen-protector-for-huawei-p9-front-and-back-clear-hd-film/" style="text-decoration: none">Skinomi TechSkin Full Coverage Skin + Screen Protector for Huawei P9 Front &amp; Back Clear HD Filmのレビュー</a>
+      </li>
+    
+      <li class="post"><i class="fa fa-link fa-li"></i>
+        <a href="/blog/2016/12/12/huawei-p9-red/" style="text-decoration: none">赤の色合いが最高！HUAWEI P9 Redのレビュー</a>
+      </li>
+    
+      <li class="post"><i class="fa fa-link fa-li"></i>
+        <a href="/blog/2016/11/14/ec-technology-1200mah-mobile-battery/" style="text-decoration: none">EC Technology 12000mAh モバイルバッテリーのレビュー</a>
+      </li>
+    
+      <li class="post"><i class="fa fa-link fa-li"></i>
+        <a href="/blog/2016/08/01/ec-technology-qi-wireless-charger/" style="text-decoration: none">EC Technology Qi ワイヤレス充電器のレビュー</a>
+      </li>
+    
+      <li class="post"><i class="fa fa-link fa-li"></i>
+        <a href="/blog/2016/07/18/ec-technology-5200mah-mobile-battery/" style="text-decoration: none">EC Technology 5200mAh モバイルバッテリーのレビュー</a>
+      </li>
+    
+      <li class="post"><i class="fa fa-link fa-li"></i>
+        <a href="/blog/2016/06/27/b-and-nd-by-hadley-roma-with-mode-20mm-silicone-red-watch-strap/" style="text-decoration: none">b&nd by Hadley Roma with MODE 20mm Silicone Red Watch Strapを輸入してみた</a>
+      </li>
+    
+  </ul>
+</section>
+    
+  </aside>
+
+</div>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p class="credit">
+  Copyright &copy; 2019 - <a href="https://twitter.com/Ry0_Ka">Ry0_Ka</a> -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a> | Themed with <a href="https://github.com/lucaslew/whitespace">Whitespace</a></span>
+</p>
+
+</footer>
+  <!-- 
+
+<script type="text/javascript">
+      var disqus_shortname = 'ry0';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://ry0.github.io/blog/2015/06/06/smart-git/';
+        var disqus_url = 'http://ry0.github.io/blog/2015/06/06/smart-git/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      if(window.DISQUS){
+        // console.log("Disqusを読み込んだことあるのでリロードします！");
+        DISQUS.reset({
+          reload: true,
+          config: function () {
+            this.page.identifier = disqus_identifier;
+            this.page.url = disqus_url;
+          }
+        });
+      }else{
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+    }());
+</script>
+
+ &#8211;>
+
+
+
+
+
+
+
+
+
+
+<!-- schema.org 情報記述 -->
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement":
+  [
+  
+  
+    
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "item":
+      {
+        "@id": "http://ry0.github.io/blog/categories/tips/",
+        "name": "tips"
+      }
+    }
+    
+  
+  
+    
+    ,
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "item":
+      {
+        "@id": "http://ry0.github.io/blog/tags/git/",
+        "name": "Git"
+      }
+    }
+    
+  
+  ]
+}
+</script>
+
+</body>
+</html>

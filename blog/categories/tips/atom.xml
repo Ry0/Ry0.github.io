@@ -1,0 +1,785 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Tips | Ry0 Note]]></title>
+  <link href="http://ry0.github.io/blog/categories/tips/atom.xml" rel="self"/>
+  <link href="http://ry0.github.io/"/>
+  <updated>2019-10-20T02:14:29+09:00</updated>
+  <id>http://ry0.github.io/</id>
+  <author>
+    <name><![CDATA[Ry0_Ka]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[UbuntuでHDDのマウントポイントを固定する方法]]></title>
+    <link href="http://ry0.github.io/blog/2016/06/27/how-to-fix-mount-of-hdd-in-ubuntu/"/>
+    <updated>2016-06-27T05:15:21+09:00</updated>
+    <id>http://ry0.github.io/blog/2016/06/27/how-to-fix-mount-of-hdd-in-ubuntu</id>
+    <content type="html"><![CDATA[<h2>HDDを一新する機会があったのでメモ</h2>
+
+<p>UbuntuではWindowsのようにC,D,E&hellip;のようにドライブレターを付けて管理する方法をとっていないので、UbuntuのOSが入ったストレージ以外の外付けHDDなどは起動するたびに認識順番によってパスが変わってしまいます。<br/>
+音楽データを再生ソフトにインポートするときに毎回パスが変わってしまうと不都合が起こるので、自分でマウントポイントを固定させています。</p>
+
+<p>今日はその方法を簡単に紹介しておきます。</p>
+
+<!-- more -->
+
+
+<h2>Ubuntuのターミナルを開く</h2>
+
+<p><code>sudo blkid</code>と入力します。<br/>
+するとこんな感じの出力が得られます。</p>
+
+<pre><code>sudo blkid
+[sudo] password for ry0: 
+/dev/sda2: UUID="7ab051c4-d59d-42da-abde-f2acc76e4456" TYPE="swap" 
+/dev/sda3: UUID="dda8076d-7aa4-4f67-b8fb-c372d3b4f3d0" TYPE="ext4" 
+/dev/sda5: UUID="217c6241-aab2-46d3-8cb7-ce45a8b7be67" TYPE="ext4" 
+/dev/sdb1: UUID="90C6D54FC6D535E6" TYPE="ntfs" 
+/dev/sdc2: LABEL="M-cM-^CM-^\M-cM-^CM-*M-cM-^CM-%M-cM-^CM-&lt;M-cM-^CM- " UUID="7C3654FC3475B7BA" TYPE="ntfs" 
+/dev/sdd2: LABEL="M-cM-^CM-^\M-cM-^CM-*M-cM-^CM-%M-cM-^CM-&lt;M-cM-^CM- " UUID="567A23C67A58A3F1" TYPE="ntfs" 
+/dev/sdl1: LABEL="M-cM-^CM--M-cM-^CM-&lt;M-cM-^BM-+M-cM-^CM-+ M-cM-^CM-^GM-cM-^BM-#M-cM-^BM-9M-cM-^BM-/" UUID="36FA567EFA2657A7" TYPE="ntfs"
+</code></pre>
+
+<p>そして固定したいストレージを見極めます。ファイラーでそこにアクセスするか、ターミナルで<code>ls</code>するなど、現時点でどれがどのストレージなのかをしっかり把握しておいてください。<br/>
+固定したいものがわかったら、<code>UUID</code>の文字列をメモしておきます。</p>
+
+<h2>/etc/fstabを編集</h2>
+
+<p>エディタで<code>/etc/fstab</code>を編集します。</p>
+
+<pre><code>sudo gedit /etc/fstab
+</code></pre>
+
+<p>そして最後の行に以下のような記述を追加します。ここでの記述は上で得られた<code>/dev/sdc2:/dev/sdd2:/dev/sdl1:</code>の<code>UUID</code>の結果を例に出しています。</p>
+
+<pre><code>#Windows HDD
+UUID="7C3654FC3475B7BA"   /mnt/hdd1     ntfs    defaults        0 0
+UUID="567A23C67A58A3F1"   /mnt/hdd2     ntfs    defaults        0 0
+UUID="36FA567EFA2657A7"   /mnt/hdd3     ntfs    defaults        0 0
+</code></pre>
+
+<p>しっかりUUIDの記述が間違っていないことを確認したら保存して、リブートします。<code>/mnt/hdd~</code>にマウントされていたら成功です。</p>
+
+<h2>注意</h2>
+
+<h3>マウントできない問題</h3>
+
+<p>Windowsで使っているHDDをマウントさせようしてもマウントできないことがあります。<br/>
+こういうときはWindows側でコントロールパネルから「電源オプション」を開き、「高速スタートアップを有効にする（推奨）」のチェックを外してください。<strong>上の設定をした状態で、これにチェックを入れるとUbuntuが起動できなくなります。</strong></p>
+
+<h3>Ubuntuが起動できなくなった</h3>
+
+<p>こういうときはUbuntuをインストールするときに使ったディスクを使って、ディスクからUbuntuを起動してください。<br/>
+そしてUbuntuがインストールされているディスクの<code>/etc/fstab</code>にアクセスし、<strong>自分で記述した部分を削除してください。これでリセットできるはずです。</strong></p>
+
+<h2>おわりに</h2>
+
+<p>この設定でUbuntuのシステムだけSSDに置いて、音楽データや動画データなどはデュアルブートしてあるWindows側と共有するようにしています。<br/>
+外付けのHDDでも同じことができるので、起動するたびにマウントポイントが変わって困っている人は試してみてください。</p>
+
+<p><blockquote><p></p></p><p><div class="kaerebalink-box"><div class="kaerebalink-image"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00KD9641W/ry00c-22/ref=nosim/" target="_blank" ><img src="http://ecx.images-amazon.com/images/I/41OgsqjweFL._SL160_.jpg" style="border: none;" /></a></div><div class="kaerebalink-info"><div class="kaerebalink-name"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00KD9641W/ry00c-22/ref=nosim/" target="_blank" >HGST(エイチ・ジー・エス・ティー) Deskstar NAS 4TB パッケージ版 3.5インチ 7200rpm 64MBキャッシュ SATA 6Gb/s 【3年保証】 0S03667</a><div class="kaerebalink-powered-date">posted with <a href="http://kaereba.com" rel="nofollow" target="_blank">カエレバ</a></div></div><div class="kaerebalink-detail"> HGST Japan 2014-03-12    </div><div class="kaerebalink-link1"><div class="shoplinkamazon"><a href="http://www.amazon.co.jp/gp/search?keywords=HGST&__mk_ja_JP=%83J%83%5E%83J%83i&tag=ry00c-22" target="_blank" >Amazonで探す</a></div><div class="shoplinkrakuten"><a href="http://hb.afl.rakuten.co.jp/hgc/0e7c6e55.9d33cc01.0e7c6e56.d2bcd23e/?pc=http%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FHGST%2F-%2Ff.1-p.1-s.1-sf.0-st.A-v.2%3Fx%3D0%26scid%3Daf_ich_link_urltxt%26m%3Dhttp%3A%2F%2Fm.rakuten.co.jp%2F" target="_blank" >楽天市場で探す</a></div></div></div><div class="booklink-footer" style="clear: left"></div></div></p><p><br/><p></p></blockquote></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Ubuntuの画面録画が簡単にできるSimpleScreenRecorderのインストール方法と使い方]]></title>
+    <link href="http://ry0.github.io/blog/2016/02/21/simplescreenrecorder/"/>
+    <updated>2016-02-21T23:33:49+09:00</updated>
+    <id>http://ry0.github.io/blog/2016/02/21/simplescreenrecorder</id>
+    <content type="html"><![CDATA[<h2>シンプルだけどしっかり設定もできる</h2>
+
+<p>Ubuntuで画面の録画をするときに何を使っていますか。<br/>
+私は今までKazamというソフトウェアを使っていました。
+Kazamもわかりやすくて使いやすいアプリです。しかしマルチモニターの環境だと上手く録画できなかったり、保存の際に保存画面が出ずに閉じられてしまうことがあったので別のアプリを探していました。</p>
+
+<p>今日ブログで書くSimpleScreenRecorderはまさにそのとき見つけたアプリで、YoutubeにアップされているUbuntuのスクリーンキャプチャもこのアプリで録画されているものをちらほら見かけたので使ってみました。</p>
+
+<!-- more -->
+
+
+<h2>インストール</h2>
+
+<p>Ubuntu 14.04の環境で試しています。<br/>
+インストールは簡単で新たにリポジトリを追加してインストールするたけ。</p>
+
+<pre><code class="bash">sudo add-apt-repository ppa:maarten-baert/simplescreenrecorder
+sudo apt-get update
+sudo apt-get install simplescreenrecorder
+</code></pre>
+
+<h2>実際につかってみる</h2>
+
+<p>NVIDIAのグラボを使っていると以下のようなアラートがでました。親切に言ってくれているので言うとおりにYESを押しておきます。
+「NVIDIA X Sercer Settings」を確認すると確かにその設定項目がありました。OpenGL SettingsのAllow Flippingです。</p>
+
+<p><a class="swipebox" href="https://farm2.staticflickr.com/1539/24543853683_ea2fbde59b.jpg" title="">
+  <img class="center image-effect" src="https://farm2.staticflickr.com/1539/24543853683_ea2fbde59b.jpg">
+</a></p>
+
+<p>続行を選択。</p>
+
+<p><a class="swipebox" href="https://farm2.staticflickr.com/1611/25077441471_abe589f2c5_b.jpg" title="">
+  <img class="center image-effect" src="https://farm2.staticflickr.com/1611/25077441471_abe589f2c5_b.jpg">
+</a></p>
+
+<p>映像入力でどこを録画するか決定します。全画面も任意の場所を選択する場合もどちらの場合もうまく録画できました。<br/>
+音声は必要ない場合は「音声を記録」のチェック項目を外しておきます。</p>
+
+<p><a class="swipebox" href="https://farm2.staticflickr.com/1549/25077441391_c43b73f576_b.jpg" title="">
+  <img class="center image-effect" src="https://farm2.staticflickr.com/1549/25077441391_c43b73f576_b.jpg">
+</a></p>
+
+<p>保存場所を指定して、コンテナを「mp4」に。コーデックは「H.264」にしておきました。</p>
+
+<p><a class="swipebox" href="https://farm2.staticflickr.com/1596/25052421612_b2e2d2f284_b.jpg" title="">
+  <img class="center image-effect" src="https://farm2.staticflickr.com/1596/25052421612_b2e2d2f284_b.jpg">
+</a></p>
+
+<p>録画のスタートはデフォルトの設定の場合、<code>Ctrl + R</code>で開始されます。
+ですのでSimpleScreenRecorderのウィンドウは最小化しておいて、ショートカットで開始させるとスムーズに目的の画面を録画することができると思います。
+録画を終了するときも<code>Ctrl + R</code>で止めます。<br/>
+「録画を保存」で指定した場所に保存されます。</p>
+
+<p><a class="swipebox" href="https://farm2.staticflickr.com/1493/25077441161_dc916a9e61_b.jpg" title="">
+  <img class="center image-effect" src="https://farm2.staticflickr.com/1493/25077441161_dc916a9e61_b.jpg">
+</a></p>
+
+<h2>おわりに</h2>
+
+<p>今日は短めですが、たったこれだけでしっかりと画面録画できるのでこれからも使っていきたいアプリです。
+PCに負荷がかかっているときの録画も途中で落ちることなく録画しておいてくれるのでなかなかいいですよ。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[雑誌デジモノステーションに付属している0SIMを開通してみた]]></title>
+    <link href="http://ry0.github.io/blog/2015/12/28/digimono-station-0sim/"/>
+    <updated>2015-12-28T00:42:10+09:00</updated>
+    <id>http://ry0.github.io/blog/2015/12/28/digimono-station-0sim</id>
+    <content type="html"><![CDATA[<h2>今話題の雑誌付きSIMカードを試す</h2>
+
+<p>一昨日から話題になっているSIMカード付き雑誌「デジモノステーション」を購入してみました。
+また実際に開通手続きを済ませ、携帯側の設定や通信テストまで行った結果を書きます。</p>
+
+<p>この雑誌の付録SIMをうまく運用する方法も少し紹介します。</p>
+
+<!-- more -->
+
+
+<h2>今回の付録のSIMカード</h2>
+
+<p>今までも雑誌にSIMカードが付いていることは何度かありました。
+新規にMVNO事業に参入したり、新しいプランを普及させるためのプロモーションですね。</p>
+
+<p>とりわけ今回のSIMカードが話題なのは、<strong>初回手続き料が無料なのはもちろん、毎月499MBまでの使用が無料であることです。</strong>またこれを超えて使っても1,600円です。使いすぎて莫大な金額を請求されることはないので安心です。また面白いプランが出ましたね。</p>
+
+<p><a class="swipebox" href="https://farm2.staticflickr.com/1590/24004996875_46c432b3f9_h.jpg" title="ちゃんとSIMカード入ってる！">
+  <img class="center image-effect" src="https://farm2.staticflickr.com/1590/24004996875_3a5fe5fc90_b.jpg">
+</a></p>
+
+<h2>さっそく開通手続き</h2>
+
+<p>雑誌の説明に書かれている通り、以下のページにアクセスします。</p>
+
+<p><blockquote><p>アクティベーショントップ</p><footer><strong>So-net <a href="http://lte.so-net.ne.jp/r/0sim/a/">http://lte.so-net.ne.jp/r/0sim/a/</a> <a href="http://lte.so-net.ne.jp/r/0sim/a/">http://lte.so-net.ne.jp/r/0sim/a/</a></strong></footer></blockquote></p>
+
+<p>「アクティベーションへ」をクリックして、次のページに進みます。<br/>
+すると以下のようなフォームが読み込まれます。</p>
+
+<p><a class="swipebox" href="https://farm2.staticflickr.com/1698/23922413321_0be320949b_b.jpg" title="打ち込む情報">
+  <img class="center image-effect" src="https://farm2.staticflickr.com/1698/23922413321_0be320949b_b.jpg">
+</a></p>
+
+<p><strong>雑誌に付いているSIMカードに記載されている情報を打ち込むんですが、一瞬どれを打ち込むのかわからなかったので実際の写真でご確認ください。</strong>モザイクばっかですみません。</p>
+
+<p><a class="swipebox" href="https://farm2.staticflickr.com/1701/23378165073_fc8a8b9645_h.jpg" title="SIMカードに記載されている情報">
+  <img class="center image-effect" src="https://farm2.staticflickr.com/1701/23378165073_225d7f1a39_b.jpg">
+</a></p>
+
+<p>打ち終えたら、今度は契約者の情報を打ち込みます。名前、住所、電話番号くらいです。<br/>
+続いて、クレジットカード情報を追加します。<strong>デビットカードは使えないという記述があったので注意してください。</strong></p>
+
+<h2>端末側の設定</h2>
+
+<p>SIMカードをさしてAPNの設定をします。APNの情報は以下の通りです。<br/>
+今回は<a href="http://ry0.github.io/blog/2015/12/28/galaxy-s6-edge-sc-04g/">最近仕入れたばかりのGalaxy S6 edge</a>で試しました。メーカーによって微妙に画面の見た目が違うと思います。</p>
+
+<ul>
+<li>ネットワーク名： so-net</li>
+<li>APN： so-net.jp</li>
+<li>ユーザー名： nuro</li>
+<li>パスワード： nuro</li>
+<li>認証方法： PAPまたはCHAP</li>
+</ul>
+
+
+<p><a class="swipebox" href="https://farm2.staticflickr.com/1663/23709265700_c26e277484_h.jpg" title="APNの設定スクショ">
+  <img class="center image-effect" src="https://farm2.staticflickr.com/1663/23709265700_1ef6168b23_z_d.jpg">
+</a></p>
+
+<p>これで少し待っているとアンテナが立って通信が確認できると思います。</p>
+
+<h2>毎月ぜったい無料で使ってやる！って人におすすめ設定</h2>
+
+<p>設定の「データ使用量」の項目で「モバイルデータ制限を設定」のチェックを入れます。
+そしてスクショのように上限を500MBを下回る数字に設定しておきます。これで指定した制限に達した場合、通信が無効になります。</p>
+
+<p><a class="swipebox" href="https://farm2.staticflickr.com/1537/23378164113_6247c38e0d_h.jpg" title="500MBで制限をかける">
+  <img class="center image-effect" src="https://farm2.staticflickr.com/1537/23378164113_818275d655_z_d.jpg">
+</a></p>
+
+<p>ただし、<strong>複数の端末で刺して使ったり、別のSIMと交換しながら使うと正しい計測ができないので注意です。</strong><br/>
+正確な使用量を見るためには以下のページから確認できます。</p>
+
+<p><blockquote><p>ユーザーWEB (利用状況確認、情報変更)</p><footer><strong>So-net <a href="https://www.so-net.ne.jp/retail/w/">https://www.so-net.ne.jp/retail/w/</a> <a href="https://www.so-net.ne.jp/retail/w/">https://www.so-net.ne.jp/retail/w/</a></strong></footer></blockquote></p>
+
+<p>また前日までにデータ使用量が400MBを超えると登録メールアドレスに連絡が来るそうです。<br/>
+<strong>最近はモバイルデータ通信でもYoutubeがHD画質でさくさく見ることができるので、データ通信量が多くなりがちです。Twitterやメール、Webページ閲覧程度にとどめておきましょう。またアプリの自動更新も注意です。設定でオフにするかWiFi環境のみ自動アップデートにするなど設定しておくと安心です。</strong><br/>
+そうしないと、おそらく警告メールが来る前に500MB付近まで簡単に到達すると思います。</p>
+
+<h2>スピードテストで速度確認</h2>
+
+<p>深夜に計測したので、なんともいえませんが、十分出てると思います。</p>
+
+<p><a class="swipebox" href="https://farm6.staticflickr.com/5756/23898081722_e1039bf5c3_k_d.jpg" title="SpeedTest">
+  <img class="center image-effect" src="https://farm6.staticflickr.com/5756/23898081722_a0ba8f159f_z_d.jpg">
+</a></p>
+
+<h2>おわりに</h2>
+
+<p>これをデータ通信用のメインで使うことはたぶんないですが、お守りとして持っておくといいなと思いました。<br/>
+例えば、タブレット端末で普段はWiFiメインで使って、出先でどうしても通信をしないといけなくなった時に使うといった使い方ができると思います。</p>
+
+<p>しかし<strong>このSIMは3ヶ月全くパケットを通さなかった場合、契約が自動解約となるので注意が必要です。</strong>今月使わなかったな…と思ったら、スピードテストでもしておきましょう。</p>
+
+<p>Amazonでは「デジモノステーション」が売り切れになっており、マーケットプレイスでは倍以上の値段で売られていますが、私の地元ではそこら辺の本屋さんでも普通に売っていたのでネットで購入するのが難しい場合、実店舗を少し回ってみるといいかもしれません。<br/>
+気づけば、私の実家には3冊も同じ雑誌が並べらています&hellip;</p>
+
+<p>最後に、この雑誌に付いているSIMカードはnanoSIMですので、お手持ちの端末がどのサイズのSIMカード対応か確認してください。大きいサイズの場合、SIM下駄を買う必要があります。</p>
+
+<p><blockquote><p></p></p><p><div class="kaerebalink-box"><div class="kaerebalink-image"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00J2VIPC8/ry00c-22/ref=nosim/" target="_blank" ><img src="http://ecx.images-amazon.com/images/I/41BzLVsIxPL._SL160_.jpg" style="border: none;" /></a></div><div class="kaerebalink-info"><div class="kaerebalink-name"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00J2VIPC8/ry00c-22/ref=nosim/" target="_blank" >F.Wave 【Amazon限定】Lucky ｺﾞｰﾙﾄﾞｶﾗｰ nano SIM変換アダプター4点セット　Gold color（標準 ﾏｲｸﾛ Nano) iPhone6/6plus/5S/5C/4S/4/3GS/3用 Gold 金色 f.wave of FuturePlus Original</a><div class="kaerebalink-powered-date">posted with <a href="http://kaereba.com" rel="nofollow" target="_blank">カエレバ</a></div></div><div class="kaerebalink-detail"> F.Wave Concept     </div><div class="kaerebalink-link1"><div class="shoplinkamazon"><a href="http://www.amazon.co.jp/gp/search?keywords=F.Wave%20%81yAmazon%8C%C0%92%E8%81zLucky%20%BA%DE%B0%D9%C4%DE%B6%D7%B0%20nano%20SIM%95%CF%8A%B7%83A%83_%83v%83%5E%81%5B4%93_%83Z%83b%83g%81%40Gold%20color%81i%95W%8F%80%20%CF%B2%B8%DB%20Nano%29%20iPhone6%2F6plus%2F5S%2F5C%2F4S%2F4%2F3GS%2F3%97p%20Gold%20%8B%E0%90F%20f.wave%20of%20FuturePlus%20Original&__mk_ja_JP=%83J%83%5E%83J%83i&tag=ry00c-22" target="_blank" >Amazonで探す</a></div><div class="shoplinkrakuten"><a href="http://hb.afl.rakuten.co.jp/hgc/0e7c6e55.9d33cc01.0e7c6e56.d2bcd23e/?pc=http%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FF.Wave%2520%25E3%2580%2590Amazon%25E9%2599%2590%25E5%25AE%259A%25E3%2580%2591Lucky%2520%25EF%25BD%25BA%25EF%25BE%259E%25EF%25BD%25B0%25EF%25BE%2599%25EF%25BE%2584%25EF%25BE%259E%25EF%25BD%25B6%25EF%25BE%2597%25EF%25BD%25B0%2520nano%2520SIM%25E5%25A4%2589%25E6%258F%259B%25E3%2582%25A2%25E3%2583%2580%25E3%2583%2597%25E3%2582%25BF%25E3%2583%25BC4%25E7%2582%25B9%25E3%2582%25BB%25E3%2583%2583%25E3%2583%2588%25E3%2580%2580Gold%2520color%25EF%25BC%2588%25E6%25A8%2599%25E6%25BA%2596%2520%25EF%25BE%258F%25EF%25BD%25B2%25EF%25BD%25B8%25EF%25BE%259B%2520Nano%2529%2520iPhone6%252F6plus%252F5S%252F5C%252F4S%252F4%252F3GS%252F3%25E7%2594%25A8%2520Gold%2520%25E9%2587%2591%25E8%2589%25B2%2520f.wave%2520of%2520FuturePlus%2520Original%2F-%2Ff.1-p.1-s.1-sf.0-st.A-v.2%3Fx%3D0%26scid%3Daf_ich_link_urltxt%26m%3Dhttp%3A%2F%2Fm.rakuten.co.jp%2F" target="_blank" >楽天市場で探す</a></div></div></div><div class="booklink-footer" style="clear: left"></div></div></p><p><br/><p></p></blockquote></p>
+
+<p><blockquote><p></p></p><p><div class="kaerebalink-box"><div class="kaerebalink-image"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B018UJLJU2/ry00c-22/ref=nosim/" target="_blank" ><img src="http://ecx.images-amazon.com/images/I/61GLv9Q98fL._SL160_.jpg" style="border: none;" /></a></div><div class="kaerebalink-info"><div class="kaerebalink-name"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B018UJLJU2/ry00c-22/ref=nosim/" target="_blank" >デジモノステーション 2016年02月号</a><div class="kaerebalink-powered-date">posted with <a href="http://kaereba.com" rel="nofollow" target="_blank">カエレバ</a></div></div><div class="kaerebalink-detail"> エムオン・エンタテインメント 2015-12-25    </div><div class="kaerebalink-link1"><div class="shoplinkamazon"><a href="http://www.amazon.co.jp/gp/search?keywords=%83f%83W%83%82%83m%83X%83e%81%5B%83V%83%87%83%93%202016%94N02%8C%8E%8D%86&__mk_ja_JP=%83J%83%5E%83J%83i&tag=ry00c-22" target="_blank" >Amazonで探す</a></div><div class="shoplinkrakuten"><a href="http://hb.afl.rakuten.co.jp/hgc/0e7c6e55.9d33cc01.0e7c6e56.d2bcd23e/?pc=http%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2F%25E3%2583%2587%25E3%2582%25B8%25E3%2583%25A2%25E3%2583%258E%25E3%2582%25B9%25E3%2583%2586%25E3%2583%25BC%25E3%2582%25B7%25E3%2583%25A7%25E3%2583%25B3%25202016%25E5%25B9%25B402%25E6%259C%2588%25E5%258F%25B7%2F-%2Ff.1-p.1-s.1-sf.0-st.A-v.2%3Fx%3D0%26scid%3Daf_ich_link_urltxt%26m%3Dhttp%3A%2F%2Fm.rakuten.co.jp%2F" target="_blank" >楽天市場で探す</a></div></div></div><div class="booklink-footer" style="clear: left"></div></div></p><p><br/><p></p></blockquote></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Caffeを使って手書きのひらがなを識別する]]></title>
+    <link href="http://ry0.github.io/blog/2015/11/16/caffe-handwriting-recognition/"/>
+    <updated>2015-11-16T14:43:25+09:00</updated>
+    <id>http://ry0.github.io/blog/2015/11/16/caffe-handwriting-recognition</id>
+    <content type="html"><![CDATA[<h2>Caffeのネットワークの説明が不足していたので今日は詳しく説明します</h2>
+
+<p>Caffeのネタはもう終わりにしようと思っていたのですが、少女時代のクラスタリングの話ではいまいち何をやっているのかわからないし、世の中に少女時代の区別がつくようになって嬉しい人がどれだけいるのか疑問だったので改めて違うテーマを使って説明していきたいと思います</p>
+
+<p>今回は手書き文字認識をテーマに学習器の設定の仕方を書きたいと思います。<br/>
+できるだけ他のテーマを対象とした画像クラスタリングにも使えるように説明していくのでよかったら見ていってください。</p>
+
+<!-- more -->
+
+
+<p>少女時代の顔認識の記事を見ていない人はこのまとめ記事をご覧ください。私がこれまでCaffeに関して書いた記事をリンクしています。</p>
+
+<p><blockquote><p>これまでのCaffeの記事のまとめと補足</p><footer><strong>Ry0 Note <a href="http://ry0.github.io/blog/2015/09/30/using-summary-of-caffe/">http://ry0.github.io/blog/2015/09/30/using-summary-of-caffe/</a> <a href="http://ry0.github.io/blog/2015/09/30/using-summary-of-caffe/">http://ry0.github.io/blog/2015/09/30/using-summary-of-caffe/</a></strong></footer></blockquote></p>
+
+<h2>まずワークスペースの確保</h2>
+
+<p>caffeのフォルダの中に<code>examples</code>というフォルダがあると思います。ここに作ります。
+学習モデルを作る際に、Cifar10の学習モデルを参考にするので、コピーしておきます。</p>
+
+<pre><code class="bash">cd caffe/examples
+mkdir &lt;自分が作りたい名前&gt;
+cp cifar10/cifar10_quick* &lt;自分が作りたい名前&gt;
+</code></pre>
+
+<p>ここからはこの作成したフォルダの中で作業していきます。</p>
+
+<h2>まずはデータセット作り</h2>
+
+<p>これがないと学習を行うことができないので、既存のデータセットをどこかから持ってくるか、自分で作成してください。<br/>
+<strong>データセット作りに関しても上のリンクで書いています。</strong><br/>
+今回、ひらがなの手書き文字認識を例としているので、クラス数はひらがな（濁音半濁音を含む）の73文字をクラス数とします。
+したがって「あ」から順に0から「ぽ」までの72です。</p>
+
+<p><a class="swipebox" href="https://farm6.staticflickr.com/5788/22647859219_446acac384_b.jpg" title="データセットの作成">
+  <img class="center image-effect" src="https://farm6.staticflickr.com/5788/22647859219_446acac384_b.jpg">
+</a></p>
+
+<p>これでleveldb形式の学習データとテストデータ<code>tegaki_cifar10_test_leveldb</code>と<code>tegaki_cifar10_train_leveldb</code>を作成しました。</p>
+
+<p>平均画像の作成は</p>
+
+<pre><code class="bash">cd ../../ #Caffeのフォルダの一番最初まで移動
+build/tools/compute_image_mean.bin -backend=leveldb ./examples/handwriting_recognition/tegaki_cifar10_train_leveldb ./examples/handwriting_recognition/tegaki_mean.binaryproto
+</code></pre>
+
+<p>としました。成功すると<code>tegaki_mean.binaryproto</code>が<code>/examples/handwriting_recognition/</code>に生成されます。</p>
+
+<h2>cifar10_quick_solver.prototxtの編集</h2>
+
+<p><strong>赤字から緑の字に変更することを意味します。</strong><br/>
+まず<code>cifar10_quick_solver.prototxt</code>から好きな名前に変更します。
+<code>tegaki_cifar10_quick_solver.prototxt</code>としました。</p>
+
+<pre><code class="diff"># reduce the learning rate after 8 epochs (4000 iters) by a factor of 10
+
+# The train/test net protocol buffer definition
+- net: "examples/cifar10/cifar10_quick_train_test.prototxt"
++ net: "examples/handwriting_recognition/tegaki_cifar10_quick_train_test.prototxt"
+# test_iter specifies how many forward passes the test should carry out.
+# In the case of MNIST, we have test batch size 100 and 100 test iterations,
+# covering the full 10,000 testing images.
+- test_iter: 100
++ test_iter: 20
+# Carry out testing every 500 training iterations.
+test_interval: 500
+# The base learning rate, momentum and the weight decay of the network.
+- base_lr: 0.001
++ base_lr: 0.0001
+momentum: 0.9
+weight_decay: 0.004
+# The learning rate policy
+lr_policy: "fixed"
+# Display every 100 iterations
+display: 100
+# The maximum number of iterations
+- max_iter: 4000
++ max_iter: 10000
+# snapshot intermediate results
+- snapshot: 4000
++ snapshot: 5000
+- snapshot_prefix: "examples/cifar10/cifar10_quick"
++ snapshot_prefix: "examples/handwriting_recognition/tegaki_cifar10_quick_with_dropout"
+# solver mode: CPU or GPU
+solver_mode: GPU
+</code></pre>
+
+<ul>
+<li><p>test_iter<br/>
+学習中の正答率評価を1回行なうために使うデータ数をイテレーション単位で指定します。</p></li>
+<li><p>base_lr<br/>
+学習がどの程度一度に進めるかを表す数値で、小さいほど精度が良くなるとのことなので、一桁小さくしました。</p></li>
+<li><p>max_iter<br/>
+学習をおこなうイテレーション数です。Cifar10のモデルよりも多く設定しました。</p></li>
+<li><p>snapshot<br/>
+学習結果の途中経過を出力する頻度です。</p></li>
+<li><p>snapshot_prefix<br/>
+途中経過を出力するときの名前を指定します。</p></li>
+<li><p>solver_mode<br/>
+CPUを使う場合は変更してください。</p></li>
+</ul>
+
+
+<h2>cifar10_quick_train_test.prototxtの編集</h2>
+
+<p>同様に変更します。
+<code>cifar10_quick_train_test.prototxt</code>を<code>tegaki_cifar10_quick_train_test.prototxt</code>にリネームしました。</p>
+
+<p>1行目からの変更分です。</p>
+
+<pre><code class="diff">name: "CIFAR10_quick"
+layer {
+  name: "cifar"
+  type: "Data"
+  top: "data"
+  top: "label"
+  include {
+    phase: TRAIN
+  }
+  transform_param {
+-    mean_file: "examples/cifar10/mean.binaryproto"
++    mean_file: "examples/handwriting_recognition/tegaki_mean.binaryproto"
+  }
+  data_param {
+-    source: "examples/cifar10/cifar10_train_lmdb"
++    source: "examples/handwriting_recognition/tegaki_cifar10_train_leveldb"
+    batch_size: 100
+-    backend: LMDB
++    backend: LEVELDB
+  }
+}
+layer {
+  name: "cifar"
+  type: "Data"
+  top: "data"
+  top: "label"
+  include {
+    phase: TEST
+  }
+  transform_param {
+-    mean_file: "examples/cifar10/mean.binaryproto"
++    mean_file: "examples/handwriting_recognition/tegaki_mean.binaryproto"
+  }
+  data_param {
+-    source: "examples/cifar10/cifar10_test_lmdb"
++    source: "examples/handwriting_recognition/tegaki_cifar10_test_leveldb"
+    batch_size: 100
+-    backend: LMDB
++    backend: LEVELDB
+  }
+}
+</code></pre>
+
+<p><code>transform_param</code>の中にはデータセットをランダムにクロップする(例: <code>crop_size: 30</code>)とか左右反転して学習に用いる(例: <code>mirror: true</code>)を入れてデータの水増しができます。
+今回は用いませんでしたが、少ないデータセットを有効に使うための工夫をいれてもいいでしょう。<br/>
+ちなみに少女時代の学習モデルには使っているので参考にしてみてください。</p>
+
+<div class="github-widget" data-repo="Ry0/snsd_classify"></div>
+
+
+<p>162行目からの記述です。
+<strong>過学習を防ぐためにドロップアウトを新たに入れています。</strong><br/>
+一番重要なのは最後の<code>num_output:</code>で<strong>目的に応じたクラス数を記述するようにしてください。</strong><br/>
+最後の修正点は、学習時の精度も確認できるようにする設定です。</p>
+
+<pre><code class="diff">layer {
+  name: "ip1"
+  type: "InnerProduct"
+  bottom: "pool3"
+  top: "ip1"
+  param {
+    lr_mult: 1
+  }
+  param {
+    lr_mult: 2
+  }
+  inner_product_param {
+    num_output: 64
+    weight_filler {
+      type: "gaussian"
+      std: 0.1
+    }
+    bias_filler {
+      type: "constant"
+    }
+  }
+}
++layer {
++  name: "drop1"
++  type: "Dropout"
++  bottom: "ip1"
++  top: "drop1"
++  dropout_param {
++    dropout_ratio: 0.5
++  }
++}
+layer {
+  name: "ip2"
+  type: "InnerProduct"
+-  bottom: "ip1"
++  bottom: "drop1"
+  top: "ip2"
+  param {
+    lr_mult: 1
+  }
+  param {
+    lr_mult: 2
+  }
+  inner_product_param {
+-    num_output: 10
++    num_output: 73
+    weight_filler {
+      type: "gaussian"
+      std: 0.1
+    }
+    bias_filler {
+      type: "constant"
+    }
+  }
+}
+layer {
+  name: "accuracy"
+  type: "Accuracy"
+  bottom: "ip2"
+  bottom: "label"
+  top: "accuracy"
+-  include {
+-    phase: TEST
+-  }
+}
+layer {
+  name: "loss"
+  type: "SoftmaxWithLoss"
+  bottom: "ip2"
+  bottom: "label"
+  top: "loss"
+}
+</code></pre>
+
+<p>prototxtファイルからブロック図をpngで出力するコマンドがあります。</p>
+
+<pre><code class="bash">python/draw_net.py examples/handwriting_recognition/tegaki_cifar10_quick_train_test.prototxt caffeNet.png --rankdir BT
+</code></pre>
+
+<p>全体像は画像をクリックしたら見れます。</p>
+
+<p><a class="swipebox" href="https://farm6.staticflickr.com/5816/23040887602_0aa35d824a_h.jpg" title="ブロック図">
+  <img class="center image-effect" src="https://farm6.staticflickr.com/5648/23065789381_6c6ba711f8_b.jpg">
+</a></p>
+
+<h2>cifar10_quick.prototxtの編集</h2>
+
+<p><code>cifar10_quick.prototxt</code>を<code>tegaki_cifar10_quick.prototxt</code>にしました。</p>
+
+<p>最後の出力だけ自分が出力したいクラス数に変更しました。</p>
+
+<pre><code class="diff">layer {
+  name: "ip2"
+  type: "InnerProduct"
+  bottom: "ip1"
+  top: "ip2"
+  param {
+    lr_mult: 1
+  }
+  param {
+    lr_mult: 2
+  }
+  inner_product_param {
+-    num_output: 10
++    num_output: 73
+  }
+}
+layer {
+  name: "prob"
+  type: "Softmax"
+  bottom: "ip2"
+  top: "prob"
+}
+</code></pre>
+
+<h2>学習の実行</h2>
+
+<p>これで学習を実行します。エラーがでる場合はもう一度ファイルネームが間違っていないか確認してください。</p>
+
+<pre><code class="bash">cd ../../ #Caffeのフォルダの一番最初まで移動
+build/tools/caffe train --solver examples/handwriting_recognition/tegaki_cifar10_quick_solver.prototxt
+</code></pre>
+
+<h2>結果</h2>
+
+<p>テストデータに関する精度は9割超えでまずまずの結果が得られました。</p>
+
+<p><a class="swipebox" href="https://farm1.staticflickr.com/626/23041435945_24f301d1ab_z.jpg" title="学習結果">
+  <img class="center image-effect" src="https://farm1.staticflickr.com/626/23041435945_24f301d1ab_z.jpg">
+</a></p>
+
+<h2>簡単なアプリを作成</h2>
+
+<p>これだけでは面白くないので、OpenCVを使ってマウスで実際に字を書いて、それがひらがなの何かをCaffeに処理させるアプリを作りました。</p>
+
+<div class="youtube-container image-effect">
+  <iframe width="960" height="720" src="https://www.youtube.com/embed/rqCJgfitF8I?rel=0" frameborder="0" allowfullscreen></iframe>
+</div>
+
+
+<p>これらのすべてのソースコードと学習モデルはGithubに置いているので興味がある方はどうぞ</p>
+
+<div class="github-widget" data-repo="Ry0/handwriting_recognition"></div>
+
+
+<p>このアプリの実行方法はREADMEにも書いていますが</p>
+
+<pre><code class="bash">cd handwriting_recognition/python
+python handwriting-recognition.py
+</code></pre>
+
+<p>です。学習済みのCaffeモデルも置いてますので、データセットを用意しなくても結果だけ試すことができます。<br/>
+ただしOpenCVが必要です。一応OpenCV 3.0でも動きます。</p>
+
+<h2>おわりに</h2>
+
+<p>できるだけ丁寧に書いたつもりでしたがどうでしょうか。
+少しでも使い方が分かってもらえたら幸いです。
+ひらがな文字認識のプログラム等が動かない場合はフィードバックください。</p>
+
+<p>学習モデルも構築についてもっと何をやっているのか知りたくなった方はSIG2Dさんがアップしてくださっている資料を参考にしてください。<br/>
+しっかり読んだら、私の記事を見るより絶対理解が深まるはずです。</p>
+
+<p><blockquote><p>SIG2D’14 葉月ちゃんでも出来る Deep Learning</p><footer><strong>SIG2D <a href="http://sig2d.org/blog/2015/07/02/sig2d14/">http://sig2d.org/blog/2015/07/02/sig2d14/</a> <a href="http://sig2d.org/blog/2015/07/02/sig2d14/">http://sig2d.org/blog/2015/07/02/sig2d14/</a></strong></footer></blockquote></p>
+
+<p>最近ではGoogleが出したTensorFlowのほうにみんなの興味が行ってるので、これからどうなるんでしょうねCaffeは。<br/>
+時間があればTensorFlowの方も試したいと思います。<br/>
+最後まで見ていただいてありがとうございました。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[ChainLPのインストール方法と使い方 for Kindle Paperwhite 2015]]></title>
+    <link href="http://ry0.github.io/blog/2015/11/04/how-to-use-chainlp-for-kindle-paperwhite-2015/"/>
+    <updated>2015-11-04T17:52:51+09:00</updated>
+    <id>http://ry0.github.io/blog/2015/11/04/how-to-use-chainlp-for-kindle-paperwhite-2015</id>
+    <content type="html"><![CDATA[<h2>フリーソフトでもしっかりKindle対応の電子書籍フォーマットに変換できます</h2>
+
+<p>Kindleで自炊したファイルを読み込ませる場合、PDFやZIPで固めたものを転送して読むことができます。<br/>
+しかしこれでは容量が重くてページをめくる際や拡大時に非常に読み込みの時間がかかってしまいストレスです。</p>
+
+<p>そこでKindleが対応している電子書籍フォーマットに変換し、圧縮をかけることで読み込み時間の短縮とKindleの空き容量削減を行おうと思います。<br/>
+今日はWindowsのフリーソフト「ChainLP」のインストール方法と設定について書きます。<br/>
+「kindlestrip.py」を使ったmobiファイルの圧縮方法も紹介します。</p>
+
+<!-- more -->
+
+
+<p><strong>最新版のKindle Paperwhiteはちょっと前にレビューしてます。もしよければ見てください。</strong></p>
+
+<p><blockquote><p>Kindle Paperwhite 2015年版を購入、レビュー</p><footer><strong>Ry0 Note <a href="http://ry0.github.io/blog/2015/10/04/kindle-paperwhite-2015/">http://ry0.github.io/blog/2015/10/04/kindle-paperwhite-2015/</a> <a href="http://ry0.github.io/blog/2015/10/04/kindle-paperwhite-2015/">http://ry0.github.io/blog/2015/10/04/kindle-paperwhite-2015/</a></strong></footer></blockquote></p>
+
+<h2>インストール</h2>
+
+<h3>ChainLP</h3>
+
+<p>ChainLP本体のファイルをダウンロードします。製作者さんのサイトからダウンロードしてきます。</p>
+
+<p><blockquote><p>ChainLP V0.40-17</p><footer><strong>No.722 <a href="http://no722.cocolog-nifty.com/blog/2013/02/chainlp-v040-17.html">http://no722.cocolog-nifty.com/blog/2013/02/chainlp-v040-17.html</a></strong></footer></blockquote></p>
+
+<p>ダウンロードしてきたら適当なところに展開しておいてください。
+インストーラー等はないので展開した場所が実行場所になります。</p>
+
+<p><a class="swipebox" href="https://farm1.staticflickr.com/603/22740905596_4067050fbc_b.jpg" title="ChainLP40b17">
+  <img class="center image-effect" src="https://farm1.staticflickr.com/603/22740905596_4067050fbc_b.jpg">
+</a></p>
+
+<p>製作者さんもサイトで言及していますが、<a href="http://msdn.microsoft.com/ja-jp/netframework/">Microsoft.NET framework 4.0</a>を前もってインストールしておいてください。</p>
+
+<h3>UNZIP32.DLL</h3>
+
+<p>ZIP形式で圧縮された自炊ファイルをChainLPにインポートするために、UNZIP32.DLLと呼ばれるライブラリをインストールします。</p>
+
+<p><blockquote><p>.ZIP ファイルの展開（解凍）<br/>UNZIP32.DLL for windows 9x/Me/NT/200x/XP/Vista/7/8.x</p><footer><strong>統合アーカイバプロジェクト <a href="http://www.csdinc.co.jp/archiver/lib/unzip32.html#download">http://www.csdinc.co.jp/archiver/lib/unzip32.html#download</a></strong></footer></blockquote></p>
+
+<p><a class="swipebox" href="https://farm1.staticflickr.com/641/22740807846_e1f9368e5a_b.jpg" title="UNZIP32.DLLダウンロード">
+  <img class="center image-effect" src="https://farm1.staticflickr.com/641/22740807846_e1f9368e5a_b.jpg">
+</a></p>
+
+<p>ダウンロードしたらダブルクリックしてインストール。</p>
+
+<p><a class="swipebox" href="https://farm1.staticflickr.com/582/22740807506_e2b9773e73.jpg" title="UNZIP32.DLLインストール">
+  <img class="center image-effect" src="https://farm1.staticflickr.com/582/22740807506_e2b9773e73.jpg">
+</a></p>
+
+<h3>KindleGen</h3>
+
+<p>Kindleの対応形式に変換するためのツールをとってきます。</p>
+
+<p><blockquote><p>KDP ツールとリソース<br/>KindleGen v2.9</p><footer><strong>Amazon <a href="https://kdp.amazon.co.jp/help?topicId=A3IWA2TQYMZ5J6">https://kdp.amazon.co.jp/help?topicId=A3IWA2TQYMZ5J6</a></strong></footer></blockquote></p>
+
+<p><a class="swipebox" href="https://farm6.staticflickr.com/5646/22144958104_d774ff3d29_b.jpg" title="KindleGenダウンロード">
+  <img class="center image-effect" src="https://farm6.staticflickr.com/5646/22144958104_d774ff3d29_b.jpg">
+</a></p>
+
+<p>ダウンロードしてきたら解凍して<code>kindlegen.exe</code>だけ一番最初に解凍したChainLP本体のフォルダにコピーします。</p>
+
+<p><a class="swipebox" href="https://farm1.staticflickr.com/680/22145007314_d6d5f703d9_h.jpg" title="KindleGenコピー">
+  <img class="center image-effect" src="https://farm1.staticflickr.com/680/22145007314_89f912d140_b.jpg">
+</a></p>
+
+<p>これで基本的なChainLPに必要なライブラリは揃いました。</p>
+
+<h2>mobiの圧縮を行う</h2>
+
+<p>ここまでの手順でKindle対応形式に変換できますが、変換後にも変換前の余計なデータを保持しているらしく、圧縮したはずがデータは少ししか小さくなっていません。
+したがって<strong>以下のPythonスクリプトによってこの余分なデータを取り除いてやることで、ダイエットする前と後では約半分の容量に抑えこむことができます。</strong>
+Pythonをインストールしないといけないので少し手順が増えますが、効果的なのでおすすめです。</p>
+
+<h3>python27</h3>
+
+<p><blockquote><p>Python Releases for Windows</p><footer><strong>Python <a href="https://www.python.org/downloads/windows/">https://www.python.org/downloads/windows/</a> <a href="https://www.python.org/downloads/windows/">https://www.python.org/downloads/windows/</a></strong></footer></blockquote></p>
+
+<p>製作者さんが言っているように<strong>Pythonは2.7.3をインストールします。</strong>
+ほかのバージョンでも動くと思いますが、初めてインストールする人はこのバージョンをインストールしておくのが無難だと思います。</p>
+
+<p><a class="swipebox" href="https://farm1.staticflickr.com/629/22779419681_cb46ddd0c6_b.jpg" title="Pythonは2.7.3ダウンロード">
+  <img class="center image-effect" src="https://farm1.staticflickr.com/629/22779419681_cb46ddd0c6_b.jpg">
+</a></p>
+
+<p>インストールが完了したら<strong>Windowsのシステムの詳細設定から環境変数の設定をしておきます。</strong></p>
+
+<pre><code>C:\Python27;C:\Python27\Scripts
+</code></pre>
+
+<p>コマンドプロンプトを開いて<code>python</code>と入力してとくにエラーがなければ成功です。</p>
+
+<h3>Kindlestrip</h3>
+
+<p>続いて容量削減のためのPythonスクリプトをダウンロードしてきます。
+Githubからです。</p>
+
+<p><blockquote><p>jefftriplett/kindlestrip<br/>A pip-installable conversion of Paul Durrant&rsquo;s kindlestrip</p><footer><strong>Github <a href="https://github.com/jefftriplett/kindlestrip">https://github.com/jefftriplett/kindlestrip</a> <a href="https://github.com/jefftriplett/kindlestrip">https://github.com/jefftriplett/kindlestrip</a></strong></footer></blockquote></p>
+
+<p><a class="swipebox" href="https://farm1.staticflickr.com/649/22146600203_db51e0b0ff_b.jpg" title="Kindlestripダウンロード">
+  <img class="center image-effect" src="https://farm1.staticflickr.com/649/22146600203_db51e0b0ff_b.jpg">
+</a></p>
+
+<p>これもChainLPのフォルダに<code>kindlestrip.py</code>だけコピーしておきます。</p>
+
+<p><a class="swipebox" href="https://farm1.staticflickr.com/626/22579819770_9187a54985_h.jpg" title="Kindlestripコピー">
+  <img class="center image-effect" src="https://farm1.staticflickr.com/626/22579819770_29e4c33ecf_b.jpg">
+</a></p>
+
+<h2>ChainLP起動</h2>
+
+<p>ここまでセットアップお疲れ様でした。
+いよいよChainLPを起動し、Kindle対応の形式に変換します。</p>
+
+<p>変換する前に変換後の縦横サイズを設定しておく必要があります。</p>
+
+<p><strong>Kindle Paperwhite 2015モデルの画面解像度は、1072×1448だそうです。</strong>
+Kindle Paperwhiteの旧モデルは758×1024でいけます。
+したがってChainLPのメニューから「解像度」→「追加」で新たにサイズを定義します。</p>
+
+<p><a class="swipebox" href="https://farm1.staticflickr.com/703/22147609883_72a2d9502e_b.jpg" title="解像度">
+  <img class="center image-effect" src="https://farm1.staticflickr.com/703/22147609883_72a2d9502e_b.jpg">
+</a></p>
+
+<p>詳細な設定を行いたい方は以下のブログが詳しかったです。</p>
+
+<p><blockquote><p>ChainLP設定サンプル：New Kindle Paperwhite（2015ニューモデル）</p><footer><strong>ブルーレディ <a href="http://www.bluelady.jp/know-how/post-8027">http://www.bluelady.jp/know-how/post-8027</a></strong></footer></blockquote></p>
+
+<h2>変換してみる</h2>
+
+<p>自炊したデータをChainLPにドラッグアンドドロップします。
+今回は手元に適当な自炊データがなかったので、著作権フリーな「ブラックジャックによろしく」で検証しています。</p>
+
+<p><strong>アプリの右側にはたくさん設定項目がありますが、特に出力の形式はMobiにするよう注意してください。</strong>
+またサイズは先程設定したKindleのサイズと一致しているかを確認し、自炊したデータによって綴じの方向を決めてください。</p>
+
+<p>すべて設定し終えたら、出力ボタンを押してください。
+途中で一瞬ChainLPが固まったような動作をしますが、kindlestripが動いているので大丈夫です。</p>
+
+<p>変換が完了すると<code>タイトル.mobi</code>と<code>Strip_タイトル.mobi</code>というファイルが出力されます。<code>タイトル.mobi</code>の方は変換の途中で生成されたサイズが大きいほうのデータですので削除しても問題無いです。</p>
+
+<p><a class="swipebox" href="https://farm6.staticflickr.com/5750/22147957823_47a5637e6e_b.jpg" title="ChainLP">
+  <img class="center image-effect" src="https://farm6.staticflickr.com/5750/22147957823_47a5637e6e_b.jpg">
+</a></p>
+
+<p>結局元のJPGファイルを固めたZIPよりも10MBくらい削減できました。</p>
+
+<p><a class="swipebox" href="https://farm1.staticflickr.com/585/22155387403_aa2ba5a7b0_b.jpg" title="比較">
+  <img class="center image-effect" src="https://farm1.staticflickr.com/585/22155387403_aa2ba5a7b0_b.jpg">
+</a></p>
+
+<h2>Kindleで確認</h2>
+
+<p>KindleをPCに接続して作成した<code>.mobi</code>ファイルを転送します。
+<code>documents/</code>の中にコピーします。この中に新たにフォルダを作って、そこに入れてもOKです。</p>
+
+<p><a class="swipebox" href="https://farm1.staticflickr.com/645/22586102570_45e38f0d75_h.jpg" title="実際のKindleで確認">
+  <img class="center image-effect" src="https://farm1.staticflickr.com/645/22586102570_7d81d1e5bf_b.jpg">
+</a></p>
+
+<p>問題なく読めますね。このとき上下左右の余白がたくさん空いていたりした場合はChainLPの余白設定の各パラメータを変更してみてください。</p>
+
+<h2>おわりに</h2>
+
+<p>圧縮したmobiファイルを作成できるようにするには、結構手順を踏む必要がありますが、一度環境を整えればずっと同じ作業で変換ができるので便利ですね。<br/>
+Kindleを持っていて自炊をよくする人におすすめしたいソフトウェアの紹介でした。</p>
+
+<p><blockquote><p></p></p><p><div class="kaerebalink-box"><div class="kaerebalink-image"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00QJDOM6U/ry00c-22/ref=nosim/" target="_blank" ><img src="http://ecx.images-amazon.com/images/I/512%2Bw7G7IhL._SL160_.jpg" style="border: none;" /></a></div><div class="kaerebalink-info"><div class="kaerebalink-name"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00QJDOM6U/ry00c-22/ref=nosim/" target="_blank" >Kindle Paperwhite (ニューモデル) Wi-Fi</a><div class="kaerebalink-powered-date">posted with <a href="http://kaereba.com" rel="nofollow" target="_blank">カエレバ</a></div></div><div class="kaerebalink-detail"> Amazon 2015-06-30    </div><div class="kaerebalink-link1"><div class="shoplinkamazon"><a href="http://www.amazon.co.jp/gp/search?keywords=Kindle&__mk_ja_JP=%83J%83%5E%83J%83i&tag=ry00c-22" target="_blank" >Amazonで探す</a></div><div class="shoplinkrakuten"><a href="http://hb.afl.rakuten.co.jp/hgc/0e7c6e55.9d33cc01.0e7c6e56.d2bcd23e/?pc=http%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FKindle%2F-%2Ff.1-p.1-s.1-sf.0-st.A-v.2%3Fx%3D0%26scid%3Daf_ich_link_urltxt%26m%3Dhttp%3A%2F%2Fm.rakuten.co.jp%2F" target="_blank" >楽天市場で探す</a></div></div></div><div class="booklink-footer" style="clear: left"></div></div></p><p><br/><p></p></blockquote></p>
+]]></content>
+  </entry>
+  
+</feed>

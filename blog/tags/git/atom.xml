@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Tag: Git | Ry0 Note]]></title>
+  <link href="http://ry0.github.io/blog/tags/git/atom.xml" rel="self"/>
+  <link href="http://ry0.github.io/"/>
+  <updated>2019-10-20T02:14:29+09:00</updated>
+  <id>http://ry0.github.io/</id>
+  <author>
+    <name><![CDATA[Ry0_Ka]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[SmartGitのインストールと使い方 (Ubuntu 14.04)]]></title>
+    <link href="http://ry0.github.io/blog/2015/06/06/smart-git/"/>
+    <updated>2015-06-06T04:56:17+09:00</updated>
+    <id>http://ry0.github.io/blog/2015/06/06/smart-git</id>
+    <content type="html"><![CDATA[<h2>GitのGUIクライアント「SmartGit」</h2>
+
+<p>本日はGitクライアントソフトの紹介です。
+MacやWindowsは豊富にGitクライアントソフトがそろっていますが、Ubuntuでは選択肢があまりなく、その中でもデザインもいい感じで使いやすい「SmartGit」の<strong>インストール方法と基本的な使い方</strong>について書いていきます。<br/>
+基本的にはUbuntuを使って操作の説明をしていきますが、他のOSでもインストール以外の箇所はデザインもほぼ共通なので参考になれば幸いです。</p>
+
+<!-- more -->
+
+
+<h2>まずはインストール（Ubuntu）</h2>
+
+<p>前提条件ですが<strong>Gitがインストールしてあって、SSH接続等の設定が済んでいる</strong>ものとして話を進めていきます。</p>
+
+<p><a href="http://www.syntevo.com/smartgit/">公式サイト</a>からバイナリを手に入れて、手動でインストールすることができますが解凍したりインストールの場所をどこにするかとか考える必要があるため簡単に<code>apt-get</code>でいきます。</p>
+
+<p>あとUbuntuにJavaが入っていない場合、起動できないのでJavaの導入がまだな人は同時にインストールするようにしてください。</p>
+
+<pre><code class="bash">#Oracle Java 8のレポジトリ（Javaが入ってない人向け）
+sudo add-apt-repository ppa:webupd8team/java
+sudo apt-get update
+#Oracle Java 8のインストール
+sudo apt-get install oracle-java8-installer
+</code></pre>
+
+<pre><code class="bash">#SmartGitのレポジトリ
+sudo add-apt-repository ppa:eugenesan/ppa
+sudo apt-get update
+#SmartGitのインストール
+sudo apt-get install smartgit
+</code></pre>
+
+<p>以上のコマンドを実行し、インストール作業を完了させてください。</p>
+
+<h2>SmartGitの初期設定</h2>
+
+<p>インストールが完了したら、Unityランチャーから「SmartGit」と入力し、SmartGitを起動。</p>
+
+<p>非商用利用の場合、写真のようにチェックを入れる。</p>
+
+<p><a class="swipebox" href="https://farm1.staticflickr.com/497/18468738566_a3ed4249b3_b.jpg" title="非商用利用" >
+  <img class="center image-effect" src="https://farm1.staticflickr.com/497/18468738566_a3ed4249b3_b.jpg">
+</a></p>
+
+<p>同意する。</p>
+
+<p><a class="swipebox" href="https://farm9.staticflickr.com/8859/18468738366_ae383fce73_z.jpg" title="非商用利用の確認" >
+  <img class="center image-effect" src="https://farm9.staticflickr.com/8859/18468738366_ae383fce73_z.jpg">
+</a></p>
+
+<p>「Use SmartGit as SSH client」でいいと思う。チェックして次へ。</p>
+
+<p><a class="swipebox" href="https://farm9.staticflickr.com/8886/18495173925_b513398030_b.jpg" title="Use SmartGit as SSH client" >
+  <img class="center image-effect" src="https://farm9.staticflickr.com/8886/18495173925_b513398030_b.jpg">
+</a></p>
+
+<p>多分、Gitの設定した時のユーザー名とEメールアドレスがあると思うので、それを入力しておく。</p>
+
+<p><a class="swipebox" href="https://farm9.staticflickr.com/8886/18496999701_02e7be1cfe_b.jpg" title="ユーザー名とEメールアドレス" >
+  <img class="center image-effect" src="https://farm9.staticflickr.com/8886/18496999701_02e7be1cfe_b.jpg">
+</a></p>
+
+<p>この項目はスキップ。</p>
+
+<p><a class="swipebox" href="https://farm1.staticflickr.com/397/18307357568_744d0c81d4_b.jpg" title="スキップ" >
+  <img class="center image-effect" src="https://farm1.staticflickr.com/397/18307357568_744d0c81d4_b.jpg">
+</a></p>
+
+<p>ここもスキップ。</p>
+
+<p><a class="swipebox" href="https://farm9.staticflickr.com/8898/18495173375_d20fe5e0b1_b.jpg" title="スキップ" >
+  <img class="center image-effect" src="https://farm9.staticflickr.com/8898/18495173375_d20fe5e0b1_b.jpg">
+</a></p>
+
+<p>エラーが起きたときにエラーレポートを自動で送信するか、勝手にすんなと思うならチェックを外しておく。</p>
+
+<p><a class="swipebox" href="https://farm1.staticflickr.com/430/18307447910_f3ff54f7d7_b.jpg" title="エラーレポート" >
+  <img class="center image-effect" src="https://farm1.staticflickr.com/430/18307447910_f3ff54f7d7_b.jpg">
+</a></p>
+
+<p>ここまで、設定が終わったら、SmartGitのウィンドウが開いて以下の画面が出てきますが、今は「Close」を押す。</p>
+
+<p><a class="swipebox" href="https://farm1.staticflickr.com/473/18308972569_33f97539f2.jpg" title="Welcome to SmartGit" >
+  <img class="center image-effect" src="https://farm1.staticflickr.com/473/18308972569_33f97539f2.jpg">
+</a></p>
+
+<h2>SmartGitの使い方</h2>
+
+<h3>SmartGitのUI</h3>
+
+<p>SmartGitのデザインはこんな感じです。
+各窓が何を表しているか、簡単に示しています。</p>
+
+<p><a class="swipebox" href="https://farm9.staticflickr.com/8899/18307379678_c651214e98_b.jpg" title="UI" >
+  <img class="center image-effect" src="https://farm9.staticflickr.com/8899/18307379678_c651214e98_b.jpg">
+</a></p>
+
+<p>下の項目ではgitの操作でよく使う操作についてSmartGitではどう操作するのかを書いています。</p>
+
+<h3>レポジトリをSmartGitに登録</h3>
+
+<p>レポジトリが既にローカルにある場合、上のメニューボタンから一番左の「Repository」から「Add or Create&hellip;」を選択し、目的のレポジトリがある階層を教えてあげることで登録できます。</p>
+
+<h3>リモートレポジトリをcloneしてくる</h3>
+
+<p>登録したいレポジトリがローカルにない場合、リモート先のレポジトリから<code>clone</code>してきます。
+これに関しては、コマンドラインでちゃっちゃとやってから上の操作で登録するっていう方法でもOKです。</p>
+
+<p><a class="swipebox" href="https://farm9.staticflickr.com/8853/18490827232_d00290332c_b.jpg" title="clone" >
+  <img class="center image-effect" src="https://farm9.staticflickr.com/8853/18490827232_d00290332c_b.jpg">
+</a></p>
+
+<h3>コミットする</h3>
+
+<p>一番使うと思われる<code>commit</code>です。コミットボタンは上のアイコン付きのボタンの群にあります。
+<strong>このときコミットしたいファイルを「Files」の項目から選択しておきます。</strong>
+選択した後、「Commit」を押すと、以下のウィンドウが出てきてコミットメッセージを入力します。</p>
+
+<p><a class="swipebox" href="https://farm9.staticflickr.com/8877/18307470230_a35af8d11d_b.jpg" title="commit" >
+  <img class="center image-effect" src="https://farm9.staticflickr.com/8877/18307470230_a35af8d11d_b.jpg">
+</a></p>
+
+<p>コミットメッセージを入力し終えたら、コミットします。
+まだリモート先に反映したくなかったら、「Commit」で、同時にリモート先にプッシュしたかったら「Commit &amp; Push」です。</p>
+
+<h3>pullする</h3>
+
+<p>他のPCで作業したり、複数の人が編集をしていてリモートレポジトリに変更があるときは<code>pull</code>をする。このボタンは一番左にあります。
+「Pull」を押すと、下のようなウィンドウが出てくるので「Pull」を押す。</p>
+
+<p><a class="swipebox" href="https://farm1.staticflickr.com/552/18310706398_6433018519_z.jpg" title="pull" >
+  <img class="center image-effect" src="https://farm1.staticflickr.com/552/18310706398_6433018519_z.jpg">
+</a></p>
+
+<h3>branchを追加</h3>
+
+<p>新たなbranchを今のHEADに追加したかった場合、「Add Branch」。</p>
+
+<p><a class="swipebox" href="https://farm1.staticflickr.com/484/18468758516_9f0aff48d6_b.jpg" title="Add Branch 1" >
+  <img class="center image-effect" src="https://farm1.staticflickr.com/484/18468758516_9f0aff48d6_b.jpg">
+</a></p>
+
+<p>branchの名前を入力して「Add Branch」。</p>
+
+<p><a class="swipebox" href="https://farm9.staticflickr.com/8848/18307469940_8d5734db85.jpg" title="Add Branch 2" >
+  <img class="center" src="https://farm9.staticflickr.com/8848/18307469940_8d5734db85.jpg">
+</a></p>
+
+<h3>branchの切り替え</h3>
+
+<p>branchを切り替え<code>checkout</code>をしたい場合、左下のBranchesの窓で、切り替えたいbranchをダブルクリックします。</p>
+
+<p><a class="swipebox" href="https://farm1.staticflickr.com/431/18307379088_1e737e16ba.jpg" title="checkout" >
+  <img class="center image-effect" src="https://farm1.staticflickr.com/431/18307379088_1e737e16ba.jpg">
+</a></p>
+
+<p>すると以下のアラートがでるので、問題なかったら「Checkout」。</p>
+
+<p><a class="swipebox" href="https://farm1.staticflickr.com/422/18307469620_7054f9b042.jpg" title="アラート" >
+  <img class="center image-effect" src="https://farm1.staticflickr.com/422/18307469620_7054f9b042.jpg">
+</a></p>
+
+<h3>マージ</h3>
+
+<p>先ほど作成したbranchを<code>master</code>にマージしたい場合、以下の手順にしたがってマージしていきます。
+今回は、マージをしたよという情報が残るマージ方法でいきます。
+<code>merge</code>の種類もいくつかあります。これについては以下のサイトが分かりやすかったです。</p>
+
+<p><blockquote><p>図で分かるgit-mergeの&ndash;ff, &ndash;no-ff, &ndash;squashの違い</p><footer><strong>アジャイルSEを目指すブログ <a href="http://d.hatena.ne.jp/sinsoku/20111025/1319497900">http://d.hatena.ne.jp/sinsoku/20111025/1319497900</a> <a href="http://d.hatena.ne.jp/sinsoku/20111025/1319497900">http://d.hatena.ne.jp/sinsoku/20111025/1319497900</a></strong></footer></blockquote></p>
+
+<p>SmartGitにもどって、マージ作業をします。
+<strong>このときマージして結合する先のbranchで作業してください。</strong><br/>
+例えば、<code>develop</code>というbranchの内容を<code>master</code>にマージしたい場合、<code>master</code>のbranchで以下の操作を行います。</p>
+
+<p>SmartGitの上部のボタン群にある「Merge」ボタンを押します。</p>
+
+<p><a class="swipebox" href="https://farm9.staticflickr.com/8899/17872494654_0f8bcb6f47_z.jpg" title="merge" >
+  <img class="center image-effect" src="https://farm9.staticflickr.com/8899/17872494654_0f8bcb6f47_z.jpg">
+</a></p>
+
+<p>この場合、<code>develop</code>branchのコミットが表示されていないので右上の「Branches」ボタンを押します。</p>
+
+<p><a class="swipebox" href="https://farm1.staticflickr.com/556/18307378418_669b472082_z.jpg" title="ブランチのチェック" >
+  <img class="center image-effect" src="https://farm1.staticflickr.com/556/18307378418_669b472082_z.jpg">
+</a></p>
+
+<p>そしてローカルにあるbranchをすべて表示させるようにチェックを入れました。</p>
+
+<p><a class="swipebox" href="https://farm9.staticflickr.com/8874/18308994239_547c6c4774_b.jpg" title="すべてにチェック" >
+  <img class="center image-effect" src="https://farm9.staticflickr.com/8874/18308994239_547c6c4774_b.jpg">
+</a></p>
+
+<p>すると<code>master</code>branchよりも1コミットすすんでいる<code>develop</code>branchのコミットがあります。
+これを<code>master</code>にマージします。
+対象のコミットを選択して、「Create Merge-Commit」を選択。
+そして「Create Merge-Commit」を押します。</p>
+
+<p><a class="swipebox" href="https://farm1.staticflickr.com/358/18490825232_c4664c2e48_o.png" title="Create Merge-Commit" >
+  <img class="center image-effect" src="https://farm1.staticflickr.com/358/18490825232_c4664c2e48_o.png">
+</a></p>
+
+<h3>コミットログの確認</h3>
+
+<p>先ほどのマージ作業が上手くできたかを確認したり、プログラムがうまく動かなくなったとき、過去のコミットを参照してどこを変更したかなどを参照することができます。
+ログの確認はSmartGitの画面右上の「Log」ボタン。</p>
+
+<p><a class="swipebox" href="https://farm9.staticflickr.com/8869/18497019061_e5eb222ac8_b.jpg" title="Log" >
+  <img class="center image-effect" src="https://farm9.staticflickr.com/8869/18497019061_e5eb222ac8_b.jpg">
+</a></p>
+
+<p>ここで過去のコミットに戻す作業等もできますが、頻繁に戻すことはないので省略します。</p>
+
+<h2>ちょっとした設定</h2>
+
+<p>SmartGitのレポジトリ一覧から右クリックでそのレポジトリがあるディレクトリをターミナルで開いたり、ファイラーで開いたりできます。
+Ubuntu標準のターミナルやファイラーを使っている場合、そのアプリで開くように設定する必要があります。</p>
+
+<p>下の写真だと、ファイラーが「nemo」、ターミナルが「terminater」で開くように設定しています。<br/>
+nemoの設定は<strong>Command</strong>が<code>nemo</code>、<strong>Arguments</strong>が<code>${fileUri}</code>、<br/>
+Terminatorの設定は<strong>Command</strong>が<code>/usr/bin/terminator</code>、<strong>Arguments</strong>が<code>--working-directory ${filePath}</code>です。</p>
+
+<p><a class="swipebox" href="https://farm1.staticflickr.com/371/17872493764_5ce83cc330_b.jpg" title="デフォルトで開くアプリの設定" >
+  <img class="center image-effect" src="https://farm1.staticflickr.com/371/17872493764_5ce83cc330_b.jpg">
+</a></p>
+
+<h2>おわりに</h2>
+
+<p>いろいろ書いているうちにごちゃごちゃし始めたので、この辺にしておきます。<br/>
+GUIで操作できるのはとても楽だし、視覚的にわかりやすいですが、本当にはじめてGitを勉強するひとは一回コマンドラインで基本的な操作する練習をしてから使ってみるといいと思います。でないと何をやっているのかわからないままSmartGitに慣れてしまうと、GUI環境がなくなったときにどうすることもできない状況になると困るかなと。</p>
+
+<p>Gitに慣れてきたら日常的に行う操作に関しては、SmartGitでやると楽だと思います。特に前回コミットと現在変更した箇所の差分が表示されるので、これが便利だと思います。
+あとコミットするファイルを視覚的に選択できるのがいいですね。<code>git add</code>だとこれはコミットしたいけど、これはいいとかいう操作がしづらいですから。<br/>
+一方で複雑な操作をする場合、コマンドでやったほうがわかりやすいときもありますのでGUIとCLIを使い分けていくといいですね。<br/>
+本日は以上です。最後まで閲覧していただきありがとうございました。</p>
+]]></content>
+  </entry>
+  
+</feed>

@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Tag: Kindle | Ry0 Note]]></title>
+  <link href="http://ry0.github.io/blog/tags/kindle/atom.xml" rel="self"/>
+  <link href="http://ry0.github.io/"/>
+  <updated>2019-10-20T02:14:29+09:00</updated>
+  <id>http://ry0.github.io/</id>
+  <author>
+    <name><![CDATA[Ry0_Ka]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[ChainLPのインストール方法と使い方 for Kindle Paperwhite 2015]]></title>
+    <link href="http://ry0.github.io/blog/2015/11/04/how-to-use-chainlp-for-kindle-paperwhite-2015/"/>
+    <updated>2015-11-04T17:52:51+09:00</updated>
+    <id>http://ry0.github.io/blog/2015/11/04/how-to-use-chainlp-for-kindle-paperwhite-2015</id>
+    <content type="html"><![CDATA[<h2>フリーソフトでもしっかりKindle対応の電子書籍フォーマットに変換できます</h2>
+
+<p>Kindleで自炊したファイルを読み込ませる場合、PDFやZIPで固めたものを転送して読むことができます。<br/>
+しかしこれでは容量が重くてページをめくる際や拡大時に非常に読み込みの時間がかかってしまいストレスです。</p>
+
+<p>そこでKindleが対応している電子書籍フォーマットに変換し、圧縮をかけることで読み込み時間の短縮とKindleの空き容量削減を行おうと思います。<br/>
+今日はWindowsのフリーソフト「ChainLP」のインストール方法と設定について書きます。<br/>
+「kindlestrip.py」を使ったmobiファイルの圧縮方法も紹介します。</p>
+
+<!-- more -->
+
+
+<p><strong>最新版のKindle Paperwhiteはちょっと前にレビューしてます。もしよければ見てください。</strong></p>
+
+<p><blockquote><p>Kindle Paperwhite 2015年版を購入、レビュー</p><footer><strong>Ry0 Note <a href="http://ry0.github.io/blog/2015/10/04/kindle-paperwhite-2015/">http://ry0.github.io/blog/2015/10/04/kindle-paperwhite-2015/</a> <a href="http://ry0.github.io/blog/2015/10/04/kindle-paperwhite-2015/">http://ry0.github.io/blog/2015/10/04/kindle-paperwhite-2015/</a></strong></footer></blockquote></p>
+
+<h2>インストール</h2>
+
+<h3>ChainLP</h3>
+
+<p>ChainLP本体のファイルをダウンロードします。製作者さんのサイトからダウンロードしてきます。</p>
+
+<p><blockquote><p>ChainLP V0.40-17</p><footer><strong>No.722 <a href="http://no722.cocolog-nifty.com/blog/2013/02/chainlp-v040-17.html">http://no722.cocolog-nifty.com/blog/2013/02/chainlp-v040-17.html</a></strong></footer></blockquote></p>
+
+<p>ダウンロードしてきたら適当なところに展開しておいてください。
+インストーラー等はないので展開した場所が実行場所になります。</p>
+
+<p><a class="swipebox" href="https://farm1.staticflickr.com/603/22740905596_4067050fbc_b.jpg" title="ChainLP40b17">
+  <img class="center image-effect" src="https://farm1.staticflickr.com/603/22740905596_4067050fbc_b.jpg">
+</a></p>
+
+<p>製作者さんもサイトで言及していますが、<a href="http://msdn.microsoft.com/ja-jp/netframework/">Microsoft.NET framework 4.0</a>を前もってインストールしておいてください。</p>
+
+<h3>UNZIP32.DLL</h3>
+
+<p>ZIP形式で圧縮された自炊ファイルをChainLPにインポートするために、UNZIP32.DLLと呼ばれるライブラリをインストールします。</p>
+
+<p><blockquote><p>.ZIP ファイルの展開（解凍）<br/>UNZIP32.DLL for windows 9x/Me/NT/200x/XP/Vista/7/8.x</p><footer><strong>統合アーカイバプロジェクト <a href="http://www.csdinc.co.jp/archiver/lib/unzip32.html#download">http://www.csdinc.co.jp/archiver/lib/unzip32.html#download</a></strong></footer></blockquote></p>
+
+<p><a class="swipebox" href="https://farm1.staticflickr.com/641/22740807846_e1f9368e5a_b.jpg" title="UNZIP32.DLLダウンロード">
+  <img class="center image-effect" src="https://farm1.staticflickr.com/641/22740807846_e1f9368e5a_b.jpg">
+</a></p>
+
+<p>ダウンロードしたらダブルクリックしてインストール。</p>
+
+<p><a class="swipebox" href="https://farm1.staticflickr.com/582/22740807506_e2b9773e73.jpg" title="UNZIP32.DLLインストール">
+  <img class="center image-effect" src="https://farm1.staticflickr.com/582/22740807506_e2b9773e73.jpg">
+</a></p>
+
+<h3>KindleGen</h3>
+
+<p>Kindleの対応形式に変換するためのツールをとってきます。</p>
+
+<p><blockquote><p>KDP ツールとリソース<br/>KindleGen v2.9</p><footer><strong>Amazon <a href="https://kdp.amazon.co.jp/help?topicId=A3IWA2TQYMZ5J6">https://kdp.amazon.co.jp/help?topicId=A3IWA2TQYMZ5J6</a></strong></footer></blockquote></p>
+
+<p><a class="swipebox" href="https://farm6.staticflickr.com/5646/22144958104_d774ff3d29_b.jpg" title="KindleGenダウンロード">
+  <img class="center image-effect" src="https://farm6.staticflickr.com/5646/22144958104_d774ff3d29_b.jpg">
+</a></p>
+
+<p>ダウンロードしてきたら解凍して<code>kindlegen.exe</code>だけ一番最初に解凍したChainLP本体のフォルダにコピーします。</p>
+
+<p><a class="swipebox" href="https://farm1.staticflickr.com/680/22145007314_d6d5f703d9_h.jpg" title="KindleGenコピー">
+  <img class="center image-effect" src="https://farm1.staticflickr.com/680/22145007314_89f912d140_b.jpg">
+</a></p>
+
+<p>これで基本的なChainLPに必要なライブラリは揃いました。</p>
+
+<h2>mobiの圧縮を行う</h2>
+
+<p>ここまでの手順でKindle対応形式に変換できますが、変換後にも変換前の余計なデータを保持しているらしく、圧縮したはずがデータは少ししか小さくなっていません。
+したがって<strong>以下のPythonスクリプトによってこの余分なデータを取り除いてやることで、ダイエットする前と後では約半分の容量に抑えこむことができます。</strong>
+Pythonをインストールしないといけないので少し手順が増えますが、効果的なのでおすすめです。</p>
+
+<h3>python27</h3>
+
+<p><blockquote><p>Python Releases for Windows</p><footer><strong>Python <a href="https://www.python.org/downloads/windows/">https://www.python.org/downloads/windows/</a> <a href="https://www.python.org/downloads/windows/">https://www.python.org/downloads/windows/</a></strong></footer></blockquote></p>
+
+<p>製作者さんが言っているように<strong>Pythonは2.7.3をインストールします。</strong>
+ほかのバージョンでも動くと思いますが、初めてインストールする人はこのバージョンをインストールしておくのが無難だと思います。</p>
+
+<p><a class="swipebox" href="https://farm1.staticflickr.com/629/22779419681_cb46ddd0c6_b.jpg" title="Pythonは2.7.3ダウンロード">
+  <img class="center image-effect" src="https://farm1.staticflickr.com/629/22779419681_cb46ddd0c6_b.jpg">
+</a></p>
+
+<p>インストールが完了したら<strong>Windowsのシステムの詳細設定から環境変数の設定をしておきます。</strong></p>
+
+<pre><code>C:\Python27;C:\Python27\Scripts
+</code></pre>
+
+<p>コマンドプロンプトを開いて<code>python</code>と入力してとくにエラーがなければ成功です。</p>
+
+<h3>Kindlestrip</h3>
+
+<p>続いて容量削減のためのPythonスクリプトをダウンロードしてきます。
+Githubからです。</p>
+
+<p><blockquote><p>jefftriplett/kindlestrip<br/>A pip-installable conversion of Paul Durrant&rsquo;s kindlestrip</p><footer><strong>Github <a href="https://github.com/jefftriplett/kindlestrip">https://github.com/jefftriplett/kindlestrip</a> <a href="https://github.com/jefftriplett/kindlestrip">https://github.com/jefftriplett/kindlestrip</a></strong></footer></blockquote></p>
+
+<p><a class="swipebox" href="https://farm1.staticflickr.com/649/22146600203_db51e0b0ff_b.jpg" title="Kindlestripダウンロード">
+  <img class="center image-effect" src="https://farm1.staticflickr.com/649/22146600203_db51e0b0ff_b.jpg">
+</a></p>
+
+<p>これもChainLPのフォルダに<code>kindlestrip.py</code>だけコピーしておきます。</p>
+
+<p><a class="swipebox" href="https://farm1.staticflickr.com/626/22579819770_9187a54985_h.jpg" title="Kindlestripコピー">
+  <img class="center image-effect" src="https://farm1.staticflickr.com/626/22579819770_29e4c33ecf_b.jpg">
+</a></p>
+
+<h2>ChainLP起動</h2>
+
+<p>ここまでセットアップお疲れ様でした。
+いよいよChainLPを起動し、Kindle対応の形式に変換します。</p>
+
+<p>変換する前に変換後の縦横サイズを設定しておく必要があります。</p>
+
+<p><strong>Kindle Paperwhite 2015モデルの画面解像度は、1072×1448だそうです。</strong>
+Kindle Paperwhiteの旧モデルは758×1024でいけます。
+したがってChainLPのメニューから「解像度」→「追加」で新たにサイズを定義します。</p>
+
+<p><a class="swipebox" href="https://farm1.staticflickr.com/703/22147609883_72a2d9502e_b.jpg" title="解像度">
+  <img class="center image-effect" src="https://farm1.staticflickr.com/703/22147609883_72a2d9502e_b.jpg">
+</a></p>
+
+<p>詳細な設定を行いたい方は以下のブログが詳しかったです。</p>
+
+<p><blockquote><p>ChainLP設定サンプル：New Kindle Paperwhite（2015ニューモデル）</p><footer><strong>ブルーレディ <a href="http://www.bluelady.jp/know-how/post-8027">http://www.bluelady.jp/know-how/post-8027</a></strong></footer></blockquote></p>
+
+<h2>変換してみる</h2>
+
+<p>自炊したデータをChainLPにドラッグアンドドロップします。
+今回は手元に適当な自炊データがなかったので、著作権フリーな「ブラックジャックによろしく」で検証しています。</p>
+
+<p><strong>アプリの右側にはたくさん設定項目がありますが、特に出力の形式はMobiにするよう注意してください。</strong>
+またサイズは先程設定したKindleのサイズと一致しているかを確認し、自炊したデータによって綴じの方向を決めてください。</p>
+
+<p>すべて設定し終えたら、出力ボタンを押してください。
+途中で一瞬ChainLPが固まったような動作をしますが、kindlestripが動いているので大丈夫です。</p>
+
+<p>変換が完了すると<code>タイトル.mobi</code>と<code>Strip_タイトル.mobi</code>というファイルが出力されます。<code>タイトル.mobi</code>の方は変換の途中で生成されたサイズが大きいほうのデータですので削除しても問題無いです。</p>
+
+<p><a class="swipebox" href="https://farm6.staticflickr.com/5750/22147957823_47a5637e6e_b.jpg" title="ChainLP">
+  <img class="center image-effect" src="https://farm6.staticflickr.com/5750/22147957823_47a5637e6e_b.jpg">
+</a></p>
+
+<p>結局元のJPGファイルを固めたZIPよりも10MBくらい削減できました。</p>
+
+<p><a class="swipebox" href="https://farm1.staticflickr.com/585/22155387403_aa2ba5a7b0_b.jpg" title="比較">
+  <img class="center image-effect" src="https://farm1.staticflickr.com/585/22155387403_aa2ba5a7b0_b.jpg">
+</a></p>
+
+<h2>Kindleで確認</h2>
+
+<p>KindleをPCに接続して作成した<code>.mobi</code>ファイルを転送します。
+<code>documents/</code>の中にコピーします。この中に新たにフォルダを作って、そこに入れてもOKです。</p>
+
+<p><a class="swipebox" href="https://farm1.staticflickr.com/645/22586102570_45e38f0d75_h.jpg" title="実際のKindleで確認">
+  <img class="center image-effect" src="https://farm1.staticflickr.com/645/22586102570_7d81d1e5bf_b.jpg">
+</a></p>
+
+<p>問題なく読めますね。このとき上下左右の余白がたくさん空いていたりした場合はChainLPの余白設定の各パラメータを変更してみてください。</p>
+
+<h2>おわりに</h2>
+
+<p>圧縮したmobiファイルを作成できるようにするには、結構手順を踏む必要がありますが、一度環境を整えればずっと同じ作業で変換ができるので便利ですね。<br/>
+Kindleを持っていて自炊をよくする人におすすめしたいソフトウェアの紹介でした。</p>
+
+<p><blockquote><p></p></p><p><div class="kaerebalink-box"><div class="kaerebalink-image"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00QJDOM6U/ry00c-22/ref=nosim/" target="_blank" ><img src="http://ecx.images-amazon.com/images/I/512%2Bw7G7IhL._SL160_.jpg" style="border: none;" /></a></div><div class="kaerebalink-info"><div class="kaerebalink-name"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00QJDOM6U/ry00c-22/ref=nosim/" target="_blank" >Kindle Paperwhite (ニューモデル) Wi-Fi</a><div class="kaerebalink-powered-date">posted with <a href="http://kaereba.com" rel="nofollow" target="_blank">カエレバ</a></div></div><div class="kaerebalink-detail"> Amazon 2015-06-30    </div><div class="kaerebalink-link1"><div class="shoplinkamazon"><a href="http://www.amazon.co.jp/gp/search?keywords=Kindle&__mk_ja_JP=%83J%83%5E%83J%83i&tag=ry00c-22" target="_blank" >Amazonで探す</a></div><div class="shoplinkrakuten"><a href="http://hb.afl.rakuten.co.jp/hgc/0e7c6e55.9d33cc01.0e7c6e56.d2bcd23e/?pc=http%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FKindle%2F-%2Ff.1-p.1-s.1-sf.0-st.A-v.2%3Fx%3D0%26scid%3Daf_ich_link_urltxt%26m%3Dhttp%3A%2F%2Fm.rakuten.co.jp%2F" target="_blank" >楽天市場で探す</a></div></div></div><div class="booklink-footer" style="clear: left"></div></div></p><p><br/><p></p></blockquote></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Kindle Paperwhite 2015年版を購入、レビュー]]></title>
+    <link href="http://ry0.github.io/blog/2015/10/04/kindle-paperwhite-2015/"/>
+    <updated>2015-10-04T00:01:48+09:00</updated>
+    <id>http://ry0.github.io/blog/2015/10/04/kindle-paperwhite-2015</id>
+    <content type="html"><![CDATA[<h2>画面の解像度が向上したKindle Paperwhite 2015</h2>
+
+<p>7月にKindle Paperwhiteの新型が発表されました。
+従来モデルと比べて解像度が向上したとのことですので、どれほど良くなったのかを書いていこうと思います。</p>
+
+<p>私は8月の末に購入していたのですが、あれこれしているうちに10月になってしまいましたね。</p>
+
+<!-- more -->
+
+
+<h2>どれほど解像度が向上したのか</h2>
+
+<p>従来品のKindle Paperwhiteは758×1,024(212ppi)、Kindle Voyageが<strong>1,072×1,448(300ppi)</strong>です。
+そして今回のKindle Paperwhite 2015は<strong>Kindle Voyageと同じ1,072×1,448(300ppi)</strong>となっています！<br/>
+Kindle Paperwhiteに関しては解像度以外のスペックは基本的に変わりません。</p>
+
+<p>Kindle Paperwhite 2013年モデルのレビュー記事も書いていますので、よかったらどうぞ。</p>
+
+<p><blockquote><p>Kindle Paperwhiteを買ってみた</p><footer><strong>Ry0 Note <a href="http://ry0.github.io/blog/2015/02/21/kindle-paperwhite/">http://ry0.github.io/blog/2015/02/21/kindle-paperwhite/</a> <a href="http://ry0.github.io/blog/2015/02/21/kindle-paperwhite/">http://ry0.github.io/blog/2015/02/21/kindle-paperwhite/</a></strong></footer></blockquote></p>
+
+<h2>付属品</h2>
+
+<p>付属品に関してはいつも通りです。
+ケーブルも付属していますが、スマホ、タブレット等のケーブルで代用できるのであんまり必要ないかなと思います。</p>
+
+<p><a class="swipebox" href="https://farm6.staticflickr.com/5640/21291125824_deb8cc1ec8_h.jpg" title="付属品">
+  <img class="center image-effect" src="https://farm6.staticflickr.com/5640/21291125824_1bb7f7e9b8_b.jpg">
+</a></p>
+
+<h2>本体は</h2>
+
+<p>私は広告モデルを購入しました。
+広告はバックライト消灯時に常時表示され、またKindleを使用する際に電源ボタンを押した後、<strong>画面をスワイプ</strong>とワンステップ作業が増えてしまいますが、<strong>読書中に広告が出るということはありません。</strong><br/>
+これは人によって感じ方が違うと思うので、広告モデル、広告無しモデルどちらか好みで選択すればいいと思います。</p>
+
+<p>先ほど画面以外のスペックは変わらないと書きましたが、デザインの若干の変化がありました。
+表面と裏面にあるロゴの印刷が変わっていました。
+どちらがよかったってのは特にありません。</p>
+
+<h3>Kindleの文字がシルバーから黒のテカテカに</h3>
+
+<p><a class="swipebox" href="https://farm6.staticflickr.com/5817/21902699282_9d36cca2be_h.jpg" title="表面のKindleのロゴ">
+  <img class="center image-effect" src="https://farm6.staticflickr.com/5817/21902699282_e22e4c0df8_b.jpg">
+</a></p>
+
+<h3>Amazonのロゴは逆にテカテカからしっとりに</h3>
+
+<p><a class="swipebox" href="https://farm6.staticflickr.com/5754/21293575203_3acd937626_h.jpg" title="裏面のAmazonのロゴ">
+  <img class="center image-effect" src="https://farm6.staticflickr.com/5754/21293575203_1ef054b93a_b.jpg">
+</a></p>
+
+<h2>実際に画面を見てみる</h2>
+
+<p>本当なら2013年モデルと比較するのがベストなのですが、2013年モデルは譲ってしまって手元にないので比較をすることができません…
+すみません。文章だけでどうにか違いをお伝えできればと思っています。</p>
+
+<h3>文字はくっきり、ふりがなもしっかり読めます。</h3>
+
+<p>解像度が上がったことで、より紙に印刷されたように自然で活字も鮮明です。
+ふりがなのような小さな文字でもぼやけることなくしっかり読むことができます。</p>
+
+<p><a class="swipebox" href="https://farm6.staticflickr.com/5700/21725523410_53e5eafa6b_h.jpg" title="画面拡大">
+  <img class="center image-effect" src="https://farm6.staticflickr.com/5700/21725523410_fa0a830111_b.jpg">
+</a></p>
+
+<h3>漫画のようなコンテンツでも有利</h3>
+
+<p>解像度の向上は漫画のような絵が多い書籍にも大きなメリットがあると思います。
+Kindleのサイズ的にも単行本を読んでいるのとほとんど変わらない感覚で読むことができます。</p>
+
+<p><a class="swipebox" href="https://farm1.staticflickr.com/720/21726706389_c7968a0277_h.jpg" title="ワンピース">
+  <img class="center image-effect" src="https://farm1.staticflickr.com/720/21726706389_575661b7de_b.jpg">
+</a></p>
+
+<h2>デメリットは？</h2>
+
+<p>良いことばかりではありません。
+解像度は向上しましたが、他の処理系のスペックは変化がないので当然画面の解像度が上がると負荷が増えてしまいます。
+それほど影響はありませんが、<strong>2013年モデルと比べてほんの少しだけページ遷移の際に遅いときがあるかな</strong>という感覚レベルの違いが見られました。</p>
+
+<p>また解像度が向上したことにより、自炊でKindleの対応フォーマットに変換する際にもベストな解像度で出力するとサイズが大きくなってしまいます。
+本体の4GBと非常に少ないことから、たくさん入れようとすると物足りなく感じます。</p>
+
+<p>またバッテリーに関するスペックは非公開となっていますが、2013年モデルと変化がなければ、バッテリーの持ちは悪くなっていると思われます。
+しかしこれに関しては普通に使っていたら気にならない程度で、通常の液晶が搭載されているタブレット端末とは比べ物にならないくらいバッテリーは持続します。</p>
+
+<p>また2015年モデルだけのことではないですが、やはり画面サイズは6インチということで、大きい版の専門書や論文のPDFを読み込ませて使用するのはきついと思います。拡大もできますが、いちいち読み込み時間がかかるので現実的ではありません。</p>
+
+<h2>おわりに</h2>
+
+<p>2013年モデルをセールでゲットしたあと、また新しいモデルを購入するとは思いませんでした。
+<strong>やっぱり解像度が高くなったというのは魅力的ですね。</strong><br/>
+ネットワーク環境があるときにKindleのローカルに読み込ませておけば、通信が切れてスマホであまり暇を潰せないときにも大活躍します（新幹線や飛行機の中とか）。
+また本体自体も軽いので、手軽に持ち出すことができます。</p>
+
+<p>プライム無料体験登録し(Amazon Studentじゃダメ)、Kindleを購入すると4000円分のAmazonギフト券をプレゼントのキャンペーンをしていたりするので、メリットデメリットを考えながら気になる方は購入してみてはいかがでしょうか。</p>
+
+<p><blockquote><p></p></p><p><div class="kaerebalink-box"><div class="kaerebalink-image"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00QJDOM6U/ry00c-22/ref=nosim/" target="_blank" ><img src="http://ecx.images-amazon.com/images/I/512%2Bw7G7IhL._SL160_.jpg" style="border: none;" /></a></div><div class="kaerebalink-info"><div class="kaerebalink-name"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00QJDOM6U/ry00c-22/ref=nosim/" target="_blank" >Kindle Paperwhite (ニューモデル) Wi-Fi</a><div class="kaerebalink-powered-date">posted with <a href="http://kaereba.com" rel="nofollow" target="_blank">カエレバ</a></div></div><div class="kaerebalink-detail"> Amazon 2015-06-30    </div><div class="kaerebalink-link1"><div class="shoplinkamazon"><a href="http://www.amazon.co.jp/gp/search?keywords=Kindle&__mk_ja_JP=%83J%83%5E%83J%83i&tag=ry00c-22" target="_blank" >Amazonで探す</a></div><div class="shoplinkrakuten"><a href="http://hb.afl.rakuten.co.jp/hgc/0e7c6e55.9d33cc01.0e7c6e56.d2bcd23e/?pc=http%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FKindle%2F-%2Ff.1-p.1-s.1-sf.0-st.A-v.2%3Fx%3D0%26scid%3Daf_ich_link_urltxt%26m%3Dhttp%3A%2F%2Fm.rakuten.co.jp%2F" target="_blank" >楽天市場で探す</a></div></div></div><div class="booklink-footer" style="clear: left"></div></div></p><p><br/><p></p></blockquote></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Kindle Paperwhiteを買ってみた]]></title>
+    <link href="http://ry0.github.io/blog/2015/02/21/kindle-paperwhite/"/>
+    <updated>2015-02-21T22:18:24+09:00</updated>
+    <id>http://ry0.github.io/blog/2015/02/21/kindle-paperwhite</id>
+    <content type="html"><![CDATA[<h2>Kindle PaperwhiteのWi-Fiモデルが表示価格から2,000円OFF</h2>
+
+<p>Amazonで何やらキャンペーンでKindleが2,000円安くなっていたので、無駄遣いをしてはならぬと思いながらも購入してしまいました。
+今回は購入から開封、ちょこっと使ってみた感想を書いていこうと思います。</p>
+
+<!-- more -->
+
+
+<p><strong>このブログ記事はKindle Paperwhite 2013年モデルです。</strong>
+<strong>最新版のKindle Paperwhiteのレビュー記事はこれです。</strong>
+<blockquote><p>Kindle Paperwhite 2015年版を購入、レビュー</p><footer><strong>Ry0 Note <a href="http://ry0.github.io/blog/2015/10/04/kindle-paperwhite-2015/">http://ry0.github.io/blog/2015/10/04/kindle-paperwhite-2015/</a> <a href="http://ry0.github.io/blog/2015/10/04/kindle-paperwhite-2015/">http://ry0.github.io/blog/2015/10/04/kindle-paperwhite-2015/</a></strong></footer></blockquote></p>
+
+<h2>購入の決め手になったのは</h2>
+
+<p>もちろんいつもより2,000円安かったのはもちろんなんですが、同時にやっていたキャンペーンとして掲げていた「気軽に試せる返品保証。30日以内の返品で全額返金。」という謳い文句でした。
+飽きたり、実際に使ってみてイマイチだったら返品すればいいじゃんとあまり考えずに購入に踏み切ったのです。</p>
+
+<p>どうやら2,000円OFFのキャンペーンは2015年2月22日(日)23時59分までらしいので期間は残りわずかです。
+購入したモデルはKindle Paperwhiteのキャンペーン情報つきWi-Fiモデル。8,280円でした。キャンペーン情報つきは、なしのモデルと比べて2,000円安いですが、広告がつきます。とくに目立つのがスリープにした際に表示されるもの。全面的に広告が表示されます。下の開封時の写真を見ていただければわかると思います。</p>
+
+<p><blockquote><p>Kindle Paperwhite キャンペーン情報つき Wi-Fi</p><footer><strong>Amazon <a href="http://www.amazon.co.jp/dp/B00CTTL5XQ">http://www.amazon.co.jp/dp/B00CTTL5XQ</a> <a href="http://www.amazon.co.jp/dp/B00CTTL5XQ">http://www.amazon.co.jp/dp/B00CTTL5XQ</a></strong></footer></blockquote></p>
+
+<h2>到着から開封まで</h2>
+
+<p>お急ぎ便で注文したのでわずか1日で到着。<br/>
+新しいものでもないし、開封の写真はとってなかったので付属品の写真だけ。本体、説明書、MicroUSBケーブルと最小構成。充電アダプタは別売のものか、自分の持ってるものを使ってくださいということでしょう。</p>
+
+<p><a class="swipebox" href="https://farm8.staticflickr.com/7424/16599602861_01081a4ce7_h.jpg" title="付属品">
+  <img class="center image-effect" src="https://farm8.staticflickr.com/7424/16599602861_741ca7f09f_b.jpg">
+</a></p>
+
+<h2>実際につかってみた</h2>
+
+<h3>サイズ感と見え方</h3>
+
+<p>左からiPhone 5s、今回購入したKindle、iPad mini retinaディスプレイモデルです。画面はすべて明るさを最大にしています。<br/>
+iPad miniはretinaディスプレイだけあって文字のくっきり感もよいです。
+一方、Kindleは文字の明瞭感を残しつつ、画面はしっとりした感じです。
+長時間の閲覧を考えると、当然Kindleの電子ペーパーが有利でしょう。
+表示領域はiPad miniのほうがゆったりして見えますが、文字数では文章にして２行ほど違う程度。</p>
+
+<p><a class="swipebox" href="https://farm9.staticflickr.com/8618/16600409795_6021beef70_h.jpg" title="サイズの比較">
+  <img class="center image-effect" src="https://farm9.staticflickr.com/8618/16600409795_0e00551d5e_b.jpg">
+</a></p>
+
+<h3>PDFを読み込ませる</h3>
+
+<p>最近提出したばかりの卒論のPDFを読み込ませてみました。読み込みは思ったより速くページ送りももたつくことはありません。
+読む機会の多い、2ペインの論文は読めないことはないですが、全画面表示では文字が小さすぎて目が疲れるかもしれません。</p>
+
+<p><a class="swipebox" href="https://farm8.staticflickr.com/7427/16413345658_af99f08832_h.jpg" title="PDFの読み込み">
+  <img class="center image-effect" src="https://farm8.staticflickr.com/7427/16413345658_17a73d563e_b.jpg">
+</a></p>
+
+<h3>Kindleストアで本を購入</h3>
+
+<p><a href="http://www.amazon.co.jp/gp/feature.html/ref=nav_kds?ie=UTF8&amp;docId=3077704816">Kindleオーナーライブラリー</a>という制度があるようです。Kindleを持っていて、かつAmazonプライムに加入していれば、月に1冊、無料で対象となっている本を読むことができます。しかもこの制度はAmazon Student会員でも利用できるので、すべての本から選べられるわけではないですが、お得感がありますね。</p>
+
+<h3>自炊した本をKindleの対応フォーマットに変換</h3>
+
+<p>以下の記事が詳しくて分かりやすかったです。Windowsのフリーソフトで変換を行います。</p>
+
+<p><blockquote><p>【Kindle Paperwhite】jpgをzipでまとめた「自炊漫画」は専用アプリで変換してから転送</p><footer><strong>あんスマ <a href="http://android-smart.com/2013/01/paperwhite6.html">http://android-smart.com/2013/01/paperwhite6.html</a> <a href="http://android-smart.com/2013/01/paperwhite6.html">http://android-smart.com/2013/01/paperwhite6.html</a></strong></footer></blockquote></p>
+
+<h2>おわりに</h2>
+
+<p>なんとなく購入したKindleですが、なかかな面白い端末だと思います。
+iPadのような端末だとTwitterからネットサーフィン等、どうしても不毛な時間を過ごしてしまいがちです。
+Kindle Paperwhiteは利用できる機能が絞られているのでそういった誘惑に流されずに、集中して読書ができるのではないでしょうか。<br/>
+私自身、全くと言っていいほど本を読まなない人間なので、これを期に少し読書に挑戦してみようかなと思いました。</p>
+
+<p><blockquote><p></p></p><p><div class="kaerebalink-box"><div class="kaerebalink-image"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00CTTKKF0/ry00c-22/ref=nosim/" target="_blank" ><img src="http://ecx.images-amazon.com/images/I/51NXKygnUkL._SL160_.jpg" style="border: none;" /></a></div><div class="kaerebalink-info"><div class="kaerebalink-name"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00CTTKKF0/ry00c-22/ref=nosim/" target="_blank" >Kindle Paperwhite (第6世代)  Wi-Fi + 3G、キャンペーン情報つきモデル</a><div class="kaerebalink-powered-date">posted with <a href="http://kaereba.com" rel="nofollow" target="_blank">カエレバ</a></div></div><div class="kaerebalink-detail"> Amazon 2014-10-04    </div><div class="kaerebalink-link1"><div class="shoplinkamazon"><a href="http://www.amazon.co.jp/gp/search?keywords=Kindle%20Paperwhite%20%28%91%E66%90%A2%91%E3%29%20Wi-Fi%20%20%203G%81A%83L%83%83%83%93%83y%81%5B%83%93%8F%EE%95%F1%82%C2%82%AB%83%82%83f%83%8B&__mk_ja_JP=%83J%83%5E%83J%83i&tag=ry00c-22" target="_blank" >Amazonで探す</a></div></div></div><div class="booklink-footer" style="clear: left"></div></div></p><p><br/><p></p></blockquote></p>
+]]></content>
+  </entry>
+  
+</feed>

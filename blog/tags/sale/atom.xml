@@ -1,0 +1,510 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Tag: Sale | Ry0 Note]]></title>
+  <link href="http://ry0.github.io/blog/tags/sale/atom.xml" rel="self"/>
+  <link href="http://ry0.github.io/"/>
+  <updated>2019-10-20T02:14:29+09:00</updated>
+  <id>http://ry0.github.io/</id>
+  <author>
+    <name><![CDATA[Ry0_Ka]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Samsung microSDXCカード 128GB EVO+ Class10の購入レビュー]]></title>
+    <link href="http://ry0.github.io/blog/2016/06/12/mb-mc128da/"/>
+    <updated>2016-06-12T05:06:56+09:00</updated>
+    <id>http://ry0.github.io/blog/2016/06/12/mb-mc128da</id>
+    <content type="html"><![CDATA[<h2>microSDカードなのに128GB</h2>
+
+<p>ブログを復活させたいのになかなか更新できていません。レビューしたいものはたくさんあるんですが。</p>
+
+<p>今日はSamsung製のmicroSDカードの紹介です。容量は128GBで、Class10です。公称値では最大読出速度80MB/s、最大書込速度20MB/sだそうです。このあたりも自分で計測してみたので、参考にしてみてください。</p>
+
+<!-- more -->
+
+
+<p>携帯音楽プレーヤー用の音楽データもflacを使っている関係(わざわざmp3に圧縮するのが面倒)で以前使っていた64GBのmicroSDカードでも容量がいっぱいになってきたので、この商品を購入しました。最近はメモリやHDDなどの記憶媒体の値段が落ち着いてきており、このSDカードも<strong>128GBにも関わらず、5,000円以下で購入することができました。</strong></p>
+
+<h2>パッケージはフラストレーション・フリー・パッケージ</h2>
+
+<p>アマゾンでポチるばっかりすると、すぐ家が箱だらけになるので、簡素なパッケージは大歓迎です。
+中にはSDカードと最低限の注意書きの紙が入ってました。</p>
+
+<p><a class="swipebox" href="https://farm8.staticflickr.com/7371/27604010295_f8f3bcc666_h.jpg" title="パッケージ">
+  <img class="center image-effect" src="https://farm8.staticflickr.com/7371/27604010295_08a87c9244_b.jpg">
+</a></p>
+
+<p>カードは赤を基調としたデザイン。128GBであることがすぐわかるデザインなので、見分けがつきやすいですね。</p>
+
+<p><a class="swipebox" href="https://farm8.staticflickr.com/7730/27604003585_4971869c99_h.jpg" title="本体">
+  <img class="center image-effect" src="https://farm8.staticflickr.com/7730/27604003585_811d1c19c5_b.jpg">
+</a></p>
+
+<p>microSD→SDカード変換用のアダプターもついてました。</p>
+
+<p><a class="swipebox" href="https://farm8.staticflickr.com/7325/27604005855_866ce7d025_h.jpg" title="アダプター">
+  <img class="center image-effect" src="https://farm8.staticflickr.com/7325/27604005855_fef9b570f7_b.jpg">
+</a></p>
+
+<h2>速度計測</h2>
+
+<p>最大読出速度80MB/s、最大書込速度20MB/sのはずが、思っていたよりあまり出ていませんね。速度は重視していなかったので問題ないです。速度重視ならば、もう少し上位モデルを購入するべきでしょう。</p>
+
+<p><a class="swipebox" href="https://farm8.staticflickr.com/7796/26994252624_b07f40b957.jpg" title="CrystalDiskMark">
+  <img class="center image-effect" src="https://farm8.staticflickr.com/7796/26994252624_b07f40b957.jpg">
+</a></p>
+
+<h2>FAT32にフォーマット</h2>
+
+<p>SDXC規格はファイルシステムがexFATかNTFSです。<strong>Windowsでも、exFATかNTFSのいずれでしかフォーマットできません。</strong>
+しかし私が持っているプレイヤーはFAT32しか対応していないので、無理やりFAT32でフォーマットする必要がありました。</p>
+
+<p>そこで「Disk Formatter」と呼ばれるBUFFALO製のフォーマットソフトを使ってフォーマットしました。
+このソフトは<a href="http://buffalo.jp/download/driver/hd/format.html#1">ここ</a>からダウンロードしてインストールします。サイトには対応OSがWindows 7まででしたが、普通にWindows 10で使えました。</p>
+
+<p>使い方も簡単で、2つくらいボタンを押すだけで操作が完了します。</p>
+
+<p><a class="swipebox" href="https://farm8.staticflickr.com/7478/27604003525_a843251e12_z.jpg" title="Disk Formatter">
+  <img class="center image-effect" src="https://farm8.staticflickr.com/7478/27604003525_a843251e12_z.jpg">
+</a></p>
+
+<h2>実際に使ってみる</h2>
+
+<p>このSDカードはCOWON J3に使います。たぶん高校生のときからずっと使っています。今でこそWalkmanでもmicroSDで容量を拡張できたり、flacの再生ができますが、2010年当時は本当にレアは存在でした。<br/>
+この他にタッチパネル、Bluetooth、スピーカー、豊富なイコライザー、有志によって作成された独自UIの導入ができたりと完璧な音楽プレイヤーでした。</p>
+
+<p>確かに今の音楽プレイヤーのほうがハイレゾ対応だったりして、いい音を出すと思いますけど、私はJ3が好きなのでずっと使ってます。</p>
+
+<p>128GBのmicroSDカードもフォーマットさえあわせてやればしっかり認識してくれるJ3、素晴らしい。</p>
+
+<p><a class="swipebox" href="https://farm8.staticflickr.com/7665/27505011522_ad40e8175d_h.jpg" title="COWON J3">
+  <img class="center image-effect" src="https://farm8.staticflickr.com/7665/27505011522_f3ec0f59a4_b.jpg">
+</a></p>
+
+<h2>おわりに</h2>
+
+<p>あんなに小さいのに128GBと巨大なデータを保存できるなんて、ほんとに現代の技術力に感謝します。しかもほんと安く購入できます。スマートフォンでよく動画を撮ったり、動画をたくさん入れたい人におすすめしたい商品です。<br/>
+とても小さいので緊急用の巨大ストレージとしても十分使えると思いますよ。</p>
+
+<p><blockquote><p></p></p><p><div class="kaerebalink-box"><div class="kaerebalink-image"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B019FKR6LG/ry00c-22/ref=nosim/" target="_blank" ><img src="http://ecx.images-amazon.com/images/I/51xTH4gZ0GL._SL160_.jpg" style="border: none;" /></a></div><div class="kaerebalink-info"><div class="kaerebalink-name"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B019FKR6LG/ry00c-22/ref=nosim/" target="_blank" >Samsung microSDXCカード 128GB EVO+ Class10 UHS-I対応 (最大読出速度80MB/s:最大書込速度20MB/s) MB-MC128DA/FFP</a><div class="kaerebalink-powered-date">posted with <a href="http://kaereba.com" rel="nofollow" target="_blank">カエレバ</a></div></div><div class="kaerebalink-detail"> 日本サムスン 2015-12-25    </div><div class="kaerebalink-link1"><div class="shoplinkamazon"><a href="http://www.amazon.co.jp/gp/search?keywords=Samsung%20microSDXC%83J%81%5B%83h%20128GB%20EVO%20%20Class10&__mk_ja_JP=%83J%83%5E%83J%83i&tag=ry00c-22" target="_blank" >Amazonで探す</a></div><div class="shoplinkrakuten"><a href="http://hb.afl.rakuten.co.jp/hgc/0e7c6e55.9d33cc01.0e7c6e56.d2bcd23e/?pc=http%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FSamsung%2520microSDXC%25E3%2582%25AB%25E3%2583%25BC%25E3%2583%2589%2520128GB%2520EVO%2520%2520Class10%2F-%2Ff.1-p.1-s.1-sf.0-st.A-v.2%3Fx%3D0%26scid%3Daf_ich_link_urltxt%26m%3Dhttp%3A%2F%2Fm.rakuten.co.jp%2F" target="_blank" >楽天市場で探す</a></div></div></div><div class="booklink-footer" style="clear: left"></div></div></p><p><br/><p></p></blockquote></p>
+
+<p><blockquote><p></p></p><p><div class="kaerebalink-box"><div class="kaerebalink-image"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B009D79VH4/ry00c-22/ref=nosim/" target="_blank" ><img src="http://ecx.images-amazon.com/images/I/31mvshhOrFL._SL160_.jpg" style="border: none;" /></a></div><div class="kaerebalink-info"><div class="kaerebalink-name"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B009D79VH4/ry00c-22/ref=nosim/" target="_blank" >Transcend USB 3.0 Super Speed カードリーダー (SD/SDHC UHS-I/SDXC UHS-I/microSDXC UHS-I 対応) ブラック 2年保証 TS-RDF5K</a><div class="kaerebalink-powered-date">posted with <a href="http://kaereba.com" rel="nofollow" target="_blank">カエレバ</a></div></div><div class="kaerebalink-detail"> トランセンド・ジャパン     </div><div class="kaerebalink-link1"><div class="shoplinkamazon"><a href="http://www.amazon.co.jp/gp/search?keywords=Transcend%20USB%203.0%20Super%20Speed%20%83J%81%5B%83h%83%8A%81%5B%83_%81%5B&__mk_ja_JP=%83J%83%5E%83J%83i&tag=ry00c-22" target="_blank" >Amazonで探す</a></div><div class="shoplinkrakuten"><a href="http://hb.afl.rakuten.co.jp/hgc/0e7c6e55.9d33cc01.0e7c6e56.d2bcd23e/?pc=http%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FTranscend%2520USB%25203.0%2520Super%2520Speed%2520%25E3%2582%25AB%25E3%2583%25BC%25E3%2583%2589%25E3%2583%25AA%25E3%2583%25BC%25E3%2583%2580%25E3%2583%25BC%2F-%2Ff.1-p.1-s.1-sf.0-st.A-v.2%3Fx%3D0%26scid%3Daf_ich_link_urltxt%26m%3Dhttp%3A%2F%2Fm.rakuten.co.jp%2F" target="_blank" >楽天市場で探す</a></div></div></div><div class="booklink-footer" style="clear: left"></div></div></p><p><br/><p></p></blockquote></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[NEC Aterm MR04LNをAmazonタイムセールで衝動買い]]></title>
+    <link href="http://ry0.github.io/blog/2016/01/17/nec-aterm-mr04ln/"/>
+    <updated>2016-01-17T22:37:48+09:00</updated>
+    <id>http://ry0.github.io/blog/2016/01/17/nec-aterm-mr04ln</id>
+    <content type="html"><![CDATA[<h2>Amazonのタイムセールでついに買ってしまった</h2>
+
+<p>今まで定期的にAmazonのタームセールで登場していたNEC製の「MR04LN」。
+良いものであることはわかっていたんですが、毎日使うわけではないモバイルルーターということでなかなか購入する優先度が上がらず踏みとどまっていました。</p>
+
+<p>ずっと使っていたモバイルルーター「L-09C」はバッテリーがすぐヘタってしまい、使いづらくなっていたのでよい機会だと思い購入しました。</p>
+
+<p>新年に入って起きていた「ルーターの時間が表示されない」、「データ使用量が更新されない」といったいわゆる2016年問題が起きたときの対処法もメモしておいたのでご覧ください。</p>
+
+<!-- more -->
+
+
+<h2>開封</h2>
+
+<p>シンプルなデザインのダンボールに入ってました。</p>
+
+<p><a class="swipebox" href="https://farm2.staticflickr.com/1463/24354639971_606063bd87_h.jpg" title="箱">
+  <img class="center image-effect" src="https://farm2.staticflickr.com/1463/24354639971_e8c69bc51e_b.jpg">
+</a></p>
+
+<p>中に入っていた物は、ルーター本体、バッテリー、裏蓋、microUSBケーブル、充電用ACアダプターです。あと写真には写ってませんが、説明書等の紙がいくつか入ってました。<br/>
+充電をするための一式が入っていたのは親切ですが、<strong>コネクタはmicroUSBでスマホの充電器を流用できる</strong>ので特に使ってません。</p>
+
+<p><a class="swipebox" href="https://farm2.staticflickr.com/1527/24141382770_3d7569478c_h.jpg" title="内容物">
+  <img class="center image-effect" src="https://farm2.staticflickr.com/1527/24141382770_335dd16149_b.jpg">
+</a></p>
+
+<h2>外観</h2>
+
+<p><strong>ルーター上面は光沢がある感じで、指紋がつきやすいです。また傷も入りやすそうなので、気になる人は保護フィルムを貼るなどして対策をする必要ありです。</strong>
+私は家にあった他の端末用のフィルムをカットして貼りました．</p>
+
+<p><a class="swipebox" href="https://farm2.staticflickr.com/1624/24439198845_329d8af87c_h.jpg" title="L-09Cと比較">
+  <img class="center image-effect" src="https://farm2.staticflickr.com/1624/24439198845_e0668ae4fe_b.jpg">
+</a></p>
+
+<p>おまけで今まで使っていたL−09Cも一緒に写真を撮りました。外形は大体同じサイズです。<strong>持った感じが明らかにMR04LNのほうが軽いです。</strong></p>
+
+<p>裏面は表面と打って変わってザラザラな感じです。ゴム素材というわけではなく、ただただ硬いプラスチックのザラザラ加工といった感じ。
+もうちょっと高級感がある素材でもいいかなと思いました。</p>
+
+<p><a class="swipebox" href="https://farm2.staticflickr.com/1519/23808780294_174e2f1fdd_h.jpg" title="裏面の質感">
+  <img class="center image-effect" src="https://farm2.staticflickr.com/1519/23808780294_b2d942279d_b.jpg">
+</a></p>
+
+<p>一番わかりやすそうなiPhoneとの大きさ比較。iPhone 5sよりも少し小さいですね。
+あとルーターのほうは最大輝度にしているにもかかわらず、液晶がちょっとボロく見えます。</p>
+
+<p><a class="swipebox" href="https://farm2.staticflickr.com/1486/24354529331_6c41274986_h.jpg" title="iPhone 5sとの大きさ比較">
+  <img class="center image-effect" src="https://farm2.staticflickr.com/1486/24354529331_7333cc2d49_b.jpg">
+</a></p>
+
+<p>厚みに関してはMR04LNが分厚いです。</p>
+
+<p><a class="swipebox" href="https://farm2.staticflickr.com/1612/23808769604_bd2eb720d3_h.jpg" title="iPhone 5sと厚み比較">
+  <img class="center image-effect" src="https://farm2.staticflickr.com/1612/23808769604_3a1abe86e7_b.jpg">
+</a></p>
+
+<h2>使った感じ</h2>
+
+<p>もちろんMR04LNはSIMフリーなので、docomo、au、SoftBankの主要なBandに対応していますし、海外に行った時も現地でSIMを調達することで通信を行うことができます。
+<strong>格安SIMとの相性も抜群なので、毎月安く外出先で通信を行いたい方にはかなりおすすめなルーターです。</strong></p>
+
+<p>そしてこのルーターのよいところは大体の設定が画面のタッチパネルで行うことができる点です。今までL-09Cを使っていた私にとってはかなり大きな変化でした。
+<strong>写真のようにAPNの設定だけでなく周波数帯の切り替え、SIMカードの切り替えなど多くの操作をタッチパネルで行うことができます。</strong>
+毎回変えることがないような高度な設定はブラウザを経由して設定画面から行う必要があります。</p>
+
+<p><a class="swipebox" href="https://farm2.staticflickr.com/1712/24142876170_01035dc36a_h.jpg" title="設定画面">
+  <img class="center image-effect" src="https://farm2.staticflickr.com/1712/24142876170_ace637a16f_b.jpg">
+</a></p>
+
+<p>タッチパネルはもう少しだけ反応がよかったら完璧でしたね。。。</p>
+
+<h2>SIM変換アダプターの件</h2>
+
+<p>MR04LNのSIM対応サイズはmicro SIMです。nano SIMが一般的になっているので、手持ちのSIMのサイズと違って困ることがあります。<br/>
+しかも<strong>このルーターはSIM変換アダプターを使ってはいけませんという記述が。</strong>
+この記述は本体にも説明書にも書かれており、また使って壊した場合はどんな理由であれ、有償修理になりますよという注意書きがありました。<br/>
+<strong>使ってはいけませんと書いてあったら使ってみたくなりますよね！</strong>
+<strong>結果から言うと写真のようにしっかりはまっていて通信も問題なく行えます。</strong>
+使用したSIM下駄は<a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00J2VIPC8/ry00c-22/ref=nosim/">これ</a>です．</p>
+
+<p><a class="swipebox" href="https://farm2.staticflickr.com/1531/24328717372_3f22c84f64_h.jpg" title="SIM変換アダプターを使った結果">
+  <img class="center image-effect" src="https://farm2.staticflickr.com/1531/24328717372_460e9f311b_b.jpg">
+</a></p>
+
+<p>SIM変換アダプターを推奨しない理由は、SIMカードの差し込み方にあると思います。このルーターのSIMスロットは、ただ単に差し込むタイプではなく、<strong>一回「くちゅ」っとクリック感がある差し込み方法だからです。</strong>
+この機構のせいで、アダプターの厚みがスロットの厚みと合わずに引っかかったり、取り外すときにSIMだけとれてしまい、アダプターだけがスロットに残ってしまう危険性があります。
+ですので、<strong>変換アダプターを使う場合は、精度のよい変換アダプターを購入し、SIMカードとアダプターがしっかりとフィットさせるように気をつけながら抜き差しを行ってください。</strong><br/>
+<strong>壊れても私は責任を負えませんので参考程度にしてくださいね。</strong></p>
+
+<h2>2016年問題の件</h2>
+
+<p>2016年に入ってから時間や使用容量がおかしくなるという問題がありました。
+この問題も既に解決済みのファームフェアが公開されています。しかしルーター単体では何度試してもアップデートできなかったのでパソコン経由でアップデートする方法をメモしておきます。</p>
+
+<p><a href="http://www.aterm.jp/mobile/info/mr04ln/verup.html">http://www.aterm.jp/mobile/info/mr04ln/verup.html</a>から、MR04LNファームウェアをダウンロードしてきます。
+そしてパソコンやタブレットをMR04LN経由でネットワーク接続します。ブラウザを使って<a href="http://192.168.179.1">http://192.168.179.1</a>にアクセスするとAtermの設定画面でてくるはずです。<br/>
+そこから「メンテナンス」→「ファームフェア更新」からダウンロードしてきたファイルを解凍したファイルの1つである<code>mr04ln_1_1_1.bin</code>を選択して<code>更新</code>ボタンを押す。</p>
+
+<p><a class="swipebox" href="https://farm2.staticflickr.com/1688/24355891591_22e6b14bfa_b.jpg" title="ファームフェア手動更新">
+  <img class="center image-effect" src="https://farm2.staticflickr.com/1688/24355891591_22e6b14bfa_b.jpg">
+</a></p>
+
+<p>しばらく待っているとファームフェア更新が完了します。これで2016年問題は解決できます。</p>
+
+<h2>おわりに</h2>
+
+<h3>良かった点</h3>
+
+<ul>
+<li>バッテリーの持ちがいい</li>
+<li>SIMフリーかつ、2枚SIMが挿せる</li>
+<li>使用データ容量の管理がしやすい</li>
+</ul>
+
+
+<p>L-09Cと比べてバッテリーの持ちがよいのはもちろんで、一定以上使わなかったときの電源管理など少しでも長く使えるような工夫がなされているので良かったです。<br/>
+そしてSIMが2枚挿せるので、SIMケースとしても有用です。<br/>
+最後に格安SIMなどは高速通信できる容量が決まっています。<strong>またパソコンを接続した場合、思いのほか通信してしまう場合があるので、常に通信した容量が気になります。</strong>
+したがって、<strong>ルーターに常に使用容量がリアルタイムで更新されて表示されるのは非常にいいと思いました。</strong>またSIMカードを切り替えても、SIMそれぞれ切り分けて使用容量を保持しているので安心です。</p>
+
+<h3>悪かった点</h3>
+
+<ul>
+<li>タッチパネルの感度</li>
+<li>SIMの切り替え時間</li>
+<li>SIMがnano SIMじゃない</li>
+</ul>
+
+
+<p>前にも書いたんですが、タッチパネルの感度が悪いです。悪いときは全然反応してくれない時があるので、そこが残念でした。<br/>
+またSIMの切り替え時間が遅いことです。もっとささっと切り替えられると思っていたんですが、再起動をしたり案外時間がかかります。たぶんこれが当然何だと思いますが、これだと電源を落として使いたいSIMを差し替えるのとあんまり変わらない気がしたので、ちょっと残念でした。<br/>
+SIMのサイズに関しては上で書いた通りです。</p>
+
+<h3>コメント</h3>
+
+<p>いろいろ書いてきましたが、満足度は高かったです。
+<strong>モバイルルーターはスマホのように1年たったらもう時代遅れという状況も起きづらいので、完成度の高いMR04LN、いいと思います。</strong><br/>
+Amazonでも定期的にセールを行っているので、目安としてクレードルなしのモデルの場合、15,000円以下になっているときが買いですね。
+クレードル付きのモデルもあるので、有線LANで接続したい場合など用途に応じて検討してみてください。</p>
+
+<p><blockquote><p></p></p><p><div class="kaerebalink-box"><div class="kaerebalink-image"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B010F4OBT6/ry00c-22/ref=nosim/" target="_blank" ><img src="http://ecx.images-amazon.com/images/I/41MnK1buauL._SL160_.jpg" style="border: none;" /></a></div><div class="kaerebalink-info"><div class="kaerebalink-name"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B010F4OBT6/ry00c-22/ref=nosim/" target="_blank" >【Amazon.co.jp限定】NEC Aterm MR04LN 3B LTE対応 モバイルルーター 【OCN モバイル ONE マイクロSIM付】 クレードル付属</a><div class="kaerebalink-powered-date">posted with <a href="http://kaereba.com" rel="nofollow" target="_blank">カエレバ</a></div></div><div class="kaerebalink-detail"> NTTコミュニケーションズ 2015-07-16    </div><div class="kaerebalink-link1"><div class="shoplinkamazon"><a href="http://www.amazon.co.jp/gp/search?keywords=MR04LN&__mk_ja_JP=%83J%83%5E%83J%83i&tag=ry00c-22" target="_blank" >Amazonで探す</a></div><div class="shoplinkrakuten"><a href="http://hb.afl.rakuten.co.jp/hgc/0e7c6e55.9d33cc01.0e7c6e56.d2bcd23e/?pc=http%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FMR04LN%2F-%2Ff.1-p.1-s.1-sf.0-st.A-v.2%3Fx%3D0%26scid%3Daf_ich_link_urltxt%26m%3Dhttp%3A%2F%2Fm.rakuten.co.jp%2F" target="_blank" >楽天市場で探す</a></div></div></div><div class="booklink-footer" style="clear: left"></div></div></p><p><br/><p></p></blockquote></p>
+
+<p><blockquote><p></p></p><p><div class="kaerebalink-box"><div class="kaerebalink-image"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B010UKEDD4/ry00c-22/ref=nosim/" target="_blank" ><img src="http://ecx.images-amazon.com/images/I/41EyJoxhATL._SL160_.jpg" style="border: none;" /></a></div><div class="kaerebalink-info"><div class="kaerebalink-name"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B010UKEDD4/ry00c-22/ref=nosim/" target="_blank" >防気泡・防指紋!反射低減保護フィルム 『Perfect Shield Aterm MR04LN』</a><div class="kaerebalink-powered-date">posted with <a href="http://kaereba.com" rel="nofollow" target="_blank">カエレバ</a></div></div><div class="kaerebalink-detail"> PDA工房     </div><div class="kaerebalink-link1"><div class="shoplinkamazon"><a href="http://www.amazon.co.jp/gp/search?keywords=MR04LN&__mk_ja_JP=%83J%83%5E%83J%83i&tag=ry00c-22" target="_blank" >Amazonで探す</a></div><div class="shoplinkrakuten"><a href="http://hb.afl.rakuten.co.jp/hgc/0e7c6e55.9d33cc01.0e7c6e56.d2bcd23e/?pc=http%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FMR04LN%2F-%2Ff.1-p.1-s.1-sf.0-st.A-v.2%3Fx%3D0%26scid%3Daf_ich_link_urltxt%26m%3Dhttp%3A%2F%2Fm.rakuten.co.jp%2F" target="_blank" >楽天市場で探す</a></div></div></div><div class="booklink-footer" style="clear: left"></div></div></p><p><br/><p></p></blockquote></p>
+
+<p><blockquote><p></p></p><p><div class="kaerebalink-box"><div class="kaerebalink-image"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00J2VIPC8/ry00c-22/ref=nosim/" target="_blank" ><img src="http://ecx.images-amazon.com/images/I/41wyY0sUxwL._SL160_.jpg" style="border: none;" /></a></div><div class="kaerebalink-info"><div class="kaerebalink-name"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00J2VIPC8/ry00c-22/ref=nosim/" target="_blank" >F.Wave 【Amazon限定】Lucky ｺﾞｰﾙﾄﾞｶﾗｰ nano SIM変換アダプター4点セット　Gold color（標準 ﾏｲｸﾛ Nano) iPhone6/6plus/5S/5C/4S/4/3GS/3用 Gold 金色 f.wave of FuturePlus Original</a><div class="kaerebalink-powered-date">posted with <a href="http://kaereba.com" rel="nofollow" target="_blank">カエレバ</a></div></div><div class="kaerebalink-detail"> F.Wave Concept     </div><div class="kaerebalink-link1"><div class="shoplinkamazon"><a href="http://www.amazon.co.jp/gp/search?keywords=SIM%95%CF%8A%B7%83A%83_%83v%83%5E%81%5B&__mk_ja_JP=%83J%83%5E%83J%83i&tag=ry00c-22" target="_blank" >Amazonで探す</a></div><div class="shoplinkrakuten"><a href="http://hb.afl.rakuten.co.jp/hgc/0e7c6e55.9d33cc01.0e7c6e56.d2bcd23e/?pc=http%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FSIM%25E5%25A4%2589%25E6%258F%259B%25E3%2582%25A2%25E3%2583%2580%25E3%2583%2597%25E3%2582%25BF%25E3%2583%25BC%2F-%2Ff.1-p.1-s.1-sf.0-st.A-v.2%3Fx%3D0%26scid%3Daf_ich_link_urltxt%26m%3Dhttp%3A%2F%2Fm.rakuten.co.jp%2F" target="_blank" >楽天市場で探す</a></div></div></div><div class="booklink-footer" style="clear: left"></div></div></p><p><br/><p></p></blockquote></p>
+
+<p><blockquote><p></p></p><p><div class="kaerebalink-box"><div class="kaerebalink-image"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B01686PJF0/ry00c-22/ref=nosim/" target="_blank" ><img src="http://ecx.images-amazon.com/images/I/418XJgp3xHL._SL160_.jpg" style="border: none;" /></a></div><div class="kaerebalink-info"><div class="kaerebalink-name"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B01686PJF0/ry00c-22/ref=nosim/" target="_blank" >Ciscle SIM 変換アダプタ Nano SIMカードをMicroSIMカード·SIMカードに変換 4点セット SIMカードケース SIMカードホルダー SIMカードの整理·紛失防止アイテム（ブラック）</a><div class="kaerebalink-powered-date">posted with <a href="http://kaereba.com" rel="nofollow" target="_blank">カエレバ</a></div></div><div class="kaerebalink-detail"> Ciscle     </div><div class="kaerebalink-link1"><div class="shoplinkamazon"><a href="http://www.amazon.co.jp/gp/search?keywords=SIM%20%95%CF%8A%B7%83A%83_%83v%83%5E&__mk_ja_JP=%83J%83%5E%83J%83i&tag=ry00c-22" target="_blank" >Amazonで探す</a></div><div class="shoplinkrakuten"><a href="http://hb.afl.rakuten.co.jp/hgc/0e7c6e55.9d33cc01.0e7c6e56.d2bcd23e/?pc=http%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FSIM%2520%25E5%25A4%2589%25E6%258F%259B%25E3%2582%25A2%25E3%2583%2580%25E3%2583%2597%25E3%2582%25BF%2F-%2Ff.1-p.1-s.1-sf.0-st.A-v.2%3Fx%3D0%26scid%3Daf_ich_link_urltxt%26m%3Dhttp%3A%2F%2Fm.rakuten.co.jp%2F" target="_blank" >楽天市場で探す</a></div></div></div><div class="booklink-footer" style="clear: left"></div></div></p><p><br/><p></p></blockquote></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[折りたたみプラグになってよりコンパクトに! Anker PowerPort 4のレビュー]]></title>
+    <link href="http://ry0.github.io/blog/2015/10/04/anker-powerport-4/"/>
+    <updated>2015-10-04T23:36:49+09:00</updated>
+    <id>http://ry0.github.io/blog/2015/10/04/anker-powerport-4</id>
+    <content type="html"><![CDATA[<h2>今日はAnkerの充電器のレビューです</h2>
+
+<p>昨日からレビューが続いています。
+これもずっと前に買ったものですが、いろいろあってなかなか記事を書くことができなかったのでレビューが遅れました。</p>
+
+<p>Anker製の充電器ではお馴染みの機能になっているPower IQが本製品にも搭載されています。これついても詳細に試してみようと思います。</p>
+
+<!-- more -->
+
+
+<h2>まずは外観</h2>
+
+<p>大きさを比較してみます。
+比較対象は<a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00IDTILEW/ry00c-22/ref=nosim/">Anker 40W 5ポート</a>と<a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00MWO9MFG/ry00c-22/ref=nosim/">Anker 20W 2ポート</a>です。
+Anker PowerPort 4はこれらのちょうど真ん中の大きさでしょうか、Anker 40W 5ポートに関してはメガネケーブルでコンセントに刺すのでこれよりさらに存在感が増します。</p>
+
+<p><a class="swipebox" href="https://farm6.staticflickr.com/5657/21313567383_e4424f87ba_h.jpg" title="比較・横から">
+  <img class="center image-effect" src="https://farm6.staticflickr.com/5657/21313567383_0c56af9a04_b.jpg">
+</a></p>
+
+<p>本製品の充電端子は4つあります。<a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00YS3ZYWY/ry00c-22/ref=nosim/">10ポートあるモデル</a>もありますが、出先で使う用途では4つくらいで十分でしょう。</p>
+
+<p><a class="swipebox" href="https://farm6.staticflickr.com/5678/21944456141_8965710054_h.jpg" title="比較・上から">
+  <img class="center image-effect" src="https://farm6.staticflickr.com/5678/21944456141_f205675b94_b.jpg">
+</a></p>
+
+<p><blockquote><p></p></p><p><div class="kaerebalink-box"><div class="kaerebalink-image"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00IDTILEW/ry00c-22/ref=nosim/" target="_blank" ><img src="http://ecx.images-amazon.com/images/I/41h59EcJQvL._SL160_.jpg" style="border: none;" /></a></div><div class="kaerebalink-info"><div class="kaerebalink-name"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00IDTILEW/ry00c-22/ref=nosim/" target="_blank" >Anker 40W 5ポート USB急速充電器 ACアダプタ PowerIQ搭載 iPhone6s/6s Plus/iPhone6/6 plus/iPhone5C/5S/5/4S/4/iPod/iPad/Xperia/GALAXY/ウォークマン等対応 【PowerIQ搭載】 71AN7105SS-WJA</a><div class="kaerebalink-powered-date">posted with <a href="http://kaereba.com" rel="nofollow" target="_blank">カエレバ</a></div></div><div class="kaerebalink-detail"> Anker     </div><div class="kaerebalink-link1"><div class="shoplinkamazon"><a href="http://www.amazon.co.jp/gp/search?keywords=Anker%2040W%205%83%7C%81%5B%83g&__mk_ja_JP=%83J%83%5E%83J%83i&tag=ry00c-22" target="_blank" >Amazonで探す</a></div><div class="shoplinkrakuten"><a href="http://hb.afl.rakuten.co.jp/hgc/0e7c6e55.9d33cc01.0e7c6e56.d2bcd23e/?pc=http%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FAnker%252040W%25205%25E3%2583%259D%25E3%2583%25BC%25E3%2583%2588%2F-%2Ff.1-p.1-s.1-sf.0-st.A-v.2%3Fx%3D0%26scid%3Daf_ich_link_urltxt%26m%3Dhttp%3A%2F%2Fm.rakuten.co.jp%2F" target="_blank" >楽天市場で探す</a></div></div></div><div class="booklink-footer" style="clear: left"></div></div></p><p><br/><p></p></blockquote></p>
+
+<p><blockquote><p></p></p><p><div class="kaerebalink-box"><div class="kaerebalink-image"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00MWOB8X0/ry00c-22/ref=nosim/" target="_blank" ><img src="http://ecx.images-amazon.com/images/I/31rDXm62r3L._SL160_.jpg" style="border: none;" /></a></div><div class="kaerebalink-info"><div class="kaerebalink-name"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00MWOB8X0/ry00c-22/ref=nosim/" target="_blank" >Anker® 20W 2ポート USB急速充電器 iPhone 6s/iPhone 6s Plus/iPhone6/iPhone5C/5S/5/4S/4/iPod/iPad/Xperia/GALAXY/ウォークマン等対応【PowerIQ搭載】 (ホワイト) 71AN7109-W2A</a><div class="kaerebalink-powered-date">posted with <a href="http://kaereba.com" rel="nofollow" target="_blank">カエレバ</a></div></div><div class="kaerebalink-detail"> Anker     </div><div class="kaerebalink-link1"><div class="shoplinkamazon"><a href="http://www.amazon.co.jp/gp/search?keywords=Anker%2020W%202%83%7C%81%5B%83g&__mk_ja_JP=%83J%83%5E%83J%83i&tag=ry00c-22" target="_blank" >Amazonで探す</a></div><div class="shoplinkrakuten"><a href="http://hb.afl.rakuten.co.jp/hgc/0e7c6e55.9d33cc01.0e7c6e56.d2bcd23e/?pc=http%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FAnker%252020W%25202%25E3%2583%259D%25E3%2583%25BC%25E3%2583%2588%2F-%2Ff.1-p.1-s.1-sf.0-st.A-v.2%3Fx%3D0%26scid%3Daf_ich_link_urltxt%26m%3Dhttp%3A%2F%2Fm.rakuten.co.jp%2F" target="_blank" >楽天市場で探す</a></div></div></div><div class="booklink-footer" style="clear: left"></div></div></p><p><br/><p></p></blockquote></p>
+
+<h2>何かに似てると思ったら</h2>
+
+<p>左の充電器はMacBook Airの充電アダプターです。
+<del>パクったんじゃないかと思うくらい</del>サイズやプラグの位置が一致しています。
+使う側からすると統一感があっていいなと思います。</p>
+
+<p><a class="swipebox" href="https://farm6.staticflickr.com/5652/21944454981_b79c3f096c_h.jpg" title="MacBook Airの充電アダプターとの比較">
+  <img class="center image-effect" src="https://farm6.staticflickr.com/5652/21944454981_3d6e6e0a10_b.jpg">
+</a></p>
+
+<p>手前がAnker PowerPort 4、奥がMacBook Airの充電アダプターです。ケーブルがなかったらほとんど見分けがつきませんね。</p>
+
+<p><a class="swipebox" href="https://farm1.staticflickr.com/688/21311983474_1d85404a34_h.jpg" title="プラグの位置">
+  <img class="center image-effect" src="https://farm1.staticflickr.com/688/21311983474_2b8c084e89_b.jpg">
+</a></p>
+
+<h2>さっそく充電してみる</h2>
+
+<p><strong>充電を開始するとポートの上にあるLEDが青色から緑色に変わります。</strong>
+<strong>そして充電が完了すると、青色に戻ります。</strong>
+先ほど比較で出した2つはこのようなLEDはついていないので、ちょっとしたことですがポイント高いですね。</p>
+
+<p><a class="swipebox" href="https://farm1.staticflickr.com/706/21945452511_a571820ad9_h.jpg" title="LED">
+  <img class="center image-effect" src="https://farm1.staticflickr.com/706/21945452511_1d4ef6a1ee_b.jpg">
+</a></p>
+
+<h2>Power IQのテスト</h2>
+
+<p>USBの電圧電流チェッカーで調べた結果こんな感じです。iPadのような大型端末では電流値が大きくなっていることがわかります。
+まあ当然の結果ですね。3つの端末で調べましたが、果たしてこれがPower IQの力によってそれぞれの端末の最適な出力となっているのかは不明です。</p>
+
+<h3>iPhone 5s</h3>
+
+<p><a class="swipebox" href="https://farm6.staticflickr.com/5811/21909635256_6252189f02_h.jpg" title="iPhone 5s">
+  <img class="center image-effect" src="https://farm6.staticflickr.com/5811/21909635256_4226ce030b_b.jpg">
+</a></p>
+
+<h3>Galaxy Note 4</h3>
+
+<p><a class="swipebox" href="https://farm6.staticflickr.com/5773/21938471185_0aa3a5c256_h.jpg" title="Galaxy Note 4">
+  <img class="center image-effect" src="https://farm1.staticflickr.com/713/21948335111_c753d61cfb_b.jpg">
+</a></p>
+
+<h3>iPad mini 2</h3>
+
+<p><a class="swipebox" href="https://farm6.staticflickr.com/5802/21314560753_4d019ea314_h.jpg" title="iPad mini 2">
+  <img class="center image-effect" src="https://farm6.staticflickr.com/5802/21314560753_a2fe5269b0_b.jpg">
+</a></p>
+
+<p>4ポート40Wなので理論的にはiPadを同時に4つ充電できると思いますが、iPadを4つも持っていないので検証できませんでした。
+<strong>他のAndroidスマートフォンやiPhoneを接続して4端末同時に充電できたことは確認しました。</strong><br/>
+それにしても比較した端末が一世代前、2世代前の端末ばかりでした。
+新しい端末がほしいですね。</p>
+
+<h2>おわりに</h2>
+
+<p>いろいろ充電器を買っていますが、今回購入したAnker PowerPort 4はちょっとした旅行等に持っていくのにも許容できるサイズだと思います。
+プラグも折りたたみ式になっているので、その点でもグッドです。<br/>
+また<strong>18ヶ月保証もついていますし、万が一故障した際にもAnkerの交換、返金対応が充実している</strong>ので安心です。（そもそも簡単に壊れてほしくないですが）</p>
+
+<p>今までAnkerの充電器は黒のモデルを統一して買っていたのですが、今回のモデルはカラーが白のみだったのが少し残念です。</p>
+
+<p>Ankerは目的に応じたポート数を備えた充電器を多数リリースしているので、何個も購入してしまうのが悩みです。</p>
+
+<p><blockquote><p></p></p><p><div class="kaerebalink-box"><div class="kaerebalink-image"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00VTJS58U/ry00c-22/ref=nosim/" target="_blank" ><img src="http://ecx.images-amazon.com/images/I/31hJZcvYcCL._SL160_.jpg" style="border: none;" /></a></div><div class="kaerebalink-info"><div class="kaerebalink-name"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00VTJS58U/ry00c-22/ref=nosim/" target="_blank" >Anker PowerPort 4 (40W 4ポート USB急速充電器)  折りたたみ式プラグ搭載 iPhone / iPad / Andoird / Xperia / Galaxy / Nexus / 3DS / PS Vita / ウォークマン他対応 (40W 4ポート 折りたたみ式) A2142521</a><div class="kaerebalink-powered-date">posted with <a href="http://kaereba.com" rel="nofollow" target="_blank">カエレバ</a></div></div><div class="kaerebalink-detail"> Anker     </div><div class="kaerebalink-link1"><div class="shoplinkamazon"><a href="http://www.amazon.co.jp/gp/search?keywords=Anker%20PowerPort%204&__mk_ja_JP=%83J%83%5E%83J%83i&tag=ry00c-22" target="_blank" >Amazonで探す</a></div><div class="shoplinkrakuten"><a href="http://hb.afl.rakuten.co.jp/hgc/0e7c6e55.9d33cc01.0e7c6e56.d2bcd23e/?pc=http%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FAnker%2520PowerPort%25204%2F-%2Ff.1-p.1-s.1-sf.0-st.A-v.2%3Fx%3D0%26scid%3Daf_ich_link_urltxt%26m%3Dhttp%3A%2F%2Fm.rakuten.co.jp%2F" target="_blank" >楽天市場で探す</a></div></div></div><div class="booklink-footer" style="clear: left"></div></div></p><p><br/><p></p></blockquote></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Samsung SSD 850 EVOが安くて結構速かった]]></title>
+    <link href="http://ry0.github.io/blog/2015/06/28/samsung-ssd-850-evo/"/>
+    <updated>2015-06-28T02:37:19+09:00</updated>
+    <id>http://ry0.github.io/blog/2015/06/28/samsung-ssd-850-evo</id>
+    <content type="html"><![CDATA[<h2>AmazonでSamsung SSD 850 EVOが7月16日までお買い得</h2>
+
+<p>最近、Amazonのセール系に負けてばっかりですが、遊び半分でインストールしたUbuntuがもはやメインOSとなってしまって120GBのSSDだとキツくなってきたので250GBをポチりました。</p>
+
+<p><blockquote><p>Samsung SSD850EVOベーシックキット 250GB 2.5インチ 日本サムスン正規品 3D V-NAND搭載 5年保証 MZ-75E250B/IT</p></p><p><p>【サムスン：夏のボーナスセール】SSDが最大10％OFF<br/><br/>本商品を買うと、注文確定時に表示金額より10%OFFに。7月16日（木）まで。詳細は<a href="http://www.amazon.co.jp/b/ref=amb_link_75286809_3?ie=UTF8&node=3605444051&pf_rd_m=AN1VRQENFRJN5&pf_rd_s=hero-quick-promo&pf_rd_r=0Y3E0Q3BFY8HH5D20QF2&pf_rd_t=201&pf_rd_p=210282269&pf_rd_i=B00QIH3RWW#">キャンペーンページ</a>へ。</p><footer><strong>Amazon <a href="http://www.amazon.co.jp/b/ref=amb_link_75286809_3?ie=UTF8&amp;node=3605444051&amp;pf_rd_m=AN1VRQENFRJN5&amp;pf_rd_s=hero-quick-promo&amp;pf_rd_r=0Y3E0Q3BFY8HH5D20QF2&amp;pf_rd_t=201&amp;pf_rd_p=210282269&amp;pf_rd_i=B00QIH3RWW#">http://www.amazon.co.jp/b/ref=amb_link_75286809_3?ie=UTF8&amp;node=3605444051&amp;pf_rd_m=AN1VRQENFRJN5&amp;pf_rd_s=hero-quick-promo&amp;pf_rd_r=0Y3E0Q3BFY8HH5D20QF2&amp;pf_rd_t=201&amp;pf_rd_p=210282269&amp;pf_rd_i=B00QIH3RWW#</a> <a href="http://www.amazon.co.jp/b/ref=amb_link_75286809_%E2%80%A6">http://www.amazon.co.jp/b/ref=amb_link_75286809_%E2%80%A6</a></strong></footer></blockquote></p>
+
+<!-- more -->
+
+
+<h2>本体</h2>
+
+<p>パッケージは最小構成のSSD本体とデータ移行用のディスクのみでした。</p>
+
+<p><a class="swipebox" href="https://farm1.staticflickr.com/452/19209707185_03e8ecd5cb_h.jpg" title="本体">
+  <img class="center image-effect" src="https://farm1.staticflickr.com/452/19209707185_be9b7bb05c_b.jpg">
+</a></p>
+
+<p>よく付属品として入っている<strong>SATA→USB変換ケーブル、SATAケーブル、2.5インチ→3.5インチ変換マウンタ、固定用ネジ等は付属していません</strong>。
+換装目的なら問題ないですが、新規導入なら注意したほうがいいです。</p>
+
+<h2>速度計測</h2>
+
+<p><a href="http://crystalmark.info/software/CrystalDiskMark/">CrystalDiskMark</a>を使って速度を一応計測しました。
+結果は以下の通りです。
+比較対象として今までUbuntuをインストールしていたIntel SSD 520シリーズと現行でWindowsがインストールされている530シリーズの結果も示します。</p>
+
+<h3>Samsung SSD 850 EVO</h3>
+
+<p><a class="swipebox" href="https://farm1.staticflickr.com/380/18588785833_46a50a80b4.jpg" title="Samsung SSD 850 EVO">
+  <img class="center image-effect" src="https://farm1.staticflickr.com/380/18588785833_46a50a80b4.jpg">
+</a></p>
+
+<h3>Intel SSD 520</h3>
+
+<p><a class="swipebox" href="https://farm1.staticflickr.com/326/19021725700_4949e4b622.jpg" title="Intel SSD 520">
+  <img class="center image-effect" src="https://farm1.staticflickr.com/326/19021725700_4949e4b622.jpg">
+</a></p>
+
+<h3>Intel SSD 530</h3>
+
+<p><a class="swipebox" href="https://farm1.staticflickr.com/459/19021792668_9aa8649377.jpg" title="Intel SSD 530">
+  <img class="center image-effect" src="https://farm1.staticflickr.com/459/19021792668_9aa8649377.jpg">
+</a></p>
+
+<p>比較対象はシステムがそれ自身にインストールされているので、厳密には同じ条件で検証できていません。
+また本体の個体差があるのでこの結果は一概には言えません。</p>
+
+<p>全体的にSamsung SSD 850 EVOがいいスコアを出していますが、特に<strong>書き込み速度に関して他を圧倒しています</strong>。
+比較対象のどちらも1,2世代古いものですがここまでスコアに違いがでるとは驚きです。しかもこれが1万円ちょっとで買えるとはびっくりです。
+Intel SSD 520は初めてSSDを導入したときに買ったものですが、<strong>120GBで1万7千円くらいした気がします</strong>。
+SSDもだんだん手頃な値段で大容量のものが買えるようになってきてますね。</p>
+
+<h2>データ移行</h2>
+
+<p>付属の移行ソフトを使ってもよかったのですが、面倒だったのでHDDケースの<a href="http://www.kuroutoshikou.com/product/case/original/kuro-dachi_clone_u3/">KURO-DACHI</a>のクローン機能を使いました。
+クローン元、先ともにSSDだったので、100GBほどありましたが転送作業は10分位でした。</p>
+
+<p>クローンしただけなので、コピーが完了したらストレージを付け替えるだけで作業終了、簡単ですね。<br/>
+Ubuntu側で確認してみると移行が120GB→250GBだったので約130GB分の未割り当て状態になっておりGPartedを使ってルートパーティションを拡張する作業が必要でした。</p>
+
+<p><a class="swipebox" href="https://farm1.staticflickr.com/448/19022836598_036029e21c_b.jpg" title="GPartedを使って確認">
+  <img class="center image-effect" src="https://farm1.staticflickr.com/448/19022836598_036029e21c_b.jpg">
+</a></p>
+
+<h2>おわりに</h2>
+
+<p>耐久性が気になりますが、250GBで11,662円はお買い得です。
+スコアもいい値出してますし3D V-NAND恐るべし、最近のSSDはこれくらい普通に速度でるのかな？<br/>
+しかしスコア上ではIntelの520シリーズよりも優れていますが、換装後の体感速度はほとんど変わりませんでした…
+別に速度を求めて買ったわけではないので問題ないです。<br/>
+7月16日まで安くしてるっぽいのでSSDのストレージ不足を安価に解消したいひとはいかがでしょうか。</p>
+
+<p><blockquote><p></p></p><p><div class="kaerebalink-box"><div class="kaerebalink-image"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00QIH3RWW/ry00c-22/ref=nosim/" target="_blank" ><img src="http://ecx.images-amazon.com/images/I/41KNYzGI4GL._SL160_.jpg" style="border: none;" /></a></div><div class="kaerebalink-info"><div class="kaerebalink-name"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00QIH3RWW/ry00c-22/ref=nosim/" target="_blank" >Samsung SSD 250GB 850 EVO ベーシックキット 2.5インチ 内蔵型 3D V-NAND搭載 5年保証 日本サムスン正規品 MZ-75E250B/IT</a><div class="kaerebalink-powered-date">posted with <a href="http://kaereba.com" rel="nofollow" target="_blank">カエレバ</a></div></div><div class="kaerebalink-detail"> 日本サムスン 2014-12-16    </div><div class="kaerebalink-link1"><div class="shoplinkamazon"><a href="http://www.amazon.co.jp/gp/search?keywords=Samsung%20SSD%20250GB%20850%20EVO%20%83x%81%5B%83V%83b%83N%83L%83b%83g%20&__mk_ja_JP=%83J%83%5E%83J%83i&tag=ry00c-22" target="_blank" >Amazonで探す</a></div><div class="shoplinkrakuten"><a href="http://hb.afl.rakuten.co.jp/hgc/0e7c6e55.9d33cc01.0e7c6e56.d2bcd23e/?pc=http%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FSamsung%2520SSD%2520250GB%2520850%2520EVO%2520%25E3%2583%2599%25E3%2583%25BC%25E3%2582%25B7%25E3%2583%2583%25E3%2582%25AF%25E3%2582%25AD%25E3%2583%2583%25E3%2583%2588%2520%2F-%2Ff.1-p.1-s.1-sf.0-st.A-v.2%3Fx%3D0%26scid%3Daf_ich_link_urltxt%26m%3Dhttp%3A%2F%2Fm.rakuten.co.jp%2F" target="_blank" >楽天市場で探す</a></div></div></div><div class="booklink-footer" style="clear: left"></div></div></p><p><br/><p></p></blockquote></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Anker® 60W 7+3ポート USB 3.0 データハブをタイムセールでゲット]]></title>
+    <link href="http://ry0.github.io/blog/2015/06/28/anker-60w-7-plus-3port/"/>
+    <updated>2015-06-28T02:34:15+09:00</updated>
+    <id>http://ry0.github.io/blog/2015/06/28/anker-60w-7-plus-3port</id>
+    <content type="html"><![CDATA[<h2>Ankerの充電器付きUSBハブを20%引きでゲット</h2>
+
+<p>今まで使っていたUSBハブはデータ転送中にストレージが強制的にアンマウントしてしまう状態になってあまり使いたくなかったので、急遽Amazonでタイムセールで販売していたAnker製のUSB 3.0 ハブを購入しました。<br/>
+現在ではセールは終了していますが、購入当時は20%引きで4,799円でした。</p>
+
+<!-- more -->
+
+
+<h2>こういうUSBハブ探してた</h2>
+
+<h3>調子悪いハブ</h3>
+
+<p>今まで使っていたハブも充電機能を有したものでした。
+上海問屋で購入した変態仕様のハブだったのですが、現在販売は終了しています。</p>
+
+<p><blockquote><p>BroWay electronics USB 3.0 HUB+Smart Charger(BW-U3036A)</p><footer><strong>AKIBA PC Hotline <a href="http://akiba-pc.watch.impress.co.jp/hotline/20130525/ni_cbwu3036a.html">http://akiba-pc.watch.impress.co.jp/hotline/20130525/ni_cbwu3036a.html</a> <a href="http://akiba-pc.watch.impress.co.jp/hotline/20130525/ni_cbwu3036a.html">http://akiba-pc.watch.impress.co.jp/hotline/20130525/ni_cbwu3036a.html</a></strong></footer></blockquote></p>
+
+<p>よくわからないメーカーでモノ自体も安っぽい感じでしたが、機能自体は便利だったので愛用していました。</p>
+
+<h3>今回購入したものは</h3>
+
+<p><strong>PowerIQ内蔵です。</strong> PowerIQは接続された機器を自動的に検知し、適切な電流を供給してくれる便利な機能で、これを搭載した<a href="http://www.amazon.co.jp/dp/B00PK1QBO8">Ankerの充電器</a>は人気商品になってると思います。</p>
+
+<h2>外観</h2>
+
+<p>本体はこんな感じで、USB 3.0で通信できるポートが7つ、充電できるポートが3ポートあります。
+<strong>充電のポートは充電専用で通信はできません。</strong><br/>
+前面は写真の通りツヤがある素材で、サイドの部分はしっとりしたプラスチック素材です。</p>
+
+<p><a class="swipebox" href="https://farm1.staticflickr.com/430/18586935373_1a60a37d74_h.jpg" title="外観">
+  <img class="center image-effect" src="https://farm1.staticflickr.com/430/18586935373_06c4185a0b_b.jpg">
+</a></p>
+
+<p>付属品は以下の通りです。ハブ本体は保護材に包まれてきれいに箱に入っていましたが、付属品はちょっと汚いジッパーの袋に入っていました。
+12V/5Aという出力、体積ともに大きめなACアダプタが印象的です。</p>
+
+<p><a class="swipebox" href="https://farm1.staticflickr.com/403/19201660602_191622d900_h.jpg" title="付属品">
+  <img class="center image-effect" src="https://farm1.staticflickr.com/403/19201660602_cf050a2551_b.jpg">
+</a></p>
+
+<p>全体的に以前持っていた上海問屋製の怪しいハブと似ていて、5,999円という値段のわりにチャッチイ感じがします。
+しかし<strong>Ankerの18ヶ月保証がある</strong>のである程度は安心できるでしょう。</p>
+
+<h2>早速設置</h2>
+
+<p>Windows、Ubuntu両方きちんと認識しました。確認はしていませんがメーカーの説明によるとMacでも使えるとのことです。<br/>
+今までは普通に机の傍らに設置していたのですが、使っていないポートにホコリが入ってしまうので、今回は机の脚に結束バンドと部屋に転がっていたワイヤーで無理やりくっつけました。
+机の脚とハブ本体の設置面に滑り止めシートも挟んだので、ほとんどグラグラしません。</p>
+
+<p><a class="swipebox" href="https://farm1.staticflickr.com/455/19019870480_e6612a70ff_h.jpg" title="外観">
+  <img class="center image-effect" src="https://farm1.staticflickr.com/455/19019870480_d3c484316f_z.jpg">
+</a></p>
+
+<p>設置したときに付属のUSB 3.0ケーブルは短かったので（0.8m）、別のもので代用しました。</p>
+
+<h2>おわりに</h2>
+
+<p>私のPCのケースは型が古く、USB3.0のポートを前面にもってくることができないものなのでUSB 3.0のハブは必須で、かつスマホやiPadを充電したいので、ピッタリの商品でした。
+普通のUSBハブだと電流が足らず、iPadなどの電流を多く要するデバイスを充電できない問題があります。<br/>
+7ポート同時にUSB 3.0のデバイスを繋ぐことはなかなかないですが、こういうことで悩んでいる人にはおすすめだと思います。</p>
+
+<p><blockquote><p></p></p><p><div class="kaerebalink-box"><div class="kaerebalink-image"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00VDVSAN4/ry00c-22/ref=nosim/" target="_blank" ><img src="http://ecx.images-amazon.com/images/I/41KxclqmwIL._SL160_.jpg" style="border: none;" /></a></div><div class="kaerebalink-info"><div class="kaerebalink-name"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00VDVSAN4/ry00c-22/ref=nosim/" target="_blank" >Anker® 60W 7+3ポート USB 3.0 データハブ PowerIQ内蔵3充電ポート搭載 (iPhone / iPad/ Samsung / Motorola / HTC他対応) 12V / 5A ACアダプタ付属</a><div class="kaerebalink-powered-date">posted with <a href="http://kaereba.com" rel="nofollow" target="_blank">カエレバ</a></div></div><div class="kaerebalink-detail"> Anker     </div><div class="kaerebalink-link1"><div class="shoplinkamazon"><a href="http://www.amazon.co.jp/gp/search?keywords=Anker%2060W%207%203%83%7C%81%5B%83g%20USB%203.0%20%83f%81%5B%83%5E%83n%83u&__mk_ja_JP=%83J%83%5E%83J%83i&tag=ry00c-22" target="_blank" >Amazonで探す</a></div><div class="shoplinkrakuten"><a href="http://hb.afl.rakuten.co.jp/hgc/0e7c6e55.9d33cc01.0e7c6e56.d2bcd23e/?pc=http%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FAnker%252060W%25207%25203%25E3%2583%259D%25E3%2583%25BC%25E3%2583%2588%2520USB%25203.0%2520%25E3%2583%2587%25E3%2583%25BC%25E3%2582%25BF%25E3%2583%258F%25E3%2583%2596%2F-%2Ff.1-p.1-s.1-sf.0-st.A-v.2%3Fx%3D0%26scid%3Daf_ich_link_urltxt%26m%3Dhttp%3A%2F%2Fm.rakuten.co.jp%2F" target="_blank" >楽天市場で探す</a></div></div></div><div class="booklink-footer" style="clear: left"></div></div></p><p><br/><p></p></blockquote></p>
+]]></content>
+  </entry>
+  
+</feed>

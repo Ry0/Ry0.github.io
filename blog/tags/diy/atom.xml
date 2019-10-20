@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Tag: DIY | Ry0 Note]]></title>
+  <link href="http://ry0.github.io/blog/tags/diy/atom.xml" rel="self"/>
+  <link href="http://ry0.github.io/"/>
+  <updated>2019-10-20T02:14:29+09:00</updated>
+  <id>http://ry0.github.io/</id>
+  <author>
+    <name><![CDATA[Ry0_Ka]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[iPhoneサイズの便利なSIMケースを3Dプリンタで印刷してみた]]></title>
+    <link href="http://ry0.github.io/blog/2015/10/29/iphone-shape-sim-and-sd-holder/"/>
+    <updated>2015-10-29T00:36:05+09:00</updated>
+    <id>http://ry0.github.io/blog/2015/10/29/iphone-shape-sim-and-sd-holder</id>
+    <content type="html"><![CDATA[<h2>Twitterで流れていたSIMケースを試しに印刷してみる</h2>
+
+<p>便利そうなものが買物隊さんから公開されていたので、実際に作ってみました。<br/>
+3Dプリンタで出力するSIMカードやSDカード、Lightningコネクタ、SIMピンが収納できる便利そうなケースです。</p>
+
+<!-- more -->
+
+
+<h2>ソースファイルは無料で手に入れられます</h2>
+
+<p>STLファイルはTweetの<a href="http://www.thingiverse.com/thing:1090745">リンク</a>から。<br/>
+3Dプリンタが手元にない場合でどうしても物が欲しい場合は、出力した完成品が購入できるそうです。</p>
+
+<p><div class='embed twitter'><p>There was a &#8216;Twitter::Error::NotFound&#8217; error fetching Tweet &#8217;<a'</p></div></p>
+
+<h2>さっそく出力</h2>
+
+<p>私はiPhone 5サイズのケースを出力してみました。iPhone 6サイズのもあるのでたくさん収納したい場合はこっちがおすすめです。<br/>
+<strong>出力は研究室3Dプリンタマイスターの後輩にお願いしました。ありがとう。</strong></p>
+
+<p>MakerBotでSTLファイルを読み込ませてプリンタで印刷する準備をして…</p>
+
+<p><a class="swipebox" href="https://farm6.staticflickr.com/5677/22520069326_45b59e02e9_b.jpg" title="MakerBot">
+  <img class="center image-effect" src="https://farm6.staticflickr.com/5677/22520069326_45b59e02e9_b.jpg">
+</a></p>
+
+<p>ひたすら待ちます。出力精度を高めるためには結構時間がかかると思います。</p>
+
+<p><a class="swipebox" href="https://farm1.staticflickr.com/779/22358334658_4c3a534a9d_h.jpg" title="3Dプリンタ">
+  <img class="center image-effect" src="https://farm1.staticflickr.com/779/22358334658_1716e81e79_b.jpg">
+</a></p>
+
+<p>完成した結果、こんな感じです。</p>
+
+<p><a class="swipebox" href="https://farm6.staticflickr.com/5719/22546041805_9a25515249_h.jpg" title="完成">
+  <img class="center image-effect" src="https://farm6.staticflickr.com/5719/22546041805_6c0b7f79df_b.jpg">
+</a></p>
+
+<p><strong>素の状態ではさっぱりカードが入らなかったので、ひたすらデザインナイフで削りました。</strong>
+このへんは使う3Dプリンタの出力精度や用いる素材によって影響してくるのでしょうか。</p>
+
+<p><a class="swipebox" href="https://farm1.staticflickr.com/731/22359238079_afd6c0e3ae_h.jpg" title="削る作業">
+  <img class="center image-effect" src="https://farm1.staticflickr.com/731/22359238079_fc52bfbe4b_b.jpg">
+</a></p>
+
+<h2>iPhoneケースに入れてみる</h2>
+
+<p>適当なiPhoneケースを購入して、装着してみました。500円くらいで買いました。<br/>
+大切なSIMカードが落ちてしまわないように、手帳型のケースがおすすめです。</p>
+
+<p><a class="swipebox" href="https://farm1.staticflickr.com/643/22359243939_c8fd5c927a_h.jpg" title="購入したケース">
+  <img class="center image-effect" src="https://farm1.staticflickr.com/643/22359243939_293783474c_b.jpg">
+</a></p>
+
+<p>ケースを入れる際には特に削ることなく、いい感じに装着出来ました。</p>
+
+<p><a class="swipebox" href="https://farm6.staticflickr.com/5822/22358840460_ef9715e7e1_h.jpg" title="入れてみた感じ">
+  <img class="center image-effect" src="https://farm6.staticflickr.com/5822/22358840460_086be68c7b_b.jpg">
+</a></p>
+
+<h2>おわりに</h2>
+
+<p>3Dプリンタで初めてまともに使えそうなモノを印刷することができました。<br/>
+nanoシムは小さくてなくしやすいので、便利なケースを作れてよかったです。<br/>
+また自分の用途に合わせて、CADソフトでカードのくぼみの数を変えてみるのも面白そうですね。</p>
+
+<p>もし3Dプリンタを利用できる環境があれば印刷してみてください！</p>
+
+<p><blockquote><p></p></p><p><div class="kaerebalink-box"><div class="kaerebalink-image"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00K2OF42I/ry00c-22/ref=nosim/" target="_blank" ><img src="http://ecx.images-amazon.com/images/I/41Id6i6EAfL._SL160_.jpg" style="border: none;" /></a></div><div class="kaerebalink-info"><div class="kaerebalink-name"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00K2OF42I/ry00c-22/ref=nosim/" target="_blank" >【ノーブランド】iPhone 5/5S PUレザー/ヴィンテージ調 横開き/手帳型/スタンド仕様/カード収納 ケース/カバー (パープル)</a><div class="kaerebalink-powered-date">posted with <a href="http://kaereba.com" rel="nofollow" target="_blank">カエレバ</a></div></div><div class="kaerebalink-detail"> ノーブランド品     </div><div class="kaerebalink-link1"><div class="shoplinkamazon"><a href="http://www.amazon.co.jp/gp/search?keywords=iPhone%205%2F5S%20PU%83%8C%83U%81%5B%2F%83%94%83B%83%93%83e%81%5B%83W%92%B2&__mk_ja_JP=%83J%83%5E%83J%83i&tag=ry00c-22" target="_blank" >Amazonで探す</a></div><div class="shoplinkrakuten"><a href="http://hb.afl.rakuten.co.jp/hgc/0e7c6e55.9d33cc01.0e7c6e56.d2bcd23e/?pc=http%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FiPhone%25205%252F5S%2520PU%25E3%2583%25AC%25E3%2582%25B6%25E3%2583%25BC%252F%25E3%2583%25B4%25E3%2582%25A3%25E3%2583%25B3%25E3%2583%2586%25E3%2583%25BC%25E3%2582%25B8%25E8%25AA%25BF%2F-%2Ff.1-p.1-s.1-sf.0-st.A-v.2%3Fx%3D0%26scid%3Daf_ich_link_urltxt%26m%3Dhttp%3A%2F%2Fm.rakuten.co.jp%2F" target="_blank" >楽天市場で探す</a></div></div></div><div class="booklink-footer" style="clear: left"></div></div></p><p><br/><p></p></blockquote></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[TRUSCO マジックバンド結束テープの便利な使い方]]></title>
+    <link href="http://ry0.github.io/blog/2015/10/12/trusco-magic-band-binding-tape/"/>
+    <updated>2015-10-12T23:37:05+09:00</updated>
+    <id>http://ry0.github.io/blog/2015/10/12/trusco-magic-band-binding-tape</id>
+    <content type="html"><![CDATA[<h2>ケーブルの整理にひとつ買っておくと便利</h2>
+
+<p>3連休が終わってしまいましたね。
+私は夏物の整理や部屋の掃除をしたり、オフトンの中で過ごしました（メインはほぼこっち）。</p>
+
+<p>話は戻って今日はケーブルの整理に便利な結束バンドについてです。</p>
+
+<!-- more -->
+
+
+<h2>使い方いろいろ</h2>
+
+<p><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B004OCOY84/ry00c-22/ref=nosim/">TRUSCO マジックバンド結束テープ 両面 黒 10mm×1.5m MKT1015BK</a>っていうやつです。
+幅は1cmと2cmのものがあります。また、いろんな色があって楽しいです。<br/>
+どんな使い方をしてもいいんですが、<strong>今回は一工夫してスマホの充電ケーブルをまとめるのに使いやすくするために少し加工します。</strong></p>
+
+<p><a class="swipebox" href="https://farm1.staticflickr.com/715/21922927480_cfbf20a404_h.jpg" title="">
+  <img class="center image-effect" src="https://farm1.staticflickr.com/715/21922927480_6398a94d43_b.jpg">
+</a></p>
+
+<h2>ふつうに使うと…</h2>
+
+<p>ずっと巻いている状態ならいいんですが、<strong>ケーブルを使っているといつのまにかバンドのほうがどこかに行ってしまうことがよくあります。</strong>
+ですのでケーブルに常にくくりつけておけるようにします。</p>
+
+<p>図のようにハサミとカッターを使って切り取ります。<br/>
+今回は幅1cmのものを使用しています。先端から4.5cmくらいを幅3mmくらいに細くします。そして適当なところに約3mm×3mmの正方形の穴を開けます。<br/>
+<strong>カッターを使うときは、手を切らないように気をつけてくださいね。</strong></p>
+
+<p><a class="swipebox" href="https://farm1.staticflickr.com/660/21923782059_e198570067_h.jpg" title="">
+  <img class="center image-effect" src="https://farm1.staticflickr.com/660/21923782059_e5a3689afc_b.jpg">
+</a></p>
+
+<p>無事カットできたら、ケーブルに巻きつけるように先ほど開けた穴に通します。</p>
+
+<p><a class="swipebox" href="https://farm6.staticflickr.com/5715/21922521360_3b48f161cb_h.jpg" title="">
+  <img class="center image-effect" src="https://farm6.staticflickr.com/5715/21922521360_282537397a_b.jpg">
+</a></p>
+
+<p>しっかり通したらあとはマジックテープの力でくっつけるように固定します。</p>
+
+<p><a class="swipebox" href="https://farm1.staticflickr.com/780/21487876124_58952f07ee_h.jpg" title="">
+  <img class="center image-effect" src="https://farm1.staticflickr.com/780/21487876124_1af6aeef1a_b.jpg">
+</a></p>
+
+<p>完成はこんな感じです。マジックテープで固定しているので簡単には外れません。</p>
+
+<p><a class="swipebox" href="https://farm6.staticflickr.com/5671/21489586333_fdc825c8f9_h.jpg" title="">
+  <img class="center image-effect" src="https://farm6.staticflickr.com/5671/21489586333_011a7c5acb_b.jpg">
+</a></p>
+
+<p>あとは普通に使うだけです。これだとケーブルを使った後、バンドどこいったかな〜ってことが防げますね。</p>
+
+<p><a class="swipebox" href="https://farm1.staticflickr.com/580/22085012396_ea21cd3c6a_h.jpg" title="">
+  <img class="center image-effect" src="https://farm1.staticflickr.com/580/22085012396_9ef10ce156_b.jpg">
+</a></p>
+
+<h2>さいごに</h2>
+
+<p>こんな内容でブログ記事として成り立つのか微妙ですが、たまにはいいかなと思ってます。<br/>
+実はストラップ型のバンドも販売されているのですが、サイズがでかかったり、値段が入っている数の割に高かったりします。
+自分で頑張って作るとスマホ用のケーブルをまとめる用途なら200円程度で10本くらい作成できますし、まとめるケーブルの太さに応じて長さを調節できます。<br/>
+カバンの中でケーブル類がごちゃごちゃならずに済むのでおすすめです。</p>
+
+<p><blockquote><p></p></p><p><div class="kaerebalink-box"><div class="kaerebalink-image"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B004OCOY84/ry00c-22/ref=nosim/" target="_blank" ><img src="http://ecx.images-amazon.com/images/I/41uM32WlvDL._SL160_.jpg" style="border: none;" /></a></div><div class="kaerebalink-info"><div class="kaerebalink-name"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B004OCOY84/ry00c-22/ref=nosim/" target="_blank" >TRUSCO マジックバンド結束テープ 両面 黒 10mm×1.5m MKT1015BK</a><div class="kaerebalink-powered-date">posted with <a href="http://kaereba.com" rel="nofollow" target="_blank">カエレバ</a></div></div><div class="kaerebalink-detail"> トラスコ中山(TRUSCO)     </div><div class="kaerebalink-link1"><div class="shoplinkamazon"><a href="http://www.amazon.co.jp/gp/search?keywords=%83%7D%83W%83b%83N%83o%83%93%83h%8C%8B%91%A9%83e%81%5B%83v%20&__mk_ja_JP=%83J%83%5E%83J%83i&tag=ry00c-22" target="_blank" >Amazonで探す</a></div><div class="shoplinkrakuten"><a href="http://hb.afl.rakuten.co.jp/hgc/0e7c6e55.9d33cc01.0e7c6e56.d2bcd23e/?pc=http%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2F%25E3%2583%259E%25E3%2582%25B8%25E3%2583%2583%25E3%2582%25AF%25E3%2583%2590%25E3%2583%25B3%25E3%2583%2589%25E7%25B5%2590%25E6%259D%259F%25E3%2583%2586%25E3%2583%25BC%25E3%2583%2597%2520%2F-%2Ff.1-p.1-s.1-sf.0-st.A-v.2%3Fx%3D0%26scid%3Daf_ich_link_urltxt%26m%3Dhttp%3A%2F%2Fm.rakuten.co.jp%2F" target="_blank" >楽天市場で探す</a></div></div></div><div class="booklink-footer" style="clear: left"></div></div></p><p><br/><p></p></blockquote></p>
+
+<p><blockquote><p></p></p><p><div class="kaerebalink-box"><div class="kaerebalink-image"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B007Q61YXI/ry00c-22/ref=nosim/" target="_blank" ><img src="http://ecx.images-amazon.com/images/I/31w5oZHzLAL._SL160_.jpg" style="border: none;" /></a></div><div class="kaerebalink-info"><div class="kaerebalink-name"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B007Q61YXI/ry00c-22/ref=nosim/" target="_blank" >ＴＲＵＳＣＯ　マジックバンド超薄型　ストラップ　黒　２０ｃｍ　５本入りMKSH2520BK</a><div class="kaerebalink-powered-date">posted with <a href="http://kaereba.com" rel="nofollow" target="_blank">カエレバ</a></div></div><div class="kaerebalink-detail"> トラスコ中山(TRUSCO)     </div><div class="kaerebalink-link1"><div class="shoplinkamazon"><a href="http://www.amazon.co.jp/gp/search?keywords=%83%7D%83W%83b%83N%83o%83%93%83h&__mk_ja_JP=%83J%83%5E%83J%83i&tag=ry00c-22" target="_blank" >Amazonで探す</a></div><div class="shoplinkrakuten"><a href="http://hb.afl.rakuten.co.jp/hgc/0e7c6e55.9d33cc01.0e7c6e56.d2bcd23e/?pc=http%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2F%25E3%2583%259E%25E3%2582%25B8%25E3%2583%2583%25E3%2582%25AF%25E3%2583%2590%25E3%2583%25B3%25E3%2583%2589%2F-%2Ff.1-p.1-s.1-sf.0-st.A-v.2%3Fx%3D0%26scid%3Daf_ich_link_urltxt%26m%3Dhttp%3A%2F%2Fm.rakuten.co.jp%2F" target="_blank" >楽天市場で探す</a></div></div></div><div class="booklink-footer" style="clear: left"></div></div></p><p><br/><p></p></blockquote></p>
+]]></content>
+  </entry>
+  
+</feed>

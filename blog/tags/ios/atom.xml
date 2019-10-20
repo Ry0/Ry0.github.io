@@ -1,0 +1,562 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Tag: iOS | Ry0 Note]]></title>
+  <link href="http://ry0.github.io/blog/tags/ios/atom.xml" rel="self"/>
+  <link href="http://ry0.github.io/"/>
+  <updated>2019-10-20T02:14:29+09:00</updated>
+  <id>http://ry0.github.io/</id>
+  <author>
+    <name><![CDATA[Ry0_Ka]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[EC Technology 12000mAh モバイルバッテリーのレビュー]]></title>
+    <link href="http://ry0.github.io/blog/2016/11/14/ec-technology-1200mah-mobile-battery/"/>
+    <updated>2016-11-14T23:58:10+09:00</updated>
+    <id>http://ry0.github.io/blog/2016/11/14/ec-technology-1200mah-mobile-battery</id>
+    <content type="html"><![CDATA[<h2>本日は容量大きめのモバイルバッテリーの紹介です</h2>
+
+<p>お久しぶりです。</p>
+
+<p>しばらくブログの更新を行っていなかったのですが、
+EC Technologyさんから、「EC Technology 12000mAh モバイルバッテリー」を提供していただいたのでレビュー記事を書きます。</p>
+
+<p>最近はブログの内容もマンネリ化しているのでゲスト（研究室のとなりのやつ）にも頼んで感想を書いたので、
+その内容も参考にしてみてください。</p>
+
+<!-- more -->
+
+
+<h2>開封</h2>
+
+<p>いつも通りのパッケージ内容なので簡単に。<br/>
+必要最低限の説明書、
+充電用のUSBケーブルが同梱されています。</p>
+
+<p><a class="swipebox" href="https://farm6.staticflickr.com/5562/30862614672_33ee195acb_h.jpg" title="内容物">
+  <img class="center image-effect" src="https://farm6.staticflickr.com/5562/30862614672_71131ac5aa_b.jpg">
+</a></p>
+
+<h2>本体</h2>
+
+<p>本体の表面はマットな感じでさらさらしています。
+<strong>持った感じはさすが12000mAhという感じでずっしりくる感じ。</strong></p>
+
+<p><a class="swipebox" href="https://farm6.staticflickr.com/5324/30943834446_af16bed904_h.jpg" title="本体">
+  <img class="center image-effect" src="https://farm6.staticflickr.com/5324/30943834446_86d3d9292c_b.jpg">
+</a></p>
+
+<p><strong>充電用の端子はUSBコネクタ×2と最大3A出力可能なType-Cポートを搭載しています。</strong><br/>
+また面白いのがこのType-Cポート。
+最近発売されているMacではType-Cポートが当たり前になってきているので、
+重宝するのではないかと思います。<br/>
+ただし私はType-Cポートが搭載されたMacを持っていないので検証できていません。
+すみません。</p>
+
+<p><a class="swipebox" href="https://farm6.staticflickr.com/5535/25343532309_18b84df5d1_h.jpg" title="端子部分">
+  <img class="center image-effect" src="https://farm6.staticflickr.com/5535/25343532309_dd706771ee_b.jpg">
+</a></p>
+
+<h2>充電</h2>
+
+<p>バッテリー自体の充電は充電用のmicro USB端子かType-Cポートから行います。</p>
+
+<p><strong>Type-Cポートは入出力が同じポートからできるので優秀ですね。</strong></p>
+
+<p><a class="swipebox" href="https://farm6.staticflickr.com/5753/25343530869_f884533b95_h.jpg" title="充電">
+  <img class="center image-effect" src="https://farm6.staticflickr.com/5753/25343530869_5d8f1c81d9_b.jpg">
+</a></p>
+
+<p>充電中の度合いもLEDで確認できます。</p>
+
+<p><a class="swipebox" href="https://farm6.staticflickr.com/5633/30862604882_58249511a6_h.jpg" title="充電中の表示">
+  <img class="center image-effect" src="https://farm6.staticflickr.com/5633/30862604882_00b854188c_b.jpg">
+</a></p>
+
+<h2>出力チェック</h2>
+
+<p>今までレビューしたモバイルバッテリーは小型のものが多かったですが、
+今回は大型ということでiPadを充電してみました。</p>
+
+<p><a class="swipebox" href="https://farm6.staticflickr.com/5442/30862609162_4bb0dfcf97_h.jpg" title="iPadを充電してみる">
+  <img class="center image-effect" src="https://farm6.staticflickr.com/5442/30862609162_daca21bc1b_b.jpg">
+</a></p>
+
+<p>全く問題なし！！</p>
+
+<div class="container">
+  <div class="col span_6">
+    <a class="swipebox img-two-col-left" href="https://farm6.staticflickr.com/5580/30862618072_a1af83d748_h.jpg" title="電圧">
+      <img class="image-effect" src="https://farm6.staticflickr.com/5580/30862618072_a5df3fef99_b.jpg">
+    </a>
+  </div>
+  <div class="col span_6">
+    <a class="swipebox img-two-col-right" href="https://farm6.staticflickr.com/5712/30943832356_64e483f6c0_h.jpg" title="電流">
+      <img class="image-effect" src="https://farm6.staticflickr.com/5712/30943832356_6857d24c21_b.jpg">
+    </a>
+  </div>
+</div>
+
+
+<p>複数デバイスの充電ももちろん可能です。</p>
+
+<p><a class="swipebox" href="https://farm6.staticflickr.com/5810/25343529289_927ea48873_h.jpg" title="複数充電してみる">
+  <img class="center image-effect" src="https://farm6.staticflickr.com/5810/25343529289_0440eb07ef_b.jpg">
+</a></p>
+
+<h2>実際に持ってポケモンGOをしてみた結果</h2>
+
+<p>ポケモンGOに使うといいのでは？と思いましたが、
+私はポケモンGOをしていません。<br/>
+なので研究室のとなりの人にバッテリーを貸して、
+検証してもらいました。
+<strong>下の文章が使ってみた正直な感想とのことです。</strong></p>
+
+<p><blockquote><p>本商品の手触りはなかなかのものである。<br/><br/>実際に本製品を携帯しポケモンGOをした結果を以下に示す。<br/><br/>まず携帯方法として、①ポケットに入れると②バッグに入れるが考えられる。<br/><br/>ポケットに本製品を入れた結果、そこそこのサイズ感と重量感から、入れたほうが垂れてしまいだらしなくなる。<br/><br/>したがってバッグの中に入れることを推奨する。<br/><br/>筆者のおすすめはウエストポーチの中に入れて、そこそこ長めのケーブルで充電し続けることだ。<br/><br/>こうすることで、快適にポケモンGOをプレイしつつ充電できる。<br/><br/>本製品の特筆すべき点として、<br/>容量は12000[mAh]もあるので、一日中ポケモンGOをしても大丈夫である。<br/><br/>また、ポケモンGOに限らずバッグの中に入れておけば充電し忘れた日でも安心である。</p></blockquote></p>
+
+<h2>まとめ</h2>
+
+<p>今までのモバイルバッテリーではなかなか見られなかったType-Cポートが搭載されているので、
+非常に興味深いモバイルバッテリーでした。<br/>
+Type-Cに対応した端末、
+PCをお持ちの方にはよい選択肢なのではないでしょうか。
+USB Type-CはAppleのLightingコネクタと同じように裏表関係なく接続できる形状をしているので，もっと普及してほしいと思います。</p>
+
+<p>ポケモンGOのヘビーユーザーにも納得のバッテリー容量なので、
+とにかくスマホのバッテリーが減って減って仕方ないという方にもおすすめです。</p>
+
+<p>ブログの更新が最近本当に減ってしまったので、
+徐々に戻していきたいと思います。
+ネタはちょっとずつあるんですけどね&hellip;やる気が&hellip;がんばります！！！</p>
+
+<p><blockquote><p></p></p><p><div class="cstmreba"><div class="kaerebalink-box"><div class="kaerebalink-image"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B01LX03I0U/ry00c-22/ref=nosim/" target="_blank" ><img src="http://ecx.images-amazon.com/images/I/31uTVVEX%2BXL._SL160_.jpg" style="border: none;" /></a></div><div class="kaerebalink-info"><div class="kaerebalink-name"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B01LX03I0U/ry00c-22/ref=nosim/" target="_blank" >EC Technology 12000ｍAｈ モバイルバッテリー ３ポート Type-C / USB-C 入力と出力ポート搭載 大容量モバイルバッテリー スマホ充電器 急速充電可能 AUTO ICを搭載　新しいMacBook / iPhone / iPad / Xperia / Android各種対応</a><div class="kaerebalink-powered-date">posted with <a href="http://kaereba.com" rel="nofollow" target="_blank">カエレバ</a></div></div><div class="kaerebalink-detail"> EC Technology     </div><div class="kaerebalink-link1"><div class="shoplinkamazon"><a href="http://www.amazon.co.jp/gp/search?keywords=EC%20Technology%2012000%EF%BD%8DA%EF%BD%88%20%E3%83%A2%E3%83%90%E3%82%A4%E3%83%AB%E3%83%90%E3%83%83%E3%83%86%E3%83%AA%E3%83%BC%20%EF%BC%93%E3%83%9D%E3%83%BC%E3%83%88&__mk_ja_JP=%E3%82%AB%E3%82%BF%E3%82%AB%E3%83%8A&tag=ry00c-22" target="_blank" >Amazon</a></div><div class="shoplinkrakuten"><a href="http://hb.afl.rakuten.co.jp/hgc/0e7c6e55.9d33cc01.0e7c6e56.d2bcd23e  Jump   Mark as read (esc)Mark as read/?pc=http%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FEC%2520Technology%252012000%25EF%25BD%258DA%25EF%25BD%2588%2520%25E3%2583%25A2%25E3%2583%2590%25E3%2582%25A4%25E3%2583%25AB%25E3%2583%2590%25E3%2583%2583%25E3%2583%2586%25E3%2583%25AA%25E3%2583%25BC%2520%25EF%25BC%2593%25E3%2583%259D%25E3%2583%25BC%25E3%2583%2588%2F-%2Ff.1-p.1-s.1-sf.0-st.A-v.2%3Fx%3D0%26scid%3Daf_ich_link_urltxt%26m%3Dhttp%3A%2F%2Fm.rakuten.co.jp%2F" target="_blank" >楽天市場</a></div></div></div><div class="booklink-footer"></div></div></div></p><p><br/><p></p></blockquote></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[EC Technology 5200mAh モバイルバッテリーのレビュー]]></title>
+    <link href="http://ry0.github.io/blog/2016/07/18/ec-technology-5200mah-mobile-battery/"/>
+    <updated>2016-07-18T04:15:03+09:00</updated>
+    <id>http://ry0.github.io/blog/2016/07/18/ec-technology-5200mah-mobile-battery</id>
+    <content type="html"><![CDATA[<h2>本日はモバイルバッテリーネタ</h2>
+
+<p>EC Technology社様から、「EC Technology 5200mAh モバイルバッテリー」という商品を提供して頂いたので、PR記事を書きます。<br/>
+EC Technologyさんから発売されているモバイルバッテリーは結構ありますが、今回の製品はどんな感じなのか写真多めで書いていこうと思うのでよろしくお願いしますね。</p>
+
+<!-- more -->
+
+
+<h2>パッケージはいつもどおりシンプル</h2>
+
+<p>毎度おなじみになっているので軽く。<br/>
+小さい箱に詰められているので、ゴミも少なくていいですね。</p>
+
+<p>付属品として携帯用の簡単な袋もついてました。</p>
+
+<div class="container">
+  <div class="col span_6">
+    <a class="swipebox img-two-col-left" href="https://farm9.staticflickr.com/8866/28265295832_467c1f6dd2_h.jpg" title="">
+      <img class="image-effect" src="https://farm9.staticflickr.com/8866/28265295832_4fdca3c9bb_b.jpg">
+    </a>
+  </div>
+  <div class="col span_6">
+    <a class="swipebox img-two-col-right" href="https://farm9.staticflickr.com/8896/28265302562_a723df9cfd_h.jpg" title="">
+      <img class="image-effect" src="https://farm9.staticflickr.com/8896/28265302562_bbb2340525_b.jpg">
+    </a>
+  </div>
+</div>
+
+
+<h2>バッテリーの外観</h2>
+
+<p>本体はしっとりとした質感のブラックです。<br/>
+プラスチックですが、手で持った感じはさらさらとした質感と筐体の丸みでなんだかしっくりくる感じ。</p>
+
+<p><a class="swipebox" href="https://farm9.staticflickr.com/8890/27753400433_667ad943cb_h.jpg" title="">
+  <img class="center image-effect" src="https://farm9.staticflickr.com/8890/27753400433_071779dac0_b.jpg">
+</a></p>
+
+<p>側面の端子部分についてです。<br/>
+電源供給用のUSBとバッテリーそのものを充電する用のmicroUSBの端子があります。<br/>
+<strong>おまけ機能？としてLEDも内蔵しています。</strong></p>
+
+<p><a class="swipebox" href="https://farm9.staticflickr.com/8438/28265306712_b3a0edd2de_h.jpg" title="">
+  <img class="center image-effect" src="https://farm9.staticflickr.com/8438/28265306712_63dc1f2906_b.jpg">
+</a></p>
+
+<p>裏面。<br/>
+シンプルな感じ。</p>
+
+<p><a class="swipebox" href="https://farm9.staticflickr.com/8068/28265297812_bcf3282683_h.jpg" title="">
+  <img class="center image-effect" src="https://farm9.staticflickr.com/8068/28265297812_2501648f9d_b.jpg">
+</a></p>
+
+<p>側面。<br/>
+厚みはそこそこありますが、バッテリーそのものがそれほど大きくないので気にならないと思います（大きさはヘッダー写真等を参照ください）。<br/>
+パーツの合わせ目もきっちりそろってました。商品の質は毎回、問題ないと思います。</p>
+
+<p><a class="swipebox" href="https://farm9.staticflickr.com/8612/28290303791_17b7b41b94_h.jpg" title="">
+  <img class="center image-effect" src="https://farm9.staticflickr.com/8612/28290303791_e3f9954500_b.jpg">
+</a></p>
+
+<p>丸いボタンを押すと、バッテリーの残量が表示されます。<br/>
+<strong>残量表示はわかりやすい表示方法なので（何回点滅したら&hellip;とかではなく）、いいと思います。</strong></p>
+
+<p><a class="swipebox" href="https://farm9.staticflickr.com/8618/28368966605_c4cb554ad3_h.jpg" title="">
+  <img class="center image-effect" src="https://farm9.staticflickr.com/8618/28368966605_e1126bacd6_b.jpg">
+</a></p>
+
+<p>地味にこのバッテリーで気に入ったのは、LED点灯機能です。<br/>
+そこそこの明かるさなので、この夏、外で花火をする際など少し足元を確認する程度ならば十分使えると思います。</p>
+
+<p><a class="swipebox" href="https://farm9.staticflickr.com/8385/28086392280_043198a8fc_h.jpg" title="">
+  <img class="center image-effect" src="https://farm9.staticflickr.com/8385/28086392280_50783866af_b.jpg">
+</a></p>
+
+<h2>確認のため電流電圧チェック</h2>
+
+<p>iPhoneで電圧電流チェックを行いました。<br/>
+公称値通りの数値が出てますね。</p>
+
+<div class="container">
+  <div class="col span_6">
+    <a class="swipebox img-two-col-left" href="https://farm9.staticflickr.com/8690/28086394040_57cf40c4fc_h.jpg" title="">
+      <img class="image-effect" src="https://farm9.staticflickr.com/8690/28086394040_094f3113c5_b.jpg">
+    </a>
+  </div>
+  <div class="col span_6">
+    <a class="swipebox img-two-col-right" href="https://farm9.staticflickr.com/8688/28368968895_d2042c3a4d_h.jpg" title="">
+      <img class="image-effect" src="https://farm9.staticflickr.com/8688/28368968895_818f4f1065_b.jpg">
+    </a>
+  </div>
+</div>
+
+
+<h2>使ってみた感想</h2>
+
+<p>バッテリー容量は5200mAhです。<br/>
+<strong>最新のiPhone、Androidでも十分に満充電できる容量なので安心だと思います。</strong></p>
+
+<p>モバイルバッテリーの中では小さい部類に入ると思います。
+私は大容量のバッテリーを普段から持ち歩くのは好きではないので、この位がちょうどいいです。</p>
+
+<p>iPhone 6s、iPhone SEくらいだったら2回は満充電できる容量なので、iPhoneで使うのがいいかなと思いました。</p>
+
+<p><a class="swipebox" href="https://farm8.staticflickr.com/7306/27753395633_b48681aae2_h.jpg" title="">
+  <img class="center image-effect" src="https://farm8.staticflickr.com/7306/27753395633_b1c89aab38_b.jpg">
+</a></p>
+
+<h2>おわりに</h2>
+
+<p>大きさも容量もちょうどいいモバイルバッテリーでした。<br/>
+お値段もちょうどいいと思います。セールでいいタイミングで購入できたら1500円以内で購入できます。</p>
+
+<p>質感もさらさらしているので、カバンにいれるときもスッと入ってくれるんじゃないかと思います。<br/>
+LEDライトは思ったより、明るかったので、先週外でやったたこ焼きパーティーで使えばよかったと後悔(-_-)</p>
+
+<p>新しいモバイルバッテリーを手にすると、新しい携帯も欲しくなりますね。
+最近は全く携帯を新調していないので、Galaxy S7 edgeとか欲しいなーと</p>
+
+<p>また何か購入したらレビューします！今日はここまでです。ありがとうございました。</p>
+
+<p><blockquote><p></p></p><p><div class="kaerebalink-box"><div class="kaerebalink-image"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B01A7YXJVU/ry00c-22/ref=nosim/" target="_blank" ><img src="https://images-fe.ssl-images-amazon.com/images/I/31L9Oc2Qf5L._SL160_.jpg" style="border: none;" /></a></div><div class="kaerebalink-info"><div class="kaerebalink-name"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B01A7YXJVU/ry00c-22/ref=nosim/" target="_blank" >EC Technology 5200mAh モバイルバッテリー スマホ充電器 LEDライト機能付 超コンパクト 急速充電 iPhone 6s / 6s Plus / 6 /6 Plus / 5s/ Xperia / Galaxy / Android各種他対応-ブラック</a><div class="kaerebalink-powered-date">posted with <a href="http://kaereba.com" rel="nofollow" target="_blank">カエレバ</a></div></div><div class="kaerebalink-detail"> EC Technology     </div><div class="kaerebalink-link1"><div class="shoplinkamazon"><a href="http://www.amazon.co.jp/gp/search?keywords=EC%20Technology%20%83%82%83o%83C%83%8B%83o%83b%83e%83%8A%81%5B&__mk_ja_JP=%83J%83%5E%83J%83i&tag=ry00c-22" target="_blank" >Amazonで探す</a></div></div></div><div class="booklink-footer" style="clear: left"></div></div></p><p><br/><p></p></blockquote></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[iEC Bluetooth4.1 ワイヤレス イヤホンのレビュー]]></title>
+    <link href="http://ry0.github.io/blog/2016/06/20/iec-bluetooth4-1-wireless-earphone/"/>
+    <updated>2016-06-20T02:04:50+09:00</updated>
+    <id>http://ry0.github.io/blog/2016/06/20/iec-bluetooth4-1-wireless-earphone</id>
+    <content type="html"><![CDATA[<h2>リモコン一体型ワイヤレスイヤホンの紹介</h2>
+
+<p>この度、いつもお世話になっているEC Technology社様から、「iEC Bluetooth4.1 ワイヤレス イヤホン 密閉型 ランニング仕様 マイク内蔵 磁気吸引機能付き ブラック&amp;レッド」という商品を提供して頂いたので、レビュー記事を書きました。<br/>
+EC Technology様、この度もお声を掛けていただきありがとうございました。</p>
+
+<p>今日はBluetooth対応のワイヤレスイヤホンの紹介です。<br/>
+ワイヤレスかつ曲送りや音量調節ができるリモコンがついていたり値段の割に高機能です。低価格帯のワイヤレスイヤホンをお探しの方にはピッタリの商品なので、ぜひ一読ください。</p>
+
+<!-- more -->
+
+
+<h2>パッケージ</h2>
+
+<p>EC Technologyの商品では定番になっているシンプルなパッケージです。</p>
+
+<p><a class="swipebox" href="https://farm8.staticflickr.com/7334/27770497195_182a471c77_h.jpg" title="パッケージ">
+  <img class="center image-effect" src="https://farm8.staticflickr.com/7334/27770497195_62501215d8_b.jpg">
+</a></p>
+
+<p>説明書も各言語で記述されており、当然日本語のページもあるので安心です。</p>
+
+<p><a class="swipebox" href="https://farm8.staticflickr.com/7364/27492244720_49652c1219_h.jpg" title="説明書">
+  <img class="center image-effect" src="https://farm8.staticflickr.com/7364/27492244720_71f291c2b3_b.jpg">
+</a></p>
+
+<p>箱を開けると、丁寧に梱包された本体が登場。シンプルなパッケージながら見せるところはしっかり綺麗に見せるパッケージが好印象。</p>
+
+<p><a class="swipebox" href="https://farm8.staticflickr.com/7268/27770518855_9daa2f0254_h.jpg" title="箱を開けた感じ">
+  <img class="center image-effect" src="https://farm8.staticflickr.com/7268/27770518855_90cbd12b83_b.jpg">
+</a></p>
+
+<p>他にもイヤーピースが多数入ってました。これだけ入っていたらおそらくしっくりくるサイズのものが見つかるでしょう。
+あと写真にはありませんが、充電用のUSBケーブルが入っていました。</p>
+
+<p><a class="swipebox" href="https://farm8.staticflickr.com/7258/27737054256_ad7d2f6f30_h.jpg" title="イヤーピース">
+  <img class="center image-effect" src="https://farm8.staticflickr.com/7258/27737054256_07219a4941_b.jpg">
+</a></p>
+
+<h2>イヤホン本体の外観</h2>
+
+<p>次に本体の詳細を見てみます。<br/>
+赤と黒を基調としたデザインで、個人的には赤が好きなので、このデザインは好きです。<br/>
+本体の黒の部分も決して安っぽくない質感で良いと思います。</p>
+
+<p><a class="swipebox" href="https://farm8.staticflickr.com/7609/27159405373_0ac93160b4_h.jpg" title="本体">
+  <img class="center image-effect" src="https://farm8.staticflickr.com/7609/27159405373_f2f1c3aa1f_b.jpg">
+</a></p>
+
+<p>コードは平たい、きしめん型で極力、絡まりにくい工夫がしてあります。<br/>
+またイヤホンのおしり同士が磁石でくっつけることができます。そこまで磁力は強くないですが、カバンの中で収納しておくときなど、バラバラにならずに済みそうです。</p>
+
+<div class="container">
+   <div class="col span_6">
+     <a class="swipebox img-two-col-left" href="https://farm8.staticflickr.com/7479/27492248600_c01b689f8a_h.jpg" title="本体">
+       <img class="image-effect" src="https://farm8.staticflickr.com/7479/27492248600_ddd030eed4_b.jpg">
+     </a>
+   </div>
+   <div class="col span_6">
+     <a class="swipebox img-two-col-right" href="https://farm8.staticflickr.com/7729/27492256820_bde432588b_h.jpg" title="本体">
+       <img class="image-effect" src="https://farm8.staticflickr.com/7729/27492256820_654969ecd3_b.jpg">
+     </a>
+   </div>
+</div>
+
+
+<p>そしてリモコン部分。曲送りや音量調節、電源ボタンなどが兼ねられているファンクションボタンなど3つのボタンで構成されています。<br/>
+実際に装着してみた感じだと、もう少し下の部分にこのリモコンがあってもよかったなと思います。<strong>リモコン部分が宙に浮いている状態になるので装着している方の耳に重量を感じます。</strong></p>
+
+<p><a class="swipebox" href="https://farm8.staticflickr.com/7226/27770524285_b3b37b2596_h.jpg" title="リモコン部分">
+  <img class="center image-effect" src="https://farm8.staticflickr.com/7226/27770524285_723146e046_b.jpg">
+</a></p>
+
+<h2>実際に繋いでみた</h2>
+
+<p>現時点での最新版のiOSとAndroidで接続を検証してみました。<br/>
+どちらOSの場合も初めてペアリングする場合は、中央のボタンを<strong>電源オフの状態から3秒以上長押し</strong>します。
+<strong>赤と青の点滅が始まったらペアリングモードになってます。</strong></p>
+
+<h3>まずはiOS</h3>
+
+<p>iOSで接続するといいのが、イヤホン自体のバッテリー残量が確認できる点です。通知センターでもしっかり残量を確認することができるので安心ですね。<br/>
+一度ペアリング設定をしてしまえば、<strong>ワイヤレスイヤホンの電源を入れるとすぐに携帯側が反応して接続されたので、そこらへんのレスポンスも悪くないと思われます。</strong></p>
+
+<div class="container">
+  <div class="col span_6">
+    <a class="swipebox img-two-col-left" href="https://farm8.staticflickr.com/7438/27492241990_f65cf59bb2_b.jpg" title="バッテリーアイコン">
+      <img class="image-effect center" src="https://farm8.staticflickr.com/7438/27492241990_f65cf59bb2_z_d.jpg">
+    </a>
+  </div>
+  <div class="col span_6">
+    <a class="swipebox img-two-col-right" href="https://farm8.staticflickr.com/7428/27736479036_2da0d84075_b.jpg" title="通知">
+      <img class="image-effect center" src="https://farm8.staticflickr.com/7428/27736479036_2da0d84075_z_d.jpg">
+    </a>
+  </div>
+</div>
+
+
+<h3>続いてAndroid</h3>
+
+<p>iOSと同じ要領で接続します。Galaxy S6 edgeではiOSのようにイヤホン側のバッテリー残量を確認することはできませんでした。
+アプリとかを使うと表示できるのかな。<strong>接続自体は全く問題なく、どのボタンもしっかり機能しましたよ。</strong></p>
+
+<p><a class="swipebox" href="https://farm8.staticflickr.com/7550/27736479346_0d52c4101d_b.jpg" title="Android画面">
+  <img class="center image-effect" src="https://farm8.staticflickr.com/7550/27736479346_0d52c4101d_z_d.jpg">
+</a></p>
+
+<h2>使ってみた感想</h2>
+
+<p>音の感想はどうしても主観ですので、あまりしたくなんですが少しだけ。値段相応だと思います。低音重視な音だと感じました。無線だからといってノイズが常に走ることはありませんでした。無音時にはホワイトノイズが少し聞こえるな程度です。</p>
+
+<p>Amazonのレビュー欄で他の人も言っていましたが、<strong>この商品はLeftとRightの印字と実際に出力されている音声が全く逆です。</strong>
+ほぼ完璧な商品なのにもったいない。幸いにも左右対象デザインなので気をつけて装着しさえすれば、逆に装着しても全く問題ないです。</p>
+
+<p>Amazonの商品説明欄にはランニングの用途と書かれていますが、普段の生活使いでも問題ありません。家で寝転びながらYoutubeを視聴したり、庭先で作業しているときにも煩わしいケーブルを気にすることなく過ごすことができます。</p>
+
+<p><a class="swipebox" href="https://farm8.staticflickr.com/7292/27770505445_8e6493fff5_h.jpg" title="Youtube視聴画面">
+  <img class="center image-effect" src="https://farm8.staticflickr.com/7292/27770505445_61dfef8a06_b.jpg">
+</a></p>
+
+<h2>おわりに</h2>
+
+<p>今まではずっと有線で音楽を聞いていました。どうしても無線だと音質が悪いイメージがあったからです。しかし最近では安価で普通にいい音で聞こえるワイヤレスイヤホンが増えてきました。<br/>
+今回紹介した商品も低価格で最低限の操作を耳元で操作できるのでいいですね。残念ながら試せてはないのですが電話の応答もこのイヤホンを介してできるようなので非常に多機能です（電話を掛けてくれるひとがいない&hellip;）。</p>
+
+<p>イヤホンの右左の印字が逆という欠点を除けば、必要な機能はすべて備えているのでBluetoothのイヤホンはどんなものか試してみたい人にもおすすめな商品です。</p>
+
+<p><blockquote><p></p></p><p><div class="kaerebalink-box"><div class="kaerebalink-image"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B01BBGS97W/ry00c-22/ref=nosim/" target="_blank" ><img src="http://ecx.images-amazon.com/images/I/41bFJQ6cNcL._SL160_.jpg" style="border: none;" /></a></div><div class="kaerebalink-info"><div class="kaerebalink-name"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B01BBGS97W/ry00c-22/ref=nosim/" target="_blank" >iEC Bluetooth4.1 ワイヤレス イヤホン 密閉型 ランニング仕様 マイク内蔵 磁気吸引機能付き ブラック&amp;レッド</a><div class="kaerebalink-powered-date">posted with <a href="http://kaereba.com" rel="nofollow" target="_blank">カエレバ</a></div></div><div class="kaerebalink-detail"> EC Technology     </div><div class="kaerebalink-link1"><div class="shoplinkamazon"><a href="http://www.amazon.co.jp/gp/search?keywords=iEC%20Bluetooth4.1%20%83%8F%83C%83%84%83%8C%83X%20%83C%83%84%83z%83%93&__mk_ja_JP=%83J%83%5E%83J%83i&tag=ry00c-22" target="_blank" >Amazonで探す</a></div></div></div><div class="booklink-footer" style="clear: left"></div></div></p><p><br/><p></p></blockquote></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[iEC 2400mAh モバイルバッテリー スマホ充電器のレビュー]]></title>
+    <link href="http://ry0.github.io/blog/2016/03/06/iec-2400mah-mobile-battery/"/>
+    <updated>2016-03-06T17:52:25+09:00</updated>
+    <id>http://ry0.github.io/blog/2016/03/06/iec-2400mah-mobile-battery</id>
+    <content type="html"><![CDATA[<h2>小型モバイルバッテリーのレビュー</h2>
+
+<p>EC Technology様よりモバイルバッテリーを提供していただいたのでレビュー記事を書きたいと思います。EC Technology様、今回もレビューのご依頼感謝致します。<br/>
+本日は持ち運びにも便利なコンパクトなモバイルバッテリーの紹介です。</p>
+
+<!-- more -->
+
+
+<h2>パッケージ・付属品</h2>
+
+<p>パッケージはいつものようにダンボールに入った最小構成です。</p>
+
+<p><a class="swipebox" href="https://farm2.staticflickr.com/1624/25547721025_d3349d2960_h.jpg" title="">
+  <img class="center image-effect" src="https://farm2.staticflickr.com/1624/25547721025_a869535e12_b.jpg">
+</a></p>
+
+<p>内容物は本体、充電用ケーブル、説明書です。</p>
+
+<p><a class="swipebox" href="https://farm2.staticflickr.com/1502/25429176742_f627c2dcb2_h.jpg" title="">
+  <img class="center image-effect" src="https://farm2.staticflickr.com/1502/25429176742_4ba153a10b_b.jpg">
+</a></p>
+
+<p>説明書はしっかり日本語のページもあったので、安心です。
+ところどころ日本語が怪しいところがあります&hellip;</p>
+
+<p><a class="swipebox" href="https://farm2.staticflickr.com/1684/25454979881_a876394fbe_h.jpg" title="">
+  <img class="center image-effect" src="https://farm2.staticflickr.com/1684/25454979881_ed730b3804_b.jpg">
+</a></p>
+
+<h2>本体</h2>
+
+<p>モバイルバッテリーの側面にUSB端子とモバイルバッテリー自体を充電するためのmicroUSB端子があります。</p>
+
+<p><a class="swipebox" href="https://farm2.staticflickr.com/1590/25252110250_d949d84547_h.jpg" title="">
+  <img class="center image-effect" src="https://farm2.staticflickr.com/1590/25252110250_6e7411a7a5_b.jpg">
+</a></p>
+
+<p>そして左側にあるボタンを押すと、バッテリーの残量確認もしっかりできます。</p>
+
+<p><a class="swipebox" href="https://farm2.staticflickr.com/1467/24921010013_55e54f456a_h.jpg" title="">
+  <img class="center image-effect" src="https://farm2.staticflickr.com/1467/24921010013_df9da9580c_b.jpg">
+</a></p>
+
+<p>サイズもiPhone 5sよりも小さいです。</p>
+
+<p><a class="swipebox" href="https://farm2.staticflickr.com/1510/25521586736_9e00104c04_h.jpg" title="">
+  <img class="center image-effect" src="https://farm2.staticflickr.com/1510/25521586736_b10a772eb3_b.jpg">
+</a></p>
+
+<p>厚みもiPhoneよりも薄く、このバッテリーのコンパクト感が分かっていただけると思います。</p>
+
+<p><a class="swipebox" href="https://farm2.staticflickr.com/1662/25547728585_26e661c409_h.jpg" title="">
+  <img class="center image-effect" src="https://farm2.staticflickr.com/1662/25547728585_ae0f78d789_b.jpg">
+</a></p>
+
+<h2>おわりに</h2>
+
+<p>モバイルバッテリーの売れ筋は大容量のものが多いですが、このバッテリーはとにかく持ち運びやすさを重視したモデルだと感じました。
+重量をあまり気にせずちょっとした非常用として、カバンに入れておけます。
+iPhone5s、6sなどは満充電できる容量を持っていますので、十分だと思います。</p>
+
+<p>重いバッテリーではなく携帯性を重視したモバイルバッテリーをお探しの方はいかかでしょうか。</p>
+
+<p><blockquote><p></p></p><p><div class="kaerebalink-box"><div class="kaerebalink-image"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B019PMR9IO/ry00c-22/ref=nosim/" target="_blank" ><img src="http://ecx.images-amazon.com/images/I/410ZiGJ4CFL._SL160_.jpg" style="border: none;" /></a></div><div class="kaerebalink-info"><div class="kaerebalink-name"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B019PMR9IO/ry00c-22/ref=nosim/" target="_blank" >iEC 2400mAh モバイルバッテリー スマホ充電器　超コンパクト 急速充電 小型iPhone 6s / 6s Plus / 6 /6 Plus / 5s/ Xperia / Galaxy / Android各種他対応 -ブラック&amp;amp;amp;レッド</a><div class="kaerebalink-powered-date">posted with <a href="http://kaereba.com" rel="nofollow" target="_blank">カエレバ</a></div></div><div class="kaerebalink-detail"> EC technology     </div><div class="kaerebalink-link1"><div class="shoplinkamazon"><a href="http://www.amazon.co.jp/gp/search?keywords=iEC%202400mAh%20%83%82%83o%83C%83%8B%83o%83b%83e%83%8A%81%5B&__mk_ja_JP=%83J%83%5E%83J%83i&tag=ry00c-22" target="_blank" >Amazonで探す</a></div></div></div><div class="booklink-footer" style="clear: left"></div></div></p><p><br/><p></p></blockquote></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Anker Loyalty Rewards 2015のプレゼントが到着]]></title>
+    <link href="http://ry0.github.io/blog/2016/01/11/anker-loyalty-rewards-2015/"/>
+    <updated>2016-01-11T01:58:11+09:00</updated>
+    <id>http://ry0.github.io/blog/2016/01/11/anker-loyalty-rewards-2015</id>
+    <content type="html"><![CDATA[<h2>Anker PowerCore miniをプレゼントしてくれました</h2>
+
+<p>11月の中旬に「Ankerお客様感謝祭2015」と呼ばれるキャンペーンで、過去にアマゾンでAnker製品を3つ以上購入した人にAnkerの製品を一人につき1個プレゼントするというなんとも太っ腹な企画がありまして、このキャンペーンの対象だったので応募してみた話です。</p>
+
+<!-- more -->
+
+
+<h2>貰うまでちょっとかかりました</h2>
+
+<p>こういうキャンペーンも珍しいので、3つ買ったことがある判定や、送り主情報の整合性、不正防止などいろいろなシステム上の苦労があったのでしょう。ネット上でも3個以上買ってるのに対象者にならない等の声もあったようです。
+住所について大丈夫かと思われるようなEメールが届いたりして一時話題になりました。</p>
+
+<p><div class='embed twitter'><p>There was a &#8216;Twitter::Error::NotFound&#8217; error fetching Tweet &#8217;<a'</p></div></p>
+
+<p><strong>これらのトラブルを乗り越えてアメリカからはるばる届いたプレゼント商品。さっそく開封したいと思います。</strong></p>
+
+<h2>届いたときは</h2>
+
+<p>ポストにヨレヨレの袋に入った状態で投函されていました。アメリカからの発送だったのでしょうがないです。よくうちに来てくれた！</p>
+
+<p><a class="swipebox" href="https://farm2.staticflickr.com/1535/23665799234_4edaead8c6_h.jpg" title="">
+  <img class="center image-effect" src="https://farm2.staticflickr.com/1535/23665799234_b73256f1b8_b.jpg">
+</a></p>
+
+<p>袋の中にはプレゼント商品のモバイルバッテリーとこれまたヨレヨレのメッセージカード。</p>
+
+<p><a class="swipebox" href="https://farm2.staticflickr.com/1635/24185834292_1d09cf5247_h.jpg" title="">
+  <img class="center image-effect" src="https://farm2.staticflickr.com/1635/24185834292_f312c42d88_b.jpg">
+</a></p>
+
+<p>「4年間頑張ってきたけど、まだまだ行くぜ！よろしくな」といった社長らしき人からのメッセージ。これからも思わずポチってしまうような商品を作ってくださいね。</p>
+
+<p><a class="swipebox" href="https://farm2.staticflickr.com/1476/24267876416_95ed8829bc_h.jpg" title="">
+  <img class="center image-effect" src="https://farm2.staticflickr.com/1476/24267876416_46b1f1ae8c_b.jpg">
+</a></p>
+
+<h2>開封</h2>
+
+<p>届いたのはAnker PowerCore mini。
+Amazonでも調べたのですが、該当する商品はありませんでした。もう廃盤になったのか<strong>後継機モデル（Anker PowerCore+ mini）は普通に販売されているので</strong>、このブログ記事を見てくださった方には<a href="http://www.amazon.co.jp/exec/obidos/ASIN/B0146GSZYG/ry00c-22/ref=nosim/">後継機モデル</a>をおすすめします。</p>
+
+<p><a class="swipebox" href="https://farm2.staticflickr.com/1700/24185828392_9bd0e47273_h.jpg" title="">
+  <img class="center image-effect" src="https://farm2.staticflickr.com/1700/24185828392_ec80f7d545_b.jpg">
+</a></p>
+
+<h2>外観</h2>
+
+<p>Amazonでも売れ線の大容量バッテリーと異なり、バッテリー容量も3200mAhとiPhoneを一回充電できる程度の小さなバッテリーです。
+<strong>私自身も普段はモバイルバッテリーは持ち歩かない派（カバンが重くなるから）ですが，これくらいの小さなバッテリーならカバンに入れておいても重量も気にならず、本当に緊急用に使うという用途にぴったりかなと思いました。</strong></p>
+
+<p><a class="swipebox" href="https://farm2.staticflickr.com/1593/23926166169_11f955f3d3_h.jpg" title="">
+  <img class="center image-effect" src="https://farm2.staticflickr.com/1593/23926166169_9c0f6f5d8e_b.jpg">
+</a></p>
+
+<p>バッテリー本体の他に充電用ケーブルと携帯ポーチが入ってました。</p>
+
+<p><a class="swipebox" href="https://farm2.staticflickr.com/1652/23926151179_d8f0173a5d_h.jpg" title="">
+  <img class="center image-effect" src="https://farm2.staticflickr.com/1652/23926151179_59917bc44e_b.jpg">
+</a></p>
+
+<h2>定番の電圧・電流チェック</h2>
+
+<p>問題なく充電できていると思います。写真ではGalaxy S6 edgeで確認していますが、iPhone、iPadでも問題なく充電できました。ただし2A出力には対応していないので、iPadのような大型デバイスでは充電するのに時間がかかると思います。</p>
+
+<p><a class="swipebox" href="https://farm2.staticflickr.com/1470/23926382529_7c4acde8f8_h.jpg" title="">
+  <img class="center image-effect" src="https://farm2.staticflickr.com/1470/23926382529_47ec78e688_b.jpg">
+</a></p>
+
+<h2>おわりに</h2>
+
+<p>Anker製品は新商品が出るたびになにかしら買ってしまいます。たくさん購入した結果、こういう形で還元してくれたのでありがたいですね。
+今年は充電器ばっかり買わないように気をつけます&hellip;</p>
+
+<p>プレゼントとして届いた商品は、現在Amazonで購入することはできませんが、後継機がAnker PowerCore+ miniとしてしっかり販売されていますので参考にしてみてください。しかも後継機本体はアルミニウムでできており、充電最適化機構であるPowerIQ対応と大幅な変更がなされているので、更に使いやすくなってるはずです。<br/>
+モバイルバッテリーが欲しいけど、でかいのはいらない！という方におすすめです。</p>
+
+<p><blockquote><p></p></p><p><div class="kaerebalink-box"><div class="kaerebalink-image"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B0146GSZYG/ry00c-22/ref=nosim/" target="_blank" ><img src="http://ecx.images-amazon.com/images/I/417yx2GOM4L._SL160_.jpg" style="border: none;" /></a></div><div class="kaerebalink-info"><div class="kaerebalink-name"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B0146GSZYG/ry00c-22/ref=nosim/" target="_blank" >Anker PowerCore+ mini (3350mAh Panasonic製セル搭載 高品質モバイルバッテリー) 超小型 スティックタイプ iPhone 6s / iPhone 6s Plus / iPhone 6 / 6 Plus, iPad Air 2 / mini 3, Galaxy S6 / S6 Edge 各種スマホ等対応 トラベルポーチ付属【PowerIQ搭載】(ブラック)</a><div class="kaerebalink-powered-date">posted with <a href="http://kaereba.com" rel="nofollow" target="_blank">カエレバ</a></div></div><div class="kaerebalink-detail"> Anker     </div><div class="kaerebalink-link1"><div class="shoplinkamazon"><a href="http://www.amazon.co.jp/gp/search?keywords=Anker%20PowerCore&__mk_ja_JP=%83J%83%5E%83J%83i&tag=ry00c-22" target="_blank" >Amazonで探す</a></div><div class="shoplinkrakuten"><a href="http://hb.afl.rakuten.co.jp/hgc/0e7c6e55.9d33cc01.0e7c6e56.d2bcd23e/?pc=http%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FAnker%2520PowerCore%2F-%2Ff.1-p.1-s.1-sf.0-st.A-v.2%3Fx%3D0%26scid%3Daf_ich_link_urltxt%26m%3Dhttp%3A%2F%2Fm.rakuten.co.jp%2F" target="_blank" >楽天市場で探す</a></div></div></div><div class="booklink-footer" style="clear: left"></div></div></p><p><br/><p></p></blockquote></p>
+]]></content>
+  </entry>
+  
+</feed>

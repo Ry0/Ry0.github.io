@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Tag: Test | Ry0 Note]]></title>
+  <link href="http://ry0.github.io/blog/tags/test/atom.xml" rel="self"/>
+  <link href="http://ry0.github.io/"/>
+  <updated>2019-10-20T02:14:29+09:00</updated>
+  <id>http://ry0.github.io/</id>
+  <author>
+    <name><![CDATA[Ry0_Ka]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[初めての投稿]]></title>
+    <link href="http://ry0.github.io/blog/2014/12/18/1st-post/"/>
+    <updated>2014-12-18T00:14:00+09:00</updated>
+    <id>http://ry0.github.io/blog/2014/12/18/1st-post</id>
+    <content type="html"><![CDATA[<p>GitHub + Octopressとかいう組み合わせで簡単にブログが書けるということなので作ってみました。<br/>
+エディタとターミナルだけでポーンと投稿できるので一回環境を整えてしまえば、かなり便利？？<br/>
+しかも記事はMarkDown記法で書けるのがいい！<br/>
+いろいろプラグインを入れたので、それのテストを兼ねて書いてみます。</p>
+
+<!-- more -->
+
+
+<h1>画像のテスト</h1>
+
+<h2>直接pushしたら&hellip;</h2>
+
+<p>GitHubに直接、画像をアップして表示するときのテスト</p>
+
+<p><img src="/images/2014-12-17-1st-post/macbookair.png" alt="MBA" /></p>
+
+<p>参考サイト: <a href="http://toshikaz55.github.io/blog/blog/2013/04/04/octopress-image-dir/">http://toshikaz55.github.io/blog/blog/2013/04/04/octopress-image-dir/</a></p>
+
+<h2>Flickrを使う</h2>
+
+<p>直接GitHubにばんばん画像をアップデートしたらGitHubを圧迫するので、Flickrを使ってみた<br/>
+どうやらスマホじゃうまく拡大表示できてないっぽい(/_;) <br/>
+[2015.8.15 更新] Flickrのプラグインは開発が止まっているっぽいのでやめました。</p>
+
+<p>参考サイト: <a href="https://github.com/neilk/octopress-flickr">https://github.com/neilk/octopress-flickr</a></p>
+
+<h1>SNSの引用テスト</h1>
+
+<h2>Twitter</h2>
+
+<p>Twitterの投稿も簡単に引用できる！
+<div class='embed twitter'><p>There was a &#8216;Twitter::Error::NotFound&#8217; error fetching Tweet &#8217;<a'</p></div>  <br/>
+ジェシカさんかわいい(<em>´艸｀</em>)<br/>
+<div class='embed twitter'><p>There was a &#8216;Twitter::Error::NotFound&#8217; error fetching Tweet &#8217;<a'</p></div><br/>
+参考サイト:<br/>
+<a href="https://github.com/shogo82148/ruby-oembed">https://github.com/shogo82148/ruby-oembed</a><br/>
+<a href="http://shogo82148.github.io/blog/2012/08/09/oembed/">http://shogo82148.github.io/blog/2012/08/09/oembed/</a></p>
+
+<h2>instagram</h2>
+
+<p>いろいろ試してみたけど、うまく表示できなかった<br/>
+instagramもTwitterみたいに表示できたらいいなあ<br/>
+↓これを試してみたんだけどうまく行かなかった&hellip;<br/>
+参考サイト: <a href="https://github.com/longkey1/jekyll-instagram-plugin">https://github.com/longkey1/jekyll-instagram-plugin</a><br/>
+(2014.12.19 1:59 追記)<br/>
+結局、Embedに頼った。</p>
+
+<div class='instagram-container'>
+    <iframe src='//instagram.com/p/wvwlVPNZKd/embed/' frameborder='0' scrolling='no' allowtransparency='true'></iframe>
+</div>
+
+
+<h2>Youtube</h2>
+
+<p>なんかレスポンシブじゃない気がする<br/>
+最悪ふつうにHTMLで表記したらいいか</p>
+
+<p>(2014.12.18 1:11 追記)<br/>
+なんとかレスポンシブに対応できないかなと思ったら、発見。<br/>
+プラグインを使わずにやる方法みたい</p>
+
+<p><blockquote><p>Adding Responsive YouTube Videos to Octopress Without Any Plugins.</p><footer><strong>James&amp;nbspPayne <a href="http://www.jamespayne.net.au/2014/07/04/adding-responsive-youtube-videos-to-octopress-without-any-plugins/">http://www.jamespayne.net.au/2014/07/04/adding-responsive-youtube-videos-to-octopress-without-any-plugins/</a> jamespayne.net.au</strong></footer></blockquote></p>
+
+<p>参考サイトにあるように設定した後は</p>
+
+<p>&#8220;`html</p>
+
+<div class="video-container">
+  <iframe width="640" height="360" src="//www.youtube.com/embed/wq7ftOZBy0E?rel=0" frameborder="0" allowfullscreen></iframe>
+</div>
+
+
+<p>&#8220;`</p>
+
+<p>というようにYoutubeの共有タブにある埋め込みコードを貼り付けるだけで成功。すばらしい。<br/>
+その結果が下のような結果</p>
+
+<div class="youtube-container image-effect">
+  <iframe width="640" height="360" src="//www.youtube.com/embed/wq7ftOZBy0E?rel=0" frameborder="0" allowfullscreen></iframe>
+</div>
+
+
+<p>これでもできた<br/>
+参考サイト: <a href="https://github.com/erossignon/jekyll-youtube-lazyloading">https://github.com/erossignon/jekyll-youtube-lazyloading</a></p>
+
+<h1>プログラム関連</h1>
+
+<p>マークダウンで書いてるので、<code>cd Desktop</code>とか<code>ls</code>とか書ける<br/>
+ソースコードも</p>
+
+<pre><code class="cpp">#include &lt;iostream&gt;
+using namespace std;
+
+int main(){
+    for(int i = 0; i &lt; 10; ++i){
+        cout &lt;&lt; "Octopressやるじゃん！！" &lt;&lt; endl;
+    }
+}
+</code></pre>
+
+<p>どうやらファイル自体から持ってきてもいいっぽい</p>
+
+<p><figure class='code'><figcaption><span> (test.cpp)</span> <a href='/downloads/code/test.cpp'>download</a></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='cpp'><span class='line'><span class="cp">#include &lt;iostream&gt;</span>
+</span><span class='line'><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+</span><span class='line'>
+</span><span class='line'><span class="kt">int</span> <span class="nf">main</span><span class="p">(){</span>
+</span><span class='line'>	<span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">10</span><span class="p">;</span> <span class="o">++</span><span class="n">i</span><span class="p">){</span>
+</span><span class='line'>		<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;Octopressやるじゃん！！&quot;</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
+</span><span class='line'>	<span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure></p>
+
+<p>参考サイト: <a href="http://www.tokoro.me/2012/07/15/octopress-part-of-codes/">http://www.tokoro.me/2012/07/15/octopress-part-of-codes/</a></p>
+
+<h1>おわりに</h1>
+
+<p>とくにバリバリ、ブログやるぞっていう気持ちはないんだけど<br/>
+とりあえずこういうことができるんだ〜って感じ。<br/>
+何かメモを書いておく場所にできたらいいなと思います。</p>
+]]></content>
+  </entry>
+  
+</feed>

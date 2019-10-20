@@ -1,0 +1,1129 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="ja"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Ry0 Note</title>
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta name="author" content="Ry0_Ka">
+  
+  <meta name="description" content="ガジェットのレビューをしたり、プログラムやPCのソフト、アプリで行き詰まったことがあればその解決策を書いたりしています。">
+  <meta name="keywords" content="ガジェット,iPhone,Android,Ubuntu,Mac,Linux,Windows,Caffe,CUDA,レビュー">
+
+  
+
+  <!-- Twitterカード設置 -->
+  
+  <meta property="twitter:card" content="summary" />
+  <meta property="twitter:site" content="Ry0_Ka" />
+  <meta property="twitter:url" content="http://ry0.github.io/posts/9" />
+  <meta property="twitter:title" content="Ry0 Note" />
+  <meta property="twitter:description" content="ガジェットのレビューをしたり、プログラムやPCのソフト、アプリで行き詰まったことがあればその解決策を書いたりしています。" />
+  <meta property="twitter:creator" content="Ry0_Ka" />
+  <meta property="twitter:image:src" content="http://ry0.github.io/images/page/about_me.png">
+  
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Ry0 Note">
+  <meta property="og:site_name" content="Ry0 Note">
+  <meta property="og:type" content="blog">
+  <meta property="og:url" content="http://ry0.github.io/posts/9">
+  <meta property="og:description" content="ガジェットのレビューをしたり、プログラムやPCのソフト、アプリで行き詰まったことがあればその解決策を書いたりしています。">
+  <meta property="og:image" content="http://ry0.github.io/images/page/about_me.png">
+
+  <!-- テーマカラー -->
+  <meta name="theme-color" content="#D03350">
+
+  <link rel="canonical" href="http://ry0.github.io/posts/9">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Ry0 Note" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+
+  <!-- jquery javascript -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=Fjalla+One" rel="stylesheet" type="text/css">
+<link href='//fonts.googleapis.com/css?family=Nothing+You+Could+Do' rel='stylesheet' type='text/css'>
+<link href="./favicon.png" rel="apple-touch-icon" />
+
+<!-- jquery pjax -->
+<script src="/javascripts/jquery.pjax.js"></script>
+<script src="/javascripts/pjax.script.js"></script>
+
+<script src="/javascripts/jquery.githubRepoWidget.js" type="text/javascript"></script>
+<script src="/javascripts/img-blur.js" type="text/javascript"></script>
+<script src="/javascripts/ripple.js" type="text/javascript"></script>
+
+<!-- jquery swipebox -->
+<script src="/javascripts/jquery.swipebox.js" type="text/javascript"></script>
+<script>
+  $(function () {
+  $(".swipebox").swipebox();
+  });
+</script>
+
+<!-- 新規ウィンドウで開く -->
+ <script language="JavaScript">
+  $(document).ready( function () {
+    $("a[href^='http']:not([href*='" + location.hostname + "'])").attr('target', '_blank');
+  })
+</script>
+
+<!-- スクロールトップ -->
+<script src="/javascripts/scrolltopcontrol.js" type="text/javascript"></script>
+
+<!-- SNS共有ボタン設置 -->
+
+<script src="/javascripts/SNSshare.js"></script>
+
+
+<!-- Google Analytics -->
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-57757582-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+
+</head>
+
+<body   class="collapse-sidebar sidebar-footer" >
+  <header role="banner"><hgroup>
+  <h1><a class="pjax" href="/">Ry0 Note</a></h1>
+  
+    <h2>ガジェットレビューと技術メモ</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscribe" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="25" height="25" viewbox="0 0 100 100"><path class="social" d="M 13.310204,73.332654 C 5.967347,73.332654 0,79.322448 0,86.621428 c 0,7.338776 5.967347,13.262246 13.310204,13.262246 7.370408,0 13.328572,-5.92245 13.328572,-13.262246 0,-7.29898 -5.958164,-13.288774 -13.328572,-13.288774 z M 0.01530612,33.978572 V 53.143878 C 12.493878,53.143878 24.229592,58.02347 33.068368,66.865306 41.894898,75.685714 46.767346,87.47449 46.767346,100 h 19.25 C 66.017346,63.592858 36.4,33.979592 0.01530612,33.978572 l 0,0 z M 0.03877552,0 V 19.17449 C 44.54796,19.17551 80.77551,55.437756 80.77551,100 H 100 C 100,44.87653 55.15102,0 0.03877552,0 z"></path></svg></a></li>
+  
+</ul>
+  
+  
+  
+  
+  
+<ul class="subscribe">
+<li><a href="https://twitter.com/Ry0_Ka" rel="subscribe-twitter" title="@Ry0_Ka on Twitter"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="25" height="25" viewBox="0 0 512 512"><path class="social" d="M0.001,334.932c33.327,30.816,118.891,59.981,188.517-8.271c-12.52,1.955-22.972-0.416-30.913-8.269
+c-7.531-7.465-7.945-15.182-3.914-22.202c3.275-5.725,10.184-9.741,16.977-13.934c-12.323,2.285-22.829,1.095-32.218-3.706
+c-12.604-6.444-24.863-13.228-28.3-27.207c7.71-8.112,16.28-15.359,34.831-12.627c-17.45-5.83-33.087-13.429-44.41-24.815
+c-11.028-11.091-12.163-18.302-13.932-26.996c9.632-3.567,19.688-5.421,30.478-4.353c-24.397-12.476-34.757-29.63-40.487-48.325
+c-1.731-5.652-2.044-11.03-1.31-16.545c98.826,37.305,145.11,64.109,170.662,89.251c11.496-30.589,38.3-99.868,78.371-123.646
+c0.191,3.77-1.309,7.837-4.357,12.189c11.863-6.609,21.125-17.188,37.445-16.98c-1.879,7.723-7.279,13.904-17.85,17.854
+c10.662-4.084,21.463-7.545,32.65-9.578c10.375-1.881,10.229,6.304,4.355,10.444c-11.916,8.412-24.578,9.456-37.006,13.498
+c38.105,0.949,69.266,18.994,93.604,58.343c8.088,13.074,13.52,26.149,14.807,40.487c16.254,4.563,32.426,5.494,48.76,2.61
+c4.475-0.796,8.645-1.63,12.627-3.482c-6.354,9.529-13.686,17.356-23.947,20.899c-9.811,3.387-19.637,6.688-30.473,6.968
+c17.641,6.675,37.082,7.045,57.033,5.659c-24.402,23.486-43.08,22.922-61.824,22.642c-8.221,34.703-25.025,69.315-60.52,101.005
+c-46.559,41.569-96.678,61.397-148.457,65.742c-48.552,4.07-95.488,3.512-146.726-20.464
+C56.486,393.349,24.648,368.884,0.001,334.932L0.001,334.932z"/></svg></a></li>
+</ul>
+  
+  
+  
+  
+<ul class="main-navigation">
+  <li><a href="/"><i class="fa fa-home"></i> Home</a></li>
+  <li><a href="/blog/archives"><i class="fa fa-archive"></i> Archives</a></li>
+  <li><a href="/about"><i class="fa fa-user"></i> About</a></li>
+</ul>
+
+  <script>
+  (function() {
+    var cx = '002764144690732749534:ljrigi4elzk';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
+        '//www.google.com/cse/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+<gcse:search></gcse:search>
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    <p class="meta">
+      <div class='balloon'>
+        
+
+
+
+<time class='entry-date' datetime='2015-01-17T23:44:02+09:00'><span class='date'><span class='date-month'>Jan</span> <span class='date-day'>17</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>11:44 pm</span></time>
+      </div>
+    </p>
+    
+      <h1 class="entry-title"><a href="/blog/2015/01/17/sublime-tex/">Sublime Text 2でTeXの文書を作成（Ubuntu 14.04）</a></h1>
+    
+    
+      <p class="meta">
+        
+  
+
+<ol class="breadcrumbs">
+  <li><i class="fa fa-home"></i><a href="http://ry0.github.io">&ensp;<span>Top</span></a></li>
+  
+    
+    <li><span class="breadcrumbs_separator"> <i class="fa fa-angle-right"></i> <i class="fa fa-folder-open-o"></i>&ensp;</span><a class="pjax" href="/blog/categories/tips/"><span>tips</span></a></li>
+  
+  
+    
+    <li><span class="breadcrumbs_separator"> <i class="fa fa-angle-right"></i> <i class="fa fa-tags"></i>&ensp;</span><a class="pjax" href="/blog/tags/sublime text 2/"><span>Sublime Text 2</span></a>
+    
+      
+        <span>, </span>
+        <a class="pjax" href="/blog/tags/ubuntu/"><span>Ubuntu</span></a>
+      
+    
+    </li>
+  
+</ol>
+
+
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content">
+    <!-- ヘッダー写真 -->
+    <div class="entry-image entry-image-post ripple">
+  <a href="/blog/2015/01/17/sublime-tex/"><img src="http://ry0.github.io/images/2015-01-17-sublime-tex/header.jpg"></a>
+  <span class="ripple-effect is-black"></span>
+</div>
+    <!-- ひとこと -->
+    <div class="comment-right">
+  <div class="comment-box">
+    <div class="comment-list-icon"><img class="comment-icon-toppage" src="/images/page/header-comment-icon_on.jpg"></div>
+    <div class="comment-list-text">そろそろ卒論を書かないといけない時期ですね</div>
+  </div>
+</div>
+    <!-- 冒頭を表示 -->
+    <h2>卒論を書かないと！</h2>
+
+<p>こんばんは。本日はSublime TextでTeXをコンパイルするための設定手順の記事です。そろそろ本気で卒論を書かないといけない時期になってきたので、ちょっとでも快適に文章が書けるようにしたいと思います。</p>
+
+
+  </div>
+  
+  
+    <footer>
+      <a class="pjax" rel="full-article" href="/blog/2015/01/17/sublime-tex/">Read more&ensp;<i class="fa fa-angle-double-right fa-lg"></i></a></li>
+      
+<div class="share-button-top">
+  <ul>
+    <li><p><i class="fa fa-share-alt"></i></p></li>
+    
+    <li class="twitter-button-top"><a href="http://twitter.com/intent/tweet?text=Sublime Text 2でTeXの文書を作成（Ubuntu 14.04）&url=http://ry0.github.io/blog/2015/01/17/sublime-tex/&via=Ry0_Ka"
+    title="Share on Twitter"
+    target="_blacnk"><p class="twitter_custom_top"><i class="fa fa-twitter"></i>&ensp;<span class="twitterCountblog-2015-01-17-sublime-tex"></span></p></a></li>
+    </li>
+    
+    
+    <li><a href="http://www.facebook.com/sharer.php?src=bm&u=http://ry0.github.io/blog/2015/01/17/sublime-tex/index.html&amp;t=Sublime Text 2でTeXの文書を作成（Ubuntu 14.04）"
+    title="Share on Facebook"
+    target="_blank"><p  class="facebook_custom_top"><i class="fa fa-facebook-square"></i>&ensp;<span class="facebookCountblog-2015-01-17-sublime-tex"></span></p></a></li>
+    
+    
+    
+    <li><a href="http://b.hatena.ne.jp/entry/http://ry0.github.io/blog/2015/01/17/sublime-tex/"
+    title="Save to HatenaBookmark"
+    target="_blank"><p class="hatebu_custom_top" ><i class="icon-hatebu"></i>&ensp;<span class="hatebuCountblog-2015-01-17-sublime-tex"></span></p></a></li>
+    
+    
+    <li><a href="https://plus.google.com/share?url=http://ry0.github.io/blog/2015/01/17/sublime-tex/&title=Sublime Text 2でTeXの文書を作成（Ubuntu 14.04）"
+    title="Share on Google+"
+    target="_blank"><p  class="googleplus_custom_top"><i class="fa fa-google-plus"></i>&ensp;<span class="googleplusCountblog-2015-01-17-sublime-tex"></span></p></a></li>
+    
+    
+    <li><a href="http://getpocket.com/edit?url=http://ry0.github.io/blog/2015/01/17/sublime-tex/&title=Sublime Text 2でTeXの文書を作成（Ubuntu 14.04）"
+    title="Save to Pocket"
+    target="_blank"><p  class="pocket_custom_top"><i class="fa fa-get-pocket"></i>&ensp;<span class="pocketCountblog-2015-01-17-sublime-tex"></span></p></a></li>
+    
+  </ul>
+</div>
+<script type="text/javascript">
+socialCount('twitter', 'twitterCountblog-2015-01-17-sublime-tex', 'http://ry0.github.io/blog/2015/01/17/sublime-tex/');
+socialCount('hatebu', 'hatebuCountblog-2015-01-17-sublime-tex', 'http://ry0.github.io/blog/2015/01/17/sublime-tex/');
+socialCount('facebook', 'facebookCountblog-2015-01-17-sublime-tex', 'http://ry0.github.io/blog/2015/01/17/sublime-tex/');
+socialCount('googleplus', 'googleplusCountblog-2015-01-17-sublime-tex', 'http://ry0.github.io/blog/2015/01/17/sublime-tex/');
+socialCount('pocket', 'pocketCountblog-2015-01-17-sublime-tex', 'http://ry0.github.io/blog/2015/01/17/sublime-tex/');
+</script>
+    </footer>
+  
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    <p class="meta">
+      <div class='balloon'>
+        
+
+
+
+<time class='entry-date' datetime='2015-01-14T23:38:19+09:00'><span class='date'><span class='date-month'>Jan</span> <span class='date-day'>14</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>11:38 pm</span></time>
+      </div>
+    </p>
+    
+      <h1 class="entry-title"><a href="/blog/2015/01/14/rm-cmake/">CMakeで生成されたファイルを一気に削除</a></h1>
+    
+    
+      <p class="meta">
+        
+  
+
+<ol class="breadcrumbs">
+  <li><i class="fa fa-home"></i><a href="http://ry0.github.io">&ensp;<span>Top</span></a></li>
+  
+    
+    <li><span class="breadcrumbs_separator"> <i class="fa fa-angle-right"></i> <i class="fa fa-folder-open-o"></i>&ensp;</span><a class="pjax" href="/blog/categories/tips/"><span>tips</span></a></li>
+  
+  
+    
+    <li><span class="breadcrumbs_separator"> <i class="fa fa-angle-right"></i> <i class="fa fa-tags"></i>&ensp;</span><a class="pjax" href="/blog/tags/programming/"><span>Programming</span></a>
+    
+      
+        <span>, </span>
+        <a class="pjax" href="/blog/tags/ubuntu/"><span>Ubuntu</span></a>
+      
+    
+    </li>
+  
+</ol>
+
+
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content">
+    <!-- ヘッダー写真 -->
+    <div class="entry-image entry-image-post ripple">
+  <a href="/blog/2015/01/14/rm-cmake/"><img src="http://ry0.github.io/images/2015-01-14-rm-cmake/header.png"></a>
+  <span class="ripple-effect is-black"></span>
+</div>
+    <!-- ひとこと -->
+    <div class="comment-right">
+  <div class="comment-box">
+    <div class="comment-list-icon"><img class="comment-icon-toppage" src="/images/page/header-comment-icon_on.jpg"></div>
+    <div class="comment-list-text">CMakeの文法、正直分かってない&#8230;</div>
+  </div>
+</div>
+    <!-- 冒頭を表示 -->
+    <h2>CMakeFiles、CMakeCache.txt、cmake_install.cmake、Makefileを一気に消す！</h2>
+
+<p>こんばんは、今回はUbuntuのちょっとした小ネタです。
+タイトルにあるようにCMakeで生成されたファイルをコマンド一発で削除できるようにしようという記事です。</p>
+
+
+  </div>
+  
+  
+    <footer>
+      <a class="pjax" rel="full-article" href="/blog/2015/01/14/rm-cmake/">Read more&ensp;<i class="fa fa-angle-double-right fa-lg"></i></a></li>
+      
+<div class="share-button-top">
+  <ul>
+    <li><p><i class="fa fa-share-alt"></i></p></li>
+    
+    <li class="twitter-button-top"><a href="http://twitter.com/intent/tweet?text=CMakeで生成されたファイルを一気に削除&url=http://ry0.github.io/blog/2015/01/14/rm-cmake/&via=Ry0_Ka"
+    title="Share on Twitter"
+    target="_blacnk"><p class="twitter_custom_top"><i class="fa fa-twitter"></i>&ensp;<span class="twitterCountblog-2015-01-14-rm-cmake"></span></p></a></li>
+    </li>
+    
+    
+    <li><a href="http://www.facebook.com/sharer.php?src=bm&u=http://ry0.github.io/blog/2015/01/14/rm-cmake/index.html&amp;t=CMakeで生成されたファイルを一気に削除"
+    title="Share on Facebook"
+    target="_blank"><p  class="facebook_custom_top"><i class="fa fa-facebook-square"></i>&ensp;<span class="facebookCountblog-2015-01-14-rm-cmake"></span></p></a></li>
+    
+    
+    
+    <li><a href="http://b.hatena.ne.jp/entry/http://ry0.github.io/blog/2015/01/14/rm-cmake/"
+    title="Save to HatenaBookmark"
+    target="_blank"><p class="hatebu_custom_top" ><i class="icon-hatebu"></i>&ensp;<span class="hatebuCountblog-2015-01-14-rm-cmake"></span></p></a></li>
+    
+    
+    <li><a href="https://plus.google.com/share?url=http://ry0.github.io/blog/2015/01/14/rm-cmake/&title=CMakeで生成されたファイルを一気に削除"
+    title="Share on Google+"
+    target="_blank"><p  class="googleplus_custom_top"><i class="fa fa-google-plus"></i>&ensp;<span class="googleplusCountblog-2015-01-14-rm-cmake"></span></p></a></li>
+    
+    
+    <li><a href="http://getpocket.com/edit?url=http://ry0.github.io/blog/2015/01/14/rm-cmake/&title=CMakeで生成されたファイルを一気に削除"
+    title="Save to Pocket"
+    target="_blank"><p  class="pocket_custom_top"><i class="fa fa-get-pocket"></i>&ensp;<span class="pocketCountblog-2015-01-14-rm-cmake"></span></p></a></li>
+    
+  </ul>
+</div>
+<script type="text/javascript">
+socialCount('twitter', 'twitterCountblog-2015-01-14-rm-cmake', 'http://ry0.github.io/blog/2015/01/14/rm-cmake/');
+socialCount('hatebu', 'hatebuCountblog-2015-01-14-rm-cmake', 'http://ry0.github.io/blog/2015/01/14/rm-cmake/');
+socialCount('facebook', 'facebookCountblog-2015-01-14-rm-cmake', 'http://ry0.github.io/blog/2015/01/14/rm-cmake/');
+socialCount('googleplus', 'googleplusCountblog-2015-01-14-rm-cmake', 'http://ry0.github.io/blog/2015/01/14/rm-cmake/');
+socialCount('pocket', 'pocketCountblog-2015-01-14-rm-cmake', 'http://ry0.github.io/blog/2015/01/14/rm-cmake/');
+</script>
+    </footer>
+  
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    <p class="meta">
+      <div class='balloon'>
+        
+
+
+
+<time class='entry-date' datetime='2015-01-12T01:00:09+09:00'><span class='date'><span class='date-month'>Jan</span> <span class='date-day'>12</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>1:00 am</span></time>
+      </div>
+    </p>
+    
+      <h1 class="entry-title"><a href="/blog/2015/01/12/ubuntu-and-34uc97/">Ubuntuと34UC97を接続</a></h1>
+    
+    
+      <p class="meta">
+        
+  
+
+<ol class="breadcrumbs">
+  <li><i class="fa fa-home"></i><a href="http://ry0.github.io">&ensp;<span>Top</span></a></li>
+  
+    
+    <li><span class="breadcrumbs_separator"> <i class="fa fa-angle-right"></i> <i class="fa fa-folder-open-o"></i>&ensp;</span><a class="pjax" href="/blog/categories/tips/"><span>tips</span></a></li>
+  
+  
+    
+    <li><span class="breadcrumbs_separator"> <i class="fa fa-angle-right"></i> <i class="fa fa-tags"></i>&ensp;</span><a class="pjax" href="/blog/tags/setting/"><span>Setting</span></a>
+    
+      
+        <span>, </span>
+        <a class="pjax" href="/blog/tags/ubuntu/"><span>Ubuntu</span></a>
+      
+    
+    </li>
+  
+</ol>
+
+
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content">
+    <!-- ヘッダー写真 -->
+    <div class="entry-image entry-image-post ripple">
+  <a href="/blog/2015/01/12/ubuntu-and-34uc97/"><img src="https://farm1.staticflickr.com/728/21819091132_2bc40236fe_o.jpg"></a>
+  <span class="ripple-effect is-black"></span>
+</div>
+    <!-- ひとこと -->
+    <div class="comment-right">
+  <div class="comment-box">
+    <div class="comment-list-icon"><img class="comment-icon-toppage" src="/images/page/header-comment-icon_on.jpg"></div>
+    <div class="comment-list-text">せっかく大きい画面なんだからプログラムもしなくちゃ！</div>
+  </div>
+</div>
+    <!-- 冒頭を表示 -->
+    <h2>やっぱりセットアップは面倒だぜ</h2>
+
+<p>今日、一日中Ubuntuのセットアップをしていました。やっぱり最初からすべての環境を整えるのは大変ですね。<br/>
+でも上のスクリーンショットのようにしっかり34UC97と接続出来ました！</p>
+
+
+  </div>
+  
+  
+    <footer>
+      <a class="pjax" rel="full-article" href="/blog/2015/01/12/ubuntu-and-34uc97/">Read more&ensp;<i class="fa fa-angle-double-right fa-lg"></i></a></li>
+      
+<div class="share-button-top">
+  <ul>
+    <li><p><i class="fa fa-share-alt"></i></p></li>
+    
+    <li class="twitter-button-top"><a href="http://twitter.com/intent/tweet?text=Ubuntuと34UC97を接続&url=http://ry0.github.io/blog/2015/01/12/ubuntu-and-34uc97/&via=Ry0_Ka"
+    title="Share on Twitter"
+    target="_blacnk"><p class="twitter_custom_top"><i class="fa fa-twitter"></i>&ensp;<span class="twitterCountblog-2015-01-12-ubuntu-and-34uc97"></span></p></a></li>
+    </li>
+    
+    
+    <li><a href="http://www.facebook.com/sharer.php?src=bm&u=http://ry0.github.io/blog/2015/01/12/ubuntu-and-34uc97/index.html&amp;t=Ubuntuと34UC97を接続"
+    title="Share on Facebook"
+    target="_blank"><p  class="facebook_custom_top"><i class="fa fa-facebook-square"></i>&ensp;<span class="facebookCountblog-2015-01-12-ubuntu-and-34uc97"></span></p></a></li>
+    
+    
+    
+    <li><a href="http://b.hatena.ne.jp/entry/http://ry0.github.io/blog/2015/01/12/ubuntu-and-34uc97/"
+    title="Save to HatenaBookmark"
+    target="_blank"><p class="hatebu_custom_top" ><i class="icon-hatebu"></i>&ensp;<span class="hatebuCountblog-2015-01-12-ubuntu-and-34uc97"></span></p></a></li>
+    
+    
+    <li><a href="https://plus.google.com/share?url=http://ry0.github.io/blog/2015/01/12/ubuntu-and-34uc97/&title=Ubuntuと34UC97を接続"
+    title="Share on Google+"
+    target="_blank"><p  class="googleplus_custom_top"><i class="fa fa-google-plus"></i>&ensp;<span class="googleplusCountblog-2015-01-12-ubuntu-and-34uc97"></span></p></a></li>
+    
+    
+    <li><a href="http://getpocket.com/edit?url=http://ry0.github.io/blog/2015/01/12/ubuntu-and-34uc97/&title=Ubuntuと34UC97を接続"
+    title="Save to Pocket"
+    target="_blank"><p  class="pocket_custom_top"><i class="fa fa-get-pocket"></i>&ensp;<span class="pocketCountblog-2015-01-12-ubuntu-and-34uc97"></span></p></a></li>
+    
+  </ul>
+</div>
+<script type="text/javascript">
+socialCount('twitter', 'twitterCountblog-2015-01-12-ubuntu-and-34uc97', 'http://ry0.github.io/blog/2015/01/12/ubuntu-and-34uc97/');
+socialCount('hatebu', 'hatebuCountblog-2015-01-12-ubuntu-and-34uc97', 'http://ry0.github.io/blog/2015/01/12/ubuntu-and-34uc97/');
+socialCount('facebook', 'facebookCountblog-2015-01-12-ubuntu-and-34uc97', 'http://ry0.github.io/blog/2015/01/12/ubuntu-and-34uc97/');
+socialCount('googleplus', 'googleplusCountblog-2015-01-12-ubuntu-and-34uc97', 'http://ry0.github.io/blog/2015/01/12/ubuntu-and-34uc97/');
+socialCount('pocket', 'pocketCountblog-2015-01-12-ubuntu-and-34uc97', 'http://ry0.github.io/blog/2015/01/12/ubuntu-and-34uc97/');
+</script>
+    </footer>
+  
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    <p class="meta">
+      <div class='balloon'>
+        
+
+
+
+<time class='entry-date' datetime='2015-01-10T18:32:52+09:00'><span class='date'><span class='date-month'>Jan</span> <span class='date-day'>10</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>6:32 pm</span></time>
+      </div>
+    </p>
+    
+      <h1 class="entry-title"><a href="/blog/2015/01/10/thunderbolt/">34UC97とMacBook Airをつないでみた</a></h1>
+    
+    
+      <p class="meta">
+        
+  
+
+<ol class="breadcrumbs">
+  <li><i class="fa fa-home"></i><a href="http://ry0.github.io">&ensp;<span>Top</span></a></li>
+  
+    
+    <li><span class="breadcrumbs_separator"> <i class="fa fa-angle-right"></i> <i class="fa fa-folder-open-o"></i>&ensp;</span><a class="pjax" href="/blog/categories/tips/"><span>tips</span></a></li>
+  
+  
+    
+    <li><span class="breadcrumbs_separator"> <i class="fa fa-angle-right"></i> <i class="fa fa-tags"></i>&ensp;</span><a class="pjax" href="/blog/tags/mac/"><span>Mac</span></a>
+    
+      
+        <span>, </span>
+        <a class="pjax" href="/blog/tags/review/"><span>Review</span></a>
+      
+    
+    </li>
+  
+</ol>
+
+
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content">
+    <!-- ヘッダー写真 -->
+    <div class="entry-image entry-image-post ripple">
+  <a href="/blog/2015/01/10/thunderbolt/"><img src="https://farm9.staticflickr.com/8659/15621685394_8401f4c573_b.jpg"></a>
+  <span class="ripple-effect is-black"></span>
+</div>
+    <!-- ひとこと -->
+    <div class="comment-right">
+  <div class="comment-box">
+    <div class="comment-list-icon"><img class="comment-icon-toppage" src="/images/page/header-comment-icon_on.jpg"></div>
+    <div class="comment-list-text">MacBook Airでもリフレッシュレート60Hzいけます！</div>
+  </div>
+</div>
+    <!-- 冒頭を表示 -->
+    <h2>MacBook Airとつないでみる</h2>
+
+<p>前回、34UC97-Sの<a href="http://ry0.github.io/blog/2015/01/07/34uc97-s/">購入レビュー</a>をしました。その記事で書いたMacBook Airとの接続を確認したので、それについて記事にします。<br/>
+結論から言ってしまうとちゃんとつながりました。</p>
+
+
+  </div>
+  
+  
+    <footer>
+      <a class="pjax" rel="full-article" href="/blog/2015/01/10/thunderbolt/">Read more&ensp;<i class="fa fa-angle-double-right fa-lg"></i></a></li>
+      
+<div class="share-button-top">
+  <ul>
+    <li><p><i class="fa fa-share-alt"></i></p></li>
+    
+    <li class="twitter-button-top"><a href="http://twitter.com/intent/tweet?text=34UC97とMacBook Airをつないでみた&url=http://ry0.github.io/blog/2015/01/10/thunderbolt/&via=Ry0_Ka"
+    title="Share on Twitter"
+    target="_blacnk"><p class="twitter_custom_top"><i class="fa fa-twitter"></i>&ensp;<span class="twitterCountblog-2015-01-10-thunderbolt"></span></p></a></li>
+    </li>
+    
+    
+    <li><a href="http://www.facebook.com/sharer.php?src=bm&u=http://ry0.github.io/blog/2015/01/10/thunderbolt/index.html&amp;t=34UC97とMacBook Airをつないでみた"
+    title="Share on Facebook"
+    target="_blank"><p  class="facebook_custom_top"><i class="fa fa-facebook-square"></i>&ensp;<span class="facebookCountblog-2015-01-10-thunderbolt"></span></p></a></li>
+    
+    
+    
+    <li><a href="http://b.hatena.ne.jp/entry/http://ry0.github.io/blog/2015/01/10/thunderbolt/"
+    title="Save to HatenaBookmark"
+    target="_blank"><p class="hatebu_custom_top" ><i class="icon-hatebu"></i>&ensp;<span class="hatebuCountblog-2015-01-10-thunderbolt"></span></p></a></li>
+    
+    
+    <li><a href="https://plus.google.com/share?url=http://ry0.github.io/blog/2015/01/10/thunderbolt/&title=34UC97とMacBook Airをつないでみた"
+    title="Share on Google+"
+    target="_blank"><p  class="googleplus_custom_top"><i class="fa fa-google-plus"></i>&ensp;<span class="googleplusCountblog-2015-01-10-thunderbolt"></span></p></a></li>
+    
+    
+    <li><a href="http://getpocket.com/edit?url=http://ry0.github.io/blog/2015/01/10/thunderbolt/&title=34UC97とMacBook Airをつないでみた"
+    title="Save to Pocket"
+    target="_blank"><p  class="pocket_custom_top"><i class="fa fa-get-pocket"></i>&ensp;<span class="pocketCountblog-2015-01-10-thunderbolt"></span></p></a></li>
+    
+  </ul>
+</div>
+<script type="text/javascript">
+socialCount('twitter', 'twitterCountblog-2015-01-10-thunderbolt', 'http://ry0.github.io/blog/2015/01/10/thunderbolt/');
+socialCount('hatebu', 'hatebuCountblog-2015-01-10-thunderbolt', 'http://ry0.github.io/blog/2015/01/10/thunderbolt/');
+socialCount('facebook', 'facebookCountblog-2015-01-10-thunderbolt', 'http://ry0.github.io/blog/2015/01/10/thunderbolt/');
+socialCount('googleplus', 'googleplusCountblog-2015-01-10-thunderbolt', 'http://ry0.github.io/blog/2015/01/10/thunderbolt/');
+socialCount('pocket', 'pocketCountblog-2015-01-10-thunderbolt', 'http://ry0.github.io/blog/2015/01/10/thunderbolt/');
+</script>
+    </footer>
+  
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    <p class="meta">
+      <div class='balloon'>
+        
+
+
+
+<time class='entry-date' datetime='2015-01-07T10:41:17+09:00'><span class='date'><span class='date-month'>Jan</span> <span class='date-day'>7</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>10:41 am</span></time>
+      </div>
+    </p>
+    
+      <h1 class="entry-title"><a href="/blog/2015/01/07/34uc97-s/">ウルトラワイドモニター 34UC97を購入、ちょこっとレビュー</a></h1>
+    
+    
+      <p class="meta">
+        
+  
+
+<ol class="breadcrumbs">
+  <li><i class="fa fa-home"></i><a href="http://ry0.github.io">&ensp;<span>Top</span></a></li>
+  
+    
+    <li><span class="breadcrumbs_separator"> <i class="fa fa-angle-right"></i> <i class="fa fa-folder-open-o"></i>&ensp;</span><a class="pjax" href="/blog/categories/shopping/"><span>shopping</span></a></li>
+  
+  
+    
+    <li><span class="breadcrumbs_separator"> <i class="fa fa-angle-right"></i> <i class="fa fa-tags"></i>&ensp;</span><a class="pjax" href="/blog/tags/mac/"><span>Mac</span></a>
+    
+      
+        <span>, </span>
+        <a class="pjax" href="/blog/tags/review/"><span>Review</span></a>
+      
+        <span>, </span>
+        <a class="pjax" href="/blog/tags/ubuntu/"><span>Ubuntu</span></a>
+      
+        <span>, </span>
+        <a class="pjax" href="/blog/tags/windows/"><span>Windows</span></a>
+      
+    
+    </li>
+  
+</ol>
+
+
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content">
+    <!-- ヘッダー写真 -->
+    <div class="entry-image entry-image-post ripple">
+  <a href="/blog/2015/01/07/34uc97-s/"><img src="https://farm8.staticflickr.com/7579/16028695609_e2b59030b3_b.jpg"></a>
+  <span class="ripple-effect is-black"></span>
+</div>
+    <!-- ひとこと -->
+    <div class="comment-right">
+  <div class="comment-box">
+    <div class="comment-list-icon"><img class="comment-icon-toppage" src="/images/page/header-comment-icon_on.jpg"></div>
+    <div class="comment-list-text">価格以外の欠点が見つかりません</div>
+  </div>
+</div>
+    <!-- 冒頭を表示 -->
+    <h2>新年のご挨拶</h2>
+
+<p>明けましておめでとうございます。<br/>
+新年のあいさつの記事はもっと早く出すべきだったのですが、<a href="http://ry0.github.io/blog/2014/12/27/return/">27日の記事</a>を書いて無事実家に戻ったのはいいものの、その日の深夜から感染性胃腸炎にかかりせっかくの冬休みの帰省はほとんどお布団の中にいるという残念な休みでした(;´д｀)ﾄﾎﾎ…<br/>
+今は元気になってほとんどなんでも食べられるようになりました。ひさしぶりのゲボゲボだったので未だにトラウマですが…</p>
+
+<h2>気分は変わってモニターの話</h2>
+
+<p>本題に戻ります。画面の縦横比21:9の超ワイドモニター 34UC97-Sをついに購入しました。</p>
+
+
+  </div>
+  
+  
+    <footer>
+      <a class="pjax" rel="full-article" href="/blog/2015/01/07/34uc97-s/">Read more&ensp;<i class="fa fa-angle-double-right fa-lg"></i></a></li>
+      
+<div class="share-button-top">
+  <ul>
+    <li><p><i class="fa fa-share-alt"></i></p></li>
+    
+    <li class="twitter-button-top"><a href="http://twitter.com/intent/tweet?text=ウルトラワイドモニター 34UC97を購入、ちょこっとレビュー&url=http://ry0.github.io/blog/2015/01/07/34uc97-s/&via=Ry0_Ka"
+    title="Share on Twitter"
+    target="_blacnk"><p class="twitter_custom_top"><i class="fa fa-twitter"></i>&ensp;<span class="twitterCountblog-2015-01-07-34uc97-s"></span></p></a></li>
+    </li>
+    
+    
+    <li><a href="http://www.facebook.com/sharer.php?src=bm&u=http://ry0.github.io/blog/2015/01/07/34uc97-s/index.html&amp;t=ウルトラワイドモニター 34UC97を購入、ちょこっとレビュー"
+    title="Share on Facebook"
+    target="_blank"><p  class="facebook_custom_top"><i class="fa fa-facebook-square"></i>&ensp;<span class="facebookCountblog-2015-01-07-34uc97-s"></span></p></a></li>
+    
+    
+    
+    <li><a href="http://b.hatena.ne.jp/entry/http://ry0.github.io/blog/2015/01/07/34uc97-s/"
+    title="Save to HatenaBookmark"
+    target="_blank"><p class="hatebu_custom_top" ><i class="icon-hatebu"></i>&ensp;<span class="hatebuCountblog-2015-01-07-34uc97-s"></span></p></a></li>
+    
+    
+    <li><a href="https://plus.google.com/share?url=http://ry0.github.io/blog/2015/01/07/34uc97-s/&title=ウルトラワイドモニター 34UC97を購入、ちょこっとレビュー"
+    title="Share on Google+"
+    target="_blank"><p  class="googleplus_custom_top"><i class="fa fa-google-plus"></i>&ensp;<span class="googleplusCountblog-2015-01-07-34uc97-s"></span></p></a></li>
+    
+    
+    <li><a href="http://getpocket.com/edit?url=http://ry0.github.io/blog/2015/01/07/34uc97-s/&title=ウルトラワイドモニター 34UC97を購入、ちょこっとレビュー"
+    title="Save to Pocket"
+    target="_blank"><p  class="pocket_custom_top"><i class="fa fa-get-pocket"></i>&ensp;<span class="pocketCountblog-2015-01-07-34uc97-s"></span></p></a></li>
+    
+  </ul>
+</div>
+<script type="text/javascript">
+socialCount('twitter', 'twitterCountblog-2015-01-07-34uc97-s', 'http://ry0.github.io/blog/2015/01/07/34uc97-s/');
+socialCount('hatebu', 'hatebuCountblog-2015-01-07-34uc97-s', 'http://ry0.github.io/blog/2015/01/07/34uc97-s/');
+socialCount('facebook', 'facebookCountblog-2015-01-07-34uc97-s', 'http://ry0.github.io/blog/2015/01/07/34uc97-s/');
+socialCount('googleplus', 'googleplusCountblog-2015-01-07-34uc97-s', 'http://ry0.github.io/blog/2015/01/07/34uc97-s/');
+socialCount('pocket', 'pocketCountblog-2015-01-07-34uc97-s', 'http://ry0.github.io/blog/2015/01/07/34uc97-s/');
+</script>
+    </footer>
+  
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    <p class="meta">
+      <div class='balloon'>
+        
+
+
+
+<time class='entry-date' datetime='2014-12-27T15:41:13+09:00'><span class='date'><span class='date-month'>Dec</span> <span class='date-day'>27</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>3:41 pm</span></time>
+      </div>
+    </p>
+    
+      <h1 class="entry-title"><a href="/blog/2014/12/27/return/">地元に帰還します</a></h1>
+    
+    
+      <p class="meta">
+        
+  
+
+<ol class="breadcrumbs">
+  <li><i class="fa fa-home"></i><a href="http://ry0.github.io">&ensp;<span>Top</span></a></li>
+  
+    
+    <li><span class="breadcrumbs_separator"> <i class="fa fa-angle-right"></i> <i class="fa fa-folder-open-o"></i>&ensp;</span><a class="pjax" href="/blog/categories/dairy/"><span>dairy</span></a></li>
+  
+  
+    
+    <li><span class="breadcrumbs_separator"> <i class="fa fa-angle-right"></i> <i class="fa fa-tags"></i>&ensp;</span><a class="pjax" href="/blog/tags/life/"><span>Life</span></a>
+    
+    </li>
+  
+</ol>
+
+
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content">
+    <!-- ヘッダー写真 -->
+    <div class="entry-image entry-image-post ripple">
+  <a href="/blog/2014/12/27/return/"><img src="https://farm9.staticflickr.com/8605/15929700868_5df0d72f0e_b.jpg"></a>
+  <span class="ripple-effect is-black"></span>
+</div>
+    <!-- ひとこと -->
+    <div class="comment-right">
+  <div class="comment-box">
+    <div class="comment-list-icon"><img class="comment-icon-toppage" src="/images/page/header-comment-icon_on.jpg"></div>
+    <div class="comment-list-text">このときには後に感染性胃腸炎でぶっ倒れることは知る由もなかった</div>
+  </div>
+</div>
+    <!-- 冒頭を表示 -->
+    <h2>本日地元に帰ります</h2>
+
+<p>昨日、12月26日に研究室内での中間発表も終わり、なんとか研究室での一年を終わらせることが出来ました。<br/>
+中間発表を終えて、忘年会をし、あとラウンドワンのスポッチャで一晩中。遊び慣れていないのでぐったりでした。<br/>
+ってことで今日、地元岡山に帰ります！</p>
+
+
+  </div>
+  
+  
+    <footer>
+      <a class="pjax" rel="full-article" href="/blog/2014/12/27/return/">Read more&ensp;<i class="fa fa-angle-double-right fa-lg"></i></a></li>
+      
+<div class="share-button-top">
+  <ul>
+    <li><p><i class="fa fa-share-alt"></i></p></li>
+    
+    <li class="twitter-button-top"><a href="http://twitter.com/intent/tweet?text=地元に帰還します&url=http://ry0.github.io/blog/2014/12/27/return/&via=Ry0_Ka"
+    title="Share on Twitter"
+    target="_blacnk"><p class="twitter_custom_top"><i class="fa fa-twitter"></i>&ensp;<span class="twitterCountblog-2014-12-27-return"></span></p></a></li>
+    </li>
+    
+    
+    <li><a href="http://www.facebook.com/sharer.php?src=bm&u=http://ry0.github.io/blog/2014/12/27/return/index.html&amp;t=地元に帰還します"
+    title="Share on Facebook"
+    target="_blank"><p  class="facebook_custom_top"><i class="fa fa-facebook-square"></i>&ensp;<span class="facebookCountblog-2014-12-27-return"></span></p></a></li>
+    
+    
+    
+    <li><a href="http://b.hatena.ne.jp/entry/http://ry0.github.io/blog/2014/12/27/return/"
+    title="Save to HatenaBookmark"
+    target="_blank"><p class="hatebu_custom_top" ><i class="icon-hatebu"></i>&ensp;<span class="hatebuCountblog-2014-12-27-return"></span></p></a></li>
+    
+    
+    <li><a href="https://plus.google.com/share?url=http://ry0.github.io/blog/2014/12/27/return/&title=地元に帰還します"
+    title="Share on Google+"
+    target="_blank"><p  class="googleplus_custom_top"><i class="fa fa-google-plus"></i>&ensp;<span class="googleplusCountblog-2014-12-27-return"></span></p></a></li>
+    
+    
+    <li><a href="http://getpocket.com/edit?url=http://ry0.github.io/blog/2014/12/27/return/&title=地元に帰還します"
+    title="Save to Pocket"
+    target="_blank"><p  class="pocket_custom_top"><i class="fa fa-get-pocket"></i>&ensp;<span class="pocketCountblog-2014-12-27-return"></span></p></a></li>
+    
+  </ul>
+</div>
+<script type="text/javascript">
+socialCount('twitter', 'twitterCountblog-2014-12-27-return', 'http://ry0.github.io/blog/2014/12/27/return/');
+socialCount('hatebu', 'hatebuCountblog-2014-12-27-return', 'http://ry0.github.io/blog/2014/12/27/return/');
+socialCount('facebook', 'facebookCountblog-2014-12-27-return', 'http://ry0.github.io/blog/2014/12/27/return/');
+socialCount('googleplus', 'googleplusCountblog-2014-12-27-return', 'http://ry0.github.io/blog/2014/12/27/return/');
+socialCount('pocket', 'pocketCountblog-2014-12-27-return', 'http://ry0.github.io/blog/2014/12/27/return/');
+</script>
+    </footer>
+  
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    <p class="meta">
+      <div class='balloon'>
+        
+
+
+
+<time class='entry-date' datetime='2014-12-24T22:23:06+09:00'><span class='date'><span class='date-month'>Dec</span> <span class='date-day'>24</span><span class='date-suffix'>th</span>, <span class='date-year'>2014</span></span> <span class='time'>10:23 pm</span></time>
+      </div>
+    </p>
+    
+      <h1 class="entry-title"><a href="/blog/2014/12/24/japan-3rd-tour-bluray/">GIRLS&#8217; GENERATION Japan 3rd TourのBlu-rayが届いたよ</a></h1>
+    
+    
+      <p class="meta">
+        
+  
+
+<ol class="breadcrumbs">
+  <li><i class="fa fa-home"></i><a href="http://ry0.github.io">&ensp;<span>Top</span></a></li>
+  
+    
+    <li><span class="breadcrumbs_separator"> <i class="fa fa-angle-right"></i> <i class="fa fa-folder-open-o"></i>&ensp;</span><a class="pjax" href="/blog/categories/shopping/"><span>shopping</span></a></li>
+  
+  
+    
+    <li><span class="breadcrumbs_separator"> <i class="fa fa-angle-right"></i> <i class="fa fa-tags"></i>&ensp;</span><a class="pjax" href="/blog/tags/girls generation/"><span>GIRLS GENERATION</span></a>
+    
+      
+        <span>, </span>
+        <a class="pjax" href="/blog/tags/life/"><span>Life</span></a>
+      
+        <span>, </span>
+        <a class="pjax" href="/blog/tags/review/"><span>Review</span></a>
+      
+    
+    </li>
+  
+</ol>
+
+
+        
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content">
+    <!-- ヘッダー写真 -->
+    <div class="entry-image entry-image-post ripple">
+  <a href="/blog/2014/12/24/japan-3rd-tour-bluray/"><img src="https://farm9.staticflickr.com/8671/15475113483_dd502c2976_b.jpg"></a>
+  <span class="ripple-effect is-black"></span>
+</div>
+    <!-- ひとこと -->
+    <div class="comment-right">
+  <div class="comment-box">
+    <div class="comment-list-icon"><img class="comment-icon-toppage" src="/images/page/header-comment-icon_on.jpg"></div>
+    <div class="comment-list-text">9人の完全体カルマバタフライは圧巻！</div>
+  </div>
+</div>
+    <!-- 冒頭を表示 -->
+    <h2>やっと観れるぞサードツアー</h2>
+
+<p>2014年4月から始まったサードツアー。私が行ったのはマリンメッセ福岡の1日目と2日目だけ。一発目の公演でした。<br/>
+一発目の公演のおかげでツアーグッズを買うのも一苦労。タオルやら缶バッチやらいろいろ買ったなあ。<br/>
+一日目のソヒョンちゃんの涙のコメントがとくに印象的で今思い返してみると複雑な気分です。<br/>
+いろいろアレなお話もありますが、グズグズ言うのは嫌いなのでもう終わり！<br/>
+3度目の全国ツアーでますます完成されたライブのBlu-rayがついに発売されました。</p>
+
+
+  </div>
+  
+  
+    <footer>
+      <a class="pjax" rel="full-article" href="/blog/2014/12/24/japan-3rd-tour-bluray/">Read more&ensp;<i class="fa fa-angle-double-right fa-lg"></i></a></li>
+      
+<div class="share-button-top">
+  <ul>
+    <li><p><i class="fa fa-share-alt"></i></p></li>
+    
+    <li class="twitter-button-top"><a href="http://twitter.com/intent/tweet?text=GIRLS' GENERATION Japan 3rd TourのBlu-rayが届いたよ&url=http://ry0.github.io/blog/2014/12/24/japan-3rd-tour-bluray/&via=Ry0_Ka"
+    title="Share on Twitter"
+    target="_blacnk"><p class="twitter_custom_top"><i class="fa fa-twitter"></i>&ensp;<span class="twitterCountblog-2014-12-24-japan-3rd-tour-bluray"></span></p></a></li>
+    </li>
+    
+    
+    <li><a href="http://www.facebook.com/sharer.php?src=bm&u=http://ry0.github.io/blog/2014/12/24/japan-3rd-tour-bluray/index.html&amp;t=GIRLS' GENERATION Japan 3rd TourのBlu-rayが届いたよ"
+    title="Share on Facebook"
+    target="_blank"><p  class="facebook_custom_top"><i class="fa fa-facebook-square"></i>&ensp;<span class="facebookCountblog-2014-12-24-japan-3rd-tour-bluray"></span></p></a></li>
+    
+    
+    
+    <li><a href="http://b.hatena.ne.jp/entry/http://ry0.github.io/blog/2014/12/24/japan-3rd-tour-bluray/"
+    title="Save to HatenaBookmark"
+    target="_blank"><p class="hatebu_custom_top" ><i class="icon-hatebu"></i>&ensp;<span class="hatebuCountblog-2014-12-24-japan-3rd-tour-bluray"></span></p></a></li>
+    
+    
+    <li><a href="https://plus.google.com/share?url=http://ry0.github.io/blog/2014/12/24/japan-3rd-tour-bluray/&title=GIRLS' GENERATION Japan 3rd TourのBlu-rayが届いたよ"
+    title="Share on Google+"
+    target="_blank"><p  class="googleplus_custom_top"><i class="fa fa-google-plus"></i>&ensp;<span class="googleplusCountblog-2014-12-24-japan-3rd-tour-bluray"></span></p></a></li>
+    
+    
+    <li><a href="http://getpocket.com/edit?url=http://ry0.github.io/blog/2014/12/24/japan-3rd-tour-bluray/&title=GIRLS' GENERATION Japan 3rd TourのBlu-rayが届いたよ"
+    title="Save to Pocket"
+    target="_blank"><p  class="pocket_custom_top"><i class="fa fa-get-pocket"></i>&ensp;<span class="pocketCountblog-2014-12-24-japan-3rd-tour-bluray"></span></p></a></li>
+    
+  </ul>
+</div>
+<script type="text/javascript">
+socialCount('twitter', 'twitterCountblog-2014-12-24-japan-3rd-tour-bluray', 'http://ry0.github.io/blog/2014/12/24/japan-3rd-tour-bluray/');
+socialCount('hatebu', 'hatebuCountblog-2014-12-24-japan-3rd-tour-bluray', 'http://ry0.github.io/blog/2014/12/24/japan-3rd-tour-bluray/');
+socialCount('facebook', 'facebookCountblog-2014-12-24-japan-3rd-tour-bluray', 'http://ry0.github.io/blog/2014/12/24/japan-3rd-tour-bluray/');
+socialCount('googleplus', 'googleplusCountblog-2014-12-24-japan-3rd-tour-bluray', 'http://ry0.github.io/blog/2014/12/24/japan-3rd-tour-bluray/');
+socialCount('pocket', 'pocketCountblog-2014-12-24-japan-3rd-tour-bluray', 'http://ry0.github.io/blog/2014/12/24/japan-3rd-tour-bluray/');
+</script>
+    </footer>
+  
+
+    </article>
+  
+  <div class="pagination">
+    
+      <a class="prev pjax" href="/posts/10"><i class="fa fa-chevron-circle-left"></i> Older</a>
+    
+    <a class="pjax" href="/blog/archives"><i class="fa fa-archive"></i> Blog Archives</a>
+    
+    <a class="next pjax" href="/posts/8">Newer <i class="fa fa-chevron-circle-right"></i>
+</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>About Me</h1>
+  <div class="about">
+    <figure>
+      <img src="/images/page/about_me.png" />
+      <a href="https://ry0note.app.push7.jp">
+      <figcaption>
+        <p class="push7-icon"><i class="icon-pushseven"></i></p>
+        <p class="push7-caption">購読する</p>
+      </figcaption>
+      </a>
+    </figure>
+
+    <h2>Author</h2>
+    <p><a href="https://twitter.com/Ry0_Ka" style="text-decoration: none" class="about-link">@Ry0_Ka</a></p>
+    <p>スマートフォンとかのガジェットのレビューが中心。たまにUbuntuのソフト紹介など。
+    GithubとOctopressを使って書いています。<a class="pjax" href="/about" style="text-decoration: none">もっと詳しく <i class="fa fa-angle-double-right fa-lg"></i></a>
+    </p>
+    <p class="introduce-push7">
+    このブログは<i class="icon-pushseven push7-logo"></i><strong>Push7</strong>を使ったWebプッシュ通知サービスに対応しています。私のアイコンをクリック。
+    </p>
+  </div>
+</section>
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts" class="fa-ul">
+    
+      <li class="post"><i class="fa fa-link fa-li"></i>
+        <a href="/blog/2017/08/29/contessa-seconda/" style="text-decoration: none">岡村製作所 コンテッサ セコンダのレビュー</a>
+      </li>
+    
+      <li class="post"><i class="fa fa-link fa-li"></i>
+        <a href="/blog/2016/12/22/skinomi-techskin-full-coverage-skin-screen-protector-for-huawei-p9-front-and-back-clear-hd-film/" style="text-decoration: none">Skinomi TechSkin Full Coverage Skin + Screen Protector for Huawei P9 Front &amp; Back Clear HD Filmのレビュー</a>
+      </li>
+    
+      <li class="post"><i class="fa fa-link fa-li"></i>
+        <a href="/blog/2016/12/12/huawei-p9-red/" style="text-decoration: none">赤の色合いが最高！HUAWEI P9 Redのレビュー</a>
+      </li>
+    
+      <li class="post"><i class="fa fa-link fa-li"></i>
+        <a href="/blog/2016/11/14/ec-technology-1200mah-mobile-battery/" style="text-decoration: none">EC Technology 12000mAh モバイルバッテリーのレビュー</a>
+      </li>
+    
+      <li class="post"><i class="fa fa-link fa-li"></i>
+        <a href="/blog/2016/08/01/ec-technology-qi-wireless-charger/" style="text-decoration: none">EC Technology Qi ワイヤレス充電器のレビュー</a>
+      </li>
+    
+      <li class="post"><i class="fa fa-link fa-li"></i>
+        <a href="/blog/2016/07/18/ec-technology-5200mah-mobile-battery/" style="text-decoration: none">EC Technology 5200mAh モバイルバッテリーのレビュー</a>
+      </li>
+    
+      <li class="post"><i class="fa fa-link fa-li"></i>
+        <a href="/blog/2016/06/27/b-and-nd-by-hadley-roma-with-mode-20mm-silicone-red-watch-strap/" style="text-decoration: none">b&nd by Hadley Roma with MODE 20mm Silicone Red Watch Strapを輸入してみた</a>
+      </li>
+    
+  </ul>
+</section>
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p class="credit">
+  Copyright &copy; 2019 - <a href="https://twitter.com/Ry0_Ka">Ry0_Ka</a> -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a> | Themed with <a href="https://github.com/lucaslew/whitespace">Whitespace</a></span>
+</p>
+
+</footer>
+  <!-- 
+
+<script type="text/javascript">
+      var disqus_shortname = 'ry0';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      if(window.DISQUS){
+        // console.log("Disqusを読み込んだことあるのでリロードします！");
+        DISQUS.reset({
+          reload: true,
+          config: function () {
+            this.page.identifier = disqus_identifier;
+            this.page.url = disqus_url;
+          }
+        });
+      }else{
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+    }());
+</script>
+
+ &#8211;>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

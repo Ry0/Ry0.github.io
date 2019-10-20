@@ -1,0 +1,493 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Tag: Mac | Ry0 Note]]></title>
+  <link href="http://ry0.github.io/blog/tags/mac/atom.xml" rel="self"/>
+  <link href="http://ry0.github.io/"/>
+  <updated>2019-10-20T02:14:29+09:00</updated>
+  <id>http://ry0.github.io/</id>
+  <author>
+    <name><![CDATA[Ry0_Ka]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[EC Technology 12000mAh モバイルバッテリーのレビュー]]></title>
+    <link href="http://ry0.github.io/blog/2016/11/14/ec-technology-1200mah-mobile-battery/"/>
+    <updated>2016-11-14T23:58:10+09:00</updated>
+    <id>http://ry0.github.io/blog/2016/11/14/ec-technology-1200mah-mobile-battery</id>
+    <content type="html"><![CDATA[<h2>本日は容量大きめのモバイルバッテリーの紹介です</h2>
+
+<p>お久しぶりです。</p>
+
+<p>しばらくブログの更新を行っていなかったのですが、
+EC Technologyさんから、「EC Technology 12000mAh モバイルバッテリー」を提供していただいたのでレビュー記事を書きます。</p>
+
+<p>最近はブログの内容もマンネリ化しているのでゲスト（研究室のとなりのやつ）にも頼んで感想を書いたので、
+その内容も参考にしてみてください。</p>
+
+<!-- more -->
+
+
+<h2>開封</h2>
+
+<p>いつも通りのパッケージ内容なので簡単に。<br/>
+必要最低限の説明書、
+充電用のUSBケーブルが同梱されています。</p>
+
+<p><a class="swipebox" href="https://farm6.staticflickr.com/5562/30862614672_33ee195acb_h.jpg" title="内容物">
+  <img class="center image-effect" src="https://farm6.staticflickr.com/5562/30862614672_71131ac5aa_b.jpg">
+</a></p>
+
+<h2>本体</h2>
+
+<p>本体の表面はマットな感じでさらさらしています。
+<strong>持った感じはさすが12000mAhという感じでずっしりくる感じ。</strong></p>
+
+<p><a class="swipebox" href="https://farm6.staticflickr.com/5324/30943834446_af16bed904_h.jpg" title="本体">
+  <img class="center image-effect" src="https://farm6.staticflickr.com/5324/30943834446_86d3d9292c_b.jpg">
+</a></p>
+
+<p><strong>充電用の端子はUSBコネクタ×2と最大3A出力可能なType-Cポートを搭載しています。</strong><br/>
+また面白いのがこのType-Cポート。
+最近発売されているMacではType-Cポートが当たり前になってきているので、
+重宝するのではないかと思います。<br/>
+ただし私はType-Cポートが搭載されたMacを持っていないので検証できていません。
+すみません。</p>
+
+<p><a class="swipebox" href="https://farm6.staticflickr.com/5535/25343532309_18b84df5d1_h.jpg" title="端子部分">
+  <img class="center image-effect" src="https://farm6.staticflickr.com/5535/25343532309_dd706771ee_b.jpg">
+</a></p>
+
+<h2>充電</h2>
+
+<p>バッテリー自体の充電は充電用のmicro USB端子かType-Cポートから行います。</p>
+
+<p><strong>Type-Cポートは入出力が同じポートからできるので優秀ですね。</strong></p>
+
+<p><a class="swipebox" href="https://farm6.staticflickr.com/5753/25343530869_f884533b95_h.jpg" title="充電">
+  <img class="center image-effect" src="https://farm6.staticflickr.com/5753/25343530869_5d8f1c81d9_b.jpg">
+</a></p>
+
+<p>充電中の度合いもLEDで確認できます。</p>
+
+<p><a class="swipebox" href="https://farm6.staticflickr.com/5633/30862604882_58249511a6_h.jpg" title="充電中の表示">
+  <img class="center image-effect" src="https://farm6.staticflickr.com/5633/30862604882_00b854188c_b.jpg">
+</a></p>
+
+<h2>出力チェック</h2>
+
+<p>今までレビューしたモバイルバッテリーは小型のものが多かったですが、
+今回は大型ということでiPadを充電してみました。</p>
+
+<p><a class="swipebox" href="https://farm6.staticflickr.com/5442/30862609162_4bb0dfcf97_h.jpg" title="iPadを充電してみる">
+  <img class="center image-effect" src="https://farm6.staticflickr.com/5442/30862609162_daca21bc1b_b.jpg">
+</a></p>
+
+<p>全く問題なし！！</p>
+
+<div class="container">
+  <div class="col span_6">
+    <a class="swipebox img-two-col-left" href="https://farm6.staticflickr.com/5580/30862618072_a1af83d748_h.jpg" title="電圧">
+      <img class="image-effect" src="https://farm6.staticflickr.com/5580/30862618072_a5df3fef99_b.jpg">
+    </a>
+  </div>
+  <div class="col span_6">
+    <a class="swipebox img-two-col-right" href="https://farm6.staticflickr.com/5712/30943832356_64e483f6c0_h.jpg" title="電流">
+      <img class="image-effect" src="https://farm6.staticflickr.com/5712/30943832356_6857d24c21_b.jpg">
+    </a>
+  </div>
+</div>
+
+
+<p>複数デバイスの充電ももちろん可能です。</p>
+
+<p><a class="swipebox" href="https://farm6.staticflickr.com/5810/25343529289_927ea48873_h.jpg" title="複数充電してみる">
+  <img class="center image-effect" src="https://farm6.staticflickr.com/5810/25343529289_0440eb07ef_b.jpg">
+</a></p>
+
+<h2>実際に持ってポケモンGOをしてみた結果</h2>
+
+<p>ポケモンGOに使うといいのでは？と思いましたが、
+私はポケモンGOをしていません。<br/>
+なので研究室のとなりの人にバッテリーを貸して、
+検証してもらいました。
+<strong>下の文章が使ってみた正直な感想とのことです。</strong></p>
+
+<p><blockquote><p>本商品の手触りはなかなかのものである。<br/><br/>実際に本製品を携帯しポケモンGOをした結果を以下に示す。<br/><br/>まず携帯方法として、①ポケットに入れると②バッグに入れるが考えられる。<br/><br/>ポケットに本製品を入れた結果、そこそこのサイズ感と重量感から、入れたほうが垂れてしまいだらしなくなる。<br/><br/>したがってバッグの中に入れることを推奨する。<br/><br/>筆者のおすすめはウエストポーチの中に入れて、そこそこ長めのケーブルで充電し続けることだ。<br/><br/>こうすることで、快適にポケモンGOをプレイしつつ充電できる。<br/><br/>本製品の特筆すべき点として、<br/>容量は12000[mAh]もあるので、一日中ポケモンGOをしても大丈夫である。<br/><br/>また、ポケモンGOに限らずバッグの中に入れておけば充電し忘れた日でも安心である。</p></blockquote></p>
+
+<h2>まとめ</h2>
+
+<p>今までのモバイルバッテリーではなかなか見られなかったType-Cポートが搭載されているので、
+非常に興味深いモバイルバッテリーでした。<br/>
+Type-Cに対応した端末、
+PCをお持ちの方にはよい選択肢なのではないでしょうか。
+USB Type-CはAppleのLightingコネクタと同じように裏表関係なく接続できる形状をしているので，もっと普及してほしいと思います。</p>
+
+<p>ポケモンGOのヘビーユーザーにも納得のバッテリー容量なので、
+とにかくスマホのバッテリーが減って減って仕方ないという方にもおすすめです。</p>
+
+<p>ブログの更新が最近本当に減ってしまったので、
+徐々に戻していきたいと思います。
+ネタはちょっとずつあるんですけどね&hellip;やる気が&hellip;がんばります！！！</p>
+
+<p><blockquote><p></p></p><p><div class="cstmreba"><div class="kaerebalink-box"><div class="kaerebalink-image"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B01LX03I0U/ry00c-22/ref=nosim/" target="_blank" ><img src="http://ecx.images-amazon.com/images/I/31uTVVEX%2BXL._SL160_.jpg" style="border: none;" /></a></div><div class="kaerebalink-info"><div class="kaerebalink-name"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B01LX03I0U/ry00c-22/ref=nosim/" target="_blank" >EC Technology 12000ｍAｈ モバイルバッテリー ３ポート Type-C / USB-C 入力と出力ポート搭載 大容量モバイルバッテリー スマホ充電器 急速充電可能 AUTO ICを搭載　新しいMacBook / iPhone / iPad / Xperia / Android各種対応</a><div class="kaerebalink-powered-date">posted with <a href="http://kaereba.com" rel="nofollow" target="_blank">カエレバ</a></div></div><div class="kaerebalink-detail"> EC Technology     </div><div class="kaerebalink-link1"><div class="shoplinkamazon"><a href="http://www.amazon.co.jp/gp/search?keywords=EC%20Technology%2012000%EF%BD%8DA%EF%BD%88%20%E3%83%A2%E3%83%90%E3%82%A4%E3%83%AB%E3%83%90%E3%83%83%E3%83%86%E3%83%AA%E3%83%BC%20%EF%BC%93%E3%83%9D%E3%83%BC%E3%83%88&__mk_ja_JP=%E3%82%AB%E3%82%BF%E3%82%AB%E3%83%8A&tag=ry00c-22" target="_blank" >Amazon</a></div><div class="shoplinkrakuten"><a href="http://hb.afl.rakuten.co.jp/hgc/0e7c6e55.9d33cc01.0e7c6e56.d2bcd23e  Jump   Mark as read (esc)Mark as read/?pc=http%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FEC%2520Technology%252012000%25EF%25BD%258DA%25EF%25BD%2588%2520%25E3%2583%25A2%25E3%2583%2590%25E3%2582%25A4%25E3%2583%25AB%25E3%2583%2590%25E3%2583%2583%25E3%2583%2586%25E3%2583%25AA%25E3%2583%25BC%2520%25EF%25BC%2593%25E3%2583%259D%25E3%2583%25BC%25E3%2583%2588%2F-%2Ff.1-p.1-s.1-sf.0-st.A-v.2%3Fx%3D0%26scid%3Daf_ich_link_urltxt%26m%3Dhttp%3A%2F%2Fm.rakuten.co.jp%2F" target="_blank" >楽天市場</a></div></div></div><div class="booklink-footer"></div></div></div></p><p><br/><p></p></blockquote></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[EC Technology Bluetooth4.0スピーカー ポータブルミニ 5W EC01のレビュー]]></title>
+    <link href="http://ry0.github.io/blog/2016/01/10/ec-technology-bluetooth4-0-speaker-portable-mini-5w/"/>
+    <updated>2016-01-10T01:45:16+09:00</updated>
+    <id>http://ry0.github.io/blog/2016/01/10/ec-technology-bluetooth4-0-speaker-portable-mini-5w</id>
+    <content type="html"><![CDATA[<h2>コンパクトなワイヤレススピーカーです</h2>
+
+<p>2016年1本目の記事は、EC Technology様よりBluetoothスピーカーを提供していただいたので使ってみた感想を書きたいと思います。<br/>
+本ブログ初のレビューの依頼を頂いたので気合入れていきます！</p>
+
+<!-- more -->
+
+
+<h2>まずはパッケージ</h2>
+
+<p>箱はスマートフォン、PCの周辺機器のパッケージでよく見られるシンプルなデザインです。</p>
+
+<p><a class="swipebox" href="https://farm2.staticflickr.com/1653/24271398555_a5f52b021c_h.jpg" title="箱">
+  <img class="center image-effect" src="https://farm2.staticflickr.com/1653/24271398555_fcc454568a_b.jpg">
+</a></p>
+
+<p>本体以外に付属品として<strong>本体充電用のUSBケーブルと有線接続用ステレオミニプラグケーブル、説明書が入ってました。</strong></p>
+
+<h2>本体</h2>
+
+<p>本体の外観です。スピーカー上部には電源オンオフなどを行う「ファンクションキー」があります。</p>
+
+<p><a class="swipebox" href="https://farm2.staticflickr.com/1716/24163265982_68a371e269_h.jpg" title="フロントビュー">
+  <img class="center image-effect" src="https://farm2.staticflickr.com/1716/24163265982_e3298e8a21_b.jpg">
+</a></p>
+
+<p>スピーカー背部には充電用のmicro USB端子、ステレオミニプラグ、曲送りやボリュームを調節するためのボタンがあります。</p>
+
+<p><a class="swipebox" href="https://farm2.staticflickr.com/1568/24245287076_a91b30bcb6_h.jpg" title="裏面">
+  <img class="center image-effect" src="https://farm2.staticflickr.com/1568/24245287076_a44fb9f7b0_b.jpg">
+</a></p>
+
+<p>本体の表面はツヤありの加工です。真正面から見ると真っ黒ですが、見る角度よっては茶色っぽく見えます。
+<strong>このツヤ感も決して安っぽさはなく、上品な感じで好きです。また真ん中に通る青色の線がアクセントになってデザインもかっこいいと思います。</strong></p>
+
+<p><a class="swipebox" href="https://farm2.staticflickr.com/1583/23644605863_716b9a5b72_h.jpg" title="つやつやな表面"></p>
+
+<p>  <img class="center image-effect" src="https://farm2.staticflickr.com/1583/23644605863_c50607bfba_b.jpg">
+</a></p>
+
+<p>底はゴム素材で覆われていて、かつスピーカーもちょうどいい重さなので机にしっかりと置くことができます。</p>
+
+<p><a class="swipebox" href="https://farm2.staticflickr.com/1571/24188875781_9d19e2e716_h.jpg" title="机にしっかり置ける">
+  <img class="center image-effect" src="https://farm2.staticflickr.com/1571/24188875781_cc922946b4_b.jpg">
+</a></p>
+
+<h2>スマートフォン、PCと接続</h2>
+
+<p>各端末のBluetooth設定画面にて、ペアリングを行います。iOS、Android、Mac、Windows様々な環境で接続できるのがいいですね。
+また<strong>マルチペアリング対応なので、複数のデバイスとの接続情報を保持できるので、一度ペアリング作業をしておけば、設定画面からワンタッチで接続できます。</strong></p>
+
+<p>iOSは画面上部にBluetoothで接続したデバイスのバッテリー表示もできるんですね。端末側でバッテリー残量を確認できるので便利です。
+iOS以外のデバイスで接続した場合も、スピーカー本体の音量＋キーを2回押して、スピーカー上部のインジケーターの赤LEDの点滅回数によって残量を確認できます。</p>
+
+<p><a class="swipebox" href="https://farm2.staticflickr.com/1647/24189600761_3199b2b0ae_b.jpg" title="スマホペアリング画面">
+  <img class="center image-effect" src="https://farm2.staticflickr.com/1647/24189600761_3199b2b0ae_b.jpg">
+</a></p>
+
+<p>Bluetoothが搭載されているPCであればスマホと同様に接続できます。</p>
+
+<p><a class="swipebox" href="https://farm2.staticflickr.com/1574/24164106982_5b252efd5c_b.jpg" title="Macのペアリング画面">
+  <img class="center image-effect" src="https://farm2.staticflickr.com/1574/24164106982_5b252efd5c_b.jpg">
+</a></p>
+
+<p>接続もスムーズで音楽再生中に音が途切れたりすることはありませんでした。
+また音量も小型ながら十分大きい音を出せてます。音量の調整も0から最大まで細かく調整できるので、周辺環境にあった音量で音を聞くことができますね。</p>
+
+<p>ひとつ残念だった点は、スピーカー自体の電源をオンオフした際のビープ音の大きさです。
+<strong>大きな音で「ピー」っと鳴るのでもう少し小さな音でもよかったかなと思いました。</strong></p>
+
+<p><a class="swipebox" href="https://farm2.staticflickr.com/1695/23903591569_b40c7e9586_h.jpg" title="スマホで動画を再生した感じ">
+  <img class="center image-effect" src="https://farm2.staticflickr.com/1695/23903591569_bbe3ce97c3_b.jpg">
+</a></p>
+
+<p>動画を視聴する際にも動画と音声のズレはほとんど感じなかったので遅延に関する問題も、神経質にこだわらなければ大丈夫です。
+というのもapt-xやLDACなどの高音質向けのBluetoothコーデックには対応していないので、過度な期待は禁物です。</p>
+
+<h2>おわりに</h2>
+
+<p>Blutoothスピーカーは今まで購入したことがなかったので、新鮮な気持ちでレビューできました。</p>
+
+<p>普段はイヤホン、ヘッドホンにて音を出力していますが、<strong>複数の人たちと動画を見たり、音楽を共有する際にはやはりスピーカーがあると便利ですね。</strong>
+また有用そうなシチュエーションとして、ある程度の大きさの部屋で発表プレゼンをするときです。
+<strong>動画音声の再生をPCから出力しただけでは心もとないなってときに使えたらいいなと思いました。</strong></p>
+
+<p>値段も3,000円以下と安価ですので、気軽に音楽をスマホ内蔵のスピーカーじゃなくてちゃんとしたスピーカーで視聴したいなという人におすすめです。</p>
+
+<p>EC Technology様、この度はお声を掛けていただきありがとうございました。</p>
+
+<p><blockquote><p></p></p><p><div class="kaerebalink-box"><div class="kaerebalink-image"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00L3ZQ0KA/ry00c-22/ref=nosim/" target="_blank" ><img src="http://ecx.images-amazon.com/images/I/41HuiCJ8JaL._SL160_.jpg" style="border: none;" /></a></div><div class="kaerebalink-info"><div class="kaerebalink-name"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00L3ZQ0KA/ry00c-22/ref=nosim/" target="_blank" >EC Technology Bluetooth4.0スピーカー ポータブルミニ 5W 省電力設計 ブラック</a><div class="kaerebalink-powered-date">posted with <a href="http://kaereba.com" rel="nofollow" target="_blank">カエレバ</a></div></div><div class="kaerebalink-detail"> EC Technology     </div><div class="kaerebalink-link1"><div class="shoplinkamazon"><a href="http://www.amazon.co.jp/gp/search?keywords=Bluetooth%20%83X%83s%81%5B%83J%81%5B&__mk_ja_JP=%83J%83%5E%83J%83i&tag=ry00c-22" target="_blank" >Amazonで探す</a></div><div class="shoplinkrakuten"><a href="http://hb.afl.rakuten.co.jp/hgc/0e7c6e55.9d33cc01.0e7c6e56.d2bcd23e/?pc=http%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FBluetooth%2520%25E3%2582%25B9%25E3%2583%2594%25E3%2583%25BC%25E3%2582%25AB%25E3%2583%25BC%2F-%2Ff.1-p.1-s.1-sf.0-st.A-v.2%3Fx%3D0%26scid%3Daf_ich_link_urltxt%26m%3Dhttp%3A%2F%2Fm.rakuten.co.jp%2F" target="_blank" >楽天市場で探す</a></div></div></div><div class="booklink-footer" style="clear: left"></div></div></p><p><br/><p></p></blockquote></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Macでターミナルを開くショートカットを作成する]]></title>
+    <link href="http://ry0.github.io/blog/2015/10/21/open-terminal-shortcut/"/>
+    <updated>2015-10-21T11:28:47+09:00</updated>
+    <id>http://ry0.github.io/blog/2015/10/21/open-terminal-shortcut</id>
+    <content type="html"><![CDATA[<h2>Automatorを使ってターミナルをショートカットで立ち上げる</h2>
+
+<p>こんにちは。Macでターミナルを開くことがありますか？<br/>
+たまに使いたいとき、Ubuntuのように<code>Ctrl + Alt + T</code>で開きたいときがあります。
+残念ながら標準ではターミナルのショートカットは存在しないので、Automatorを使ってショートカットを作成してみます。<br/>
+最近環境をリセットしたせいで、どうやったか忘れてしまったのでメモを残しておきます。</p>
+
+<!-- more -->
+
+
+<h2>Automatorを立ち上げる</h2>
+
+<p><code>cmd + space</code>でSpotlightでAutomatorを立ち上げます。
+普段使わないアプリケーションなので、この方法が一番簡単に探せると思います。</p>
+
+<p><a class="swipebox" href="https://farm1.staticflickr.com/760/22348309145_857b3435ea_b.jpg" title="Automatorの立ち上げ">
+  <img class="center image-effect" src="https://farm1.staticflickr.com/760/22348309145_857b3435ea_b.jpg">
+</a></p>
+
+<p>立ち上げたら、「新規書類」を選択します。</p>
+
+<p><a class="swipebox" href="https://farm6.staticflickr.com/5825/21725533704_35ac62b38a_b.jpg" title="新規書類">
+  <img class="center image-effect" src="https://farm6.staticflickr.com/5825/21725533704_35ac62b38a_b.jpg">
+</a></p>
+
+<h2>スクリプトの作成</h2>
+
+<p>「新規書類」を選択したら「サービス」を選択します。</p>
+
+<p><a class="swipebox" href="https://farm6.staticflickr.com/5794/22348308965_ab2fa9c23f_b.jpg" title="サービス">
+  <img class="center image-effect" src="https://farm6.staticflickr.com/5794/22348308965_ab2fa9c23f_b.jpg">
+</a></p>
+
+<p>アクションの中から「アプリケーションを起動」を選択。アクション名を打ち込んで検索するのが手っ取り早いと思います。</p>
+
+<p><a class="swipebox" href="https://farm1.staticflickr.com/757/21727221833_15cb3ed4fb_b.jpg" title="アプリケーションを起動">
+  <img class="center image-effect" src="https://farm1.staticflickr.com/757/21727221833_15cb3ed4fb_b.jpg">
+</a></p>
+
+<p>起動させるアプリケーションを選びます。ターミナルならばユーティリティの場所にあります。</p>
+
+<p><a class="swipebox" href="https://farm1.staticflickr.com/618/22160997418_d0627aa610_b.jpg" title="ターミナルの場所">
+  <img class="center image-effect" src="https://farm1.staticflickr.com/618/22160997418_d0627aa610_b.jpg">
+</a></p>
+
+<p><strong>ここで注意で、スクリーンショットのように「入力なし」にするのを忘れないでください。</strong>
+これをすっかり忘れていて、少々悩みました。</p>
+
+<p><a class="swipebox" href="https://farm1.staticflickr.com/767/22348514395_52d45666d8_b.jpg" title="入力なし">
+  <img class="center image-effect" src="https://farm1.staticflickr.com/767/22348514395_52d45666d8_b.jpg">
+</a></p>
+
+<p>ここまでできたら保存してください。名前は自由ですが、わかりやすい名前にしておいたほうがあとからショートカット一覧から探しやすいと思います。</p>
+
+<p><a class="swipebox" href="https://farm1.staticflickr.com/717/21727222573_f0afd2d7a4_b.jpg" title="保存">
+  <img class="center image-effect" src="https://farm1.staticflickr.com/717/21727222573_f0afd2d7a4_b.jpg">
+</a></p>
+
+<h2>ショートカットの設定</h2>
+
+<p>環境設定の中の「キーボード」を選んで&hellip;</p>
+
+<p><a class="swipebox" href="https://farm1.staticflickr.com/673/21725532414_18e2c80c0a_b.jpg" title="">
+  <img class="center image-effect" src="https://farm1.staticflickr.com/673/21725532414_18e2c80c0a_b.jpg">
+</a></p>
+
+<p><strong>「ショートカット」の「サービス」の一番最後のあたりに先ほど作成したワークフローがあります。</strong>
+これのショートカットキーを設定します。これも好きなショートカットキーを設定してください。
+私は<code>Ctrl + Alt + T</code>に設定しました。</p>
+
+<p><a class="swipebox" href="https://farm6.staticflickr.com/5646/22358972151_ce7788a93a_b.jpg" title="">
+  <img class="center image-effect" src="https://farm6.staticflickr.com/5646/22358972151_ce7788a93a_b.jpg">
+</a></p>
+
+<p>この設定を終わらせても、うまくターミナルが立ち上がらない場合は、なんらかのアプリケーションのショートカットと今設定したショートカットが衝突している可能性があります。使ってなさそうなキーの組み合わせで試してください。</p>
+
+<h2>おわりに</h2>
+
+<p>最近ちょっとずつMacの環境を今まで使っていた環境に戻すようにいろいろやってたんですが、使いやすいように環境を整えるのは時間がかかりますね。<br/>
+今までの方法ではうまく行かなくなったことも多くあります。</p>
+
+<p>いつもの癖で<code>Ctrl + Alt + T</code>を押してもMacでは何も反応しないので困っていました。
+この方法であれば、ターミナルでなくてもどのアプリケーションでもショートカットを作成できるので、使用頻度の高いアプリケーションのショートカットを設定してみてはいかがでしょうか。</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Paralles Desktop 11をEl CapitanをクリーンインストールしていたMacBook Airに導入した]]></title>
+    <link href="http://ry0.github.io/blog/2015/10/19/paralles-desktop-11-elcapitan/"/>
+    <updated>2015-10-19T00:17:14+09:00</updated>
+    <id>http://ry0.github.io/blog/2015/10/19/paralles-desktop-11-elcapitan</id>
+    <content type="html"><![CDATA[<h2>MacでもどうしてもWindowsを使わないといけないときがある！</h2>
+
+<p>Macのアプリケーションだけでも十分充実していますが、MicrosoftのOfficeだけはWindowsで開きたいというときがあります。Office 2016でどれだけ改善したのかはまだ知らないのですが、少なくともMac版2011はUIがWindows版と全然違ったり、Windowsで作成されたファイルを開いた時の再現性がイマイチですよね。<br/>
+そして個人レベルで開発されているソフトウェアはやはりWindowsが充実しています。<br/>
+ということで私のMacBookにも保険としてParalles DesktopでWindowsをインストールしています。</p>
+
+<!-- more -->
+
+
+<h2>Appleストアで購入</h2>
+
+<p>今まで9を使っていたのでアップグレード版を購入しても良かったのですが、学生版だとそれほど値段も変わらないので学生・教職員向けストアで購入。大学生の場合、生協でも取り扱っている場合があるのでソフトウェアコーナーか取り寄せで、Appleストアとほぼ同じ値段で購入することができます。</p>
+
+<p>一応リンクを貼っておきます。
+<blockquote><p>Parallels Desktop 11 for Mac - Education Edition</p><footer><strong>Apple Store <a href="http://www.apple.com/jp_edu_1460/shop/product/HJ332PA/A/parallels-desktop-11-for-mac?fnode=f80e964b12bdf2dcb6f716406d724b9f58999150b666f4b150e8c35e6cb88699c9c48d7970f1b14c0405447daaaf3773e967c5a18d6ea65d2038fda2397e7bdb83e9ddc6e202639a42a36613409a837e386aed617ecbfcfb3abfcbcf17fe72ccd28d404b7987649f58c517433d4f339d">http://www.apple.com/jp_edu_1460/shop/product/HJ332PA/A/parallels-desktop-11-for-mac?fnode=f80e964b12bdf2dcb6f716406d724b9f58999150b666f4b150e8c35e6cb88699c9c48d7970f1b14c0405447daaaf3773e967c5a18d6ea65d2038fda2397e7bdb83e9ddc6e202639a42a36613409a837e386aed617ecbfcfb3abfcbcf17fe72ccd28d404b7987649f58c517433d4f339d</a></strong></footer></blockquote></p>
+
+<p><blockquote><p>Parallels Desktop 11 for Mac 大学生協版</p><footer><strong>大学生協ソフトウェアインフォメーション <a href="https://software.univcoop.or.jp/item/2865?unit_subcategory_id=5">https://software.univcoop.or.jp/item/2865?unit_subcategory_id=5</a></strong></footer></blockquote></p>
+
+<h2>Appleストアで購入した場合</h2>
+
+<p>こんな感じで小さい箱が届きます。</p>
+
+<p><a class="swipebox" href="https://farm1.staticflickr.com/690/21652856434_0406364db4_h.jpg" title="パッケージ">
+  <img class="center image-effect" src="https://farm1.staticflickr.com/690/21652856434_22c7396fb8_b.jpg">
+</a></p>
+
+<p>中身はこんな感じ。
+シリアルコードが書かれた紙とMacBookを自分色に変えようぜシール。
+<strong>USBメモリやDVDメディアは入っておらず、サイトからインストーラーを落としてくる感じです。</strong></p>
+
+<p><a class="swipebox" href="https://farm6.staticflickr.com/5625/22087848288_d9d18f3243_h.jpg" title="内容物">
+  <img class="center image-effect" src="https://farm6.staticflickr.com/5625/22087848288_6dffbc3675_b.jpg">
+</a></p>
+
+<h2>クリーンインストールする前の環境から引っ越し</h2>
+
+<p>私の場合、El Capitanにアップグレードする際にクリーンインストールを行ったので、昔の環境で作成していた仮想環境を持ってくる必要がありました。<br/>
+これも特に難しいわけではなく、<code>Users/&lt;ユーザー名&gt;/Documents/Parallels</code>にある<code>.pvm</code>ファイルを持ってくるだけです。
+これをしっかりバックアップをとってもってくるだけで、<strong>バージョンの違いにかかわらず問題なく引き継ぎができました。</strong>
+<strong>すばらしい。</strong></p>
+
+<p><a class="swipebox" href="https://farm6.staticflickr.com/5831/22088306768_f2f4d64d4d_b.jpg" title="仮想環境のファイル">
+  <img class="center image-effect" src="https://farm6.staticflickr.com/5831/22088306768_f2f4d64d4d_b.jpg">
+</a></p>
+
+<h2>使った感想</h2>
+
+<p>今まで2世代前のものを使っていて、「このバージョンは古いからお使いのOSのバージョンはサポートしてないよ」と煽られ続けて、やっと最新版にすることができました。
+そもそも1年毎にバージョンアップがあってその都度お金を払わないとアップグレードできないのが結構辛い(;_;)</p>
+
+<p>11は以前のバージョンより起動と終了を最大50％高速化、バッテリーがより持つようになったとかいろいろ謳っていますが、そんなに体感でわかるような変化はありませんでした。
+元のハードウェアの構成が変わっていないのでそりゃそうですよね。</p>
+
+<p>しかし、<strong>VirtualBoxのような無料の仮想マシンソフトウェアに比べてバージョンにかかわらず明らかに動作が軽快なので、その点は安心のParalles Desktopだと思います。</strong></p>
+
+<h2>おわりに</h2>
+
+<p>9で構成していた環境もすんなり移行することができ、これといったトラブルもなかったので内容の薄いブログ記事になりました。←いいことですよ！<br/>
+定期的にParallesからメールが来るのですが、その際にはアップグレードしてくれたらいろいろソフトウェア（いいときは1Passwordがバンドルされてたときもあった気が&hellip;）が付いてきてお値段がそのままだったりするので、人によっては買い時を考えるべきだと思います。<br/>
+新たにライセンスを購入する場合、そしてかつ学生の場合、Appleの学生・教職員向けストアで購入するのが一番お買い得だと思います。<br/>
+そして大学によりますがWindowsのOSやOfficeを無料で配布してくれるので、そういった仕組みも上手に使えるととても安くMac上にWindows環境を整えられるのではないかと思います。</p>
+
+<p><blockquote><p></p></p><p><div class="kaerebalink-box"><div class="kaerebalink-image"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B013FNGA70/ry00c-22/ref=nosim/" target="_blank" ><img src="http://ecx.images-amazon.com/images/I/51f1nuwo4xL._SL160_.jpg" style="border: none;" /></a></div><div class="kaerebalink-info"><div class="kaerebalink-name"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B013FNGA70/ry00c-22/ref=nosim/" target="_blank" >Parallels Desktop 11 for Mac Retail Box JP</a><div class="kaerebalink-powered-date">posted with <a href="http://kaereba.com" rel="nofollow" target="_blank">カエレバ</a></div></div><div class="kaerebalink-detail"> パラレルス 2015-08-26    </div><div class="kaerebalink-link1"><div class="shoplinkamazon"><a href="http://www.amazon.co.jp/gp/search?keywords=Parallels%20Desktop&__mk_ja_JP=%83J%83%5E%83J%83i&tag=ry00c-22" target="_blank" >Amazonで探す</a></div><div class="shoplinkrakuten"><a href="http://hb.afl.rakuten.co.jp/hgc/0e7c6e55.9d33cc01.0e7c6e56.d2bcd23e/?pc=http%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FParallels%2520Desktop%2F-%2Ff.1-p.1-s.1-sf.0-st.A-v.2%3Fx%3D0%26scid%3Daf_ich_link_urltxt%26m%3Dhttp%3A%2F%2Fm.rakuten.co.jp%2F" target="_blank" >楽天市場で探す</a></div></div></div><div class="booklink-footer" style="clear: left"></div></div></p><p><br/><p></p></blockquote></p>
+
+<p><blockquote><p></p></p><p><div class="kaerebalink-box"><div class="kaerebalink-image"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B013HGWA6U/ry00c-22/ref=nosim/" target="_blank" ><img src="http://ecx.images-amazon.com/images/I/416ON0oVO6L._SL160_.jpg" style="border: none;" /></a></div><div class="kaerebalink-info"><div class="kaerebalink-name"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B013HGWA6U/ry00c-22/ref=nosim/" target="_blank" >Microsoft Windows 10 Home （32bit/64bit 日本語版 USBフラッシュドライブ）</a><div class="kaerebalink-powered-date">posted with <a href="http://kaereba.com" rel="nofollow" target="_blank">カエレバ</a></div></div><div class="kaerebalink-detail"> マイクロソフト 2015-09-04    </div><div class="kaerebalink-link1"><div class="shoplinkamazon"><a href="http://www.amazon.co.jp/gp/search?keywords=Windows%2010&__mk_ja_JP=%83J%83%5E%83J%83i&tag=ry00c-22" target="_blank" >Amazonで探す</a></div><div class="shoplinkrakuten"><a href="http://hb.afl.rakuten.co.jp/hgc/0e7c6e55.9d33cc01.0e7c6e56.d2bcd23e/?pc=http%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FWindows%252010%2F-%2Ff.1-p.1-s.1-sf.0-st.A-v.2%3Fx%3D0%26scid%3Daf_ich_link_urltxt%26m%3Dhttp%3A%2F%2Fm.rakuten.co.jp%2F" target="_blank" >楽天市場で探す</a></div></div></div><div class="booklink-footer" style="clear: left"></div></div></p><p><br/><p></p></blockquote></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[バックアップ用途にも最適、TOSHIBA 4TB 3.5インチ内蔵HDD (MD04ACA400)]]></title>
+    <link href="http://ry0.github.io/blog/2015/10/08/toshiba-4tb-3-5inch-md04aca400/"/>
+    <updated>2015-10-08T01:25:02+09:00</updated>
+    <id>http://ry0.github.io/blog/2015/10/08/toshiba-4tb-3-5inch-md04aca400</id>
+    <content type="html"><![CDATA[<h2>そろそろ大容量のHDDが欲しかった</h2>
+
+<p>最近、MacBook AirをEl Capitanにクリーンインストールしました。
+今まで当たり前に使っていた環境と同じ使い心地に戻すまで結構大変でした&hellip;
+でもEl Capitan、はやくていいね(Yosemiteが遅すぎた)。</p>
+
+<p>アップグレードをする前にTime Machineを使ってアップグレードする前の環境をバックアップしておきたかったのですが、適当なHDDがありませんでした。
+そこで普段使っているデスクトップPCに搭載していた2TBをTime Machine用にまわして4TBにアップグレードしたという話です。</p>
+
+<!-- more -->
+
+
+<h2>今回購入したハードディスクは</h2>
+
+<p>東芝製のHDDです。本当はHGST製が良かったのですが、思ったより高かったので興味本位であんまり買ったことがない東芝製にしました。
+私のHDDの個人的な印象では<strong>HGST ≫ WD ≧ 東芝 ≧ Seagate > その他メーカー</strong>といった印象です。
+Western Digitalでもよかったのですが、今回はあえて東芝製に。</p>
+
+<p>バルク品でしたので、しっかりとしたパッケージは無く無地のダンボールで写真のような静電気防止袋に梱包された状態で届きました。
+SATAケーブル等はついてません。</p>
+
+<p>冒頭にも書きましたが4TBモデルで<strong>一応7200RPMでキャッシュは多めの128MB</strong>です。最近は64MBじゃなくて128MBがスタンダードなんですね。
+Made in Philippinesでした。</p>
+
+<p><a class="swipebox" href="https://farm6.staticflickr.com/5689/21399603033_c2c58a486a_h.jpg" title="開封前">
+  <img class="center image-effect" src="https://farm6.staticflickr.com/5689/21399603033_6b427b989d_b.jpg">
+</a></p>
+
+<p>特にHDDのデザインがかっこいいってわけでもないので写真はこれぐらいにしておきます。</p>
+
+<p><a class="swipebox" href="https://farm1.staticflickr.com/766/21832802190_6e63db3b4d_h.jpg" title="開封後">
+  <img class="center image-effect" src="https://farm1.staticflickr.com/766/21832802190_9f25809f69_b.jpg">
+</a></p>
+
+<h2>CrystalDiskMarkによる速度測定</h2>
+
+<p>CrystalDiskMarkで一応速度測定を行いました。
+比較対象は<a href="http://www.amazon.co.jp/exec/obidos/ASIN/B004QMJ144/ry00c-22/ref=nosim/">HGSTの2TBの5年前くらいのモデル</a>と参考程度に<a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00DTPYT78/ry00c-22/ref=nosim/">Intel SSD 530</a>です。</p>
+
+<h3>MD04ACA400 [4TB SATA600 7200]</h3>
+
+<p><a class="swipebox" href="https://farm6.staticflickr.com/5675/21832600380_aa1575f3bf.jpg" title="MD04ACA400">
+  <img class="center image-effect" src="https://farm6.staticflickr.com/5675/21832600380_aa1575f3bf.jpg">
+</a></p>
+
+<h3>HDS723020BLA642 [2TB SATA600 7200]</h3>
+
+<p><a class="swipebox" href="https://farm1.staticflickr.com/754/22020770185_b5fa2acd18.jpg" title="HDS723020BLA642">
+  <img class="center image-effect" src="https://farm1.staticflickr.com/754/22020770185_b5fa2acd18.jpg">
+</a></p>
+
+<h3>Intel SSD 530 Series SSDSC2BW240A4K5</h3>
+
+<p><a class="swipebox" href="https://farm6.staticflickr.com/5700/21833849399_088dc68353.jpg" title="SSDSC2BW240A4K5">
+  <img class="center image-effect" src="https://farm6.staticflickr.com/5700/21833849399_088dc68353.jpg">
+</a></p>
+
+<p>SSDに関しての速度比較は以下の記事で書いています。</p>
+
+<p><blockquote><p>Samsung SSD 850 EVOが安くて結構速かった</p><footer><strong>Ry0 Note <a href="http://ry0.github.io/blog/2015/06/28/samsung-ssd-850-evo/">http://ry0.github.io/blog/2015/06/28/samsung-ssd-850-evo/</a> <a href="http://ry0.github.io/blog/2015/06/28/samsung-ssd-850-evo/">http://ry0.github.io/blog/2015/06/28/samsung-ssd-850-evo/</a></strong></footer></blockquote></p>
+
+<p>総合するとHGSTの2TBの5年前くらいのモデルよりは<strong>概ね今回購入したHDDのほうが速い</strong>ようです。
+そもそもHDDに速度はあまり求めていないので、まったく問題ありません。</p>
+
+<h2>搭載した感じ</h2>
+
+<p>とくにトラブルなく使用できています。
+ディスクの管理で見たところ約3.7TBで認識されているのでちゃんと機能しています。</p>
+
+<p><a class="swipebox" href="https://farm1.staticflickr.com/607/21833562488_b03ae6417b_b.jpg" title="ディスクの管理">
+  <img class="center image-effect" src="https://farm1.staticflickr.com/607/21833562488_b03ae6417b_b.jpg">
+</a></p>
+
+<p>ただこのHDD、<strong>容量の大きいファイルにアクセスしたりするときに「カコカコ」と音がなる</strong>のであまり好きではありません。
+音に関することは他のレビューでも見かけたので仕様だと思いますが、あまりいい音じゃないので精神衛生上よくないです。
+そこらへんを気にする方は少し多くお金を払ってよいHDDを買うことをおすすめします。</p>
+
+<h2>おわりに</h2>
+
+<p>前から2TBじゃ音楽データやテレビの録画データなどでいっぱいになっていたので、4TBあると安心です。
+しかし故障した時のショックも2倍になるので、こまめにバックアップをとっておこうと思います。</p>
+
+<p><blockquote><p></p></p><p><div class="kaerebalink-box"><div class="kaerebalink-image"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00QIH31L4/ry00c-22/ref=nosim/" target="_blank" ><img src="http://ecx.images-amazon.com/images/I/51l8kmOsoHL._SL160_.jpg" style="border: none;" /></a></div><div class="kaerebalink-info"><div class="kaerebalink-name"><a href="http://www.amazon.co.jp/exec/obidos/ASIN/B00QIH31L4/ry00c-22/ref=nosim/" target="_blank" >【Amazon.co.jp限定】TOSHIBA 4TB 3.5インチ内蔵 SATAハードディスクドライブ MD04ACA400/N 【フラストレーションフリーパッケージ】</a><div class="kaerebalink-powered-date">posted with <a href="http://kaereba.com" rel="nofollow" target="_blank">カエレバ</a></div></div><div class="kaerebalink-detail"> 東芝 2015-01-17    </div><div class="kaerebalink-link1"><div class="shoplinkamazon"><a href="http://www.amazon.co.jp/gp/search?keywords=MD04ACA400&__mk_ja_JP=%83J%83%5E%83J%83i&tag=ry00c-22" target="_blank" >Amazonで探す</a></div><div class="shoplinkrakuten"><a href="http://hb.afl.rakuten.co.jp/hgc/0e7c6e55.9d33cc01.0e7c6e56.d2bcd23e/?pc=http%3A%2F%2Fsearch.rakuten.co.jp%2Fsearch%2Fmall%2FMD04ACA400%2F-%2Ff.1-p.1-s.1-sf.0-st.A-v.2%3Fx%3D0%26scid%3Daf_ich_link_urltxt%26m%3Dhttp%3A%2F%2Fm.rakuten.co.jp%2F" target="_blank" >楽天市場で探す</a></div></div></div><div class="booklink-footer" style="clear: left"></div></div></p><p><br/><p></p></blockquote></p>
+]]></content>
+  </entry>
+  
+</feed>
